@@ -166,4 +166,5 @@ posts/
 .clawdhub/
 .release-artifacts/
 .worktrees/
+.sisyphus/
 youtube-transcript/
