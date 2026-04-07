@@ -2,6 +2,10 @@
 
 Retro 8-bit pixel art aesthetic with nostalgic gaming visual style
 
+## Atmosphere
+
+The nostalgic glow of a CRT monitor in a late-night arcade, where every blocky sprite tells a story of 8-bit heroism. It feels like stepping into a vibrant, low-resolution dreamscape where limited colors spark unlimited imagination and every movement is quantized to a perfect grid.
+
 ## Design Aesthetic
 
 Pixelated retro aesthetic reminiscent of classic 8-bit and 16-bit era games. Chunky pixels, limited color palettes, and nostalgic gaming references. Simple geometric shapes rendered in blocky pixel form. Fun, playful, and immediately recognizable retro tech aesthetic.
@@ -54,13 +58,16 @@ Smaller pixel font with consistent 8x8 or 16x16 character grid. High contrast ag
 - Add nostalgic gaming references where appropriate
 - Use dithering for color transitions
 
-### Don't
+### Avoid
 
-- Use smooth gradients or anti-aliasing
-- Create photorealistic elements
-- Use thin lines or fine details
-- Add modern glossy effects
-- Add slide numbers, footers, or logos
+- Smooth gradients or anti-aliasing — every color transition must be stepped or dithered
+- High-resolution textures or photorealistic elements that break the blocky aesthetic
+- Thin, single-pixel lines that lack the 'chunky' feel of classic sprite art
+- Modern glossy effects, drop shadows, or realistic lighting that contradicts the flat 2D retro feel
+
+## Example Prompt
+
+A 16:9 presentation slide in vibrant 8-bit pixel art style. The background is a soft Light Blue (#87CEEB) with a subtle CRT scanline effect. A central character sprite, a blocky rocket, is rendered in Pixel Green (#00FF00) and Pixel Yellow (#FFFF00) with visible chunky pixels. Headlines in blocky bitmap font, body text in a clean 8x8 pixel grid. Decorative Pixel Magenta (#FF00FF) stars float in the corners. Palette limited to 16 nostalgic gaming colors. No smooth gradients, no anti-aliasing, no modern glossy effects.
 
 ## Best For
 

@@ -7,6 +7,10 @@ category: impact
 
 High impact, attention-grabbing aesthetic.
 
+## Atmosphere
+
+This style feels urgent and commanding, like a neon sign cutting through a dark city street. The high contrast and saturated colors create visual tension that demands attention, while the bold geometric forms and dramatic compositions give it a sense of confidence and authority.
+
 ## Element Combination
 
 ```yaml
@@ -62,6 +66,10 @@ decorations:
 | list | ✓✓ | Must-know lists, rankings |
 | comparison | ✓✓ | Dramatic contrasts |
 | flow | ✓ | Critical process steps |
+
+## Example Prompt
+
+A bold, attention-grabbing Xiaohongshu infographic with vibrant red and orange colors on a deep black background, featuring large 3D text with shadows, exclamation marks, star bursts, and red arrows, high saturation filter, single portrait 3:4 layout, dramatic composition, high contrast elements.
 
 ## Best For
 

@@ -2,6 +2,10 @@
 
 Minimalist hand-drawn line art style for knowledge content (Default)
 
+## Atmosphere
+
+The quiet focus of a clean workspace settles in. Soft pencil or marker glides across smooth paper, leaving intentional, slightly imperfect lines. Gentle pastel accents peek through generous whitespace, creating a calm, organized atmosphere that feels thoughtful and unhurried.
+
 ## Design Aesthetic
 
 Clean, minimalist hand-drawn line art with intellectual feel. Simple doodle-style illustrations with intentional wobble. Maximum whitespace with single concept focus. Notion-like aesthetic that feels thoughtful and organized.
@@ -45,13 +49,19 @@ Clean, minimalist hand-drawn line art with intellectual feel. Simple doodle-styl
 - Focus on single concepts
 - Use pastel accents sparingly
 
-### Don't
+### Avoid
 
 - Create complex illustrations
 - Use many colors at once
 - Add detailed textures
 - Make precise geometric shapes
 - Overcrowd the composition
+- Use heavy shading or shadows
+- Create busy, distracting backgrounds
+
+## Example Prompt
+
+A minimalist hand-drawn line art illustration of a productivity workflow with simple stick figures, basic geometric shapes, and slight hand-drawn wobble, using black outlines, pastel blue (#A8D4F0) and pastel yellow (#F9E79F) accents on a pure white background.
 
 ## Best For
 

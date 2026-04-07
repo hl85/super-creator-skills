@@ -2,6 +2,10 @@
 
 80s/90s nostalgic aesthetic with vibrant colors and geometric patterns
 
+## Atmosphere
+
+Neon lights pulse with electric energy. Bold geometric shapes bounce across the visual field, while Memphis design patterns create a playful, maximalist rhythm. The air hums with 80s and 90s nostalgia—vibrant, unapologetic, and bursting with the creative confidence of a bygone era.
+
 ## Design Aesthetic
 
 Nostalgic retro aesthetic inspired by 80s and 90s design trends. Vibrant neon colors, geometric patterns, and Memphis design influence. Energetic, fun, and unapologetically bold. Perfect for content that embraces nostalgia or playful energy.
@@ -46,13 +50,19 @@ Nostalgic retro aesthetic inspired by 80s and 90s design trends. Vibrant neon co
 - Include Memphis-style shapes
 - Embrace maximalism
 
-### Don't
+### Avoid
 
 - Use muted or subtle colors
 - Create minimal compositions
 - Add modern flat design
 - Make it look contemporary
 - Use understated elements
+- Stick to monochromatic color schemes
+- Create sparse, minimalist layouts
+
+## Example Prompt
+
+A retro 80s/90s aesthetic illustration with vibrant neon colors, Memphis design geometric patterns, grid backgrounds, and neon glow effects, using hot pink (#FF1493), electric cyan (#00FFFF), neon yellow (#FFFF00), and lime green (#32CD32) on a deep purple (#2D1B4E) background.
 
 ## Best For
 

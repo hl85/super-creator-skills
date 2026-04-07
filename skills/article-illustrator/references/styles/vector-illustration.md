@@ -2,6 +2,10 @@
 
 Flat vector illustration style with clear black outlines and retro soft colors
 
+## Atmosphere
+
+Crisp, clean lines click into place like puzzle pieces, forming playful geometric shapes. The soft, retro color palette feels like a warm hug from a childhood coloring book, with sunbursts and pill-shaped clouds adding whimsical charm. Every object is neatly outlined, inviting you to color inside the lines.
+
 ## Design Aesthetic
 
 Flat vector illustration with no gradients or 3D effects. Clear, uniform-thickness black outlines on all elements. Geometric simplification reducing complex objects to basic shapes. Toy model aesthetic that's cute, playful, and approachable. Coloring book style with closed outlines.
@@ -64,13 +68,17 @@ Default palette includes Mint Green (#81B29A) and Rock Blue (#577590) for colorf
 - Create depth through layering
 - Add playful decorative elements
 
-### Don't
+### Avoid
 
 - Use gradients or realistic shading
 - Create photorealistic elements
 - Use thin or varying line weights
 - Include complex detailed illustrations
 - Add textures inside shapes
+
+## Example Prompt
+
+A flat vector illustration with clear black outlines, no gradients or 3D effects, featuring geometric simplification of trees to lollipop shapes, buildings as rectangular blocks with grid windows, people as simple geometric figures, and decorative elements like sunbursts and pill-shaped clouds, using cream off-white background, coral red, mint green, and mustard yellow colors, no photorealistic elements or thin/varying line weights.
 
 ## Best For
 

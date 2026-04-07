@@ -2,6 +2,10 @@
 
 Academic scientific illustration style for technical diagrams and processes
 
+## Atmosphere
+
+The focused hush of a laboratory settles in. Precise lines and carefully placed labels create a sense of order and clarity, while color-coded pathways guide the eye through complex processes. Subtle paper grain and clean typography evoke the trusted authority of a well-worn textbook, where every element serves a purpose in pursuit of knowledge.
+
 ## Design Aesthetic
 
 Academic scientific illustration aesthetic for biological, chemical, and technical diagrams. Clean, precise diagrams with proper labeling and clear visual flow. Educational clarity with professional polish. Textbook quality illustrations.
@@ -46,13 +50,19 @@ Academic scientific illustration aesthetic for biological, chemical, and technic
 - Include technical notation
 - Create clear numbered sequences
 
-### Don't
+### Avoid
 
 - Use decorative elements
 - Create imprecise diagrams
 - Omit important labels
 - Use inconsistent styling
 - Add artistic flourishes
+- Use overly saturated or neon colors
+- Create cluttered, hard-to-follow layouts
+
+## Example Prompt
+
+A precise scientific diagram illustration of a biological process with clear labeled components, directional flow arrows, and technical notation, using teal (#0D9488), blue (#3B82F6), purple (#8B5CF6), and amber (#F59E0B) on an off-white (#FAFAFA) background.
 
 ## Best For
 

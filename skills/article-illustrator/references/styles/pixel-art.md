@@ -2,6 +2,10 @@
 
 Retro 8-bit pixel art aesthetic with nostalgic gaming style
 
+## Atmosphere
+
+The satisfying click of classic game controllers echoes in your mind. Chunky pixels render with deliberate precision, each block carefully placed like building blocks. A subtle CRT scanline glow and pixel grid hum with nostalgic energy, transporting you to the golden age of 8-bit and 16-bit gaming.
+
 ## Design Aesthetic
 
 Pixelated retro aesthetic reminiscent of classic 8-bit and 16-bit era games. Chunky pixels, limited color palettes, and nostalgic gaming references. Simple geometric shapes rendered in blocky pixel form. Fun, playful, and immediately recognizable retro tech aesthetic.
@@ -44,13 +48,19 @@ Pixelated retro aesthetic reminiscent of classic 8-bit and 16-bit era games. Chu
 - Add nostalgic gaming references
 - Use dithering for color transitions
 
-### Don't
+### Avoid
 
 - Use smooth gradients or anti-aliasing
 - Create photorealistic elements
 - Use thin lines or fine details
 - Add modern glossy effects
 - Break the pixel grid alignment
+- Use vector-based smoothing effects
+- Add realistic textures or photographs
+
+## Example Prompt
+
+A retro 8-bit pixel art illustration of a tech workflow with chunky pixels, visible pixel grid, and CRT scanline effect, using pixel green (#00FF00), pixel red (#FF0000), pixel cyan (#00FFFF), and pixel yellow (#FFFF00) on a light blue (#87CEEB) background.
 
 ## Best For
 

@@ -2,6 +2,10 @@
 
 Lab manual precision meets pop art color impact—coordinate systems, technical diagrams, and fluorescent accents on blueprint grid.
 
+## Atmosphere
+
+The sharp scratch of technical pens on blueprint grid paper fills a laboratory workspace. Vibrant fluorescent pink pops against muted teal and lemon yellow highlights, while precise coordinate labels hum with scientific accuracy. The texture feels like a lab notebook page, marked with meticulous details and bold, high-contrast annotations.
+
 ## Color Palette
 
 - Background: Professional grayish-white with faint blueprint grid texture (#F2F2F2)
@@ -28,20 +32,28 @@ Lab manual precision meets pop art color impact—coordinate systems, technical 
 - Numbers: Large, highlighted with yellow or blue to stand out
 - Annotations: Ultra-crisp, small technical labels
 
-## Style Enforcement
+## Style Rules
 
-- Strictly systematic color usage: only teal, pink, yellow, charcoal—no rainbow palette
-- Sufficient fine grid lines and coordinate annotations throughout
+### Do
+
+- Use strictly systematic color usage: only teal, pink, yellow, charcoal—no rainbow palette
+- Add sufficient fine grid lines and coordinate annotations throughout
 - Maintain tension between large impactful headers and small precise parameters
-- Lab manual aesthetic: mix of microscopic details and macroscopic data
+- Keep lab manual aesthetic: mix of microscopic details and macroscopic data
+- Include coordinate-style labels, technical diagrams, and rulers with precise markers
 
-## Avoid
+### Avoid
 
 - Cute or cartoonish doodles
 - Soft pastels or generic textures
 - Empty white space
 - Flat vector stock icons
 - Organic or hand-drawn imperfections
+- Unsystematic or random color choices
+
+## Example Prompt
+
+A technical product comparison infographic for smartphones, rendered in pop-laboratory style: lab manual precision with pop art color impact, professional grayish-white background with faint blueprint grid texture, muted teal functional blocks, vibrant fluorescent pink critical highlights, lemon yellow translucent marker highlights, coordinate-style labels on every module, technical diagrams with exploded views, vertical/horizontal rulers with precise markers, marker-over-print effect, bold brutalist headers, crisp technical body text, 16:9 aspect ratio
 
 ## Best For
 

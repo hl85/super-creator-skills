@@ -2,6 +2,10 @@
 
 Flat vector illustration style with clear black outlines and retro soft color palette
 
+## Atmosphere
+
+A playful, toy-like world where everything is simplified into its most charming geometric essence. It feels like stepping into a vintage picture book or a meticulously crafted wooden playset, where warm, nostalgic colors and bold outlines bring a sense of cozy clarity to every scene.
+
 ## Design Aesthetic
 
 Flat vector illustration with no gradients or 3D effects. Clear, uniform-thickness black outlines on all elements. Geometric simplification reducing complex objects to basic shapes. Toy model aesthetic that's cute, playful, and approachable. Panoramic horizontal compositions work well.
@@ -59,13 +63,16 @@ Clean geometric sans-serif for readability. Futura, Avenir, or similar. Consiste
 - Create depth through layering
 - Add playful decorative elements
 
-### Don't
+### Avoid
 
-- Use gradients or realistic shading
-- Create photorealistic elements
-- Use thin or varying line weights
-- Include complex detailed illustrations
-- Add slide numbers, footers, or logos
+- Use gradients, realistic shading, or 3D lighting effects — keep all fills flat and solid.
+- Incorporate photorealistic textures or complex organic details that break the geometric simplification.
+- Vary the outline thickness or use tapered lines; maintain a consistent, bold Deep Charcoal (#2D2D2D) stroke throughout.
+- Use sharp, aggressive corners or jagged edges; prefer rounded terminals and soft, approachable shapes.
+
+## Example Prompt
+
+A 16:9 presentation slide in flat vector illustration style on a Cream Off-White (#F5F0E6) paper-textured background. The composition features a playful city scene simplified into geometric blocks with bold, uniform Deep Charcoal (#2D2D2D) outlines. Buildings are Mustard Yellow (#F2CC8F) and Rock Blue (#577590) with grid windows, while lollipop-shaped trees are Mint Green (#81B29A). A large headline in bold retro serif sits at the top, with a subtitle in all-caps sans-serif inside a Coral Red (#E07A5F) rectangular block. No gradients, no realistic shading, no 3D effects.
 
 ## Best For
 

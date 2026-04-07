@@ -7,6 +7,10 @@ category: minimal
 
 Minimalist hand-drawn line art, intellectual aesthetic.
 
+## Atmosphere
+
+This style feels like a quiet coffee shop on a weekday afternoon, with the soft scratch of a pen on paper and the gentle hum of distant conversation. The simple line doodles and hand-drawn wobble effect create a warm, approachable intellectual atmosphere that's both calming and stimulating.
+
 ## Element Combination
 
 ```yaml
@@ -62,6 +66,10 @@ decorations:
 | list | ✓✓ | Productivity tips, tool lists |
 | comparison | ✓✓ | Data comparisons |
 | flow | ✓✓ | Process diagrams |
+
+## Example Prompt
+
+A notion-style Xiaohongshu infographic with black and dark gray colors on a pure white background, simple line doodles with hand-drawn wobble effect, geometric shapes, stick figures, maximum whitespace, single-weight ink lines, clean uncluttered compositions, portrait 3:4 layout.
 
 ## Best For
 

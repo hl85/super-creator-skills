@@ -2,6 +2,10 @@
 
 Technical briefing infographic style with aged paper and bilingual labels
 
+## Atmosphere
+
+The faint smell of old parchment and ink lingers in a quiet study. Crisp technical lines glide across warm, aged paper, while soft bilingual labels provide gentle guidance. Subtle paper textures and vintage tones create a cozy, academic atmosphere perfect for deep learning and technical exploration.
+
 ## Design Aesthetic
 
 Academic/technical briefing style with clean 2D or isometric technical illustrations. Information-dense but organized with clear visual hierarchy. Vintage blueprint aesthetic with modern clarity. Multiple explanatory elements with bilingual callouts.
@@ -44,13 +48,20 @@ Academic/technical briefing style with clean 2D or isometric technical illustrat
 - Maintain aged paper texture
 - Create clear visual hierarchy
 
-### Don't
+### Avoid
 
 - Create photorealistic 3D renders
 - Leave illustrations without explanatory text
 - Add stamps or watermarks in corners
 - Use gradients or glossy effects
 - Make it look too modern/digital
+- Overcomplicate the layout without clear hierarchy
+- Use bright, neon colors that clash with the aged paper
+- Forget to include bilingual callouts for key elements
+
+## Example Prompt
+
+A technical briefing infographic in intuition-machine style, featuring isometric 2D/3D technical diagrams, explanatory text boxes with bilingual (English + Chinese) callout labels, faded thematic background patterns, aged cream (#F5F0E6) paper background with subtle texture, dark maroon (#5D3A3A) headlines, teal (#2F7373) primary illustrations, warm brown (#8B7355) secondary elements, maroon (#722F37) emphasis, deep charcoal (#2D2D2D) outlines, no gradients or glossy effects.
 
 ## Best For
 

@@ -2,6 +2,10 @@
 
 Sketchy, organic, personal
 
+## Atmosphere
+
+The hand-drawn style creates a warm, intimate atmosphere with its sketchy, organic lines and visible imperfections. It feels personal and authentic, like a page torn from an artist's sketchbook or a thoughtful whiteboard drawing.
+
 ## Core Characteristics
 
 Hand-drawn illustration with visible imperfections, organic line quality, and personal touch. Feels like a skilled artist's sketchbook or whiteboard drawing.

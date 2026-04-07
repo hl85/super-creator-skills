@@ -2,6 +2,10 @@
 
 Soft, artistic watercolor illustration style with natural warmth
 
+## Atmosphere
+
+The air feels damp with the scent of fresh watercolor pigment, as a soft brush glides across textured paper. Gentle colors bleed and blend organically at the edges, creating dreamy transitions. The warm, sunlit hues evoke a peaceful afternoon in a sunroom, where art and nature come together in perfect harmony.
+
 ## Design Aesthetic
 
 Gentle watercolor aesthetic with visible brush strokes and natural color bleeding. Hand-painted feel with soft edges and organic shapes. Warm, approachable, and artistically refined. Combines artistic expression with clear visual communication.
@@ -45,13 +49,17 @@ Gentle watercolor aesthetic with visible brush strokes and natural color bleedin
 - Include hand-drawn quality
 - Maintain warm color palette
 
-### Don't
+### Avoid
 
 - Use sharp geometric shapes
 - Create hard digital edges
 - Use cold or stark colors
 - Add photographic elements
 - Create overly precise illustrations
+
+## Example Prompt
+
+A soft watercolor illustration of a tranquil garden scene with blooming flowers, green leaves, and gentle watercolor washes in warm off-white (#FAF8F0), soft coral (#F4A261), dusty rose (#E8A0A0), and sage green (#87A96B), featuring visible brush strokes, natural color bleeds, organic shapes, and hand-drawn quality on textured watercolor paper.
 
 ## Best For
 

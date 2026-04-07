@@ -2,6 +2,10 @@
 
 Polished, precise, modern
 
+## Atmosphere
+
+The digital style creates a sleek, contemporary atmosphere with crisp, clean lines and subtle, modern effects. It feels professional and refined, like a high-end product interface or corporate design system.
+
 ## Core Characteristics
 
 Clean digital illustration with polished finish, precise edges, and subtle modern effects. Feels like a professional UI mockup or corporate illustration.

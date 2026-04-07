@@ -7,6 +7,10 @@ category: realistic
 
 Realistic handwritten photo aesthetic - student notes style, dense and messy but readable.
 
+## Atmosphere
+
+This style feels like a late-night study session in a cozy dorm room, with the soft scratch of a ballpoint pen on lined paper and the warm glow of a desk lamp. The dense, messy handwriting and colorful annotations create a relatable, authentic atmosphere that's both trustworthy and encouraging.
+
 ## Element Combination
 
 ```yaml
@@ -89,6 +93,10 @@ Three-section layout:
 | flow | ✓ | Process flows |
 | mindmap | ✓✓ | Mind map notes |
 | quadrant | ✓ | Quadrant analysis |
+
+## Example Prompt
+
+A realistic study-notes style Xiaohongshu infographic, top-down view of a study desk with lined white paper, hand holding blue ballpoint pen actively underlining, extremely dense handwritten content in blue and black ink, red pen annotations (circles, underlines, stars, boxes), yellow highlighter marking key terms, correction marks, tiny margin notes, simple hand-drawn symbols, portrait 3:4 layout.
 
 ## Best For
 

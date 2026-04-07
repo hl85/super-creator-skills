@@ -2,6 +2,10 @@
 
 High-impact magazine editorial style with bold visual expression
 
+## Atmosphere
+
+The electric tension of a gallery opening — spotlit typography commanding the room, negative space as deliberate as a held breath. Each slide hits like a Vogue cover or a Nike billboard: unapologetically loud, surgically composed, daring you to look away. The air crackles with confidence and high production value.
+
 ## Design Aesthetic
 
 Strong visual impact at magazine cover level. Bold typography and dramatic contrast. Full-bleed imagery and large color blocks create commanding presence. Every slide feels like a premium publication cover.
@@ -56,13 +60,17 @@ Clean sans-serif such as Inter, SF Pro, or Helvetica Neue. Medium weight for bod
 - Use full-bleed backgrounds
 - Make every slide feel like a magazine cover
 
-### Don't
+### Avoid
 
-- Use soft or muted colors
-- Add unnecessary decorative elements
-- Create busy, cluttered layouts
-- Use thin or delicate typography
-- Add slide numbers, footers, or logos
+- Use soft, pastel, or muted color palettes — this style demands full-saturation conviction
+- Add stock photography without editorial cropping or dramatic color grading
+- Create busy, cluttered layouts that dilute the single-hero-element focus
+- Use thin, delicate, or rounded-friendly typography
+- Let body text compete with the headline for visual dominance
+
+## Example Prompt
+
+A 16:9 presentation slide in bold editorial style on a deep black (#0A0A0A) background. An oversized all-caps headline "REDEFINE EVERYTHING" in white Bebas Neue dominates the left two-thirds, with tight letter-spacing and a single Electric Blue (#3B82F6) underline accent. The right third holds a dramatically cropped, color-graded product photo bleeding off the edge. A single line of Inter Medium body text sits below the headline at one-fifth the size. Extreme scale contrast, no clutter, magazine-cover energy.
 
 ## Best For
 

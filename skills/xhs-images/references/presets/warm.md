@@ -7,6 +7,10 @@ category: cozy
 
 Cozy, friendly, approachable aesthetic.
 
+## Atmosphere
+
+This style feels like curling up with a warm cup of coffee on a cold winter day, with soft golden lighting and the comforting scent of cinnamon in the air. The warm oranges, golden yellows, and terracotta colors create a cozy, inviting atmosphere that's both comforting and welcoming.
+
 ## Element Combination
 
 ```yaml
@@ -62,6 +66,10 @@ decorations:
 | list | ✓ | Life lessons |
 | comparison | ✓✓ | Before/after stories |
 | flow | ✓ | Journey narratives |
+
+## Example Prompt
+
+A warm-style Xiaohongshu infographic with warm orange, golden yellow, and terracotta colors on a cream and soft peach background, featuring sun rays, coffee cups, cozy items, warm lighting effects, friendly inviting decorations, soft comfortable shapes, warm tone filter, soft cutout, polaroid frames, portrait 3:4 layout.
 
 ## Best For
 

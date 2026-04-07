@@ -1,6 +1,10 @@
 # ligne-claire
 
-清线画风 - Uniform lines, flat colors, European comic tradition
+ 清线画风 - Uniform lines, flat colors, European comic tradition
+
+## Atmosphere
+
+The ligne claire style creates a crisp, timeless atmosphere with clean, uniform lines and flat colors—you can almost feel the smooth paper of a classic European comic album. The sharp, precise edges and lack of gradients give a sense of clarity and order, while the detailed backgrounds and stylized characters create an inviting, accessible world that feels both familiar and wonderfully distinct.
 
 ## Overview
 
@@ -69,6 +73,10 @@ Classic European comic style originating from Hergé's Tintin. Characterized by 
 | romantic | ✗ | Style mismatch |
 | energetic | ✓ | Lighter stories |
 | action | ✗ | Lacks dynamic lines |
+
+## Example Prompt
+
+A comic page in ligne claire style featuring a character exploring a detailed city street: clean uniform 2px black outlines, flat colors without gradients, period-specific props and architecture, clear spatial depth and perspective, hand-drawn text style, limited color palette with clean blue, classic red, and warm yellow, 3:4 aspect ratio
 
 ## Best For
 

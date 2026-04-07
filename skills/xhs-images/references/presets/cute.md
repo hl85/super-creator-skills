@@ -7,6 +7,10 @@ category: sweet
 
 Sweet, adorable, girly - classic Xiaohongshu aesthetic.
 
+## Atmosphere
+
+This style feels like a warm hug on a rainy day, with soft pastel colors that wrap around you like a cozy blanket. The bubbly shapes, hearts, and sparkles create a playful, whimsical atmosphere that's both uplifting and comforting.
+
 ## Element Combination
 
 ```yaml
@@ -62,6 +66,10 @@ decorations:
 | list | ✓✓ | Checklists, cute rankings |
 | comparison | ✓ | Before/after transformations |
 | flow | ✓ | Cute step guides |
+
+## Example Prompt
+
+A cute Xiaohongshu infographic with soft pink, peach, mint, and lavender colors on a cream background, featuring hearts, stars, sparkles, cute faces, ribbon decorations, sticker-style elements, rounded bubbly shapes, clear glow filter, soft cutout, polaroid frames, portrait 3:4 layout.
 
 ## Best For
 

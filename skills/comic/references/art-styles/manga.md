@@ -1,6 +1,10 @@
 # manga
 
-日漫画风 - Anime/manga aesthetics with expressive characters
+ 日漫画风 - Anime/manga aesthetics with expressive characters
+
+## Atmosphere
+
+The manga style brims with dynamic energy and expressive emotion—you can almost hear the whoosh of speed lines and feel the spark of excitement from large, expressive eyes. The clean lines and bright colors create a vibrant, engaging atmosphere that feels like diving into your favorite manga volume, while the visual emotion indicators (sweat drops, sparkles, anger marks) add instant personality and charm to every panel.
 
 ## Overview
 
@@ -87,6 +91,10 @@ Japanese manga art style characterized by large expressive eyes, dynamic poses, 
 | energetic | ✓✓ | Shonen style |
 | vintage | ✗ | Style mismatch |
 | action | ✓✓ | Battle manga |
+
+## Example Prompt
+
+A comic page in manga style featuring an expressive character with large eyes in a dynamic pose: clean smooth lines (1.5-2px) with expressive weight variation, anime/manga proportions, clear emotional indicators (sweat drops, sparkles), speed lines and motion effects, clean bright anime colors with soft gradients on skin, rounded speech bubbles, 3:4 aspect ratio
 
 ## Best For
 

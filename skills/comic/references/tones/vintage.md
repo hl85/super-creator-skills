@@ -1,6 +1,10 @@
 # vintage
 
-复古基调 - Historical, aged, period authenticity
+ 复古基调 - Historical, aged, period authenticity
+
+## Atmosphere
+
+The vintage tone wraps you in the warm, dusty air of an old archive—you can almost smell the yellowed paper and aged leather, and feel the rough texture of faded photographs beneath your fingertips. Soft, diffused light filters through dusty windows, casting sepia shadows that blur the line between past and present, while the gentle crackle of a distant gramophone hums in the background, transporting you to another era.
 
 ## Overview
 

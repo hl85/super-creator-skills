@@ -2,6 +2,10 @@
 
 浪漫基调 - Soft, beautiful, emotionally delicate
 
+## Atmosphere
+
+Soft, dreamy mist hangs in the air, with diffused backlighting that creates glowing halos around characters. The atmosphere feels like a tender sigh—flower petals float gently through scenes, sparkles twinkle like captured starlight, and the air hums with quiet, heartfelt emotion. Colors are soft pastels that blend seamlessly, with gentle gradients and warm glows that wrap every moment in beauty and delicacy.
+
 ## Overview
 
 Soft, dreamy atmosphere for romantic and emotionally delicate content. Features decorative elements, sparkles, and beautiful compositions that emphasize feeling and beauty.

@@ -522,7 +522,7 @@ Max Concurrent: 5 (Wave 5)
   - Files: `skills/*/scripts/vendor/`, `skills/*/scripts/package.json`, `skills/*/scripts/**/*.ts`
   - Pre-commit: `npm test`
 
-- [ ] 6. Rename skill directories batch A (7 skills) + update marketplace.json
+- [x] 6. Rename skill directories batch A (7 skills) + update marketplace.json
 
   **What to do**:
   - 使用 `git mv` 重命名以下 7 个 skill 目录（去掉 `baoyu-` 前缀）：
@@ -589,7 +589,7 @@ Max Concurrent: 5 (Wave 5)
   - Files: `skills/*/`, `.claude-plugin/marketplace.json`
   - Pre-commit: `npm test`
 
-- [ ] 7. Rename skill directories batch B (6 skills)
+- [x] 7. Rename skill directories batch B (6 skills)
 
   **What to do**:
   - 使用 `git mv` 重命名以下 6 个 skill 目录：
@@ -637,7 +637,7 @@ Max Concurrent: 5 (Wave 5)
   - Message: `refactor: rename all skill directories, remove baoyu- prefix`
   - Pre-commit: `npm test`
 
-- [ ] 8. Rename skill directories batch C (6 skills)
+- [x] 8. Rename skill directories batch C (6 skills)
 
   **What to do**:
   - 使用 `git mv` 重命名以下 6 个 skill 目录：
@@ -685,7 +685,7 @@ Max Concurrent: 5 (Wave 5)
   - Message: `refactor: rename all skill directories, remove baoyu- prefix`
   - Pre-commit: `npm test`
 
-- [ ] 9. Update cross-skill references in SKILL.md bodies and scripts
+- [x] 9. Update cross-skill references in SKILL.md bodies and scripts
 
   **What to do**:
   - 搜索所有 `skills/*/SKILL.md` body 中对其他 skill 的引用，更新路径：
@@ -737,7 +737,7 @@ Max Concurrent: 5 (Wave 5)
   - Message: `refactor: rename all skill directories, remove baoyu- prefix`
   - Pre-commit: `npm test`
 
-- [ ] 10. Update runtime config paths (.baoyu-skills → .supercreator)
+- [x] 10. Update runtime config paths (.baoyu-skills → .supercreator)
 
   **What to do**:
   - 搜索并替换所有 TypeScript 源码中的运行时配置路径 `.baoyu-skills` → `.supercreator`：
@@ -824,7 +824,7 @@ Max Concurrent: 5 (Wave 5)
   - Files: All files listed above
   - Pre-commit: `npm test`
 
-- [ ] 11. Update environment variables (BAOYU_* → SC_*)
+- [x] 11. Update environment variables (BAOYU_* → SC_*)
 
   **What to do**:
   - 搜索并替换所有 TypeScript 源码中的 `BAOYU_` 环境变量前缀 → `SC_`：
@@ -899,7 +899,7 @@ Max Concurrent: 5 (Wave 5)
   - Files: All files listed above
   - Pre-commit: `npm test`
 
-- [ ] 12. Update CLAUDE.md + docs/*.md references
+- [x] 12. Update CLAUDE.md + docs/*.md references
 
   **What to do**:
   - Update `CLAUDE.md`: Replace all `baoyu-skills` → `supercreator`, `baoyu-` prefix → prefix-less or `sc-` for packages, `.baoyu-skills` → `.supercreator`, `BAOYU_` → `SC_`, `JimLiu/baoyu-skills` → `hl85/supercreator`

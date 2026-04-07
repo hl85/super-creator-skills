@@ -2,6 +2,10 @@
 
 Clean, modern, geometric illustration
 
+## Atmosphere
+
+The flat-vector style creates a bright, cheerful atmosphere with bold, clean colors and simple shapes. It feels playful and approachable, like a modern app icon or a cheerful infographic illustration.
+
 ## Core Characteristics
 
 Flat design with clean outlines, uniform fills, and no texture or depth. Think modern app icons, infographic illustrations, and vector-based editorial art.

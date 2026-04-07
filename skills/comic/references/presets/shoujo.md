@@ -2,6 +2,10 @@
 
 少女预设 - Classic shoujo manga with romantic aesthetics
 
+## Atmosphere
+
+The air is soft and sweet, like cherry blossoms drifting on a gentle spring breeze. Sparkles and delicate decorative elements float through every panel, while large, luminous eyes brim with emotion. The mood feels tender and intimate, with every moment infused with warmth, longing, or quiet joy.
+
 ## Base Configuration
 
 | Dimension | Value |
@@ -110,6 +114,10 @@ Slow down pacing for emotional impact:
 - ✓ Screen tone mood effects
 - ✓ Romantic atmosphere throughout
 - ✓ Beautiful, expressive poses
+
+## Example Prompt
+
+A 4-page classic shoujo manga comic about a school love confession, featuring characters with large sparkling eyes (1.2x size with multiple highlights and scene reflections), flowing detailed hair with shine highlights, porcelain skin with soft blush, elegant poses, floating hearts and rose petals during emotional moments, soft gradient backgrounds, overlapping panels, screen tone mood effects, pink and lavender color palette, standard layout, manga art style, romantic tone.
 
 ## Best For
 

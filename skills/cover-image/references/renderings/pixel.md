@@ -2,6 +2,10 @@
 
 Retro 8-bit, nostalgic, chunky
 
+## Atmosphere
+
+The pixel style evokes a nostalgic, playful atmosphere with its chunky pixel grid, limited color palette, and classic gaming aesthetic. It feels retro and fun, like a beloved 8-bit video game from childhood.
+
 ## Core Characteristics
 
 Pixel art aesthetic with visible pixel grid, limited color palette, and nostalgic gaming feel. Emulates classic 8-bit and 16-bit era graphics.

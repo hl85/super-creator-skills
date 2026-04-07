@@ -2,6 +2,10 @@
 
 Soft hand-drawn illustration style with fresh, refined minimalist editorial aesthetic
 
+## Atmosphere
+
+The creative energy of a brainstorming session captured on paper — soft, hand-drawn lines dancing across a warm, inviting background. It feels like a collaborative workshop where ideas are flowing freely, translated into friendly sketches and thoughtful notes. A style that prioritizes human connection and approachable clarity over mechanical perfection.
+
 ## Design Aesthetic
 
 Illustration or hand-drawn feel with soft, relaxed brush strokes. Fresh, refined overall style with minimalist editorial approach. Emphasis on precision, clarity and intelligent elegance while prioritizing warmth, approachability and friendliness.
@@ -53,13 +57,16 @@ Clear handwritten round or hard-pen style mimicking everyday notes. Consistent s
 - Allow imperfection - slight wobbles add character
 - Layer elements with subtle overlaps
 
-### Don't
+### Avoid
 
-- Use perfect geometric shapes
-- Create photorealistic elements
-- Overcrowd with too many elements
-- Use pure white backgrounds
-- Add slide numbers, footers, or logos
+- Use perfect geometric shapes or photorealistic elements — every form should feel hand-drawn and organic
+- Create clinical, pure white backgrounds or harsh, high-contrast digital gradients
+- Use mechanical, perfectly straight connection lines or rigid grid-based layouts that feel stiff
+- Overcrowd with too many elements or use more than two distinct handwriting styles
+
+## Example Prompt
+
+A 16:9 presentation slide in a refined sketch-notes style on warm off-white paper (#FAF8F0) with a subtle grain texture. The slide illustrates a 'Growth Strategy' concept using soft, hand-drawn Deep Charcoal (#2C3E50) outlines and Mustard Yellow (#E9C46A) highlights. A central hand-drawn tree icon with Sage Green (#87A96B) leaves is connected to three key points by wavy, sketchy lines. Headlines in bold hand-written marker font, body text in clear round-hand style. Palette limited to warm off-white, deep charcoal, mustard yellow, and sage green. No perfect shapes, no photorealistic elements, no clinical white.
 
 ## Best For
 

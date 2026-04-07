@@ -1,6 +1,10 @@
 # realistic
 
-写实画风 - Digital painting with realistic proportions and lighting
+ 写实画风 - Digital painting with realistic proportions and lighting
+
+## Atmosphere
+
+The realistic style creates a sophisticated, immersive atmosphere with detailed digital painting and lifelike lighting—you can almost feel the texture of fabric, the warmth of indoor lighting, and the coolness of outdoor shadows. The anatomically accurate characters and rich gradients give a sense of depth and realism, while the subtle expressions and professional aesthetic create a mature, engaging world that feels both authentic and beautifully crafted.
 
 ## Overview
 
@@ -83,6 +87,10 @@ Full-color realistic manga style using digital painting techniques. Features ana
 | romantic | ✗ | Style mismatch |
 | energetic | ✗ | Too refined |
 | action | ✓ | Serious action |
+
+## Example Prompt
+
+A comic page in realistic style featuring two characters in a professional setting: clean precise outlines with realistic anatomical lines, 7-8 head height proportions, rich gradients with soft shadow transitions, realistic material textures (fabric, wood, glass), detailed environmental lighting (warm indoor glow from desk lamp), professional setting with accurate perspective and spatial depth, subtle but expressive character expressions, 3:4 aspect ratio.
 
 ## Best For
 

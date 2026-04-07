@@ -2,6 +2,10 @@
 
 中性基调 - Balanced, rational, educational
 
+## Atmosphere
+
+Calm, clear air fills the space, with even, natural lighting that illuminates every detail without drama. The atmosphere is steady and approachable—soft shadows ground the scene, consistent light sources create visual continuity, and every element feels purposeful and balanced. There's room to think, with compositions that guide the eye smoothly through information without overwhelming emotion.
+
 ## Overview
 
 Default balanced tone suitable for educational and informative content. Neither overly emotional nor cold - creates accessible, professional atmosphere.

@@ -2,20 +2,24 @@
 
 Nostalgic, vintage, classic
 
+## Atmosphere
+
+The warm nostalgia of a mid-century diner, the grain of aged paper, and the bold graphic style of vintage advertising. It feels nostalgic, playful, and full of character, with a sense of timeless charm that brings back memories of simpler times.
+
 ## Color Palette
 
 | Role | Color | Hex |
 |------|-------|-----|
-| Primary 1 | Coral Red | #E07A5F |
-| Primary 2 | Mint Green | #81B29A |
-| Primary 3 | Mustard Yellow | #F2CC8F |
-| Primary 4 | Dark Maroon | #5D3A3A |
+| Primary | Coral Red | #E07A5F |
+| Primary | Mustard Yellow | #F2CC8F |
+| Secondary | Mint Green | #81B29A |
 | Background | Cream Off-White | #F5F0E6 |
-| Background Alt | Aged Paper | #F5E6D3 |
-| Accent 1 | Burnt Orange | #D4764A |
-| Accent 2 | Rock Blue | #577590 |
-| Accent 3 | Vintage Gold | #C9A227 |
-| Accent 4 | Faded Teal | #2F7373 |
+| Background | Aged Paper | #F5E6D3 |
+| Accent | Burnt Orange | #D4764A |
+| Accent | Rock Blue | #577590 |
+| Text | Dark Maroon | #5D3A3A |
+| Border/Line | Mustard Yellow | #F2CC8F |
+| Shadow/Depth | Dark Maroon | #5D3A3A |
 
 ## Decorative Hints
 
@@ -24,6 +28,10 @@ Nostalgic, vintage, classic
 - Sunburst/radiating lines for energy
 - Pill-shaped clouds, small dots and stars
 - Classic icons and retro motifs
+
+## Example Prompt
+
+A nostalgic, retro cover image with Coral Red (#E07A5F) and Mustard Yellow (#F2CC8F) as primary colors, Cream Off-White (#F5F0E6) as the background, and Burnt Orange (#D4764A) as an accent, featuring halftone dots and vintage badges.
 
 ## Best For
 

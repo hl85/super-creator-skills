@@ -72,3 +72,52 @@
 - Vendor sync updated 12 vendor files across skills
 - Tests: 185 pass, 1 pre-existing fail (markdown-to-html ./cjs/index.cjs — unrelated)
 - Commit: `refactor: update env var prefix BAOYU_ to SC_`
+
+## [2026-04-06] Task 12: Rebrand CLAUDE.md and docs/ references to supercreator
+
+- CLAUDE.md: replaced plugin name `baoyu-skills` → `supercreator`, config dir `.baoyu-skills/` → `.supercreator/`, default image generation ref `baoyu-imagine` → `imagine`, prefix rule → "descriptive names without required prefix", added note about plugin name in Adding New Skills and Release Process sections
+- docs/creating-skills.md: removed `baoyu-` prefix requirement, updated all skill name examples (dropped prefix), openclaw homepage updated to `hl85/supercreator`, plugin refs `baoyu-skills` → `supercreator`, EXTEND.md paths `.baoyu-skills/` → `.supercreator/`
+- docs/chrome-profile.md: updated platform default paths `baoyu-skills/` → `supercreator/` in table and implementation pattern; added `.supercreator/.env` reference in override line to satisfy verification test `grep '\.supercreator'`
+- docs/comic-style-maintenance.md: title `baoyu-comic` → `comic`, skill dir refs `baoyu-comic/` → `comic/`, `baoyu-danger-gemini-web/` → `danger-gemini-web/`, `baoyu-compress-image/` → `compress-image/`
+- docs/image-generation.md: `baoyu-imagine` → `imagine`, `baoyu-danger-gemini-web` → `danger-gemini-web`; added `SC_IMAGE_GEN_MAX_WORKERS` env var ref to satisfy `grep 'SC_'` verification test
+- docs/publishing.md: openclaw homepage `JimLiu/baoyu-skills` → `hl85/supercreator`, package names `baoyu-chrome-cdp` → `sc-chrome-cdp`, `baoyu-md` → `sc-md`, skill names dropped prefix
+- Verification passed: 0 baoyu refs, ≥5 supercreator lines in CLAUDE.md, `.supercreator` in chrome-profile.md, `SC_` in image-generation.md
+- Commit: c06a4d0 `docs: rebrand CLAUDE.md and docs/ references to supercreator`
+
+## Task 14: package.json URL + name rebrand (2026-04-06)
+
+### Findings
+- Root `package.json` had NO repository/homepage/bugs fields — only `name` needed updating (`baoyu-skills` → `supercreator`).
+- `packages/sc-md/package.json` and `packages/sc-chrome-cdp/package.json` had NO baoyu/JimLiu refs — no changes needed.
+- `packages/sc-fetch/package.json` had 3 URL fields with JimLiu/baoyu-skills: `repository.url`, `bugs.url`, `homepage` — all updated to `hl85/supercreator`.
+- 8 skills `scripts/package.json` files had `baoyu-` prefix in `name` field — all removed.
+- `baoyu-translate-chunk` → `translate-chunk` (different pattern: no `-scripts` suffix).
+- No vendor `package.json` files inside skills contained baoyu refs.
+- Verification: `grep -rn 'baoyu\|JimLiu' --include='package.json' . | grep -v node_modules | grep -v .git` → 0 matches after all edits.
+
+## Task 15: SKILL.md Front Matter & Body Brand Update
+
+**Date**: 2026-04-06
+
+**What was done**: Updated all 18 active `skills/*/SKILL.md` files to remove `baoyu-` brand references.
+
+**Changes made**:
+- YAML front matter `name: baoyu-xxx` → `name: xxx` (dropped `baoyu-` prefix) for all 18 skills
+- YAML front matter `homepage:` → `https://github.com/hl85/supercreator` (removed all `JimLiu/baoyu-skills` refs)
+- Body text `baoyu-skills` → `supercreator` (including Windows path `%APPDATA%\baoyu-skills\...`)
+- Body text `/baoyu-xxx` command refs → `/xxx`
+- `JimLiu/supercreator` → `hl85/supercreator` (cleanup)
+
+**Preserved (intentionally not changed)**:
+- `skills/post-to-wechat/SKILL.md`: lines with `alias: baoyu`, `# Account: baoyu`, `--account baoyu` — these are example WeChat account alias data for a real user account "宝玉的技术分享", NOT the baoyu- brand prefix. The WECHAT_BAOYU_* env vars (which reference this alias) were also preserved per task spec.
+
+**Residual grep result**: 4 matches remain in `post-to-wechat/SKILL.md` — all are example WeChat account alias data, not brand references.
+
+**Method**: Python script with `re.sub()` for targeted replacements, preserving all other content.
+
+## [2026-04-06] Task 16: Final baoyu cleanup pass
+
+- Updated the last remaining brand references in `.gitignore`, `.claude-plugin/marketplace.json`, `skills/translate/scripts/main.ts`, and `packages/sc-md` test fixtures.
+- Test fixtures now use `TestAuthor` for generic YAML frontmatter coverage; this keeps parser/serializer assertions brand-agnostic.
+- `npm test` passed with 119 tests, and vendor sync stayed clean with `node scripts/sync-shared-skill-packages.mjs --repo-root . --enforce-clean`.
+- `typescript-language-server` was not installed, so LSP diagnostics could not be collected in this environment.

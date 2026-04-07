@@ -2,6 +2,10 @@
 
 Magazine-style editorial infographic for professional content
 
+## Atmosphere
+
+The crisp, matte paper of a high-quality magazine lies flat before you. Clean lines and structured layouts create a sense of journalistic authority, while subtle accents add visual interest. The quiet confidence of professional storytelling fills the space, inviting thoughtful engagement.
+
 ## Design Aesthetic
 
 High-quality magazine explainer aesthetic. Clear visual storytelling with structured layouts and professional typography. Think Wired, The Verge, or quality science publications. Complex information made digestible.
@@ -46,13 +50,17 @@ High-quality magazine explainer aesthetic. Clear visual storytelling with struct
 - Design visual metaphors
 - Maintain magazine polish
 
-### Don't
+### Avoid
 
 - Use photographic imagery
 - Create cluttered layouts
 - Mix too many styles
 - Add purposeless decoration
 - Compromise clarity for style
+
+## Example Prompt
+
+A magazine-style infographic explaining artificial intelligence, rendered in editorial style: pure white (#FFFFFF) background with subtle paper grain, clean flat illustrations, structured multi-section layouts, callout boxes for insights, editorial blue (#2563EB) and coral (#F97316) accents, visual metaphors, pull quotes and highlights, clear section dividers, professional magazine polish, no photographic imagery, 16:9 aspect ratio
 
 ## Best For
 

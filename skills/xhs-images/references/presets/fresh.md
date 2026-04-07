@@ -7,6 +7,10 @@ category: natural
 
 Clean, refreshing, natural aesthetic.
 
+## Atmosphere
+
+This style feels like a cool breeze on a sunny morning, with the fresh scent of rain-washed leaves and the gentle sound of water droplets. The mint greens and sky blues create a calm, clean atmosphere that's both invigorating and peaceful.
+
 ## Element Combination
 
 ```yaml
@@ -62,6 +66,10 @@ decorations:
 | list | ✓ | Wellness tips |
 | comparison | ✓ | Before/after health |
 | flow | ✓✓ | Organic processes |
+
+## Example Prompt
+
+A fresh Xiaohongshu infographic with mint green, sky blue, and light yellow colors on a pure white background, featuring plant leaves, clouds, water drops, simple geometric shapes, clear glow filter, soft cutout, rounded rect frames, portrait 3:4 layout, natural organic elements.
 
 ## Best For
 

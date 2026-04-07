@@ -7,6 +7,10 @@ category: poster
 
 Bold poster art with halftone textures, limited colors, and symbolic storytelling.
 
+## Atmosphere
+
+This style feels like a vintage protest poster from the 60s or 70s, with the rough texture of screen-printed paper and the bold impact of limited color choices. The halftone dots and slight color misregistration create a tactile, handmade atmosphere that's both powerful and authentic.
+
 ## Element Combination
 
 ```yaml
@@ -81,6 +85,10 @@ decorations:
 | flow | ✓ | Cinematic progression, timelines |
 | mindmap | ✗ | Too complex for geometric poster style |
 | quadrant | ✓✓ | Strong geometric division, classification |
+
+## Example Prompt
+
+A screen-print style Xiaohongshu infographic with burnt orange and deep teal duotone colors on an off-black background, bold silhouettes, halftone dot patterns, slight color layer misregistration, geometric framing, stencil-cut edges, vintage poster border treatments, portrait 3:4 layout, symbolic storytelling.
 
 ## Best For
 

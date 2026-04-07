@@ -2,6 +2,10 @@
 
 Soft watercolor illustration style with hand-painted textures and natural warmth
 
+## Atmosphere
+
+A gentle, sun-washed studio where colors bleed softly into one another on textured paper. The air feels light and creative, filled with the quiet scratch of a brush and the organic flow of water. It is a space of natural warmth and artistic refinement, where information is delivered with a personal, hand-crafted touch.
+
 ## Design Aesthetic
 
 Gentle watercolor aesthetic with visible brush strokes and natural color bleeding. Hand-painted feel with soft edges and organic shapes. Warm, approachable, and artistically refined. Combines artistic expression with clear information delivery.
@@ -55,13 +59,16 @@ Clean rounded sans-serif or casual handwriting style. Readable at smaller sizes.
 - Include hand-drawn quality in all elements
 - Maintain warm, inviting color palette
 
-### Don't
+### Avoid
 
-- Use sharp geometric shapes
-- Create hard edges or digital precision
-- Use cold or stark colors
-- Add photographic elements
-- Add slide numbers, footers, or logos
+- Use sharp geometric shapes or hard digital edges — every form must feel organic and hand-painted
+- Apply high-contrast, neon, or starkly cold colors that break the natural warmth of the palette
+- Include pixel-perfect icons or rigid grid-based layouts that lack the characteristic "bleed" of watercolor
+- Add photographic elements or complex 3D renders that clash with the flat, illustrative aesthetic
+
+## Example Prompt
+
+A 16:9 presentation slide in a soft watercolor illustration style on warm off-white paper (#FAF8F0) with a subtle grain texture. The slide features a central organic flow diagram representing a wellness journey, with soft coral (#F4A261) and sage green (#87A96B) washes bleeding gently into the background. Headlines are in an elegant hand-painted brush script in warm charcoal (#3D3D3D), while body text uses a clean rounded sans-serif. Decorative sage green leaves and soft sky blue (#7EC8E3) bubbles are scattered thoughtfully around the edges. No sharp geometric shapes, no hard edges, no photographic elements.
 
 ## Best For
 

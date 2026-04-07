@@ -2,6 +2,10 @@
 
 Whimsical hand-drawn animation style inspired by classic fantasy illustration
 
+## Atmosphere
+
+Stepping into a sun-drenched storybook forest where every leaf is painted with care and magic hums in the air. It feels like the gentle turn of a heavy parchment page, revealing a world that is both nostalgic and vibrantly alive, where wonder is found in the smallest details.
+
 ## Design Aesthetic
 
 Charming hand-drawn animation aesthetic reminiscent of classic Disney, Studio Ghibli, or European storybook illustration. Soft, painterly textures with warm, inviting colors. Friendly characters, magical elements, and storybook layouts. Enchanting, nostalgic, and emotionally engaging.
@@ -56,13 +60,15 @@ Rounded sans-serif or casual handwritten style. Friendly and readable. Maintains
 - Add magical decorative touches
 - Maintain storybook narrative feel
 
-### Don't
+### Avoid
 
-- Use harsh geometric shapes
-- Create dark or intimidating imagery
-- Add photorealistic elements
-- Use cold color palettes
-- Add slide numbers, footers, or logos
+- Use harsh geometric shapes or cold, clinical color palettes that break the organic, hand-drawn feel
+- Add photorealistic elements or high-contrast digital gradients that clash with the soft, painterly textures
+- Create cluttered layouts that overwhelm the charming character-driven focus and storybook narrative
+
+## Example Prompt
+
+A 16:9 presentation slide in a whimsical fantasy animation style. The background is a soft watercolor wash in Soft Sky Blue (#E8F4FC) with gentle paper texture. A friendly, expressive illustrated character stands to the left, surrounded by small magical sparkles in Golden Yellow (#F4D03F). Headlines are in a whimsical serif font in Deep Forest (#2D5A3D), and body text is in a casual handwritten style in Warm Brown (#5D4E37). The layout is clean and storybook-like, with a themed content container resembling a small wooden trunk. No harsh lines, no photorealism, no slide numbers.
 
 ## Best For
 

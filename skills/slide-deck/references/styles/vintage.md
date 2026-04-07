@@ -2,6 +2,10 @@
 
 Vintage aged-paper aesthetic for historical and expedition-style presentations
 
+## Atmosphere
+
+The weathered pages of an explorer's journal, resting on a heavy oak desk under the soft glow of a brass lamp. It smells of old paper, dried ink, and the dust of a thousand miles traveled. Every crease in the parchment tells a story of discovery, where hand-drawn maps and careful sketches capture the wonder of a world still being mapped.
+
 ## Design Aesthetic
 
 Nostalgic vintage aesthetic with aged paper textures and historical document styling. Think explorer's journals, antique maps, and museum exhibits. Rich warm tones with weathered textures. Evokes discovery, heritage, and timeless knowledge.
@@ -60,13 +64,15 @@ Readable serif for longer text. Traditional book typography. Comfortable reading
 - Create layered collage compositions
 - Maintain warm sepia-toned palette
 
-### Don't
+### Avoid
 
-- Use modern digital styling
-- Create crisp clean edges
-- Use cold or bright colors
-- Add contemporary elements
-- Add slide numbers, footers, or logos
+- Use modern digital styling or crisp clean edges — they break the illusion of a historical document
+- Apply cold, bright, or neon colors; the palette must remain rooted in warm, organic earth tones
+- Include contemporary elements like modern icons, sans-serif fonts, or high-tech UI components
+
+## Example Prompt
+
+A 16:9 presentation slide in vintage explorer's journal style on Aged Parchment (#F5E6D3) with heavy paper texture, subtle coffee stains, and worn edges. The slide features an antique map of a mountain range with hand-drawn route lines in Forest Green (#2D5A3D) and a detailed brass compass rose in Gold (#C9A227). Headlines are written in elegant dark brown (#3D2914) serif typography with decorative flourishes. Specimen drawings of local flora are sketched in the margins with handwritten-style annotations in Medium Brown (#6B4423). No modern digital elements, no crisp edges, no slide numbers.
 
 ## Best For
 

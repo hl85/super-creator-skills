@@ -2,6 +2,31 @@
 
 Hand-drawn and paper craft aesthetic with warm, organic feel.
 
+## Atmosphere
+
+Warm sunlight streams through a kitchen window onto a wooden table covered in construction paper, crayons, and safety scissors. The air smells faintly of glue sticks and fresh paper. Every element feels like it was carefully cut, colored, and arranged by loving hands, inviting you to lean in and explore.
+
+## Style Rules
+
+### Do
+
+- Hand-drawn or cut-paper quality
+- Organic, slightly imperfect shapes
+- Layered depth with shadows (paper variant)
+- Simple cartoon elements and icons
+- Character illustrations (people, personalities in cartoon form)
+- Ample whitespace, clean composition
+- Keywords and core concepts highlighted
+
+### Avoid
+
+- Photorealistic images or stock photos
+- Perfect, computer-generated shapes with no human touch
+- Glossy, digital effects that break the hand-crafted illusion
+- Photographs of real people instead of cartoon illustrations
+- Overly complex or cluttered compositions that feel manufactured
+- Cold, metallic color palettes that contradict the warm craft feel
+
 ## Color Palette
 
 - Primary: Warm pastels, soft saturated colors, craft paper tones
@@ -38,6 +63,10 @@ Hand-drawn and paper craft aesthetic with warm, organic feel.
 - Clear, readable labels
 - Keywords emphasized with larger/bolder text
 - Cut-out letter style for paper variant
+
+## Example Prompt
+
+Craft-handmade style infographic explaining the water cycle, featuring hand-drawn cartoon illustrations of clouds, rain, oceans, and trees on textured cream-colored paper background, with simple cut-paper elements, warm pastel colors, handwritten-style labels, and ample whitespace—strictly no photographic elements.
 
 ## Best For
 

@@ -2,6 +2,10 @@
 
 Nostalgic aged-paper aesthetic for historical and heritage content
 
+## Atmosphere
+
+The crackle of aged parchment fills the air, with the faint scent of old ink and leather. Weathered edges and subtle stains whisper tales of exploration and discovery, while compass roses and antique map lines guide you through timeless knowledge. Brass accents and rope motifs add a touch of adventurer's charm.
+
 ## Design Aesthetic
 
 Nostalgic vintage aesthetic with aged paper textures and historical document styling. Explorer's journal and antique map quality. Rich warm tones with weathered textures. Evokes discovery, heritage, and timeless knowledge.
@@ -46,13 +50,17 @@ Nostalgic vintage aesthetic with aged paper textures and historical document sty
 - Create layered compositions
 - Maintain warm sepia tones
 
-### Don't
+### Avoid
 
 - Use modern digital styling
 - Create crisp clean edges
 - Use cold or bright colors
 - Add contemporary elements
 - Make it look new or fresh
+
+## Example Prompt
+
+A nostalgic vintage illustration with aged parchment background, heavy aged paper texture with subtle stains and worn edges, antique map styling with route lines and compass roses, specimen-style drawings, handwritten annotations, and rope/brass decorative motifs, using dark brown, forest green, navy blue, burgundy, and gold colors, no modern digital styling or crisp clean edges.
 
 ## Best For
 

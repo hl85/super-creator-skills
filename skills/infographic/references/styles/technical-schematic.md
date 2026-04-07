@@ -2,6 +2,10 @@
 
 Technical diagrams with engineering precision and clean geometry.
 
+## Atmosphere
+
+Crisp white lines slice through deep blueprint blue, tracing geometric shapes with engineering precision. Grid patterns or isometric angles provide structural rhythm, while amber highlights and cyan callouts draw attention to key details like a well‑worn technical manual.
+
 ## Color Palette
 
 - Primary: Blues (#2563EB), teals, grays, white lines
@@ -30,6 +34,18 @@ Technical diagrams with engineering precision and clean geometry.
 - All-caps labels
 - Measurement annotations
 - Floating labels for isometric
+
+### Avoid
+
+- Using hand-drawn, sketchy lines or organic shapes
+- Adding photorealistic textures or photographs
+- Creating soft gradients or drop shadows
+- Including decorative flourishes or unnecessary visual elements
+- Using playful or decorative fonts instead of technical stencil/sans-serif
+
+## Example Prompt
+
+A technical architecture infographic showing a system's component breakdown, rendered in technical-schematic style: blueprint variant with white lines on deep blue background (#1E3A5F), grid pattern, dimension lines and measurements, technical symbols and annotations, clean vector shapes, consistent stroke weights, amber highlights (#F59E0B), cyan callouts, technical stencil typography, all‑caps labels, square (1:1) aspect ratio
 
 ## Best For
 

@@ -2,6 +2,10 @@
 
 Ohmsha预设 - Educational manga with visual metaphors
 
+## Atmosphere
+
+The air hums with curiosity and discovery, like a well-loved classroom filled with the scent of fresh paper and mechanical pencils. Gadgets sparkle with playful science-fictional charm, while panels transition between reality and whimsical metaphorical spaces with smooth, imaginative ease. Every moment feels like a gentle invitation to learn through wonder and experimentation.
+
 ## Base Configuration
 
 | Dimension | Value |
@@ -108,6 +112,10 @@ Every panel should show:
 - ✓ Expressive manga-style emotions
 - ✓ Information density through visual design, not text walls
 - ✓ Narrative page titles
+
+## Example Prompt
+
+A 4-page educational comic in ohmsha style explaining gradient descent, featuring Doraemon characters: Nobita looking confused with spiral eyes, Doraemon dramatically revealing a "Gradient Descent Mountain Climber" gadget with sparkle effects, Nobita riding a ball rolling down a mountain valley metaphor, holographic UI displays showing loss metrics, radial lines for aha moments, webtoon layout, manga art style, neutral tone.
 
 ## Reference
 

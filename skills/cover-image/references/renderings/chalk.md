@@ -2,6 +2,10 @@
 
 Educational, authentic, classroom
 
+## Atmosphere
+
+The chalk style evokes the warm, dusty atmosphere of a classroom, with the soft scrape of chalk against a dark board and faint eraser smudges. It feels nostalgic and approachable, like a lesson shared by a passionate teacher on a quiet afternoon.
+
 ## Core Characteristics
 
 Chalk on blackboard aesthetic with imperfect strokes, dust effects, and authentic classroom feel. Nostalgic educational warmth.

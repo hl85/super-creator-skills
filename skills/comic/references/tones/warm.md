@@ -1,6 +1,10 @@
 # warm
 
-温馨基调 - Nostalgic, personal, comforting
+ 温馨基调 - Nostalgic, personal, comforting
+
+## Atmosphere
+
+The warm tone wraps you in a cozy, golden hug—you can almost feel the soft warmth of a wool blanket, smell the sweet aroma of freshly baked cookies, and hear the gentle crackle of a fireplace. Golden hour light filters through sheer curtains, casting soft, diffused shadows that make every moment feel intimate and cherished, while nostalgic keepsakes and childhood mementos surround you with comforting memories.
 
 ## Overview
 

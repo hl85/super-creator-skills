@@ -2,6 +2,10 @@
 
 Organic, earthy illustration style for environmental and wellness content
 
+## Atmosphere
+
+A gentle breeze carries the scent of pine and earth. Soft, flowing lines mimic the movement of leaves and water, while warm earth tones create a cozy, grounding feeling. Natural textures and organic shapes invite calm and connection to the natural world around us.
+
 ## Design Aesthetic
 
 Natural and organic visual approach inspired by the outdoors. Earth tones and natural textures that evoke calm and connection to nature. Flowing lines and organic shapes. Creates a sense of tranquility and environmental awareness.
@@ -45,13 +49,20 @@ Natural and organic visual approach inspired by the outdoors. Earth tones and na
 - Evoke outdoor atmosphere
 - Maintain calm and balance
 
-### Don't
+### Avoid
 
 - Use synthetic or neon colors
 - Create rigid geometric shapes
 - Add tech or digital elements
 - Use stark contrasts
 - Overcomplicate compositions
+- Forget to include nature-inspired motifs (leaves, trees, mountains, water)
+- Overpower the organic feel with harsh lines
+- Use color combinations that don't evoke the natural world
+
+## Example Prompt
+
+An organic, earthy illustration featuring leaf and plant motifs, tree and branch silhouettes, mountain and landscape shapes, flowing lines, sand beige (#F5E6D3) or sky blue (#E0F2FE) background with natural paper texture, forest green (#276749), sage (#9AE6B4), earth brown (#744210), sunset orange (#ED8936), water blue (#63B3ED) colors, deep brown (#5D4E3C) text, no rigid geometric shapes or tech elements, evoking a sense of tranquility and environmental awareness.
 
 ## Best For
 

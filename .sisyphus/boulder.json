@@ -1,48 +1,25 @@
 {
-  "active_plan": "/Users/wanghui/Code/creator-cn/.sisyphus/plans/rebrand-supercreator.md",
-  "started_at": "2026-04-05T18:46:08.099Z",
+  "active_plan": "/Users/wanghui/Code/creator-cn/.sisyphus/plans/design-reference-upgrade.md",
+  "started_at": "2026-04-07T01:07:10.742Z",
   "session_ids": [
-    "ses_2a13104c1ffe3rSUYMtN6k8Itm",
-    "ses_2a105e3d3ffe4kYmLmhq06Hppz",
-    "ses_2a10052deffej5EuSGHpCRxIEe",
-    "ses_2a0fd338dffehd9DPhJODXF725",
-    "ses_2a0f9f8aaffeuT4Dc7qLjcUrsy",
-    "ses_2a0f26f8dffeJ8i9t7kv6b4J3w",
-    "ses_2a0eaa6e8ffedQVbIxy33Wa6GT",
-    "ses_2a0e48e82ffe9SA90mBYC1QEkj",
-    "ses_2a0e325ffffeqPGyXn5VnAPypG",
-    "ses_2a0de44cfffeIRH7JQHlimWZqH",
-    "ses_2a0d47a20ffeqnflvUF29xliZS"
+    "ses_29d055f86ffednEOB2Z0d3dK2T",
+    "ses_29c395508ffe3yWMZDuRAA5Kzh",
+    "ses_29c394e4dffe6muRj6o3Ym7Qg1",
+    "ses_29c394867ffesuvJLbER9isYhq",
+    "ses_29c39425cffetgLvFVL3GGPm4G",
+    "ses_29c393cc6ffeBypTUdWsZ6UIVa",
+    "ses_29c38893bffewefn93c06Gr3Es"
   ],
-  "plan_name": "rebrand-supercreator",
+  "plan_name": "design-reference-upgrade",
   "agent": "atlas",
-  "task_sessions": {
-    "todo:1": {
-      "task_key": "todo:1",
-      "task_label": "1",
-      "task_title": "Delete deprecated baoyu-image-gen skill",
-      "session_id": "ses_2a0f9f8aaffeuT4Dc7qLjcUrsy",
-      "agent": "Sisyphus-Junior",
-      "category": "unspecified-high",
-      "updated_at": "2026-04-05T19:06:49.087Z"
-    },
-    "todo:5": {
-      "task_key": "todo:5",
-      "task_label": "5",
-      "task_title": "Sync vendors and update all skill import statements",
-      "session_id": "ses_2a0f26f8dffeJ8i9t7kv6b4J3w",
-      "agent": "Sisyphus-Junior",
-      "category": "unspecified-high",
-      "updated_at": "2026-04-05T19:17:22.313Z"
-    },
-    "todo:6": {
-      "task_key": "todo:6",
-      "task_label": "6",
-      "task_title": "Rename skill directories batch A (7 skills) + update marketplace.json",
-      "session_id": "ses_2a0d47a20ffeqnflvUF29xliZS",
-      "agent": "Sisyphus-Junior",
-      "category": "unspecified-high",
-      "updated_at": "2026-04-05T19:51:01.253Z"
-    }
-  }
+  "session_origins": {
+    "ses_29d055f86ffednEOB2Z0d3dK2T": "direct",
+    "ses_29c395508ffe3yWMZDuRAA5Kzh": "appended",
+    "ses_29c394e4dffe6muRj6o3Ym7Qg1": "appended",
+    "ses_29c394867ffesuvJLbER9isYhq": "appended",
+    "ses_29c39425cffetgLvFVL3GGPm4G": "appended",
+    "ses_29c393cc6ffeBypTUdWsZ6UIVa": "appended",
+    "ses_29c38893bffewefn93c06Gr3Es": "appended"
+  },
+  "task_sessions": {}
 }

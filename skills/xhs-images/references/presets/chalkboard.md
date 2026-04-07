@@ -7,6 +7,10 @@ category: educational
 
 Black chalkboard background with colorful chalk drawing aesthetic.
 
+## Atmosphere
+
+This style evokes the warm, nostalgic feeling of a classroom at dusk, with the soft scratch of chalk on board and the faint smell of chalk dust in the air. The colorful chalk marks against the dark background create a playful, educational vibe that feels both familiar and inviting.
+
 ## Element Combination
 
 ```yaml
@@ -85,6 +89,10 @@ decorations:
 | list | ✓✓ | Learning checklists |
 | comparison | ✓ | Concept comparisons |
 | flow | ✓✓ | Process explanations |
+
+## Example Prompt
+
+A colorful chalkboard-style Xiaohongshu infographic with black chalkboard background, hand-drawn chalk illustrations in white, yellow, pink, blue, green, and orange, chalk dust effects, doodles like stars, arrows, underlines, circles, stick figures, mathematical formulas, eraser smudges, handwritten chalk lettering, portrait 3:4 layout.
 
 ## Best For
 

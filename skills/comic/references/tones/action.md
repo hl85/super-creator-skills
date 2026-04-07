@@ -2,6 +2,10 @@
 
 动作基调 - Speed, impact, power
 
+## Atmosphere
+
+Electric tension fills the air, with sharp, staccato lighting that cuts through darkness like a blade. Every moment hums with kinetic potential—wind whips through hair, dust clouds billow from impact points, and the air crackles with the promise of sudden, explosive movement. Shadows stretch long and jagged, emphasizing the power and momentum of each action.
+
 ## Overview
 
 High-impact action atmosphere with dynamic movement, combat effects, and powerful visual energy. Creates visceral, exciting sequences.

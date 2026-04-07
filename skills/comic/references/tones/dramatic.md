@@ -2,6 +2,10 @@
 
 戏剧基调 - High contrast, intense, powerful moments
 
+## Atmosphere
+
+Thick, palpable tension hangs in the air, with dramatic single-source lighting that carves sharp silhouettes from deep shadows. Every scene hums with emotional weight—wind howls through tense moments, fire crackles in the background, and the silence between words feels as loud as thunder. Contrast is extreme, with blinding highlights plunging into pitch-black shadows, emphasizing the gravity of each pivotal moment.
+
 ## Overview
 
 High-impact dramatic tone for pivotal moments, conflicts, and breakthroughs. Uses strong contrast and intense compositions to create emotional power.

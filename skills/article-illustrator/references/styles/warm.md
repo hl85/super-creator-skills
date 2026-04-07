@@ -2,6 +2,10 @@
 
 Friendly, approachable illustration style for human-centered content
 
+## Atmosphere
+
+A gentle golden glow fills the air, like morning sunlight filtering through a kitchen window. Soft, rounded shapes invite you closer, while warm hues of orange and gold wrap around you like a cozy blanket. Subtle hand-drawn textures add a personal touch, making you feel seen and understood.
+
 ## Design Aesthetic
 
 Warm and inviting visual approach that feels personal and approachable. Soft, friendly colors that evoke comfort and connection. Emphasizes human elements and emotional resonance. Creates an atmosphere of trust and openness.
@@ -45,13 +49,17 @@ Warm and inviting visual approach that feels personal and approachable. Soft, fr
 - Evoke feelings of comfort
 - Maintain soft, gentle contrasts
 
-### Don't
+### Avoid
 
 - Use cold or stark colors
 - Create sharp, aggressive shapes
 - Add technical or clinical elements
 - Use dark, moody backgrounds
 - Create sterile compositions
+
+## Example Prompt
+
+A warm, hand-drawn illustration of a diverse group of friends sitting around a sunlit kitchen table, sharing coffee and laughter, rendered in soft cream (#FFFAF0) and soft peach (#FED7AA) tones with warm orange (#ED8936) accents, rounded shapes, and gentle gradients.
 
 ## Best For
 

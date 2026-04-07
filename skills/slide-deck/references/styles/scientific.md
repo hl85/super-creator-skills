@@ -6,6 +6,10 @@ Educational scientific illustration style for pathways, processes, and technical
 
 Academic scientific illustration aesthetic for biological pathways, chemical processes, and technical systems. Clean, precise diagrams with proper labeling and clear visual flow. Educational clarity with professional polish. Think textbook quality illustrations and academic journal figures.
 
+## Atmosphere
+
+The quiet focus of a research laboratory — where every observation is recorded with clinical precision and every diagram serves the pursuit of truth. A palette of muted teals and deep slates that feels like a high-impact journal publication, where clarity is the highest form of elegance. It is the visual language of discovery, balancing the complexity of nature with the structured rigor of the scientific method.
+
 ## Background
 
 - Color: Off-White (#FAFAFA) or Light Blue-Gray (#F0F4F8)
@@ -60,13 +64,17 @@ Serif for body paragraphs, sans-serif for bullet points and lists. Academic publ
 - Include chemical/molecular notation where relevant
 - Create clear numbered sequences
 
-### Don't
+### Avoid
 
-- Use decorative illustrations
-- Create imprecise or artistic diagrams
-- Omit important labels
-- Use inconsistent visual language
-- Add slide numbers, footers, or logos
+- Use decorative illustrations or imprecise artistic renderings — every form must be accurate and labeled.
+- Create cluttered layouts with overlapping elements; maintain clear visual flow for processes.
+- Use neon or overly vibrant colors that distract from the technical data.
+- Omit directional arrows or flow indicators in process diagrams.
+- Include generic slide numbers, footers, or corporate logos that break the academic aesthetic.
+
+## Example Prompt
+
+A 16:9 presentation slide in a clean scientific illustration style on an off-white (#FAFAFA) background. The slide shows a detailed biological pathway of cellular respiration, featuring a horizontal amber (#F59E0B) membrane structure. Components are modular and labeled with teal (#0D9488) and blue (#3B82F6) accents. Flow arrows in dark slate (#1E293B) indicate electron movement. Headlines in a bold serif font, labels in a clear sans-serif. Palette limited to dark slate text, teal and blue pathways, and green (#22C55E) product callouts. No decorative elements, no slide numbers, no imprecise diagrams.
 
 ## Best For
 

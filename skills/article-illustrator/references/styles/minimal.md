@@ -2,6 +2,10 @@
 
 Ultra-clean, zen-like illustration style for focused content
 
+## Atmosphere
+
+A serene stillness settles over vast, empty white space. A single, precise element draws the eye with quiet intention. The air feels calm and focused, like a meditative moment where distractions fade away, leaving only what truly matters.
+
 ## Design Aesthetic
 
 Maximum simplicity with purposeful restraint. Every element serves a function. Zen-like calm and focus through extensive negative space. Single focal point approach that guides attention naturally. Quiet elegance through reduction.
@@ -45,13 +49,20 @@ Note: Accent color is derived from content context. Use sparingly.
 - Let content breathe
 - Question every element
 
-### Don't
+### Avoid
 
 - Add decorative elements
 - Use multiple accent colors
 - Fill available space
 - Add textures or patterns
 - Create visual complexity
+- Include more than one focal point per illustration
+- Use thick, heavy lines instead of thin, precise ones
+- Add any element that doesn't serve a clear purpose
+
+## Example Prompt
+
+A minimal, ultra-clean illustration featuring a single focal element, maximum negative space, thin precise lines, simple geometric forms, pure white (#FFFFFF) background, pure black (#000000) main elements, one subtle accent color, no textures or patterns, clean uncluttered composition, zen-like calm and focus.
 
 ## Best For
 

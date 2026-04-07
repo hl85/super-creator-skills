@@ -2,6 +2,10 @@
 
 Whimsical hand-drawn animation style inspired by Ghibli/Disney
 
+## Atmosphere
+
+Soft, warm light filters through enchanted trees, casting gentle sparkles dancing in the air. The scent of adventure and magic fills your senses, while painterly textures wrap around you like a cozy blanket. Friendly creatures peek from behind flowers, and stories waiting to be discovered in this whimsical, storybook world.
+
 ## Design Aesthetic
 
 Charming hand-drawn animation aesthetic reminiscent of classic Disney, Studio Ghibli, or European storybook illustration. Soft, painterly textures with warm, inviting colors. Friendly characters, magical elements, and storybook feel. Enchanting, nostalgic, and emotionally engaging.
@@ -45,13 +49,17 @@ Charming hand-drawn animation aesthetic reminiscent of classic Disney, Studio Gh
 - Add magical decorative touches
 - Maintain storybook narrative feel
 
-### Don't
+### Avoid
 
 - Use harsh geometric shapes
 - Create dark or intimidating imagery
 - Add photorealistic elements
 - Use cold color palettes
 - Make it look digital/computerized
+
+## Example Prompt
+
+A whimsical illustration explaining the water cycle, rendered in fantasy-animation style: soft sky blue (#E8F4FC) background with subtle watercolor wash and soft brush strokes, central friendly illustrated character, small companion creatures, storybook-style environment, magical floating objects (books, sparkles, orbs), decorative stars, flowers, leaves, golden yellow (#F4D03F) and rose pink (#E8A0BF) accents, soft shadows and gentle highlights, layered depth with foreground/background, no harsh geometric shapes or photorealistic elements, 16:9 aspect ratio
 
 ## Best For
 

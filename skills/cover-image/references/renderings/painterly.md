@@ -2,6 +2,10 @@
 
 Soft, artistic, expressive
 
+## Atmosphere
+
+The painterly style creates a soft, artistic atmosphere with visible brush strokes, color bleeds, and organic watercolor textures. It feels warm and expressive, like a hand-painted art piece created with care and creativity.
+
 ## Core Characteristics
 
 Watercolor or paint-style illustration with visible brush strokes, color bleeds, and artistic texture. Feels like a hand-painted art piece.

@@ -1,6 +1,10 @@
 # ink-brush
 
-水墨画风 - Chinese ink brush aesthetics with dynamic strokes
+ 水墨画风 - Chinese ink brush aesthetics with dynamic strokes
+
+## Atmosphere
+
+The ink brush style evokes the smooth, tactile feel of brush on rice paper—you can almost smell the subtle scent of ink and hear the soft swish of the brush as it moves. The fluid, calligraphic strokes create an elegant, contemplative atmosphere that feels like stepping into a traditional Chinese painting, while the dramatic ink washes and high contrast convey a sense of power and movement.
 
 ## Overview
 
@@ -91,6 +95,10 @@ Traditional Chinese ink brush painting style adapted for comics. Combines callig
 | romantic | ✗ | Style mismatch |
 | energetic | ✗ | Too refined |
 | action | ✓✓ | Martial arts |
+
+## Example Prompt
+
+A comic page in ink-brush style featuring a martial artist in a dramatic pose atop a misty mountain: traditional Chinese ink brush strokes with dynamic line weight, ink wash atmospheric effects, flowing fabric trails, calligraphic text integration, limited palette with deep black ink and crimson red accents, high contrast composition, misty layered depth, 3:4 aspect ratio
 
 ## Best For
 

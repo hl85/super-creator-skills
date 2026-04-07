@@ -2,6 +2,10 @@
 
 Black chalkboard background with colorful chalk drawing style
 
+## Atmosphere
+
+The faint scent of chalk dust lingers in the air. Squeaky chalk lines glide across a dark surface, leaving bright, imperfect trails. Eraser smudges and faint dust particles add warmth, capturing the cozy nostalgia of a classroom after hours.
+
 ## Design Aesthetic
 
 Classic classroom chalkboard aesthetic with hand-drawn chalk illustrations. Nostalgic educational feel with imperfect, sketchy lines that capture the warmth of traditional teaching. Colorful chalk creates visual hierarchy while maintaining the authentic chalkboard experience.
@@ -49,12 +53,19 @@ Hand-drawn chalk lettering style with visible chalk texture. Imperfect baseline 
 - Create visual hierarchy with color variety
 - Include playful doodles and annotations
 
-### Don't
+### Avoid
 
 - Use perfect geometric shapes
 - Create clean digital-looking lines
 - Add photorealistic elements
 - Use gradients or glossy effects
+- Include modern digital UI elements or icons
+- Use perfectly aligned, grid-based layouts
+- Add photographic textures or realistic lighting
+
+## Example Prompt
+
+A classroom-style infographic explaining the water cycle, rendered in chalkboard style: black chalkboard background with realistic scratches and eraser smudges, hand-drawn chalk illustrations with sketchy imperfect lines, colorful chalk colors (white, yellow, pink, blue, green, orange), chalk dust effects, playful doodles (stars, arrows, circles), wooden frame border optional, 16:9 aspect ratio
 
 ## Best For
 

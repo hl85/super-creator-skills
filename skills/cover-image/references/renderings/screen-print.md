@@ -2,6 +2,10 @@
 
 Bold, limited-color poster art with print texture
 
+## Atmosphere
+
+The screen-print style creates a bold, striking atmosphere with flat color blocks, halftone textures, and deliberate print imperfections. It feels vibrant and impactful, like a limited-edition concert poster or alternative movie poster.
+
 ## Core Characteristics
 
 Screen print / silkscreen aesthetic with flat color blocks, halftone textures, and deliberate print imperfections. Think Mondo limited-edition posters, vintage concert prints, and alternative movie poster art.

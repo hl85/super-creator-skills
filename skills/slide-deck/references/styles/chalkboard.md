@@ -2,6 +2,10 @@
 
 Black chalkboard background with colorful chalk drawing style
 
+## Atmosphere
+
+A late-evening classroom where chalk dust drifts through the beam of an overhead projector. The board is covered in half-erased equations and colorful doodles, carrying the warmth of a teacher who genuinely loves their subject. There is an inviting imperfection to everything — smudged edges, uneven baselines, the faint ghost of yesterday's lesson bleeding through.
+
 ## Design Aesthetic
 
 Classic classroom chalkboard aesthetic with hand-drawn chalk illustrations. Nostalgic educational feel with imperfect, sketchy lines that capture the warmth of traditional teaching. Colorful chalk creates visual hierarchy while maintaining the authentic chalkboard experience.
@@ -55,13 +59,17 @@ Neater chalk handwriting for readability. Consistent sizing with natural variati
 - Create visual hierarchy with color variety
 - Include playful doodles and annotations
 
-### Don't
+### Avoid
 
-- Use perfect geometric shapes
-- Create clean digital-looking lines
-- Add photorealistic elements
-- Use gradients or glossy effects
-- Add slide numbers, footers, or logos
+- Use perfectly geometric shapes or digitally clean vector lines — they kill the hand-drawn soul
+- Apply uniform line thickness throughout; natural chalk varies in pressure and width
+- Add photorealistic imagery or high-resolution photographs
+- Use gradients, glossy effects, or any surface sheen (chalk is matte and dusty)
+- Place text on a solid-color banner floating above the board — it breaks the chalkboard illusion
+
+## Example Prompt
+
+A 16:9 presentation slide in chalkboard style on a dark blackboard (#1A1A1A) background with realistic chalk dust texture and faint eraser smudges. The title "Forces & Motion" is written in bold white chalk lettering with an uneven baseline. Below, hand-drawn chalk diagrams show three free-body force vectors in Chalk Yellow (#FFE566), Chalk Blue (#66B3FF), and Chalk Pink (#FF9999), with sketchy arrows and handwritten magnitude labels. Doodle stars and a small stick figure decorate the margins. All lines have natural chalk pressure variation — nothing digitally perfect.
 
 ## Best For
 

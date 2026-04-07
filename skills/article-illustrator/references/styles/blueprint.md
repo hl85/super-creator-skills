@@ -2,6 +2,10 @@
 
 Precise technical blueprint style with engineering precision
 
+## Atmosphere
+
+The crisp, precise lines of engineering paper rustle softly beneath your fingers. Light reflects off clean, straight edges, creating a sense of order and clarity. The faint scent of graphite and fresh paper fills the air, evoking the focused quiet of an architect's studio.
+
 ## Design Aesthetic
 
 Clean, structured visual metaphors using blueprints, diagrams, and schematics. Precise, analytical and aesthetically refined. Information presented in grid-based layouts with engineering precision. Technical drawing quality with professional polish.
@@ -44,13 +48,17 @@ Clean, structured visual metaphors using blueprints, diagrams, and schematics. P
 - Create clear visual hierarchy through scale
 - Use geometric precision for all shapes
 
-### Don't
+### Avoid
 
 - Use hand-drawn or organic shapes
 - Add decorative flourishes
 - Use curved connection lines
 - Include photographic elements
 - Add unnecessary embellishments
+
+## Example Prompt
+
+A technical diagram explaining microservices architecture, rendered in blueprint style: blueprint off-white (#FAF8F5) background with subtle engineering paper grid, precise technical lines with consistent stroke weights, engineering blue (#2563EB) and navy blue (#1E3A5F) accents, thin connection lines at 90-degree angles, dimension lines and measurement indicators, isometric projection, clean vector graphics, professional polish, no hand-drawn or organic shapes, 16:9 aspect ratio
 
 ## Best For
 

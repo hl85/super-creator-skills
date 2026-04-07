@@ -2,6 +2,10 @@
 
 Professional business style with navy/gold palette and structured layouts
 
+## Atmosphere
+
+The polished marble lobby of a global headquarters at dawn — quiet, expansive, and radiating institutional strength. It feels like a perfectly tailored navy suit and a firm handshake in a glass-walled boardroom overlooking a city skyline. Every element is positioned with the confidence of a market leader, balancing traditional authority with modern precision.
+
 ## Design Aesthetic
 
 Clean lines, structured layouts, and business-appropriate sophistication. Projects competence, reliability, and institutional credibility. Balances professionalism with approachability through careful use of whitespace and refined color choices.
@@ -55,14 +59,17 @@ Humanist sans-serif (Source Sans Pro style) for body text. Friendly yet professi
 - Keep data visualizations clean and readable
 - Use professional outlined iconography
 
-### Don't
+### Avoid
 
-- Use playful or casual elements
-- Apply heavy decorative effects
-- Mix too many accent colors
-- Crowd slides with information
-- Use informal illustration styles
-- Add slide numbers, footers, or logos
+- Use neon or high-saturation colors that break institutional trust
+- Apply playful, rounded, or casual fonts that undermine professional authority
+- Include informal illustrations, hand-drawn doodles, or "Corporate Memphis" style characters
+- Use heavy decorative effects like glows, intense gradients, or complex textures
+- Crowd slides with excessive information or disorganized layouts
+
+## Example Prompt
+
+A 16:9 professional corporate presentation slide on a pure white (#FFFFFF) background. The layout features a clean, structured three-column grid presenting quarterly financial growth. Headlines in bold Inter sans-serif in Navy (#1E3A5F), body text in Source Sans Pro in Dark Gray (#4A5568). Key metrics are highlighted with elegant Gold (#C9A227) accents and subtle shadows for depth. Professional outlined icons in Navy represent different business sectors. Palette limited to Navy, Gold, and Light Gray (#F3F4F6) background sections. No casual illustrations, no neon colors, no cluttered elements.
 
 ## Best For
 

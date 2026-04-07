@@ -2,6 +2,10 @@
 
 活力基调 - Bright, dynamic, exciting
 
+## Atmosphere
+
+Buzzing, electric energy fills every corner, with bright, clean lighting that makes colors pop like confetti. The air hums with excitement—sparkles dance around discoveries, motion blur streaks through fast movements, and star bursts erupt at moments of revelation. Every panel feels alive, with vibrant colors and dynamic compositions that pull the reader along for the ride.
+
 ## Overview
 
 High-energy atmosphere for exciting, discovery-filled content. Bright colors, dynamic compositions, and movement create engaging visuals for younger audiences.

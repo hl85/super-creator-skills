@@ -2,6 +2,10 @@
 
 粉笔画风 - Chalkboard aesthetic with hand-drawn warmth
 
+## Atmosphere
+
+The chalk art style evokes the tactile, nostalgic warmth of a classroom chalkboard—you can almost feel the faint dust in the air and hear the scratch of chalk against slate. The rough, powdery texture creates an intimate, approachable atmosphere that feels like sitting in a favorite teacher's lecture, while the bright chalk colors against dark backgrounds create a playful, educational mood.
+
 ## Overview
 
 Classic classroom chalkboard aesthetic with hand-drawn chalk illustrations. Nostalgic educational feel with imperfect, sketchy lines that capture the warmth of traditional teaching.
@@ -95,6 +99,10 @@ Classic classroom chalkboard aesthetic with hand-drawn chalk illustrations. Nost
 | romantic | ✗ | Style mismatch |
 | energetic | ✓✓ | Fun learning |
 | action | ✗ | Style mismatch |
+
+## Example Prompt
+
+A comic page in chalk style explaining the water cycle: sketchy, imperfect hand-drawn chalk lines with visible chalk texture, chalkboard black (#1A1A1A) background with subtle scratches and eraser marks, white and bright colored chalk (yellow, pink, blue, green, orange) for text and illustrations, playful chalk doodles (stars, arrows, underlines), stick figures and simple diagrams, chalk dust effects around elements, 3:4 aspect ratio.
 
 ## Best For
 

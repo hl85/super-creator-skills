@@ -7,6 +7,10 @@ category: vintage
 
 Vintage, nostalgic, trendy aesthetic.
 
+## Atmosphere
+
+This style feels like flipping through a well-loved photo album from the 70s or 80s, with the soft grain of film and the warm sepia tones of aged paper. The muted colors and vintage badges create a nostalgic, comforting atmosphere that's both familiar and stylish.
+
 ## Element Combination
 
 ```yaml
@@ -62,6 +66,10 @@ decorations:
 | list | ✓✓ | Classic rankings |
 | comparison | ✓ | Then vs now |
 | flow | ✓ | Historical timelines |
+
+## Example Prompt
+
+A retro-style Xiaohongshu infographic with muted orange, dusty pink, faded teal colors on an aged paper background, halftone dots, vintage badges, classic icons, tape effects, aged texture overlays, film grain filter, stylized cutout, dashed stroke, polaroid frames, portrait 3:4 layout, nostalgic aesthetic.
 
 ## Best For
 

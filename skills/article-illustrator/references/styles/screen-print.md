@@ -2,6 +2,10 @@
 
 Bold poster art with limited colors, halftone textures, and symbolic storytelling
 
+## Atmosphere
+
+The smell of fresh ink and paper fills the air. Bold color blocks snap into place with deliberate print misregistration, while halftone dots dance across the surface. Flat, unapologetic shapes command attention, capturing the rebellious energy of vintage concert posters and underground art movements.
+
 ## Design Aesthetic
 
 Screen print / silkscreen aesthetic inspired by Mondo limited-edition posters and vintage concert prints. Flat color blocks, halftone dot patterns, bold silhouettes, and deliberate print imperfections. Conceptual and symbolic rather than literal — one iconic image tells the whole story. Perfect for opinion pieces, cultural commentary, and editorial content.
@@ -56,7 +60,7 @@ Screen print / silkscreen aesthetic inspired by Mondo limited-edition posters an
 - Use geometric composition (centered, symmetrical)
 - Reference vintage decades (60s/70s/80s) for era feel
 
-### Don't
+### Avoid
 
 - Use photorealistic rendering or gradients
 - Add complex facial details (silhouettes preferred)
@@ -64,6 +68,10 @@ Screen print / silkscreen aesthetic inspired by Mondo limited-edition posters an
 - Use modern digital aesthetic
 - Create busy or cluttered compositions
 - Use more than 5 colors
+
+## Example Prompt
+
+A dramatic screen print poster featuring a bold silhouette of a mountain climber against a burnt orange and deep teal duotone background, with halftone dot textures, geometric circle framing, and vintage poster border, no gradients or photorealistic details.
 
 ## Best For
 

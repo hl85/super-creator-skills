@@ -2,6 +2,10 @@
 
 Soft hand-drawn illustration style with warm, educational feel
 
+## Atmosphere
+
+The gentle scratch of pencil on textured paper creates a cozy, inviting hum. Soft, wobbly lines and warm pastel accents feel like a friend explaining complex ideas with patience and care. Little doodles and stars peek from the margins, making learning feel like a playful adventure.
+
 ## Design Aesthetic
 
 Hand-drawn feel with soft, relaxed brush strokes. Fresh, refined style with minimalist editorial approach. Emphasis on precision, clarity and intelligent elegance while prioritizing warmth, approachability and friendliness.
@@ -43,13 +47,17 @@ Hand-drawn feel with soft, relaxed brush strokes. Fresh, refined style with mini
 - Allow imperfection (slight wobbles add character)
 - Layer elements with subtle overlaps
 
-### Don't
+### Avoid
 
 - Use perfect geometric shapes
 - Create photorealistic elements
 - Overcrowd with too many elements
 - Use pure white backgrounds
 - Make it look computer-generated
+
+## Example Prompt
+
+A soft hand-drawn sketch notes illustration featuring connection lines with wavy feel, simple geometric shapes with rounded corners, and doodle decorations like stars and spirals, using warm off-white background, deep charcoal text, and soft orange, mustard yellow, and sage green accents, no perfect geometric shapes or photorealistic elements.
 
 ## Best For
 

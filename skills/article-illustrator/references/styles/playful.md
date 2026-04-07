@@ -2,6 +2,10 @@
 
 Fun, creative illustration style for casual and educational content
 
+## Atmosphere
+
+Joyful energy bubbles from every corner. Soft pastel colors dance with bright pops of energy, while doodles and sparkles seem to wiggle with delight. The air feels light and playful, like a creative playground where imagination runs free and every visual element invites a smile.
+
 ## Design Aesthetic
 
 Whimsical and entertaining visual approach that sparks joy. Pastel colors with bright pops of energy. Doodle-like quality that feels approachable and fun. Creates a sense of play and discovery. Encourages engagement through visual delight.
@@ -46,13 +50,19 @@ Whimsical and entertaining visual approach that sparks joy. Pastel colors with b
 - Include playful details
 - Keep energy high and positive
 
-### Don't
+### Avoid
 
 - Use dark or moody colors
 - Create serious compositions
 - Add corporate elements
 - Use rigid geometric shapes
 - Make it feel professional
+- Use harsh or aggressive colors
+- Create stiff, lifeless compositions
+
+## Example Prompt
+
+A whimsical playful illustration of a learning concept with cute characters, doodles, star and sparkle decorations, using pastel pink (#FED7E2), mint (#C6F6D5), lavender (#E9D8FD), and bright yellow (#FBBF24) on a light cream (#FFFBEB) background.
 
 ## Best For
 

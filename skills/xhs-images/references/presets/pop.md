@@ -7,6 +7,10 @@ category: energetic
 
 Vibrant, energetic, eye-catching aesthetic.
 
+## Atmosphere
+
+This style feels like a summer music festival, with bright colors popping against a white background and the energy of a crowd cheering. The bold shapes, speech bubbles, and comic-style effects create a playful, high-energy atmosphere that's impossible to ignore.
+
 ## Element Combination
 
 ```yaml
@@ -62,6 +66,10 @@ decorations:
 | list | ✓✓ | Fun facts lists |
 | comparison | ✓✓ | Dynamic comparisons |
 | flow | ✓ | Energetic processes |
+
+## Example Prompt
+
+A pop-style Xiaohongshu infographic with bright red, yellow, blue, green colors on a white background, featuring bold shapes, speech bubbles, comic-style effects, starburst, high saturation filter, stylized cutout, colored-solid stroke, portrait 3:4 layout, dynamic energetic composition.
 
 ## Best For
 

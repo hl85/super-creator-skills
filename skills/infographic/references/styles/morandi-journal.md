@@ -2,6 +2,10 @@
 
 Hand-drawn doodle illustration with warm Morandi color tones and cozy bullet journal aesthetic.
 
+## Atmosphere
+
+The soft rustle of cream paper and faint scent of washi tape fills a cozy workspace. Warm muted colors blend with hand-drawn imperfections, while tiny decorative doodles whisper of personal touches and creative joy. The texture feels like a well-loved journal page, filled with warmth and gentle personality.
+
 ## Color Palette
 
 - Background: Warm cream/beige with subtle paper texture (#F5F0E6)
@@ -39,14 +43,17 @@ Hand-drawn doodle illustration with warm Morandi color tones and cozy bullet jou
 - Body text: Neat handwritten print style, easy to read
 - Numbers: Highlighted in terracotta (#D4956A), slightly larger than body
 
-## Style Enforcement
+## Style Rules
 
-- All imagery must maintain hand-drawn/doodle aesthetic—no digital precision
-- Organic, slightly imperfect shapes throughout
-- Sketch-like quality with visible line weight variations
-- Warm and cozy journal feel, not clinical or corporate
+### Do
 
-## Avoid
+- Maintain hand-drawn/doodle aesthetic with no digital precision
+- Use organic, slightly imperfect shapes throughout
+- Add sketch-like quality with visible line weight variations
+- Keep warm and cozy journal feel, not clinical or corporate
+- Include tiny decorative doodles and washi tape elements
+
+### Avoid
 
 - Flat vector icons or emoji
 - Clean geometric shapes
@@ -54,6 +61,11 @@ Hand-drawn doodle illustration with warm Morandi color tones and cozy bullet jou
 - Strict grid layout
 - Pure white background
 - Digital/corporate look
+- Perfectly clean, precise lines
+
+## Example Prompt
+
+A cozy product comparison infographic for skincare products, rendered in morandi-journal style: hand-drawn doodle illustrations with organic imperfect ink lines, warm Morandi color palette on cream paper texture, washi tape decorations, hand-drawn rulers with emoji quality indicators, hand-lettered calligraphy title, neat handwritten body text, tiny star/sparkle corner decorations, dotted line frames, 16:9 aspect ratio
 
 ## Best For
 

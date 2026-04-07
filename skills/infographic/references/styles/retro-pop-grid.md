@@ -2,6 +2,10 @@
 
 1970s retro pop art with strict Swiss international grid, thick black outlines, and flat color blocks.
 
+## Atmosphere
+
+Thick black grid lines slice through warm vintage cream, anchoring flat color blocks of salmon pink, sky blue, and mustard yellow. A subtle screen‑print texture hums beneath the surface, while geometric patterns and inverted black‑and‑white cells create rhythmic visual tension.
+
 ## Color Palette
 
 - Background: Warm vintage cream/beige (#F5F0E6)
@@ -34,13 +38,17 @@
 - Maintain 1970s retro pop art and underground comic illustration feel
 - Visual density balanced with rhythmic grid—some cells intentionally sparse for contrast
 
-## Avoid
+### Avoid
 
 - 3D rendering, realistic details, gradients, soft shadows
 - Soft, thin, or sketch-like pencil lines
 - Free-flowing, unorganized, or floating layouts (everything must be grid-anchored)
 - Pure white background canvas
 - Organic or hand-drawn imperfections
+
+## Example Prompt
+
+A 1970s‑style retro product comparison infographic in retro‑pop‑grid style: strict Swiss international grid with thick black outlines, warm vintage cream background, flat color blocks of salmon pink, sky blue, mustard yellow, mint green, solid black and white contrast cells, geometric fill patterns, vintage comic‑style smiley/frowny faces, subtle screen print texture, square aspect ratio
 
 ## Best For
 

@@ -2,6 +2,10 @@
 
 Dark moody aesthetic with deep colors and glowing accent elements
 
+## Atmosphere
+
+A cinematic midnight in a neon-lit metropolis — deep shadows stretching across wet pavement, punctuated by the sharp, electric glow of violet and cyan. It feels like stepping into a high-stakes thriller where every highlight is a deliberate choice and every shadow holds a secret. Sophisticated, mysterious, and pulsing with a quiet, premium energy that commands absolute attention.
+
 ## Design Aesthetic
 
 Cinematic dark mode aesthetic with atmospheric depth. Deep purples, blacks, and rich shadows with glowing accents creating dramatic visual contrast. Mysterious, sophisticated, and visually striking. Perfect for evening events, creative industries, and premium brand presentations.
@@ -56,13 +60,16 @@ Clean sans-serif in light gray or muted white. Readable against dark backgrounds
 - Design dramatic visual focal points
 - Keep text crisp against dark backgrounds
 
-### Don't
+### Avoid
 
-- Overuse neon effects (less is more)
-- Create low-contrast text combinations
-- Use bright backgrounds
-- Add cluttered busy elements
-- Add slide numbers, footers, or logos
+- Use flat, bright backgrounds that destroy the moody depth and cinematic contrast.
+- Overuse neon glow effects — light should feel like a deliberate accent, not a blinding wash.
+- Clutter the composition with busy textures or small, distracting elements that break the sophisticated focus.
+- Use low-contrast text colors like dark gray on black; all typography must remain crisp and legible.
+
+## Example Prompt
+
+A 16:9 presentation slide in a cinematic dark-atmospheric style with a deep purple-black (#0D0D1A) background featuring a subtle gradient and atmospheric fog. The slide displays a central glowing orb in electric purple (#8B5CF6) with radiating light circles. Headlines in elegant white serif with a subtle outer glow, body text in light gray (#A0AEC0) sans-serif. Accents of cyan blue (#06B6D4) and magenta pink (#EC4899) highlight key data points. High contrast, mysterious mood, premium brand aesthetic. No slide numbers, no flat backgrounds, no cluttered elements.
 
 ## Best For
 

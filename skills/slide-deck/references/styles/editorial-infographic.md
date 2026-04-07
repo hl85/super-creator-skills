@@ -2,6 +2,10 @@
 
 Modern magazine-style editorial infographic with clear visual storytelling
 
+## Atmosphere
+
+The crisp, intellectual hum of a modern newsroom where data is distilled into visual poetry. It feels like unfolding a premium weekend supplement, where every pixel serves a narrative purpose and white space is as important as the ink. A sophisticated blend of journalistic rigor and high-end design that makes complex truths feel self-evident.
+
 ## Design Aesthetic
 
 High-quality magazine explainer aesthetic. Clear visual storytelling that transforms complex information into digestible narratives. Clean illustrations, structured layouts, and professional typography. Think Wired, The Verge, or high-end science publications.
@@ -60,13 +64,16 @@ Humanist sans-serif optimized for reading. Clean, professional, accessible. Comf
 - Design visual metaphors for complex ideas
 - Maintain magazine-quality polish
 
-### Don't
+### Avoid
 
-- Use photographic imagery
-- Create cluttered dense layouts
-- Mix too many visual styles
-- Add decorative elements without purpose
-- Add slide numbers, footers, or logos
+- Use photographic imagery or realistic textures — stick to clean, flat vector illustrations.
+- Create cluttered, dense layouts that overwhelm the reader — prioritize clear visual hierarchy and white space.
+- Mix too many visual styles or inconsistent icon sets — maintain a unified, professional editorial polish.
+- Add decorative elements like drop shadows, glows, or bevels that don't serve an informational purpose.
+
+## Example Prompt
+
+A 16:9 editorial infographic slide in a modern magazine style on a pure white (#FFFFFF) background. The slide features a structured multi-section layout explaining a complex technology concept using clean flat vector illustrations in Editorial Blue (#2563EB) and Coral (#F97316). Headlines in a bold modern sans-serif, body text in a clean humanist sans-serif with generous line height. Callout boxes with Emerald (#10B981) accents highlight key insights. The design is polished and professional, reminiscent of a high-end science publication like Wired, with clear visual storytelling and no photographic elements.
 
 ## Best For
 

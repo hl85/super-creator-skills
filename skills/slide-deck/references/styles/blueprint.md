@@ -2,6 +2,10 @@
 
 Precise technical blueprint style with professional analytical visual presentation
 
+## Atmosphere
+
+The quiet authority of an architect's drafting room — every line drawn with deliberate intent, white space breathing between precise notations. A palette so restrained it whispers competence. It feels like opening a folio of perfectly executed engineering drawings under cool fluorescent light, where nothing is arbitrary and every dimension has been measured twice.
+
 ## Design Aesthetic
 
 Clean, structured visual metaphors using blueprints, diagrams, and schematics. Precise, analytical and aesthetically refined. Information presented in triptych or grid-based layouts with engineering precision.
@@ -54,13 +58,17 @@ Tiempos Text or similar elegant serif for body explanations. Clean, readable at 
 - Create clear visual hierarchy through scale
 - Use geometric precision for all shapes
 
-### Don't
+### Avoid
 
-- Use hand-drawn or organic shapes
-- Add decorative flourishes
-- Use curved connection lines
-- Include photographic elements
-- Add slide numbers, footers, or logos
+- Use hand-drawn or organic shapes — every form must be geometric and precise
+- Add decorative flourishes, drop shadows, or glow effects
+- Use curved connection lines or freeform paths between elements
+- Include photographic imagery or raster textures
+- Mix more than three stroke weights in a single diagram
+
+## Example Prompt
+
+A 16:9 presentation slide in precise blueprint style on off-white engineering paper (#FAF8F5) with a subtle gray grid overlay. The slide presents a three-column architecture diagram of a cloud microservices system, drawn with thin Engineering Blue (#2563EB) technical lines and strict 90-degree connectors. Headlines in bold Neue Haas Grotesk, body labels in Tiempos Text serif. Dimension lines annotate latency values between services. Palette limited to deep slate text, engineering blue accents, and light blue (#BFDBFE) fills. No photographs, no curved lines, no decorative elements.
 
 ## Best For
 

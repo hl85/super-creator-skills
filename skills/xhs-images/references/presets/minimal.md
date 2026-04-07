@@ -7,6 +7,10 @@ category: elegant
 
 Ultra-clean, sophisticated aesthetic.
 
+## Atmosphere
+
+This style feels like a quiet, modern art gallery, with maximum whitespace that lets the single focal point breathe. The restrained use of black, white, and one accent color creates a sophisticated, elegant atmosphere that's both confident and calm.
+
 ## Element Combination
 
 ```yaml
@@ -62,6 +66,10 @@ decorations:
 | list | ✓ | Simple lists |
 | comparison | ✓ | Clean comparisons |
 | flow | ✓ | Elegant processes |
+
+## Example Prompt
+
+A minimal Xiaohongshu infographic with black and white colors on an off-white background, single focal point, thin lines, maximum whitespace, simple clean decorations, restrained visual elements, clean simple hand lettering, portrait 3:4 layout, sophisticated aesthetic.
 
 ## Best For
 

@@ -2,6 +2,10 @@
 
 武侠预设 - Hong Kong martial arts comic style
 
+## Atmosphere
+
+The air crackles with qi energy and the sound of rustling robes, leaves swirling in the wind as warriors clash. Ink wash mist drifts through mountainous backgrounds, while the sharp scent of ink and ancient stone fills the senses. Every moment pulses with dynamic motion, dramatic tension, and the weight of martial arts tradition.
+
 ## Base Configuration
 
 | Dimension | Value |
@@ -104,6 +108,10 @@ Always include:
 - ✓ Flowing fabric and hair movement
 - ✓ Impactful combat moments
 - ✓ Speed lines and impact effects
+
+## Example Prompt
+
+A 4-page Hong Kong-style martial arts comic featuring a dramatic sword duel on a mountain cliff, with ink brush line work, dynamic warrior stances, glowing blue/gold righteous qi aura around characters, visible energy projection from sword strikes, speed lines and shockwave rings at impact, exploding trees and flying leaves in the background, floating particles and ink wash mist, flowing robes and hair, splash layout, ink-brush art style, action tone.
 
 ## Best For
 
