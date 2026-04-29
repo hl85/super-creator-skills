@@ -19,7 +19,17 @@
       "Bash(npx -y bun test)",
       "Bash(git -C /Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread commit -m \"feat\\(markdown-to-thread\\): CLI entry with end-to-end test\")",
       "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('/Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread/.claude-plugin/marketplace.json','utf8'\\)\\)\")",
-      "Bash(git -C /Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread commit -m \"docs\\(markdown-to-thread\\): add style reference and register skill\")"
+      "Bash(git -C /Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread commit -m \"docs\\(markdown-to-thread\\): add style reference and register skill\")",
+      "Bash(cat)",
+      "Bash(npx -y bun skills/markdown-to-thread/scripts/main.ts /tmp/sample.md --cta \"Full post 👇\" -o /tmp/sample.thread.json)",
+      "Read(//tmp/**)",
+      "Bash(git checkout *)",
+      "Bash(git merge *)",
+      "Bash(git -C .claude/worktrees/markdown-to-thread show worktree-markdown-to-thread:.claude/settings.local.json)",
+      "Bash(git worktree *)",
+      "Bash(git branch *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
     ]
   }
 }
