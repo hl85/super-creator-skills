@@ -17,7 +17,7 @@ extraction.
 - Print `markdown` / `json` to stdout or save with `--output`
 - Optionally download extracted images or videos and rewrite Markdown links
 - Optional wait modes for login and verification flows
-- Chrome profile defaults to `supercreator/chrome-profile`
+- Chrome profile defaults to `supper-creator/chrome-profile`
 
 ## Installation
 
@@ -52,7 +52,7 @@ sc-fetch https://x.com/jack/status/20 --format json --output article.json
 sc-fetch https://x.com/jack/status/20 --json
 sc-fetch https://x.com/jack/status/20 --wait-for interaction
 sc-fetch https://x.com/jack/status/20 --wait-for force
-sc-fetch https://x.com/jack/status/20 --chrome-profile-dir ~/Library/Application\\ Support/supercreator/chrome-profile
+sc-fetch https://x.com/jack/status/20 --chrome-profile-dir ~/Library/Application\\ Support/supper-creator/chrome-profile
 ```
 
 ## Options
@@ -72,7 +72,7 @@ Options:
   --browser-path <path> Explicit Chrome binary path
   --chrome-profile-dir <path>
                         Chrome user data dir. Defaults to SC_CHROME_PROFILE_DIR
-                        or supercreator/chrome-profile
+                        or supper-creator/chrome-profile
   --headless            Launch a temporary headless Chrome if needed
   --wait-for <mode>     Wait mode: interaction | force
   --wait-for-interaction

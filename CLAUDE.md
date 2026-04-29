@@ -4,7 +4,7 @@ Claude Code marketplace plugin providing AI-powered content generation skills. V
 
 ## Architecture
 
-Skills are exposed through the single `supercreator` plugin in `.claude-plugin/marketplace.json` (which defines plugin metadata, version, and skill paths). The repo docs still group them into three logical areas:
+Skills are exposed through the single `supper-creator` plugin in `.claude-plugin/marketplace.json` (which defines plugin metadata, version, and skill paths). The repo docs still group them into three logical areas:
 
 | Group | Description |
 |-------|-------------|
@@ -32,7 +32,7 @@ Execute: `${BUN_X} skills/<skill>/scripts/main.ts [options]`
 - **Bun**: TypeScript runtime (`bun` preferred, fallback `npx -y bun`)
 - **Chrome**: Required for CDP-based skills (gemini-web, post-to-x/wechat/weibo, url-to-markdown). All CDP skills share a single profile, override via `SC_CHROME_PROFILE_DIR` env var. Platform paths: [docs/chrome-profile.md](docs/chrome-profile.md)
 - **Image generation APIs**: `imagine` requires API key (OpenAI, Azure OpenAI, Google, OpenRouter, DashScope, or Replicate) configured in EXTEND.md
-- **Config dirs**: `.supercreator/` (project-level) and `~/.supercreator/` (user-level) store `.env` files and `EXTEND.md` overrides. The `supercreator` plugin reads these on startup.
+- **Config dirs**: `.supper-creator/` (project-level) and `~/.supper-creator/` (user-level) store `.env` files and `EXTEND.md` overrides. The `supper-creator` plugin reads these on startup.
 - **Gemini Web auth**: Browser cookies (first run opens Chrome for login, `--login` to refresh)
 
 ## Security
@@ -49,7 +49,7 @@ Execute: `${BUN_X} skills/<skill>/scripts/main.ts [options]`
 | **Load project skills first** | Project skills override system/user-level skills with same name |
 | **Default image generation** | Use `skills/imagine/SKILL.md` unless user specifies otherwise |
 
-Priority: project `skills/` → `$HOME/.supercreator/` → system-level.
+Priority: project `skills/` → `$HOME/.supper-creator/` → system-level.
 
 ## Deprecated Skills
 
@@ -60,7 +60,7 @@ Priority: project `skills/` → `$HOME/.supercreator/` → system-level.
 
 Use `/release-skills` workflow. Never skip:
 1. `CHANGELOG.md` + `CHANGELOG.zh.md`
-2. `marketplace.json` version bump (update `supercreator` plugin version)
+2. `marketplace.json` version bump (update `supper-creator` plugin version)
 3. `README.md` + `README.zh.md` if applicable
 4. All files committed together before tag
 
@@ -70,7 +70,7 @@ TypeScript, no comments, async/await, short variable names, type-safe interfaces
 
 ## Adding New Skills
 
-All skills use descriptive names without a required prefix. Register under the `supercreator` plugin in `.claude-plugin/marketplace.json`. Details: [docs/creating-skills.md](docs/creating-skills.md)
+All skills use descriptive names without a required prefix. Register under the `supper-creator` plugin in `.claude-plugin/marketplace.json`. Details: [docs/creating-skills.md](docs/creating-skills.md)
 
 ## Reference Docs
 

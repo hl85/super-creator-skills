@@ -131,17 +131,17 @@ header: "Save"
 question: "Where to save preferences?"
 options:
   - label: "Project (Recommended)"
-    description: ".supercreator/ (this project only)"
+    description: ".supper-creator/ (this project only)"
   - label: "User"
-    description: "~/.supercreator/ (all projects)"
+    description: "~/.supper-creator/ (all projects)"
 ```
 
 ## Save Locations
 
 | Choice | Path | Scope |
 |--------|------|-------|
-| Project | `.supercreator/post-to-wechat/EXTEND.md` | Current project |
-| User | `~/.supercreator/post-to-wechat/EXTEND.md` | All projects |
+| Project | `.supper-creator/post-to-wechat/EXTEND.md` | Current project |
+| User | `~/.supper-creator/post-to-wechat/EXTEND.md` | All projects |
 
 ## After Setup
 

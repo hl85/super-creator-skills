@@ -4,7 +4,7 @@ description: Formats plain text or markdown files with frontmatter, titles, summ
 version: 1.57.0
 metadata:
   openclaw:
-    homepage: https://github.com/hl85/supercreator
+    homepage: https://github.com/hl85/supper-creator
     requires:
       anyBins:
         - bun
@@ -33,25 +33,25 @@ Check EXTEND.md existence (priority order):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .supercreator/format-markdown/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supercreator/format-markdown/EXTEND.md" && echo "xdg"
-test -f "$HOME/.supercreator/format-markdown/EXTEND.md" && echo "user"
+test -f .supper-creator/format-markdown/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supper-creator/format-markdown/EXTEND.md" && echo "xdg"
+test -f "$HOME/.supper-creator/format-markdown/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .supercreator/format-markdown/EXTEND.md) { "project" }
+if (Test-Path .supper-creator/format-markdown/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/supercreator/format-markdown/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.supercreator/format-markdown/EXTEND.md") { "user" }
+if (Test-Path "$xdg/supper-creator/format-markdown/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.supper-creator/format-markdown/EXTEND.md") { "user" }
 ```
 
 ┌──────────────────────────────────────────────────────────┬───────────────────┐
 │                           Path                           │     Location      │
 ├──────────────────────────────────────────────────────────┼───────────────────┤
-│ .supercreator/format-markdown/EXTEND.md            │ Project directory │
+│ .supper-creator/format-markdown/EXTEND.md            │ Project directory │
 ├──────────────────────────────────────────────────────────┼───────────────────┤
-│ $HOME/.supercreator/format-markdown/EXTEND.md      │ User home         │
+│ $HOME/.supper-creator/format-markdown/EXTEND.md      │ User home         │
 └──────────────────────────────────────────────────────────┴───────────────────┘
 
 ┌───────────┬───────────────────────────────────────────────────────────────────────────┐

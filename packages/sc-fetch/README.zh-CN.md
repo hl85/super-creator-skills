@@ -16,7 +16,7 @@
 - `stdout` 或 `--output` 输出 `markdown` / `json`
 - 可选下载提取出的图片/视频并重写 Markdown 链接
 - 提供登录/验证场景下的交互等待模式
-- Chrome profile 默认对齐 `supercreator/chrome-profile`
+- Chrome profile 默认对齐 `supper-creator/chrome-profile`
 
 ## 安装
 
@@ -51,7 +51,7 @@ sc-fetch https://x.com/jack/status/20 --format json --output article.json
 sc-fetch https://x.com/jack/status/20 --json
 sc-fetch https://x.com/jack/status/20 --wait-for interaction
 sc-fetch https://x.com/jack/status/20 --wait-for force
-sc-fetch https://x.com/jack/status/20 --chrome-profile-dir ~/Library/Application\\ Support/supercreator/chrome-profile
+sc-fetch https://x.com/jack/status/20 --chrome-profile-dir ~/Library/Application\\ Support/supper-creator/chrome-profile
 ```
 
 ## 主要参数
@@ -71,7 +71,7 @@ Options:
   --browser-path <path> 指定 Chrome 可执行文件
   --chrome-profile-dir <path>
                         指定 Chrome profile 目录。默认使用 SC_CHROME_PROFILE_DIR，
-                        否则回退到 supercreator/chrome-profile
+                        否则回退到 supper-creator/chrome-profile
   --headless            启动临时 headless Chrome（未连现有实例时）
   --wait-for <mode>     等待模式：interaction | force
   --wait-for-interaction

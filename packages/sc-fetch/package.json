@@ -20,13 +20,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hl85/supercreator.git",
+    "url": "git+https://github.com/hl85/supper-creator.git",
     "directory": "packages/sc-fetch"
   },
   "bugs": {
-    "url": "https://github.com/hl85/supercreator/issues"
+    "url": "https://github.com/hl85/supper-creator/issues"
   },
-  "homepage": "https://github.com/hl85/supercreator/tree/main/packages/sc-fetch#readme",
+  "homepage": "https://github.com/hl85/supper-creator/tree/main/packages/sc-fetch#readme",
   "publishConfig": {
     "access": "public"
   },

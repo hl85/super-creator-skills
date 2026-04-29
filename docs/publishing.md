@@ -7,7 +7,7 @@ Skills include `metadata.openclaw` in YAML front matter:
 ```yaml
 metadata:
   openclaw:
-    homepage: https://github.com/hl85/supercreator#<skill-name>
+    homepage: https://github.com/hl85/supper-creator#<skill-name>
     requires:          # only for skills with scripts
       anyBins:
         - bun

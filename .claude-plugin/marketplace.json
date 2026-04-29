@@ -1,8 +1,8 @@
 {
-  "name": "supercreator",
+  "name": "supper-creator",
   "owner": {
-    "name": "Jim Liu (宝玉)",
-    "email": "junminliu@gmail.com"
+    "name": "小灰灰",
+    "email": "smart.wolfer@gmail.com"
   },
   "metadata": {
     "description": "Skills for improving daily work efficiency",
@@ -10,7 +10,7 @@
   },
   "plugins": [
     {
-      "name": "supercreator",
+      "name": "supper-creator",
       "description": "Content generation, AI backends, and utility tools for daily work efficiency",
       "source": "./",
       "strict": true,

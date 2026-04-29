@@ -140,7 +140,7 @@ export function resolveSharedChromeProfileDir(options: ResolveSharedChromeProfil
     if (override) return path.resolve(override);
   }
 
-  const appDataDirName = options.appDataDirName ?? "supercreator";
+  const appDataDirName = options.appDataDirName ?? "supper-creator";
   const profileDirName = options.profileDirName ?? "chrome-profile";
 
   if (options.wslWindowsHome) {

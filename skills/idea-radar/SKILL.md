@@ -4,7 +4,7 @@ description: Periodic content-idea sweep. Reads a per-project sources.yaml (X li
 version: 0.1.0
 metadata:
   openclaw:
-    homepage: https://github.com/hl85/supercreator
+    homepage: https://github.com/hl85/supper-creator
 ---
 
 # Idea Radar
@@ -19,11 +19,11 @@ Pulls trending / fresh signal from multiple sources via `agent-reach`, scores ea
 
 | Flag | Default | Meaning |
 |------|---------|---------|
-| `--sources` | `.supercreator/idea-radar/sources.yaml` (project) → `~/.supercreator/idea-radar/sources.yaml` (user) → `templates/sources.example.yaml` (skill) | Source catalog |
+| `--sources` | `.supper-creator/idea-radar/sources.yaml` (project) → `~/.supper-creator/idea-radar/sources.yaml` (user) → `templates/sources.example.yaml` (skill) | Source catalog |
 | `--limit` | 20 | Max new ideas appended per run |
 | `--platforms` | `wechat,x` | Which platforms to score for |
 | `--since` | `24h` | Only consider items published in this window |
-| `--ledger` | `.supercreator/idea-radar/ideas.jsonl` | Append-only JSONL store |
+| `--ledger` | `.supper-creator/idea-radar/ideas.jsonl` | Append-only JSONL store |
 
 ## Pipeline
 

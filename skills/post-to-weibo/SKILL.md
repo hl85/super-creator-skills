@@ -4,7 +4,7 @@ description: Posts content to Weibo (微博). Supports regular posts with text, 
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/hl85/supercreator
+    homepage: https://github.com/hl85/supper-creator
     requires:
       anyBins:
         - bun
@@ -39,25 +39,25 @@ Check EXTEND.md existence (priority order):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .supercreator/post-to-weibo/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supercreator/post-to-weibo/EXTEND.md" && echo "xdg"
-test -f "$HOME/.supercreator/post-to-weibo/EXTEND.md" && echo "user"
+test -f .supper-creator/post-to-weibo/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supper-creator/post-to-weibo/EXTEND.md" && echo "xdg"
+test -f "$HOME/.supper-creator/post-to-weibo/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .supercreator/post-to-weibo/EXTEND.md) { "project" }
+if (Test-Path .supper-creator/post-to-weibo/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/supercreator/post-to-weibo/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.supercreator/post-to-weibo/EXTEND.md") { "user" }
+if (Test-Path "$xdg/supper-creator/post-to-weibo/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.supper-creator/post-to-weibo/EXTEND.md") { "user" }
 ```
 
 ┌──────────────────────────────────────────────────┬───────────────────┐
 │                       Path                       │     Location      │
 ├──────────────────────────────────────────────────┼───────────────────┤
-│ .supercreator/post-to-weibo/EXTEND.md      │ Project directory │
+│ .supper-creator/post-to-weibo/EXTEND.md      │ Project directory │
 ├──────────────────────────────────────────────────┼───────────────────┤
-│ $HOME/.supercreator/post-to-weibo/EXTEND.md│ User home         │
+│ $HOME/.supper-creator/post-to-weibo/EXTEND.md│ User home         │
 └──────────────────────────────────────────────────┴───────────────────┘
 
 ┌───────────┬───────────────────────────────────────────────────────────────────────────┐
@@ -151,13 +151,13 @@ Unless the user explicitly specifies the post type:
 
 ### Chrome debug port not ready
 
-If a script fails with `Chrome debug port not ready` or `Unable to connect`, kill only the CDP Chrome instances (those with `--remote-debugging-port` AND the supercreator profile), then retry:
+If a script fails with `Chrome debug port not ready` or `Unable to connect`, kill only the CDP Chrome instances (those with `--remote-debugging-port` AND the supper-creator profile), then retry:
 
 ```bash
-pkill -f "remote-debugging-port.*supercreator/chrome-profile" 2>/dev/null; sleep 2
+pkill -f "remote-debugging-port.*supper-creator/chrome-profile" 2>/dev/null; sleep 2
 ```
 
-**CRITICAL**: Never kill all Chrome processes (`pkill -f "Google Chrome"`). Only kill Chrome instances launched by CDP with the supercreator profile directory. The user may have regular Chrome windows open.
+**CRITICAL**: Never kill all Chrome processes (`pkill -f "Google Chrome"`). Only kill Chrome instances launched by CDP with the supper-creator profile directory. The user may have regular Chrome windows open.
 
 **Important**: This should be done automatically -- when encountering this error, kill the CDP Chrome instances and retry the command without asking the user.
 

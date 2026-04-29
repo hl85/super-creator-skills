@@ -25,15 +25,15 @@ describe("resolveChromeProfileDir", () => {
     expect(resolveChromeProfileDir()).toBe("/tmp/sc-profile");
   });
 
-  test("falls back to shared supercreator profile path", () => {
+  test("falls back to shared supper-creator profile path", () => {
     delete process.env.SC_CHROME_PROFILE_DIR;
     const resolved = resolveChromeProfileDir();
     if (process.platform === "darwin") {
-      expect(resolved).toBe(path.join(os.homedir(), "Library", "Application Support", "supercreator", "chrome-profile"));
+      expect(resolved).toBe(path.join(os.homedir(), "Library", "Application Support", "supper-creator", "chrome-profile"));
     } else if (process.platform === "win32") {
-      expect(resolved.endsWith(path.join("supercreator", "chrome-profile"))).toBe(true);
+      expect(resolved.endsWith(path.join("supper-creator", "chrome-profile"))).toBe(true);
     } else {
-      expect(resolved.endsWith(path.join("supercreator", "chrome-profile"))).toBe(true);
+      expect(resolved.endsWith(path.join("supper-creator", "chrome-profile"))).toBe(true);
     }
   });
 });

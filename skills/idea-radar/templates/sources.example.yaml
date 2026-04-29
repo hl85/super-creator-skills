@@ -1,8 +1,8 @@
 # idea-radar: starter sources.yaml
 #
 # Copy to either:
-#   .supercreator/idea-radar/sources.yaml   (project-level, recommended)
-#   ~/.supercreator/idea-radar/sources.yaml (user-level, applies to every project)
+#   .supper-creator/idea-radar/sources.yaml   (project-level, recommended)
+#   ~/.supper-creator/idea-radar/sources.yaml (user-level, applies to every project)
 #
 # Each entry has:
 #   type:    one of search | x_list | github_trending | rss | youtube_channel | wechat_account | reddit | hn

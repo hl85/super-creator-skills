@@ -29,7 +29,13 @@
       "Bash(git worktree *)",
       "Bash(git branch *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash([ ! -d \"$d/scripts\" ])",
+      "Bash(git rebase *)",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('.claude-plugin/marketplace.json','utf8'\\)\\)\")",
+      "Bash(node -e ' *)",
+      "WebSearch",
+      "WebFetch(domain:docs.anthropic.com)"
     ]
   }
 }

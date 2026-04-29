@@ -131,12 +131,12 @@ function parseWechatExtend(content: string): WechatExtendConfig {
 
 export function loadWechatExtendConfig(): WechatExtendConfig {
   const paths = [
-    path.join(process.cwd(), ".supercreator", "post-to-wechat", "EXTEND.md"),
+    path.join(process.cwd(), ".supper-creator", "post-to-wechat", "EXTEND.md"),
     path.join(
       process.env.XDG_CONFIG_HOME || path.join(os.homedir(), ".config"),
-      "supercreator", "post-to-wechat", "EXTEND.md"
+      "supper-creator", "post-to-wechat", "EXTEND.md"
     ),
-    path.join(os.homedir(), ".supercreator", "post-to-wechat", "EXTEND.md"),
+    path.join(os.homedir(), ".supper-creator", "post-to-wechat", "EXTEND.md"),
   ];
   for (const p of paths) {
     try {
@@ -266,14 +266,14 @@ function resolveCredentialSource(
 
   throw new Error(
     `Missing WECHAT_APP_ID or WECHAT_APP_SECRET${hint}.\n` +
-    "Set via EXTEND.md account config, environment variables, or .supercreator/.env file." +
+    "Set via EXTEND.md account config, environment variables, or .supper-creator/.env file." +
     partialHint
   );
 }
 
 export function loadCredentials(account?: ResolvedAccount): LoadedCredentials {
-  const cwdEnvPath = path.join(process.cwd(), ".supercreator", ".env");
-  const homeEnvPath = path.join(os.homedir(), ".supercreator", ".env");
+  const cwdEnvPath = path.join(process.cwd(), ".supper-creator", ".env");
+  const homeEnvPath = path.join(os.homedir(), ".supper-creator", ".env");
   const cwdEnv = loadEnvFile(cwdEnvPath);
   const homeEnv = loadEnvFile(homeEnvPath);
 
@@ -294,15 +294,15 @@ export function loadCredentials(account?: ResolvedAccount): LoadedCredentials {
     const prefixedKeyLabel = `${prefix}APP_ID/${prefix}APP_SECRET`;
     sources.push(
       buildCredentialSource(`process.env (${prefixedKeyLabel})`, process.env, `${prefix}APP_ID`, `${prefix}APP_SECRET`),
-      buildCredentialSource(`<cwd>/.supercreator/.env (${prefixedKeyLabel})`, cwdEnv, `${prefix}APP_ID`, `${prefix}APP_SECRET`),
-      buildCredentialSource(`~/.supercreator/.env (${prefixedKeyLabel})`, homeEnv, `${prefix}APP_ID`, `${prefix}APP_SECRET`),
+      buildCredentialSource(`<cwd>/.supper-creator/.env (${prefixedKeyLabel})`, cwdEnv, `${prefix}APP_ID`, `${prefix}APP_SECRET`),
+      buildCredentialSource(`~/.supper-creator/.env (${prefixedKeyLabel})`, homeEnv, `${prefix}APP_ID`, `${prefix}APP_SECRET`),
     );
   }
 
   sources.push(
     buildCredentialSource("process.env", process.env, "WECHAT_APP_ID", "WECHAT_APP_SECRET"),
-    buildCredentialSource("<cwd>/.supercreator/.env", cwdEnv, "WECHAT_APP_ID", "WECHAT_APP_SECRET"),
-    buildCredentialSource("~/.supercreator/.env", homeEnv, "WECHAT_APP_ID", "WECHAT_APP_SECRET"),
+    buildCredentialSource("<cwd>/.supper-creator/.env", cwdEnv, "WECHAT_APP_ID", "WECHAT_APP_SECRET"),
+    buildCredentialSource("~/.supper-creator/.env", homeEnv, "WECHAT_APP_ID", "WECHAT_APP_SECRET"),
   );
 
   return resolveCredentialSource(sources, account);

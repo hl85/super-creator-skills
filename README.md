@@ -1,4 +1,4 @@
-# supercreator
+# supper-creator
 
 English | [中文](./README.zh.md)
 
@@ -16,7 +16,7 @@ AI-powered content generation skills for Claude Code.
 ### Quick Install (Recommended)
 
 ```bash
-npx skills add hl85/supercreator
+npx skills add hl85/supper-creator
 ```
 
 ### Publish to ClawHub / OpenClaw
@@ -45,7 +45,7 @@ Publishing to ClawHub releases the published skill under `MIT-0`, per ClawHub's 
 Run the following command in Claude Code:
 
 ```bash
-/plugin marketplace add hl85/supercreator
+/plugin marketplace add hl85/supper-creator
 ```
 
 ### Install Skills
@@ -53,22 +53,22 @@ Run the following command in Claude Code:
 **Option 1: Via Browse UI**
 
 1. Select **Browse and install plugins**
-2. Select **supercreator**
-3. Select the **supercreator** plugin
+2. Select **supper-creator**
+3. Select the **supper-creator** plugin
 4. Select **Install now**
 
 **Option 2: Direct Install**
 
 ```bash
 # Install the marketplace's single plugin
-/plugin install supercreator@supercreator
+/plugin install supper-creator@supper-creator
 ```
 
 **Option 3: Ask the Agent**
 
 Simply tell Claude Code:
 
-> Please install Skills from github.com/hl85/supercreator
+> Please install Skills from github.com/hl85/supper-creator
 
 ### Available Plugin
 
@@ -76,7 +76,7 @@ The marketplace now exposes a single plugin so each skill is registered exactly 
 
 | Plugin | Description | Includes |
 |--------|-------------|----------|
-| **supercreator** | Content generation, AI backends, and utility tools for daily work efficiency | All skills in this repository, organized below as Content Skills, AI Generation Skills, and Utility Skills |
+| **supper-creator** | Content generation, AI backends, and utility tools for daily work efficiency | All skills in this repository, organized below as Content Skills, AI Generation Skills, and Utility Skills |
 
 ## Update Skills
 
@@ -84,7 +84,7 @@ To update skills to the latest version:
 
 1. Run `/plugin` in Claude Code
 2. Switch to **Marketplaces** tab (use arrow keys or Tab)
-3. Select **supercreator**
+3. Select **supper-creator**
 4. Choose **Update marketplace**
 
 You can also **Enable auto-update** to get the latest versions automatically.
@@ -573,7 +573,7 @@ Post content to WeChat Official Account (微信公众号). Two modes available:
 **API Configuration** (for faster publishing):
 
 ```bash
-# Add to .supercreator/.env (project-level) or ~/.supercreator/.env (user-level)
+# Add to .supper-creator/.env (project-level) or ~/.supper-creator/.env (user-level)
 WECHAT_APP_ID=your_app_id
 WECHAT_APP_SECRET=your_app_secret
 ```
@@ -589,10 +589,10 @@ To obtain credentials:
 **Multi-Account Support**: Manage multiple WeChat Official Accounts via `EXTEND.md`:
 
 ```bash
-mkdir -p .supercreator/post-to-wechat
+mkdir -p .supper-creator/post-to-wechat
 ```
 
-Create `.supercreator/post-to-wechat/EXTEND.md`:
+Create `.supper-creator/post-to-wechat/EXTEND.md`:
 
 ```yaml
 # Global settings (shared across all accounts)
@@ -1053,17 +1053,17 @@ Some skills require API keys or custom configuration. Environment variables can 
 **Load Priority** (higher priority overrides lower):
 1. CLI environment variables (e.g., `OPENAI_API_KEY=xxx /imagine ...`)
 2. `process.env` (system environment)
-3. `<cwd>/.supercreator/.env` (project-level)
-4. `~/.supercreator/.env` (user-level)
+3. `<cwd>/.supper-creator/.env` (project-level)
+4. `~/.supper-creator/.env` (user-level)
 
 **Setup**:
 
 ```bash
 # Create user-level config directory
-mkdir -p ~/.supercreator
+mkdir -p ~/.supper-creator
 
 # Create .env file
-cat > ~/.supercreator/.env << 'EOF'
+cat > ~/.supper-creator/.env << 'EOF'
 # OpenAI
 OPENAI_API_KEY=sk-xxx
 OPENAI_IMAGE_MODEL=gpt-image-1.5
@@ -1120,9 +1120,9 @@ EOF
 **Project-level config** (for team sharing):
 
 ```bash
-mkdir -p .supercreator
-# Add .supercreator/.env to .gitignore to avoid committing secrets
-echo ".supercreator/.env" >> .gitignore
+mkdir -p .supper-creator
+# Add .supper-creator/.env to .gitignore to avoid committing secrets
+echo ".supper-creator/.env" >> .gitignore
 ```
 
 ## Customization
@@ -1130,16 +1130,16 @@ echo ".supercreator/.env" >> .gitignore
 All skills support customization via `EXTEND.md` files. Create an extension file to override default styles, add custom configurations, or define your own presets.
 
 **Extension paths** (checked in priority order):
-1. `.supercreator/<skill-name>/EXTEND.md` - Project-level (for team/project-specific settings)
-2. `~/.supercreator/<skill-name>/EXTEND.md` - User-level (for personal preferences)
+1. `.supper-creator/<skill-name>/EXTEND.md` - Project-level (for team/project-specific settings)
+2. `~/.supper-creator/<skill-name>/EXTEND.md` - User-level (for personal preferences)
 
 **Example**: To customize `cover-image` with your brand colors:
 
 ```bash
-mkdir -p .supercreator/cover-image
+mkdir -p .supper-creator/cover-image
 ```
 
-Then create `.supercreator/cover-image/EXTEND.md`:
+Then create `.supper-creator/cover-image/EXTEND.md`:
 
 ```markdown
 ## Custom Palettes
@@ -1200,4 +1200,4 @@ MIT
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=hl85/supercreator&type=Date)](https://www.star-history.com/#hl85/supercreator&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=hl85/supper-creator&type=Date)](https://www.star-history.com/#hl85/supper-creator&Date)

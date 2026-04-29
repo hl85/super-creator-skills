@@ -75,17 +75,17 @@ header: "Save"
 question: "Where to save preferences?"
 options:
   - label: "User (Recommended)"
-    description: "~/.supercreator/ (all projects)"
+    description: "~/.supper-creator/ (all projects)"
   - label: "Project"
-    description: ".supercreator/ (this project only)"
+    description: ".supper-creator/ (this project only)"
 ```
 
 ## Save Locations
 
 | Choice | Path | Scope |
 |--------|------|-------|
-| User | `~/.supercreator/danger-x-to-markdown/EXTEND.md` | All projects |
-| Project | `.supercreator/danger-x-to-markdown/EXTEND.md` | Current project |
+| User | `~/.supper-creator/danger-x-to-markdown/EXTEND.md` | All projects |
+| Project | `.supper-creator/danger-x-to-markdown/EXTEND.md` | Current project |
 
 ## After Setup
 

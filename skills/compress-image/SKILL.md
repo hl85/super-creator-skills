@@ -4,7 +4,7 @@ description: Compresses images to WebP (default) or PNG with automatic tool sele
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/hl85/supercreator
+    homepage: https://github.com/hl85/supper-creator
     requires:
       anyBins:
         - bun
@@ -29,25 +29,25 @@ Check EXTEND.md existence (priority order):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .supercreator/compress-image/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supercreator/compress-image/EXTEND.md" && echo "xdg"
-test -f "$HOME/.supercreator/compress-image/EXTEND.md" && echo "user"
+test -f .supper-creator/compress-image/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supper-creator/compress-image/EXTEND.md" && echo "xdg"
+test -f "$HOME/.supper-creator/compress-image/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .supercreator/compress-image/EXTEND.md) { "project" }
+if (Test-Path .supper-creator/compress-image/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/supercreator/compress-image/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.supercreator/compress-image/EXTEND.md") { "user" }
+if (Test-Path "$xdg/supper-creator/compress-image/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.supper-creator/compress-image/EXTEND.md") { "user" }
 ```
 
 ┌────────────────────────────────────────────────────────┬───────────────────┐
 │                          Path                          │     Location      │
 ├────────────────────────────────────────────────────────┼───────────────────┤
-│ .supercreator/compress-image/EXTEND.md           │ Project directory │
+│ .supper-creator/compress-image/EXTEND.md           │ Project directory │
 ├────────────────────────────────────────────────────────┼───────────────────┤
-│ $HOME/.supercreator/compress-image/EXTEND.md     │ User home         │
+│ $HOME/.supper-creator/compress-image/EXTEND.md     │ User home         │
 └────────────────────────────────────────────────────────┴───────────────────┘
 
 ┌───────────┬───────────────────────────────────────────────────────────────────────────┐
