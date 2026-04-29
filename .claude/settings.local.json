@@ -15,7 +15,9 @@
       "Bash(git -C /Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread add -A)",
       "Bash(git -C /Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread commit -m \"feat\\(markdown-to-thread\\): greedy-pack segments into tweets\")",
       "Bash(npx -y bun test compose.test.ts)",
-      "Bash(git -C /Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread commit -m \"feat\\(markdown-to-thread\\): hook, cta, and numbering composition\")"
+      "Bash(git -C /Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread commit -m \"feat\\(markdown-to-thread\\): hook, cta, and numbering composition\")",
+      "Bash(npx -y bun test)",
+      "Bash(git -C /Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread commit -m \"feat\\(markdown-to-thread\\): CLI entry with end-to-end test\")"
     ]
   }
 }
