@@ -47,3 +47,59 @@ export function extractSegments(markdown: string): Segment[] {
   }
   return segs;
 }
+
+export interface PackOptions {
+  maxLen: number;
+}
+
+const SENTENCE_END = /([.!?。！？…]+["')\]]?)\s+/g;
+
+function splitOversize(text: string, maxLen: number): string[] {
+  const out: string[] = [];
+  let rest = text;
+  while (rest.length > maxLen) {
+    let cut = -1;
+    SENTENCE_END.lastIndex = 0;
+    let m: RegExpExecArray | null;
+    while ((m = SENTENCE_END.exec(rest)) !== null) {
+      const end = m.index + m[0].length;
+      if (end > maxLen) break;
+      cut = end;
+    }
+    if (cut <= 0) cut = maxLen;
+    out.push(rest.slice(0, cut).trimEnd());
+    rest = rest.slice(cut).trimStart();
+  }
+  if (rest.length) out.push(rest);
+  return out;
+}
+
+export function packTweets(segments: Segment[], opts: PackOptions): string[] {
+  const { maxLen } = opts;
+  const tweets: string[] = [];
+  let buf = "";
+  const flush = () => {
+    if (buf.trim()) tweets.push(buf.trim());
+    buf = "";
+  };
+
+  for (const seg of segments) {
+    const pieces =
+      seg.text.length > maxLen ? splitOversize(seg.text, maxLen) : [seg.text];
+    for (const piece of pieces) {
+      if (!buf) {
+        buf = piece;
+        continue;
+      }
+      const candidate = buf + "\n\n" + piece;
+      if (candidate.length <= maxLen) {
+        buf = candidate;
+      } else {
+        flush();
+        buf = piece;
+      }
+    }
+  }
+  flush();
+  return tweets;
+}

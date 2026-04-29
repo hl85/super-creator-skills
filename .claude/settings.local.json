@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/wanghui/.cc-switch/skills/agent-reach/**)",
+      "Bash(git -C /Users/wanghui/Code/creator-cn branch --show-current)",
+      "Bash(bun install *)",
+      "Bash(bun --version)",
+      "Bash(export PATH=\"$HOME/.bun/bin:$PATH\")",
+      "Bash(npx -y bun install)",
+      "Bash(git -C /Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread add skills/markdown-to-thread/SKILL.md skills/markdown-to-thread/scripts/package.json skills/markdown-to-thread/scripts/bun.lock)",
+      "Bash(git -C /Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread commit -m \"feat\\(markdown-to-thread\\): scaffold skill\")",
+      "Bash(npx -y bun test slicer.test.ts)",
+      "Bash(git -C /Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread add skills/markdown-to-thread/scripts/slicer.ts skills/markdown-to-thread/scripts/slicer.test.ts)",
+      "Bash(git -C /Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread commit -m \"feat\\(markdown-to-thread\\): extract segments from markdown\")",
+      "Bash(git -C /Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread add -A)",
+      "Bash(git -C /Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread commit -m \"feat\\(markdown-to-thread\\): greedy-pack segments into tweets\")"
+    ]
+  }
+}
