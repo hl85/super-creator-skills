@@ -27,6 +27,7 @@
         "./skills/imagine",
         "./skills/markdown-to-html",
         "./skills/markdown-to-thread",
+        "./skills/multi-publish",
         "./skills/post-to-weibo",
         "./skills/post-to-wechat",
         "./skills/post-to-x",
