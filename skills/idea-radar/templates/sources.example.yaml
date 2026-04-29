@@ -1,0 +1,75 @@
+# idea-radar: starter sources.yaml
+#
+# Copy to either:
+#   .supercreator/idea-radar/sources.yaml   (project-level, recommended)
+#   ~/.supercreator/idea-radar/sources.yaml (user-level, applies to every project)
+#
+# Each entry has:
+#   type:    one of search | x_list | github_trending | rss | youtube_channel | wechat_account | reddit | hn
+#   tag:     short label for the score notes ("agents", "design", "cn-tech")
+#   ...     type-specific fields (see references/sources.md)
+
+# === English tech ===
+
+- type: search
+  query: "LLM agent benchmark"
+  num_results: 5
+  tag: agents
+
+- type: search
+  query: "open source AI tooling"
+  num_results: 5
+  tag: tooling
+
+- type: github_trending
+  language: typescript
+  since: daily
+  tag: ts-trending
+
+- type: github_trending
+  language: python
+  since: daily
+  tag: py-trending
+
+- type: rss
+  url: https://www.pragmaticengineer.com/feed/
+  tag: industry
+
+- type: rss
+  url: https://stratechery.com/feed/
+  tag: strategy
+
+- type: hn
+  feed: front
+  num_results: 10
+  tag: hn-front
+
+# === 中文 ===
+
+- type: weibo
+  search: "AI 编程"
+  tag: cn-ai
+
+- type: v2ex
+  node: programmer
+  num_results: 10
+  tag: cn-dev
+
+- type: wechat_account
+  # NOTE: replace with the __biz of an account you actually follow
+  biz: "MzAwMDAwMDAwMA=="
+  tag: cn-tech
+
+# === Video / podcast ===
+
+- type: youtube_channel
+  # Lex Fridman as a placeholder — replace with what you actually watch
+  channel_id: UCSHZKyawb77ixDdsGog4iWA
+  tag: yt-longform
+
+# === Twitter / X ===
+
+# Optional — requires you to have a curated list:
+# - type: x_list
+#   list_id: "1234567890123456"
+#   tag: x-dev
