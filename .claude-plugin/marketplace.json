@@ -25,6 +25,7 @@
         "./skills/infographic",
         "./skills/imagine",
         "./skills/markdown-to-html",
+        "./skills/markdown-to-thread",
         "./skills/post-to-weibo",
         "./skills/post-to-wechat",
         "./skills/post-to-x",

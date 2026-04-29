@@ -17,7 +17,9 @@
       "Bash(npx -y bun test compose.test.ts)",
       "Bash(git -C /Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread commit -m \"feat\\(markdown-to-thread\\): hook, cta, and numbering composition\")",
       "Bash(npx -y bun test)",
-      "Bash(git -C /Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread commit -m \"feat\\(markdown-to-thread\\): CLI entry with end-to-end test\")"
+      "Bash(git -C /Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread commit -m \"feat\\(markdown-to-thread\\): CLI entry with end-to-end test\")",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('/Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread/.claude-plugin/marketplace.json','utf8'\\)\\)\")",
+      "Bash(git -C /Users/wanghui/Code/creator-cn/.claude/worktrees/markdown-to-thread commit -m \"docs\\(markdown-to-thread\\): add style reference and register skill\")"
     ]
   }
 }
