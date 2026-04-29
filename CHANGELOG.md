@@ -4,16 +4,45 @@ English | [中文](./CHANGELOG.zh.md)
 
 ## [Unreleased]
 
+### Features
+- Added 6 new skills for content creators:
+  - `markdown-to-thread`: Convert markdown content into social media threads (e.g., X/Twitter)
+  - `content-review`: AI-powered compliance and fact-checking for WeChat and X
+  - `writeflow`: Streamlined writing workflow with outline and draft procedures
+  - `multi-publish`: Orchestrate publishing across multiple platforms
+  - `idea-radar`: Discover, score, and sweep content ideas from various sources
+  - `post-analytics`: Collect and analyze engagement metrics from Weibo, X, and WeChat
+
 ### Changed
-- Renamed project from `baoyu-skills` to `supper-creator` (forked from [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills))
+- Final project rename from `supercreator` to `super-creator`
+
+## 2.0.0 - 2026-04-07
+
+### Changed
+- Major Rebrand: Project renamed from `baoyu-skills` to `super-creator` (forked from [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills))
 - Removed `baoyu-` prefix from all skill directories
 - Renamed workspace packages: `baoyu-md` → `sc-md`, `baoyu-fetch` → `sc-fetch`, `baoyu-chrome-cdp` → `sc-chrome-cdp`
-- Updated runtime config directory: `.baoyu-skills/` → `.supper-creator/`
+- Updated runtime config directory: `.baoyu-skills/` → `.super-creator/`
 - Updated environment variable prefix: `BAOYU_*` → `SC_*`
-- Deleted deprecated `baoyu-image-gen` skill
+
+### Maintenance
+- Upgraded 101 design reference files across 6 skills (slide-deck, infographic, article-illustrator, cover-image, xhs-images, comic)
+- Added `## Atmosphere` sensory narratives and `### Avoid` anti-patterns to design styles
+- Added `## Example Prompt` for ready-to-use image generation
 
 ### Removed
 - `baoyu-image-gen` (deprecated, migrated to `imagine`)
+
+## 1.90.0 - 2026-04-03
+
+### Features
+- `baoyu-xhs-images`: add `--yes` non-interactive mode for automation
+
+## 1.89.2 - 2026-04-03
+
+### Features
+- `baoyu-youtube-transcript`: auto-retry with `yt-dlp` on empty InnerTube transcript
+- `baoyu-post-to-wechat`: use fallback chain for article summary field
 
 ## 1.89.1 - 2026-04-01
 

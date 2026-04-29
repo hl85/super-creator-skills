@@ -175,7 +175,7 @@ test("loadExtendConfig reads the imagine EXTEND.md path", async () => {
   const root = await makeTempDir("imagine-extend-");
   const cwd = path.join(root, "project");
   const home = path.join(root, "home");
-  const currentPath = path.join(cwd, ".supper-creator", "imagine", "EXTEND.md");
+  const currentPath = path.join(cwd, ".super-creator", "imagine", "EXTEND.md");
 
   await fs.mkdir(path.dirname(currentPath), { recursive: true });
   await fs.mkdir(home, { recursive: true });
@@ -198,8 +198,8 @@ test("loadExtendConfig prefers project imagine EXTEND.md over home imagine EXTEN
   const root = await makeTempDir("imagine-extend-dual-");
   const cwd = path.join(root, "project");
   const home = path.join(root, "home");
-  const currentPath = path.join(cwd, ".supper-creator", "imagine", "EXTEND.md");
-  const homePath = path.join(home, ".supper-creator", "imagine", "EXTEND.md");
+  const currentPath = path.join(cwd, ".super-creator", "imagine", "EXTEND.md");
+  const homePath = path.join(home, ".super-creator", "imagine", "EXTEND.md");
 
   await fs.mkdir(path.dirname(currentPath), { recursive: true });
   await fs.mkdir(path.dirname(homePath), { recursive: true });

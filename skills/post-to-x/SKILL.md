@@ -4,7 +4,7 @@ description: Posts content and articles to X (Twitter). Supports regular posts w
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/hl85/supper-creator
+    homepage: https://github.com/hl85/super-creator
     requires:
       anyBins:
         - bun
@@ -43,25 +43,25 @@ Check EXTEND.md existence (priority order):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .supper-creator/post-to-x/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supper-creator/post-to-x/EXTEND.md" && echo "xdg"
-test -f "$HOME/.supper-creator/post-to-x/EXTEND.md" && echo "user"
+test -f .super-creator/post-to-x/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/super-creator/post-to-x/EXTEND.md" && echo "xdg"
+test -f "$HOME/.super-creator/post-to-x/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .supper-creator/post-to-x/EXTEND.md) { "project" }
+if (Test-Path .super-creator/post-to-x/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/supper-creator/post-to-x/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.supper-creator/post-to-x/EXTEND.md") { "user" }
+if (Test-Path "$xdg/super-creator/post-to-x/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.super-creator/post-to-x/EXTEND.md") { "user" }
 ```
 
 ┌──────────────────────────────────────────────────┬───────────────────┐
 │                       Path                       │     Location      │
 ├──────────────────────────────────────────────────┼───────────────────┤
-│ .supper-creator/post-to-x/EXTEND.md          │ Project directory │
+│ .super-creator/post-to-x/EXTEND.md          │ Project directory │
 ├──────────────────────────────────────────────────┼───────────────────┤
-│ $HOME/.supper-creator/post-to-x/EXTEND.md    │ User home         │
+│ $HOME/.super-creator/post-to-x/EXTEND.md    │ User home         │
 └──────────────────────────────────────────────────┴───────────────────┘
 
 ┌───────────┬───────────────────────────────────────────────────────────────────────────┐
@@ -95,7 +95,7 @@ Checks: Chrome, profile isolation, Bun, Accessibility, clipboard, paste keystrok
 | Check | Fix |
 |-------|-----|
 | Chrome | Install Chrome or set `X_BROWSER_CHROME_PATH` env var |
-| Profile dir | Shared profile at `supper-creator/chrome-profile` (see CLAUDE.md Chrome Profile section) |
+| Profile dir | Shared profile at `super-creator/chrome-profile` (see CLAUDE.md Chrome Profile section) |
 | Bun runtime | `brew install oven-sh/bun/bun` (macOS) or `npm install -g bun` |
 | Accessibility (macOS) | System Settings → Privacy & Security → Accessibility → enable terminal app |
 | Clipboard copy | Ensure Swift/AppKit available (macOS Xcode CLI tools: `xcode-select --install`) |

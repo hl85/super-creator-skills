@@ -4,7 +4,7 @@ description: Generates images and text via reverse-engineered Gemini Web API. Su
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/hl85/supper-creator
+    homepage: https://github.com/hl85/super-creator
     requires:
       anyBins:
         - bun
@@ -36,9 +36,9 @@ Text/image generation via Gemini Web API. Supports reference images and multi-tu
 Before first use, verify user consent for reverse-engineered API usage.
 
 **Consent file locations**:
-- macOS: `~/Library/Application Support/supper-creator/gemini-web/consent.json`
-- Linux: `~/.local/share/supper-creator/gemini-web/consent.json`
-- Windows: `%APPDATA%\supper-creator\gemini-web\consent.json`
+- macOS: `~/Library/Application Support/super-creator/gemini-web/consent.json`
+- Linux: `~/.local/share/super-creator/gemini-web/consent.json`
+- Windows: `%APPDATA%\super-creator\gemini-web\consent.json`
 
 **Flow**:
 1. Check if consent file exists with `accepted: true` and `disclaimerVersion: "1.0"`
@@ -56,25 +56,25 @@ Check EXTEND.md existence (priority order):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .supper-creator/danger-gemini-web/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supper-creator/danger-gemini-web/EXTEND.md" && echo "xdg"
-test -f "$HOME/.supper-creator/danger-gemini-web/EXTEND.md" && echo "user"
+test -f .super-creator/danger-gemini-web/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/super-creator/danger-gemini-web/EXTEND.md" && echo "xdg"
+test -f "$HOME/.super-creator/danger-gemini-web/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .supper-creator/danger-gemini-web/EXTEND.md) { "project" }
+if (Test-Path .super-creator/danger-gemini-web/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/supper-creator/danger-gemini-web/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.supper-creator/danger-gemini-web/EXTEND.md") { "user" }
+if (Test-Path "$xdg/super-creator/danger-gemini-web/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.super-creator/danger-gemini-web/EXTEND.md") { "user" }
 ```
 
 ┌──────────────────────────────────────────────────────────┬───────────────────┐
 │                           Path                           │     Location      │
 ├──────────────────────────────────────────────────────────┼───────────────────┤
-│ .supper-creator/danger-gemini-web/EXTEND.md          │ Project directory │
+│ .super-creator/danger-gemini-web/EXTEND.md          │ Project directory │
 ├──────────────────────────────────────────────────────────┼───────────────────┤
-│ $HOME/.supper-creator/danger-gemini-web/EXTEND.md    │ User home         │
+│ $HOME/.super-creator/danger-gemini-web/EXTEND.md    │ User home         │
 └──────────────────────────────────────────────────────────┴───────────────────┘
 
 ┌───────────┬───────────────────────────────────────────────────────────────────────────┐

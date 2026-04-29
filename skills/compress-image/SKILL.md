@@ -4,7 +4,7 @@ description: Compresses images to WebP (default) or PNG with automatic tool sele
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/hl85/supper-creator
+    homepage: https://github.com/hl85/super-creator
     requires:
       anyBins:
         - bun
@@ -29,25 +29,25 @@ Check EXTEND.md existence (priority order):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .supper-creator/compress-image/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supper-creator/compress-image/EXTEND.md" && echo "xdg"
-test -f "$HOME/.supper-creator/compress-image/EXTEND.md" && echo "user"
+test -f .super-creator/compress-image/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/super-creator/compress-image/EXTEND.md" && echo "xdg"
+test -f "$HOME/.super-creator/compress-image/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .supper-creator/compress-image/EXTEND.md) { "project" }
+if (Test-Path .super-creator/compress-image/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/supper-creator/compress-image/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.supper-creator/compress-image/EXTEND.md") { "user" }
+if (Test-Path "$xdg/super-creator/compress-image/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.super-creator/compress-image/EXTEND.md") { "user" }
 ```
 
 ┌────────────────────────────────────────────────────────┬───────────────────┐
 │                          Path                          │     Location      │
 ├────────────────────────────────────────────────────────┼───────────────────┤
-│ .supper-creator/compress-image/EXTEND.md           │ Project directory │
+│ .super-creator/compress-image/EXTEND.md           │ Project directory │
 ├────────────────────────────────────────────────────────┼───────────────────┤
-│ $HOME/.supper-creator/compress-image/EXTEND.md     │ User home         │
+│ $HOME/.super-creator/compress-image/EXTEND.md     │ User home         │
 └────────────────────────────────────────────────────────┴───────────────────┘
 
 ┌───────────┬───────────────────────────────────────────────────────────────────────────┐

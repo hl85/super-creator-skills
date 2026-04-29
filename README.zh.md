@@ -1,4 +1,4 @@
-# supper-creator
+# super-creator
 
 [English](./README.md) | 中文
 
@@ -16,7 +16,7 @@ AI 驱动的 Claude Code 内容生成技能集。
 ### 快速安装（推荐）
 
 ```bash
-npx skills add hl85/supper-creator
+npx skills add hl85/super-creator
 ```
 
 ### 发布到 ClawHub / OpenClaw
@@ -45,7 +45,7 @@ clawhub install markdown-to-html
 在 Claude Code 中运行：
 
 ```bash
-/plugin marketplace add hl85/supper-creator
+/plugin marketplace add hl85/super-creator
 ```
 
 ### 安装技能
@@ -53,22 +53,22 @@ clawhub install markdown-to-html
 **方式一：通过浏览界面**
 
 1. 选择 **Browse and install plugins**
-2. 选择 **supper-creator**
-3. 选择 **supper-creator** 插件
+2. 选择 **super-creator**
+3. 选择 **super-creator** 插件
 4. 选择 **Install now**
 
 **方式二：直接安装**
 
 ```bash
 # 安装 marketplace 中唯一的插件
-/plugin install supper-creator@supper-creator
+/plugin install super-creator@super-creator
 ```
 
 **方式三：告诉 Agent**
 
 直接告诉 Claude Code：
 
-> 请帮我安装 github.com/hl85/supper-creator 中的 Skills
+> 请帮我安装 github.com/hl85/super-creator 中的 Skills
 
 ### 可用插件
 
@@ -76,7 +76,7 @@ clawhub install markdown-to-html
 
 | 插件 | 说明 | 包含内容 |
 |------|------|----------|
-| **supper-creator** | 提供内容生成、AI 后端和日常效率工具技能 | 仓库中的全部 skills，仍按下方的内容技能、AI 生成技能、工具技能三个分类展示 |
+| **super-creator** | 提供内容生成、AI 后端和日常效率工具技能 | 仓库中的全部 skills，仍按下方的内容技能、AI 生成技能、工具技能三个分类展示 |
 
 ## 更新技能
 
@@ -84,7 +84,7 @@ clawhub install markdown-to-html
 
 1. 在 Claude Code 中运行 `/plugin`
 2. 切换到 **Marketplaces** 标签页（使用方向键或 Tab）
-3. 选择 **supper-creator**
+3. 选择 **super-creator**
 4. 选择 **Update marketplace**
 
 也可以选择 **Enable auto-update** 启用自动更新，每次启动时自动获取最新版本。
@@ -573,7 +573,7 @@ clawhub install markdown-to-html
 **API 配置**（更快的发布方式）：
 
 ```bash
-# 添加到 .supper-creator/.env（项目级）或 ~/.supper-creator/.env（用户级）
+# 添加到 .super-creator/.env（项目级）或 ~/.super-creator/.env（用户级）
 WECHAT_APP_ID=你的AppID
 WECHAT_APP_SECRET=你的AppSecret
 ```
@@ -589,10 +589,10 @@ WECHAT_APP_SECRET=你的AppSecret
 **多账号支持**：通过 `EXTEND.md` 管理多个微信公众号：
 
 ```bash
-mkdir -p .supper-creator/post-to-wechat
+mkdir -p .super-creator/post-to-wechat
 ```
 
-创建 `.supper-creator/post-to-wechat/EXTEND.md`：
+创建 `.super-creator/post-to-wechat/EXTEND.md`：
 
 ```yaml
 # 全局设置（所有账号共享）
@@ -1053,17 +1053,17 @@ AI 驱动的生成后端。
 **加载优先级**（高优先级覆盖低优先级）：
 1. 命令行环境变量（如 `OPENAI_API_KEY=xxx /imagine ...`）
 2. `process.env`（系统环境变量）
-3. `<cwd>/.supper-creator/.env`（项目级）
-4. `~/.supper-creator/.env`（用户级）
+3. `<cwd>/.super-creator/.env`（项目级）
+4. `~/.super-creator/.env`（用户级）
 
 **配置方法**：
 
 ```bash
 # 创建用户级配置目录
-mkdir -p ~/.supper-creator
+mkdir -p ~/.super-creator
 
 # 创建 .env 文件
-cat > ~/.supper-creator/.env << 'EOF'
+cat > ~/.super-creator/.env << 'EOF'
 # OpenAI
 OPENAI_API_KEY=sk-xxx
 OPENAI_IMAGE_MODEL=gpt-image-1.5
@@ -1120,9 +1120,9 @@ EOF
 **项目级配置**（团队共享）：
 
 ```bash
-mkdir -p .supper-creator
-# 将 .supper-creator/.env 添加到 .gitignore 避免提交密钥
-echo ".supper-creator/.env" >> .gitignore
+mkdir -p .super-creator
+# 将 .super-creator/.env 添加到 .gitignore 避免提交密钥
+echo ".super-creator/.env" >> .gitignore
 ```
 
 ## 自定义扩展
@@ -1130,16 +1130,16 @@ echo ".supper-creator/.env" >> .gitignore
 所有技能支持通过 `EXTEND.md` 文件自定义。创建扩展文件可覆盖默认样式、添加自定义配置或定义个人预设。
 
 **扩展路径**（按优先级检查）：
-1. `.supper-creator/<skill-name>/EXTEND.md` - 项目级（团队/项目特定设置）
-2. `~/.supper-creator/<skill-name>/EXTEND.md` - 用户级（个人偏好设置）
+1. `.super-creator/<skill-name>/EXTEND.md` - 项目级（团队/项目特定设置）
+2. `~/.super-creator/<skill-name>/EXTEND.md` - 用户级（个人偏好设置）
 
 **示例**：为 `cover-image` 自定义品牌配色：
 
 ```bash
-mkdir -p .supper-creator/cover-image
+mkdir -p .super-creator/cover-image
 ```
 
-然后创建 `.supper-creator/cover-image/EXTEND.md`：
+然后创建 `.super-creator/cover-image/EXTEND.md`：
 
 ```markdown
 ## 自定义配色
@@ -1200,4 +1200,4 @@ MIT
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=hl85/supper-creator&type=Date)](https://www.star-history.com/#hl85/supper-creator&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=hl85/super-creator&type=Date)](https://www.star-history.com/#hl85/super-creator&Date)

@@ -25,7 +25,7 @@ Options:
   --browser-path <path> Explicit Chrome binary path
   --chrome-profile-dir <path>
                         Chrome user data dir. Defaults to SC_CHROME_PROFILE_DIR
-                        or supper-creator/chrome-profile.
+                        or super-creator/chrome-profile.
   --headless            Launch a temporary headless Chrome if needed
   --wait-for <mode>     Wait mode: interaction | force
                         interaction: start visible Chrome and auto-wait only when login or verification is required

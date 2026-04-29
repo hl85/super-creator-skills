@@ -4,7 +4,7 @@ description: AI image generation with OpenAI, Azure OpenAI, Google, OpenRouter, 
 version: 1.56.4
 metadata:
   openclaw:
-    homepage: https://github.com/hl85/supper-creator
+    homepage: https://github.com/hl85/super-creator
     requires:
       anyBins:
         - bun
@@ -30,17 +30,17 @@ Check EXTEND.md existence (priority: project → user):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .supper-creator/imagine/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supper-creator/imagine/EXTEND.md" && echo "xdg"
-test -f "$HOME/.supper-creator/imagine/EXTEND.md" && echo "user"
+test -f .super-creator/imagine/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/super-creator/imagine/EXTEND.md" && echo "xdg"
+test -f "$HOME/.super-creator/imagine/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .supper-creator/imagine/EXTEND.md) { "project" }
+if (Test-Path .super-creator/imagine/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/supper-creator/imagine/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.supper-creator/imagine/EXTEND.md") { "user" }
+if (Test-Path "$xdg/super-creator/imagine/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.super-creator/imagine/EXTEND.md") { "user" }
 ```
 
 | Result | Action |
@@ -52,10 +52,10 @@ if (Test-Path "$HOME/.supper-creator/imagine/EXTEND.md") { "user" }
 
 | Path | Location |
 |------|----------|
-| `.supper-creator/imagine/EXTEND.md` | Project directory |
-| `$HOME/.supper-creator/imagine/EXTEND.md` | User home |
+| `.super-creator/imagine/EXTEND.md` | Project directory |
+| `$HOME/.super-creator/imagine/EXTEND.md` | User home |
 
-Legacy compatibility: if `.supper-creator/image-gen/EXTEND.md` exists and the new path does not, runtime renames it to `imagine`. If both files exist, runtime leaves them unchanged and uses the new path.
+Legacy compatibility: if `.super-creator/image-gen/EXTEND.md` exists and the new path does not, runtime renames it to `imagine`. If both files exist, runtime leaves them unchanged and uses the new path.
 
 **EXTEND.md Supports**: Default provider | Default quality | Default aspect ratio | Default image size | Default models | Batch worker cap | Provider-specific batch limits
 
@@ -212,7 +212,7 @@ Paths in `promptFiles`, `image`, and `ref` are resolved relative to the batch fi
 | `SC_IMAGE_GEN_<PROVIDER>_CONCURRENCY` | Override provider concurrency, e.g. `SC_IMAGE_GEN_REPLICATE_CONCURRENCY` |
 | `SC_IMAGE_GEN_<PROVIDER>_START_INTERVAL_MS` | Override provider start gap, e.g. `SC_IMAGE_GEN_REPLICATE_START_INTERVAL_MS` |
 
-**Load Priority**: CLI args > EXTEND.md > env vars > `<cwd>/.supper-creator/.env` > `~/.supper-creator/.env`
+**Load Priority**: CLI args > EXTEND.md > env vars > `<cwd>/.super-creator/.env` > `~/.super-creator/.env`
 
 ## Model Resolution
 

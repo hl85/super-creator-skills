@@ -53,7 +53,7 @@ description: Audits an article before publishing. Runs three passes — complian
 version: 0.1.0
 metadata:
   openclaw:
-    homepage: https://github.com/hl85/supper-creator
+    homepage: https://github.com/hl85/super-creator
 ---
 
 # Content Review

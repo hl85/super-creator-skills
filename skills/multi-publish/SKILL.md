@@ -4,7 +4,7 @@ description: One-command end-to-end publication. Takes a single source article a
 version: 0.1.0
 metadata:
   openclaw:
-    homepage: https://github.com/hl85/supper-creator
+    homepage: https://github.com/hl85/super-creator
 ---
 
 # Multi-Publish

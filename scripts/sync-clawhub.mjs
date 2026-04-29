@@ -207,14 +207,13 @@ function parseArgs(argv) {
       continue;
     }
     if (arg === "--root") {
-      const value = argv[index + 1];
-      if (!value) throw new Error("--root requires a directory");
+      const value = requireOptionValue(argv, index, "--root");
       options.roots.push(path.resolve(value));
       index += 1;
       continue;
     }
     if (arg === "--bump") {
-      const value = argv[index + 1];
+      const value = requireOptionValue(argv, index, "--bump");
       if (!["patch", "minor", "major"].includes(value)) {
         throw new Error("--bump must be patch, minor, or major");
       }
@@ -223,21 +222,19 @@ function parseArgs(argv) {
       continue;
     }
     if (arg === "--changelog") {
-      const value = argv[index + 1];
-      if (value == null) throw new Error("--changelog requires text");
+      const value = requireOptionValue(argv, index, "--changelog");
       options.changelog = value;
       index += 1;
       continue;
     }
     if (arg === "--tags") {
-      const value = argv[index + 1];
-      if (value == null) throw new Error("--tags requires a value");
+      const value = requireOptionValue(argv, index, "--tags");
       options.tags = value;
       index += 1;
       continue;
     }
     if (arg === "--concurrency") {
-      const value = Number(argv[index + 1]);
+      const value = Number(requireOptionValue(argv, index, "--concurrency"));
       if (!Number.isInteger(value) || value < 1 || value > 32) {
         throw new Error("--concurrency must be an integer between 1 and 32");
       }
@@ -253,6 +250,14 @@ function parseArgs(argv) {
   }
 
   return options;
+}
+
+function requireOptionValue(argv, index, optionName) {
+  const value = argv[index + 1];
+  if (!value || value.startsWith("-")) {
+    throw new Error(`${optionName} requires a value`);
+  }
+  return value;
 }
 
 function printUsage() {

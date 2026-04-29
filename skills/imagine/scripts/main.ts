@@ -146,7 +146,7 @@ Environment variables:
    SC_IMAGE_GEN_<PROVIDER>_CONCURRENCY  Override provider concurrency
    SC_IMAGE_GEN_<PROVIDER>_START_INTERVAL_MS  Override provider start gap in ms
 
-Env file load order: CLI args > EXTEND.md > process.env > <cwd>/.supper-creator/.env > ~/.supper-creator/.env`);
+Env file load order: CLI args > EXTEND.md > process.env > <cwd>/.super-creator/.env > ~/.super-creator/.env`);
 }
 
 export function parseArgs(argv: string[]): CliArgs {
@@ -342,8 +342,8 @@ async function loadEnv(): Promise<void> {
   const home = homedir();
   const cwd = process.cwd();
 
-  const homeEnv = await loadEnvFile(path.join(home, ".supper-creator", ".env"));
-  const cwdEnv = await loadEnvFile(path.join(cwd, ".supper-creator", ".env"));
+  const homeEnv = await loadEnvFile(path.join(home, ".super-creator", ".env"));
+  const cwdEnv = await loadEnvFile(path.join(cwd, ".super-creator", ".env"));
 
   for (const [k, v] of Object.entries(homeEnv)) {
     if (!process.env[k]) process.env[k] = v;
@@ -479,12 +479,12 @@ type ExtendConfigPathPair = {
 function getExtendConfigPathPairs(cwd: string, home: string): ExtendConfigPathPair[] {
   return [
     {
-      current: path.join(cwd, ".supper-creator", "imagine", "EXTEND.md"),
-      legacy: path.join(cwd, ".supper-creator", "imagine", "EXTEND.md"),
+      current: path.join(cwd, ".super-creator", "imagine", "EXTEND.md"),
+      legacy: path.join(cwd, ".super-creator", "imagine", "EXTEND.md"),
     },
     {
-      current: path.join(home, ".supper-creator", "imagine", "EXTEND.md"),
-      legacy: path.join(home, ".supper-creator", "imagine", "EXTEND.md"),
+      current: path.join(home, ".super-creator", "imagine", "EXTEND.md"),
+      legacy: path.join(home, ".super-creator", "imagine", "EXTEND.md"),
     },
   ];
 }
@@ -695,7 +695,7 @@ export function detectProvider(args: CliArgs): Provider {
 
   throw new Error(
     "No API key found. Set GOOGLE_API_KEY, GEMINI_API_KEY, OPENAI_API_KEY, AZURE_OPENAI_API_KEY+AZURE_OPENAI_BASE_URL, OPENROUTER_API_KEY, DASHSCOPE_API_KEY, MINIMAX_API_KEY, REPLICATE_API_TOKEN, JIMENG keys, or ARK_API_KEY.\n" +
-      "Create ~/.supper-creator/.env or <cwd>/.supper-creator/.env with your keys."
+      "Create ~/.super-creator/.env or <cwd>/.super-creator/.env with your keys."
   );
 }
 

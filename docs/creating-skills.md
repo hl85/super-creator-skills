@@ -21,7 +21,7 @@ description: <Third-person description. What it does + when to use it.>
 version: <semver matching marketplace.json>
 metadata:
   openclaw:
-    homepage: https://github.com/hl85/supper-creator#<name>
+    homepage: https://github.com/hl85/super-creator#<name>
     requires:          # include only if skill has scripts
       anyBins:
         - bun
@@ -34,13 +34,13 @@ metadata:
 1. Create `skills/<name>/SKILL.md` with YAML front matter
 2. Add TypeScript in `skills/<name>/scripts/` (if applicable)
 3. Add prompt templates in `skills/<name>/prompts/` if needed
-4. Register the skill in `.claude-plugin/marketplace.json` under the `supper-creator` plugin entry
+4. Register the skill in `.claude-plugin/marketplace.json` under the `super-creator` plugin entry
 5. Add Script Directory section to SKILL.md if skill has scripts
 6. Add openclaw metadata to frontmatter
 
 ## Skill Grouping
 
-All skills are registered under the single `supper-creator` plugin. Use these logical groups when deciding where the skill should appear in the docs:
+All skills are registered under the single `super-creator` plugin. Use these logical groups when deciding where the skill should appear in the docs:
 
 | If your skill... | Use group |
 |------------------|-----------|
@@ -49,7 +49,7 @@ All skills are registered under the single `supper-creator` plugin. Use these lo
 | Provides AI generation backend | AI Generation Skills |
 | Converts or processes content | Utility Skills |
 
-If you add a new logical group, update the docs that present grouped skills, but keep the skill registered under the single `supper-creator` plugin entry.
+If you add a new logical group, update the docs that present grouped skills, but keep the skill registered under the single `super-creator` plugin entry.
 
 ## Writing Descriptions
 
@@ -113,16 +113,16 @@ Every SKILL.md MUST include EXTEND.md loading. Add as Step 1.1 (workflow skills)
 Check EXTEND.md existence (priority order):
 
 \`\`\`bash
-test -f .supper-creator/<skill-name>/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supper-creator/<skill-name>/EXTEND.md" && echo "xdg"
-test -f "$HOME/.supper-creator/<skill-name>/EXTEND.md" && echo "user"
+test -f .super-creator/<skill-name>/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/super-creator/<skill-name>/EXTEND.md" && echo "xdg"
+test -f "$HOME/.super-creator/<skill-name>/EXTEND.md" && echo "user"
 \`\`\`
 
 | Path | Location |
 |------|----------|
-| `.supper-creator/<skill-name>/EXTEND.md` | Project directory |
-| `$XDG_CONFIG_HOME/supper-creator/<skill-name>/EXTEND.md` | XDG config (~/.config) |
-| `$HOME/.supper-creator/<skill-name>/EXTEND.md` | User home (legacy) |
+| `.super-creator/<skill-name>/EXTEND.md` | Project directory |
+| `$XDG_CONFIG_HOME/super-creator/<skill-name>/EXTEND.md` | XDG config (~/.config) |
+| `$HOME/.super-creator/<skill-name>/EXTEND.md` | User home (legacy) |
 
 | Result | Action |
 |--------|--------|

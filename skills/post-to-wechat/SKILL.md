@@ -4,7 +4,7 @@ description: Posts content to WeChat Official Account (微信公众号) via API 
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/hl85/supper-creator
+    homepage: https://github.com/hl85/super-creator
     requires:
       anyBins:
         - bun
@@ -35,25 +35,25 @@ Check EXTEND.md existence (priority order):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .supper-creator/post-to-wechat/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supper-creator/post-to-wechat/EXTEND.md" && echo "xdg"
-test -f "$HOME/.supper-creator/post-to-wechat/EXTEND.md" && echo "user"
+test -f .super-creator/post-to-wechat/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/super-creator/post-to-wechat/EXTEND.md" && echo "xdg"
+test -f "$HOME/.super-creator/post-to-wechat/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .supper-creator/post-to-wechat/EXTEND.md) { "project" }
+if (Test-Path .super-creator/post-to-wechat/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/supper-creator/post-to-wechat/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.supper-creator/post-to-wechat/EXTEND.md") { "user" }
+if (Test-Path "$xdg/super-creator/post-to-wechat/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.super-creator/post-to-wechat/EXTEND.md") { "user" }
 ```
 
 ┌────────────────────────────────────────────────────────┬───────────────────┐
 │                          Path                          │     Location      │
 ├────────────────────────────────────────────────────────┼───────────────────┤
-│ .supper-creator/post-to-wechat/EXTEND.md           │ Project directory │
+│ .super-creator/post-to-wechat/EXTEND.md           │ Project directory │
 ├────────────────────────────────────────────────────────┼───────────────────┤
-│ $HOME/.supper-creator/post-to-wechat/EXTEND.md     │ User home         │
+│ $HOME/.super-creator/post-to-wechat/EXTEND.md     │ User home         │
 └────────────────────────────────────────────────────────┴───────────────────┘
 
 ┌───────────┬───────────────────────────────────────────────────────────────────────────┐
@@ -168,8 +168,8 @@ For a selected account with alias `{alias}`:
 
 1. `app_id` / `app_secret` inline in EXTEND.md account block
 2. Env var `WECHAT_{ALIAS}_APP_ID` / `WECHAT_{ALIAS}_APP_SECRET` (alias uppercased, hyphens → underscores)
-3. `.supper-creator/.env` with prefixed key `WECHAT_{ALIAS}_APP_ID`
-4. `~/.supper-creator/.env` with prefixed key
+3. `.super-creator/.env` with prefixed key `WECHAT_{ALIAS}_APP_ID`
+4. `~/.super-creator/.env` with prefixed key
 5. Fallback to unprefixed `WECHAT_APP_ID` / `WECHAT_APP_SECRET`
 
 **.env multi-account example**:
@@ -219,13 +219,13 @@ Checks: Chrome, profile isolation, Bun, Accessibility, clipboard, paste keystrok
 | Check | Fix |
 |-------|-----|
 | Chrome | Install Chrome or set `WECHAT_BROWSER_CHROME_PATH` env var |
-| Profile dir | Shared profile at `supper-creator/chrome-profile` (see CLAUDE.md Chrome Profile section) |
+| Profile dir | Shared profile at `super-creator/chrome-profile` (see CLAUDE.md Chrome Profile section) |
 | Bun runtime | `brew install oven-sh/bun/bun` (macOS) or `npm install -g bun` |
 | Accessibility (macOS) | System Settings → Privacy & Security → Accessibility → enable terminal app |
 | Clipboard copy | Ensure Swift/AppKit available (macOS Xcode CLI tools: `xcode-select --install`) |
 | Paste keystroke (macOS) | Same as Accessibility fix above |
 | Paste keystroke (Linux) | Install `xdotool` (X11) or `ydotool` (Wayland) |
-| API credentials | Follow guided setup in Step 2, or manually set in `.supper-creator/.env` |
+| API credentials | Follow guided setup in Step 2, or manually set in `.super-creator/.env` |
 
 ## Image-Text Posting (图文)
 
@@ -303,14 +303,14 @@ mkdir -p "$(pwd)/post-to-wechat/$(date +%Y-%m-%d)"
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .supper-creator/.env && grep -q "WECHAT_APP_ID" .supper-creator/.env && echo "project"
-test -f "$HOME/.supper-creator/.env" && grep -q "WECHAT_APP_ID" "$HOME/.supper-creator/.env" && echo "user"
+test -f .super-creator/.env && grep -q "WECHAT_APP_ID" .super-creator/.env && echo "project"
+test -f "$HOME/.super-creator/.env" && grep -q "WECHAT_APP_ID" "$HOME/.super-creator/.env" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if ((Test-Path .supper-creator/.env) -and (Select-String -Quiet -Pattern "WECHAT_APP_ID" .supper-creator/.env)) { "project" }
-if ((Test-Path "$HOME/.supper-creator/.env") -and (Select-String -Quiet -Pattern "WECHAT_APP_ID" "$HOME/.supper-creator/.env")) { "user" }
+if ((Test-Path .super-creator/.env) -and (Select-String -Quiet -Pattern "WECHAT_APP_ID" .super-creator/.env)) { "project" }
+if ((Test-Path "$HOME/.super-creator/.env") -and (Select-String -Quiet -Pattern "WECHAT_APP_ID" "$HOME/.super-creator/.env")) { "user" }
 ```
 
 **If Credentials Missing - Guide Setup**:
@@ -324,8 +324,8 @@ To obtain credentials:
 3. Copy AppID and AppSecret
 
 Where to save?
-A) Project-level: .supper-creator/.env (this project only)
-B) User-level: ~/.supper-creator/.env (all projects)
+A) Project-level: .super-creator/.env (this project only)
+B) User-level: ~/.super-creator/.env (all projects)
 ```
 
 After location choice, prompt for values and write to `.env`:
@@ -479,7 +479,7 @@ Files created:
 
 **For API method**:
 - WeChat Official Account API credentials
-- Guided setup in Step 2, or manually set in `.supper-creator/.env`
+- Guided setup in Step 2, or manually set in `.super-creator/.env`
 
 **For Browser method**:
 - Google Chrome
@@ -487,8 +487,8 @@ Files created:
 
 **Config File Locations** (priority order):
 1. Environment variables
-2. `<cwd>/.supper-creator/.env`
-3. `~/.supper-creator/.env`
+2. `<cwd>/.super-creator/.env`
+3. `~/.super-creator/.env`
 
 ## Troubleshooting
 

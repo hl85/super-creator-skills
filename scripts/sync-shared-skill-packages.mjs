@@ -31,7 +31,7 @@ function parseArgs(argv) {
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
     if (arg === "--repo-root") {
-      options.repoRoot = argv[index + 1] ?? options.repoRoot;
+      options.repoRoot = requireOptionValue(argv, index, "--repo-root");
       index += 1;
       continue;
     }
@@ -40,7 +40,7 @@ function parseArgs(argv) {
       continue;
     }
     if (arg === "--target") {
-      options.targets.push(argv[index + 1] ?? "");
+      options.targets.push(requireOptionValue(argv, index, "--target"));
       index += 1;
       continue;
     }
@@ -52,6 +52,14 @@ function parseArgs(argv) {
   }
 
   return options;
+}
+
+function requireOptionValue(argv, index, optionName) {
+  const value = argv[index + 1];
+  if (!value || value.startsWith("-")) {
+    throw new Error(`${optionName} requires a value`);
+  }
+  return value;
 }
 
 function printUsage() {

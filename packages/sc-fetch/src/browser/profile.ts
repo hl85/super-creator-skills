@@ -41,7 +41,7 @@ export function resolveSharedChromeProfileDir(
     }
   }
 
-  const appDataDirName = options.appDataDirName ?? "supper-creator";
+  const appDataDirName = options.appDataDirName ?? "super-creator";
   const profileDirName = options.profileDirName ?? "chrome-profile";
   return path.join(resolveDataBaseDir(), appDataDirName, profileDirName);
 }
@@ -53,7 +53,7 @@ export function resolveChromeProfileDir(profileDir?: string): string {
 
   return resolveSharedChromeProfileDir({
     envNames: ["SC_CHROME_PROFILE_DIR"],
-    appDataDirName: "supper-creator",
+    appDataDirName: "super-creator",
     profileDirName: "chrome-profile",
   });
 }

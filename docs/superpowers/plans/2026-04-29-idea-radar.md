@@ -4,7 +4,7 @@
 
 **Goal:** Add a pure-prompt `idea-radar` skill that periodically pulls signal from multiple sources (Exa search, X lists, GitHub trending, RSS, YouTube channels), deduplicates, scores per platform fit, and appends to a persistent `ideas.jsonl` ledger that downstream skills (`writeflow`) consume.
 
-**Architecture:** Zero new TypeScript. The skill is a `SKILL.md` plus `prompts/` (sweep + score + dedupe procedures), `references/sources.md` (catalog of agent-reach channels and what each is good for), and a `templates/sources.example.yaml`. The agent reads a per-project `.supper-creator/idea-radar/sources.yaml` (user customizes), invokes `agent-reach` per channel, dedupes via title hashing, scores with an LLM rubric, and appends to `.supper-creator/idea-radar/ideas.jsonl`. Pairs with `loop` / `schedule` for recurring runs.
+**Architecture:** Zero new TypeScript. The skill is a `SKILL.md` plus `prompts/` (sweep + score + dedupe procedures), `references/sources.md` (catalog of agent-reach channels and what each is good for), and a `templates/sources.example.yaml`. The agent reads a per-project `.super-creator/idea-radar/sources.yaml` (user customizes), invokes `agent-reach` per channel, dedupes via title hashing, scores with an LLM rubric, and appends to `.super-creator/idea-radar/ideas.jsonl`. Pairs with `loop` / `schedule` for recurring runs.
 
 **Tech Stack:** Markdown + YAML front matter only. Storage is plain JSONL — grep-able, append-only, survives restarts.
 
@@ -59,7 +59,7 @@ description: Periodic content-idea sweep. Reads a per-project sources.yaml (X li
 version: 0.1.0
 metadata:
   openclaw:
-    homepage: https://github.com/hl85/supper-creator
+    homepage: https://github.com/hl85/super-creator
 ---
 
 # Idea Radar
@@ -74,11 +74,11 @@ Pulls trending / fresh signal from multiple sources via `agent-reach`, scores ea
 
 | Flag | Default | Meaning |
 |------|---------|---------|
-| `--sources` | `.supper-creator/idea-radar/sources.yaml` (project) → `~/.supper-creator/idea-radar/sources.yaml` (user) → `templates/sources.example.yaml` (skill) | Source catalog |
+| `--sources` | `.super-creator/idea-radar/sources.yaml` (project) → `~/.super-creator/idea-radar/sources.yaml` (user) → `templates/sources.example.yaml` (skill) | Source catalog |
 | `--limit` | 20 | Max new ideas appended per run |
 | `--platforms` | `wechat,x` | Which platforms to score for |
 | `--since` | `24h` | Only consider items published in this window |
-| `--ledger` | `.supper-creator/idea-radar/ideas.jsonl` | Append-only JSONL store |
+| `--ledger` | `.super-creator/idea-radar/ideas.jsonl` | Append-only JSONL store |
 
 ## Pipeline
 
@@ -528,8 +528,8 @@ Create `skills/idea-radar/templates/sources.example.yaml`:
 # idea-radar: starter sources.yaml
 #
 # Copy to either:
-#   .supper-creator/idea-radar/sources.yaml   (project-level, recommended)
-#   ~/.supper-creator/idea-radar/sources.yaml (user-level, applies to every project)
+#   .super-creator/idea-radar/sources.yaml   (project-level, recommended)
+#   ~/.super-creator/idea-radar/sources.yaml (user-level, applies to every project)
 #
 # Each entry has:
 #   type:    one of search | x_list | github_trending | rss | youtube_channel | wechat_account | reddit | hn

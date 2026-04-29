@@ -4,7 +4,7 @@ description: Reads engagement metrics for already-published posts (WeChat 公众
 version: 0.1.0
 metadata:
   openclaw:
-    homepage: https://github.com/hl85/supper-creator
+    homepage: https://github.com/hl85/super-creator
 ---
 
 # Post Analytics
@@ -19,7 +19,7 @@ Read engagement numbers for published posts and write them back into the `ideas.
 
 | Flag | Default | Meaning |
 |------|---------|---------|
-| `--ledger` | `.supper-creator/idea-radar/ideas.jsonl` | Same file `idea-radar` writes |
+| `--ledger` | `.super-creator/idea-radar/ideas.jsonl` | Same file `idea-radar` writes |
 | `--since` | `7d` | Only refresh outcomes for posts published within this window (older posts are stable) |
 | `--platforms` | `wechat,x,weibo` | Subset to refresh |
 | `--row` | (none) | Refresh exactly one ledger row by `id` (otherwise scan all in `--since` window) |

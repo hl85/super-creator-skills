@@ -50,7 +50,7 @@ description: Slices a Markdown article into an X (Twitter) thread JSON. Greedy-p
 version: 0.1.0
 metadata:
   openclaw:
-    homepage: https://github.com/hl85/supper-creator
+    homepage: https://github.com/hl85/super-creator
     requires:
       anyBins:
         - bun

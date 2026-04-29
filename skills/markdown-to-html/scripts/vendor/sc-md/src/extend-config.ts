@@ -36,12 +36,12 @@ function parseExtendYaml(yaml: string): Partial<ExtendConfig> {
 
 export function loadExtendConfig(): Partial<ExtendConfig> {
   const paths = [
-    path.join(process.cwd(), ".supper-creator", "markdown-to-html", "EXTEND.md"),
+    path.join(process.cwd(), ".super-creator", "markdown-to-html", "EXTEND.md"),
     path.join(
       process.env.XDG_CONFIG_HOME || path.join(homedir(), ".config"),
-      "supper-creator", "markdown-to-html", "EXTEND.md"
+      "super-creator", "markdown-to-html", "EXTEND.md"
     ),
-    path.join(homedir(), ".supper-creator", "markdown-to-html", "EXTEND.md"),
+    path.join(homedir(), ".super-creator", "markdown-to-html", "EXTEND.md"),
   ];
   for (const p of paths) {
     try {

@@ -4,7 +4,7 @@ description: Formats plain text or markdown files with frontmatter, titles, summ
 version: 1.57.0
 metadata:
   openclaw:
-    homepage: https://github.com/hl85/supper-creator
+    homepage: https://github.com/hl85/super-creator
     requires:
       anyBins:
         - bun
@@ -33,25 +33,25 @@ Check EXTEND.md existence (priority order):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .supper-creator/format-markdown/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supper-creator/format-markdown/EXTEND.md" && echo "xdg"
-test -f "$HOME/.supper-creator/format-markdown/EXTEND.md" && echo "user"
+test -f .super-creator/format-markdown/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/super-creator/format-markdown/EXTEND.md" && echo "xdg"
+test -f "$HOME/.super-creator/format-markdown/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .supper-creator/format-markdown/EXTEND.md) { "project" }
+if (Test-Path .super-creator/format-markdown/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/supper-creator/format-markdown/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.supper-creator/format-markdown/EXTEND.md") { "user" }
+if (Test-Path "$xdg/super-creator/format-markdown/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.super-creator/format-markdown/EXTEND.md") { "user" }
 ```
 
 ┌──────────────────────────────────────────────────────────┬───────────────────┐
 │                           Path                           │     Location      │
 ├──────────────────────────────────────────────────────────┼───────────────────┤
-│ .supper-creator/format-markdown/EXTEND.md            │ Project directory │
+│ .super-creator/format-markdown/EXTEND.md            │ Project directory │
 ├──────────────────────────────────────────────────────────┼───────────────────┤
-│ $HOME/.supper-creator/format-markdown/EXTEND.md      │ User home         │
+│ $HOME/.super-creator/format-markdown/EXTEND.md      │ User home         │
 └──────────────────────────────────────────────────────────┴───────────────────┘
 
 ┌───────────┬───────────────────────────────────────────────────────────────────────────┐

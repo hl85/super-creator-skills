@@ -187,8 +187,8 @@ async function checkBun(): Promise<void> {
 
 async function checkApiCredentials(): Promise<void> {
   const cwd = process.cwd();
-  const projectEnv = path.join(cwd, '.supper-creator', '.env');
-  const userEnv = path.join(os.homedir(), '.supper-creator', '.env');
+  const projectEnv = path.join(cwd, '.super-creator', '.env');
+  const userEnv = path.join(os.homedir(), '.super-creator', '.env');
 
   let found = false;
   for (const envPath of [projectEnv, userEnv]) {

@@ -92,17 +92,17 @@ header: "Save"
 question: "Where to save preferences?"
 options:
   - label: "Project"
-    description: ".supper-creator/ (this project only)"
+    description: ".super-creator/ (this project only)"
   - label: "User"
-    description: "~/.supper-creator/ (all projects)"
+    description: "~/.super-creator/ (all projects)"
 ```
 
 ## Save Locations
 
 | Choice | Path | Scope |
 |--------|------|-------|
-| Project | `.supper-creator/article-illustrator/EXTEND.md` | Current project |
-| User | `~/.supper-creator/article-illustrator/EXTEND.md` | All projects |
+| Project | `.super-creator/article-illustrator/EXTEND.md` | Current project |
+| User | `~/.super-creator/article-illustrator/EXTEND.md` | All projects |
 
 ## After Setup
 

@@ -4,7 +4,7 @@ description: Converts Markdown to styled HTML with WeChat-compatible themes. Sup
 version: 1.56.1
 metadata:
   openclaw:
-    homepage: https://github.com/hl85/supper-creator
+    homepage: https://github.com/hl85/super-creator
     requires:
       anyBins:
         - bun
@@ -29,25 +29,25 @@ Check EXTEND.md existence (priority order):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .supper-creator/markdown-to-html/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supper-creator/markdown-to-html/EXTEND.md" && echo "xdg"
-test -f "$HOME/.supper-creator/markdown-to-html/EXTEND.md" && echo "user"
+test -f .super-creator/markdown-to-html/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/super-creator/markdown-to-html/EXTEND.md" && echo "xdg"
+test -f "$HOME/.super-creator/markdown-to-html/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .supper-creator/markdown-to-html/EXTEND.md) { "project" }
+if (Test-Path .super-creator/markdown-to-html/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/supper-creator/markdown-to-html/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.supper-creator/markdown-to-html/EXTEND.md") { "user" }
+if (Test-Path "$xdg/super-creator/markdown-to-html/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.super-creator/markdown-to-html/EXTEND.md") { "user" }
 ```
 
 ┌──────────────────────────────────────────────────────────────┬───────────────────┐
 │                             Path                             │     Location      │
 ├──────────────────────────────────────────────────────────────┼───────────────────┤
-│ .supper-creator/markdown-to-html/EXTEND.md               │ Project directory │
+│ .super-creator/markdown-to-html/EXTEND.md               │ Project directory │
 ├──────────────────────────────────────────────────────────────┼───────────────────┤
-│ $HOME/.supper-creator/markdown-to-html/EXTEND.md         │ User home         │
+│ $HOME/.super-creator/markdown-to-html/EXTEND.md         │ User home         │
 └──────────────────────────────────────────────────────────────┴───────────────────┘
 
 ┌───────────┬───────────────────────────────────────────────────────────────────────────┐
@@ -95,12 +95,12 @@ Use `AskUserQuestion` to ask whether to format first. Formatting can fix:
 
 ```bash
 # Check post-to-wechat EXTEND.md for default_theme
-test -f "$HOME/.supper-creator/post-to-wechat/EXTEND.md" && grep -o 'default_theme:.*' "$HOME/.supper-creator/post-to-wechat/EXTEND.md"
+test -f "$HOME/.super-creator/post-to-wechat/EXTEND.md" && grep -o 'default_theme:.*' "$HOME/.super-creator/post-to-wechat/EXTEND.md"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path "$HOME/.supper-creator/post-to-wechat/EXTEND.md") { Select-String -Pattern 'default_theme:.*' -Path "$HOME/.supper-creator/post-to-wechat/EXTEND.md" | ForEach-Object { $_.Matches.Value } }
+if (Test-Path "$HOME/.super-creator/post-to-wechat/EXTEND.md") { Select-String -Pattern 'default_theme:.*' -Path "$HOME/.super-creator/post-to-wechat/EXTEND.md" | ForEach-Object { $_.Matches.Value } }
 ```
 
 **If theme is resolved from EXTEND.md**: Use it directly, do NOT ask the user.

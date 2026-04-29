@@ -4,16 +4,45 @@
 
 ## [未发布]
 
+### 新功能
+- 新增 6 个面向内容创作者的技能：
+  - `markdown-to-thread`：将 Markdown 内容转换为社交媒体帖子（如 X/Twitter）
+  - `content-review`：针对微信和 X 平台进行 AI 驱动的合规性和事实检查
+  - `writeflow`：提供大纲和草稿编写的流式工作流
+  - `multi-publish`：多平台发布编排
+  - `idea-radar`：从各种来源发现、评分和筛选创意
+  - `post-analytics`：收集并分析来自微博、X 和微信的互动指标
+
 ### 变更
-- 项目从 `baoyu-skills` 更名为 `supper-creator`（Fork 自 [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills)）
+- 将项目名称从 `supercreator` 最终更名为 `super-creator`
+
+## 2.0.0 - 2026-04-07
+
+### 变更
+- 重大品牌重塑：项目从 `baoyu-skills` 更名为 `super-creator`（Fork 自 [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills)）
 - 删除所有 skill 目录的 `baoyu-` 前缀
 - 重命名 workspace 包：`baoyu-md` → `sc-md`、`baoyu-fetch` → `sc-fetch`、`baoyu-chrome-cdp` → `sc-chrome-cdp`
-- 运行时配置目录：`.baoyu-skills/` → `.supper-creator/`
+- 运行时配置目录：`.baoyu-skills/` → `.super-creator/`
 - 环境变量前缀：`BAOYU_*` → `SC_*`
-- 删除废弃的 `baoyu-image-gen` skill
+
+### 维护
+- 升级了 6 个技能（slide-deck, infographic, article-illustrator, cover-image, xhs-images, comic）中的 101 个设计参考文件
+- 为设计风格增加了 `## 氛围`（Atmosphere）叙述和 `### 避免`（Avoid）反模式
+- 增加了 `## 示例提示词`（Example Prompt）以便直接生成图像
 
 ### 删除
 - `baoyu-image-gen`（已废弃，已迁移至 `imagine`）
+
+## 1.90.0 - 2026-04-03
+
+### 新功能
+- `baoyu-xhs-images`：为自动化添加 `--yes` 非交互模式
+
+## 1.89.2 - 2026-04-03
+
+### 新功能
+- `baoyu-youtube-transcript`：在 InnerTube 字幕为空时自动尝试使用 `yt-dlp` 重试
+- `baoyu-post-to-wechat`：为文章摘要字段添加回退链
 
 ## 1.89.1 - 2026-04-01
 

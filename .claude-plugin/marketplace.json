@@ -1,5 +1,5 @@
 {
-  "name": "supper-creator",
+  "name": "super-creator",
   "owner": {
     "name": "小灰灰",
     "email": "smart.wolfer@gmail.com"
@@ -10,7 +10,7 @@
   },
   "plugins": [
     {
-      "name": "supper-creator",
+      "name": "super-creator",
       "description": "Content generation, AI backends, and utility tools for daily work efficiency",
       "source": "./",
       "strict": true,
