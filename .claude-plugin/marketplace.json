@@ -33,6 +33,7 @@
         "./skills/slide-deck",
         "./skills/translate",
         "./skills/url-to-markdown",
+        "./skills/writeflow",
         "./skills/xhs-images",
         "./skills/youtube-transcript"
       ]
