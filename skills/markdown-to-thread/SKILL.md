@@ -37,3 +37,13 @@ For detailed slicing logic, character counting rules, and thread craft tips, see
 
 - [references/thread-style.md](references/thread-style.md) - **Thread Craft & Engagement**
 - [references/technical-details.md](references/technical-details.md) - **JSON Output & Max Length Logic**
+
+## Next Step — 发布到 X
+
+`markdown-to-thread` 输出 `thread.json` 后，用 `post-to-x` 发布：
+
+```bash
+./sc-run post-to-x x-browser --thread thread.json
+```
+
+> Beta skill 产出的 `thread.json` 路径由对话时指定的输出目录决定，默认为 `./thread.json`。

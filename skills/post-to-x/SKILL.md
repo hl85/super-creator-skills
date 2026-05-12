@@ -17,12 +17,14 @@ Posts text, images, videos, and long-form articles to X via real Chrome browser.
 | **Quote Tweet** | `./sc-run post-to-x x-quote https://x.com/status/123 "Comment"` |
 | **X Article** | `./sc-run post-to-x x-article article.md` |
 | **Check Env** | `./sc-run post-to-x x-browser --check` |
+| **Thread from JSON** | `./sc-run post-to-x x-browser --thread thread.json` |
 
 ## Documentation
 
 - [Regular Posts & Quote Tweets](./references/regular-posts.md)
 - [Video Posts](./references/video.md)
 - [X Articles](./references/articles.md)
+- [Input: thread.json from markdown-to-thread](../markdown-to-thread/SKILL.md) — Use `markdown-to-thread` to slice a long article into thread JSON first.
 
 ## Self-Healing
 
