@@ -33,6 +33,7 @@
         "./skills/post-to-weibo",
         "./skills/post-to-wechat",
         "./skills/post-to-x",
+        "./skills/post-to-xhs",
         "./skills/slide-deck",
         "./skills/translate",
         "./skills/url-to-markdown",
