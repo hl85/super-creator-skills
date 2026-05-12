@@ -145,8 +145,10 @@ tests-data/
 # Skill extensions (user customization)
 .super-creator/
 x-to-markdown/
+!skills/x-to-markdown/
 xhs-images/
 url-to-markdown/
+!skills/url-to-markdown/
 cover-image/
 slide-deck/
 infographic/

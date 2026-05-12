@@ -33,6 +33,8 @@ All commands use `./sc-run url-to-markdown main`.
 - **Gate Bypassing**: Handle Cloudflare, logins, and CAPTCHAs via interaction modes.
 - **Local Archiving**: Download images and videos for offline use.
 
+> **与 `x-to-markdown` 的区别**：`url-to-markdown` 使用 Chrome CDP（官方路径），适合提取干净文本；`x-to-markdown` 使用逆向 API，需要用户授权，但支持媒体文件本地化下载。
+
 ## Progressive Disclosure
 
 For detailed capture modes, quality assessment rules, and site-specific adapters, see:
