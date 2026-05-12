@@ -44,3 +44,7 @@ For detailed capture modes, quality assessment rules, and site-specific adapters
 - [references/media-workflow.md](references/media-workflow.md) - **Handling Images & Videos**
 - [references/preferences.md](references/preferences.md) - **EXTEND.md & First-time Setup**
 - [references/technical-details.md](references/technical-details.md) - **CDP, Profiles, & Env Vars**
+
+## Chrome Setup
+
+首次使用需要配置 Chrome CDP。完整步骤：[docs/chrome-setup.md](../../docs/chrome-setup.md)

@@ -35,3 +35,5 @@ If a script fails with `Chrome debug port not ready`, it will automatically atte
 - **Login**: First run requires manual login (session persists).
 - **Permissions**: macOS requires Accessibility permission for terminal to paste images.
 - **Chrome**: Close other Chrome instances if they use the same debug port (9222).
+
+> 完整 Chrome 首次配置流程：[docs/chrome-setup.md](../../docs/chrome-setup.md)

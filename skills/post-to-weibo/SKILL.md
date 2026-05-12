@@ -31,3 +31,7 @@ For detailed information on posting types, preferences, and troubleshooting, see
 - [references/posting-types.md](references/posting-types.md) - **Regular Posts & Headline Articles**
 - [references/preferences.md](references/preferences.md) - **EXTEND.md & Prerequisites**
 - [references/troubleshooting.md](references/troubleshooting.md) - **Common Issues & Fixes**
+
+## Chrome Setup
+
+首次使用需要配置 Chrome CDP。完整步骤：[docs/chrome-setup.md](../../docs/chrome-setup.md)

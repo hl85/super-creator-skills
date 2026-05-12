@@ -40,3 +40,7 @@ For detailed workflows, preferences, and technical details, see:
 - [references/multi-account.md](references/multi-account.md) - **Multi-Account Support**
 - [references/technical-details.md](references/technical-details.md) - **Troubleshooting & Comparison**
 - [references/config/first-time-setup.md](references/config/first-time-setup.md) - **Guided Setup**
+
+## Chrome Setup
+
+首次使用需要配置 Chrome CDP。完整步骤：[docs/chrome-setup.md](../../docs/chrome-setup.md)

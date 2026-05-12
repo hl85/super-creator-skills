@@ -38,3 +38,7 @@ This skill is driven via prompt orchestration. Provide your images and caption t
 
 - [references/posting-guide.md](references/posting-guide.md) - **Step-by-step posting logic & Chrome CDP notes**
 - [references/preferences.md](references/preferences.md) - **EXTEND.md & first-time Chrome login**
+
+## Chrome Setup
+
+首次使用需要配置 Chrome CDP。完整步骤：[docs/chrome-setup.md](../../docs/chrome-setup.md)

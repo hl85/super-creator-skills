@@ -41,3 +41,7 @@ For required consent flows, model lists, and authentication details, see:
 - [references/models.md](references/models.md) - **Pro, Flash & Thinking Models**
 - [references/preferences.md](references/preferences.md) - **EXTEND.md & Proxy Config**
 - [references/technical-details.md](references/technical-details.md) - **Auth, Cookies & Env Vars**
+
+## Chrome Setup
+
+首次使用需要配置 Chrome CDP。完整步骤：[docs/chrome-setup.md](../../docs/chrome-setup.md)
