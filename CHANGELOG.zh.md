@@ -1,22 +1,20 @@
-# Changelog
+# 更新日志
 
 [English](./CHANGELOG.md) | 中文
 
-## [未发布]
+## 3.0.0 - 2026-05-12
 
-### 新功能
-- 新增 6 个面向内容创作者的技能：
-  - `markdown-to-thread`：将 Markdown 内容转换为社交媒体帖子（如 X/Twitter）
-  - `content-review`：针对微信和 X 平台进行 AI 驱动的合规性和事实检查
-  - `writeflow`：提供大纲和草稿编写的流式工作流
-  - `multi-publish`：多平台发布编排
-  - `idea-radar`：从各种来源发现、评分和筛选创意
-  - `post-analytics`：收集并分析来自微博、X 和微信的互动指标
+### 重大架构重构
+- **意图导向路由器 (Intent-based Router)**：重构全部 24 个 skill，遵循“意图优先”设计。
+- **语义化命令行 (`sc-run`)**：在项目根目录引入统一入口。Agent 现在通过 `./sc-run <skill> <script>` 调用，无需手动解析路径。
+- **渐进式披露 (Progressive Disclosure)**：
+  - 将所有 `SKILL.md` 瘦身至 30 行以内（仅保留核心意图和常用命令）。
+  - 将超过 10,000 行的技术细节、参数表和工作流迁移至各 skill 目录下的 `references/` 文件夹。
+- **自愈环境 (Self-healing Environment)**：
+  - 在自动化脚本中集成了 CDP 端口冲突自动清理（自动杀掉残留 Chrome 进程）。
+  - 统一支持 `--check` 参数，实现一键环境自检。
 
-### 变更
-- 将项目名称从 `supercreator` 最终更名为 `super-creator`
-
-## 2.0.0 - 2026-04-07
+## 2.1.0 - 2026-04-29
 
 ### 变更
 - 重大品牌重塑：项目从 `baoyu-skills` 更名为 `super-creator`（Fork 自 [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills)）

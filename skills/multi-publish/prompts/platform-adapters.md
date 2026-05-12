@@ -8,8 +8,8 @@ How to turn a single source `article.md` into each platform's expected input.
 
 **Target:** styled HTML with bottom-citation external links and inline images.
 
-```
-${BUN_X} skills/markdown-to-html/scripts/main.ts \
+```bash
+./sc-run markdown-to-html main \
   <article.md> \
   -o <out-dir>/wechat/article.html \
   --theme default \
@@ -25,8 +25,8 @@ Notes:
 
 **Target:** `thread.json` array consumable by `post-to-x`.
 
-```
-${BUN_X} skills/markdown-to-thread/scripts/main.ts \
+```bash
+./sc-run markdown-to-thread main \
   <article.md> \
   -o <out-dir>/x/thread.json \
   --hook auto \
@@ -43,12 +43,12 @@ Notes:
 
 **Target:** ≤ 140 字 short post if the article ≤ 140 字, otherwise a "长微博" markdown that `post-to-weibo` can render to image.
 
-```
+```bash
 # short-post path (article body ≤ 140 chars):
 cp <article.md> <out-dir>/weibo/post.md
 
 # long-post path (> 140 chars):
-${BUN_X} skills/markdown-to-html/scripts/main.ts \
+./sc-run markdown-to-html main \
   <article.md> \
   -o <out-dir>/weibo/long-post.html \
   --theme weibo
@@ -62,8 +62,8 @@ Notes:
 
 After every adapter, scan its output directory for `*.png|*.jpg|*.jpeg|*.webp`. For each, run:
 
-```
-${BUN_X} skills/compress-image/scripts/main.ts \
+```bash
+./sc-run compress-image main \
   <image> \
   --max-size <platform-limit>
 ```

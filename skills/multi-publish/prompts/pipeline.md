@@ -14,8 +14,8 @@ Skip only if `--skip-review` was passed and the user explicitly asked for it.
 
 For **each** platform in `--to`:
 
-```
-/content-review <article.md> --platform <wechat|x> -o <out-dir>/review-<platform>.md
+```bash
+./sc-run content-review main <article.md> --platform <wechat|x> -o <out-dir>/review-<platform>.md
 ```
 
 (For `weibo`, reuse the `wechat` red-line set — they share regulators.)
@@ -44,8 +44,8 @@ Adapters are independent → can be invoked back to back without waiting; they d
 
 For any platform whose adapter referenced local images:
 
-```
-${BUN_X} skills/compress-image/scripts/main.ts <image-path> --max-size <limit>
+```bash
+./sc-run compress-image main <image-path> --max-size <limit>
 ```
 
 Limits:

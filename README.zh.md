@@ -6,6 +6,28 @@ AI 驱动的 Claude Code 内容生成技能集。
 
 > **Fork 声明**：本项目 fork 自 [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills)，原始工作由 [@JimLiu](https://github.com/JimLiu) 完成。
 
+## 架构标准：Agent-Reach 风格
+
+`super-creator` 遵循受 `agent-reach` 启发的模块化、意图驱动设计：
+
+1.  **语义化抽象**：通过 `./sc-run` 工具向 Agent 隐藏脚本路径和 `bun`/`npx` 逻辑。
+2.  **渐进式披露**：`SKILL.md` 文件保持极简（<30 行）以节省 Token 上下文。技术细节存储在 `references/*.md` 中，仅在 Agent 需要时读取。
+3.  **自愈环境**：脚本自动处理常见的环境问题，例如残留的 Chrome CDP 进程。
+
+## 核心命令行 (`sc-run`)
+
+本项目提供统一的运行器，抽象了路径逻辑和运行时管理。
+
+```bash
+# 通用用法
+./sc-run <skill-name> <script-name> [args...]
+
+# 示例
+./sc-run post-to-x x-browser "你好！"
+./sc-run youtube-transcript main <url> --chapters
+./sc-run imagine main --prompt "未来实验室"
+```
+
 ## 前置要求
 
 - 已安装 Node.js 环境

@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# sc-run: Infrastructure Layer CLI wrapper for skill scripts
+# Usage: ./sc-run <skill-name> <script-name> [args...]
+
+SKILL_NAME=$1
+SCRIPT_NAME=$2
+
+if [ -z "$SKILL_NAME" ] || [ -z "$SCRIPT_NAME" ]; then
+  echo "Usage: ./sc-run <skill-name> <script-name> [args...]"
+  exit 1
+fi
+
+# Remove the first two arguments so that "$@" contains only the script arguments
+shift 2
+
+# Get the directory of this script
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+SCRIPT_PATH="$DIR/skills/$SKILL_NAME/scripts/$SCRIPT_NAME.ts"
+
+if [ ! -f "$SCRIPT_PATH" ]; then
+  echo "Error: Script not found at $SCRIPT_PATH"
+  exit 1
+fi
+
+# Check for bun runtime
+if command -v bun >/dev/null 2>&1; then
+  RUNNER="bun"
+else
+  # Use npx bun if local bun is not found
+  RUNNER="npx bun"
+fi
+
+# Execute the script
+$RUNNER "$SCRIPT_PATH" "$@"

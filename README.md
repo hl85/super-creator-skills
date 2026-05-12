@@ -6,6 +6,28 @@ AI-powered content generation skills for Claude Code.
 
 > **Fork Notice**: This project is forked from [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills). Original work by [@JimLiu](https://github.com/JimLiu).
 
+## Architecture: Agent-Reach Standard
+
+`super-creator` follows a modular, intent-driven design inspired by the `agent-reach` skill:
+
+1.  **Semantic Abstraction**: The `./sc-run` tool hides script paths and `bun`/`npx` logic from the Agent.
+2.  **Progressive Disclosure**: `SKILL.md` files are kept minimal (<30 lines) to save Token context. Detailed documentation is stored in `references/*.md` and read by the Agent only when needed.
+3.  **Self-Healing**: Scripts automatically handle common environment issues, such as stale Chrome CDP instances.
+
+## Core CLI (`sc-run`)
+
+This project provides a centralized runner to abstract path logic and runtime management.
+
+```bash
+# General Usage
+./sc-run <skill-name> <script-name> [args...]
+
+# Examples
+./sc-run post-to-x x-browser "Hello!"
+./sc-run youtube-transcript main <url> --chapters
+./sc-run imagine main --prompt "A futuristic lab"
+```
+
 ## Prerequisites
 
 - Node.js environment installed

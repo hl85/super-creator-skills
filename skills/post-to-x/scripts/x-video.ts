@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import { mkdir } from 'node:fs/promises';
+import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import process from 'node:process';
 import {
@@ -13,6 +14,7 @@ import {
   sleep,
   waitForXSessionPersistence,
   waitForChromeDebugPort,
+  getScriptDir,
 } from './x-utils.js';
 
 const X_COMPOSE_URL = 'https://x.com/compose/post';
@@ -211,29 +213,39 @@ export async function postVideoToX(options: XVideoOptions): Promise<void> {
   }
 }
 
+function runCheck(): void {
+  const checkScript = path.join(getScriptDir(), 'check-paste-permissions.ts');
+  console.log('[x-video] Running environment check...');
+  const result = spawnSync('npx', ['-y', 'bun', checkScript], { stdio: 'inherit' });
+  process.exit(result.status ?? 0);
+}
+
+function selfHeal(): void {
+  console.log('[x-video] Performing self-healing (killing conflicting Chrome instances)...');
+  if (process.platform === 'win32') {
+    spawnSync('taskkill', ['/F', '/IM', 'chrome.exe', '/FI', 'WINDOWTITLE eq *remote-debugging-port*'], { stdio: 'ignore' });
+  } else {
+    spawnSync('pkill', ['-f', 'Chrome.*remote-debugging-port'], { stdio: 'ignore' });
+    spawnSync('pkill', ['-f', 'Chromium.*remote-debugging-port'], { stdio: 'ignore' });
+  }
+}
+
 function printUsage(): never {
   console.log(`Post video to X (Twitter) using real Chrome browser
 
 Usage:
-  npx -y bun x-video.ts [options] --video <path> [text]
+  ./sc-run post-to-x x-video [options] --video <path> [text]
 
 Options:
   --video <path>   Video file path (required, supports mp4/mov/webm)
   --submit         Actually post (default: preview only)
   --profile <dir>  Chrome profile directory
+  --check          Run environment verification
   --help           Show this help
 
 Examples:
-  npx -y bun x-video.ts --video ./clip.mp4 "Check out this video!"
-  npx -y bun x-video.ts --video ./demo.mp4 --submit
-  npx -y bun x-video.ts --video ./video.mp4 "Multi-line text
-works too"
-
-Notes:
-  - Video is uploaded first, then text is added (to avoid text being cleared)
-  - Video processing may take 30-60 seconds depending on file size
-  - Maximum video length on X: 140 seconds (regular) or 60 min (Premium)
-  - Supported formats: MP4, MOV, WebM
+  ./sc-run post-to-x x-video --video ./clip.mp4 "Check out this video!"
+  ./sc-run post-to-x x-video --video ./demo.mp4 --submit
 `);
   process.exit(0);
 }
@@ -241,6 +253,10 @@ Notes:
 async function main(): Promise<void> {
   const args = process.argv.slice(2);
   if (args.includes('--help') || args.includes('-h')) printUsage();
+  if (args.includes('--check')) runCheck();
+
+  // Self-healing: try to kill conflicting Chrome instances
+  selfHeal();
 
   let videoPath: string | undefined;
   let submit = false;

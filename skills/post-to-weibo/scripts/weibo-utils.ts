@@ -1,4 +1,5 @@
 import { execSync, spawnSync } from 'node:child_process';
+import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
@@ -8,6 +9,7 @@ import {
   findChromeExecutable as findChromeExecutableBase,
   findExistingChromeDebugPort as findExistingChromeDebugPortBase,
   getFreePort as getFreePortBase,
+  killChrome,
   launchChrome as launchChromeBase,
   resolveSharedChromeProfileDir,
   sleep,
@@ -33,6 +35,40 @@ export const CHROME_CANDIDATES: PlatformCandidates = {
     '/usr/bin/chromium-browser',
   ],
 };
+
+const CHROME_LOCK_FILES = ['SingletonLock', 'SingletonSocket', 'SingletonCookie', 'chrome.pid'] as const;
+
+function cleanStaleLockFiles(profileDir: string): void {
+  for (const name of CHROME_LOCK_FILES) {
+    try { fs.unlinkSync(path.join(profileDir, name)); } catch {}
+  }
+}
+
+function hasLiveChromeOwner(profileDir: string): boolean {
+  if (process.platform === 'win32') return false;
+  try {
+    const result = spawnSync('ps', ['aux'], {
+      encoding: 'utf8',
+      timeout: 5000,
+    });
+    if (result.status !== 0 || !result.stdout) return false;
+    return result.stdout.split('\n').some((line) => line.includes(`--user-data-dir=${profileDir}`));
+  } catch {
+    return false;
+  }
+}
+
+async function listProfileDirEntries(profileDir: string): Promise<string[]> {
+  try {
+    return await fs.promises.readdir(profileDir);
+  } catch {
+    return [];
+  }
+}
+
+function hasChromeLockArtifacts(entries: readonly string[]): boolean {
+  return CHROME_LOCK_FILES.some((name) => entries.includes(name));
+}
 
 let wslHome: string | null | undefined;
 function getWslWindowsHome(): string | null {
@@ -95,20 +131,49 @@ export async function getFreePort(): Promise<number> {
   return await getFreePortBase('WEIBO_BROWSER_DEBUG_PORT');
 }
 
-export async function launchChrome(url: string, profileDir: string, chromePathOverride?: string): Promise<number> {
-  const chromePath = findChromeExecutable(chromePathOverride);
-  if (!chromePath) throw new Error('Chrome not found. Set WEIBO_BROWSER_CHROME_PATH env var.');
-
+async function launchChromeOnce(
+  url: string,
+  profileDir: string,
+  chromePath: string,
+): Promise<number> {
   const port = await getFreePort();
-  console.log(`[weibo-cdp] Launching Chrome (profile: ${profileDir})`);
-  await launchChromeBase({
+  const chrome = await launchChromeBase({
     chromePath,
     profileDir,
     port,
     url,
     extraArgs: ['--disable-blink-features=AutomationControlled', '--start-maximized'],
   });
-  return port;
+
+  try {
+    await waitForChromeDebugPort(port, 30_000, { includeLastError: true });
+    return port;
+  } catch (error) {
+    killChrome(chrome);
+    throw error;
+  }
+}
+
+export async function launchChrome(url: string, profileDir: string, chromePathOverride?: string): Promise<number> {
+  const chromePath = findChromeExecutable(chromePathOverride);
+  if (!chromePath) throw new Error('Chrome not found. Set WEIBO_BROWSER_CHROME_PATH env var.');
+
+  console.log(`[weibo-cdp] Launching Chrome (profile: ${profileDir})`);
+  try {
+    return await launchChromeOnce(url, profileDir, chromePath);
+  } catch (error) {
+    const entries = await listProfileDirEntries(profileDir);
+    const lockArtifactsPresent = hasChromeLockArtifacts(entries);
+    const hasLiveOwner = hasLiveChromeOwner(profileDir);
+
+    if (lockArtifactsPresent && !hasLiveOwner) {
+      console.warn(`[weibo-cdp] Stale lock files detected in ${profileDir}. Cleaning up and retrying...`);
+      cleanStaleLockFiles(profileDir);
+      return await launchChromeOnce(url, profileDir, chromePath);
+    }
+
+    throw error;
+  }
 }
 
 export function getScriptDir(): string {

@@ -1,4 +1,5 @@
-import { execSync, type ChildProcess } from 'node:child_process';
+import { execSync, spawnSync, type ChildProcess } from 'node:child_process';
+import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 
@@ -7,6 +8,7 @@ import {
   findChromeExecutable as findChromeExecutableBase,
   findExistingChromeDebugPort as findExistingChromeDebugPortBase,
   getFreePort as getFreePortBase,
+  killChrome,
   launchChrome as launchChromeBase,
   resolveSharedChromeProfileDir,
   sleep,
@@ -39,6 +41,40 @@ const CHROME_CANDIDATES_FULL: PlatformCandidates = {
     '/usr/bin/microsoft-edge',
   ],
 };
+
+const CHROME_LOCK_FILES = ['SingletonLock', 'SingletonSocket', 'SingletonCookie', 'chrome.pid'] as const;
+
+function cleanStaleLockFiles(profileDir: string): void {
+  for (const name of CHROME_LOCK_FILES) {
+    try { fs.unlinkSync(path.join(profileDir, name)); } catch {}
+  }
+}
+
+function hasLiveChromeOwner(profileDir: string): boolean {
+  if (process.platform === 'win32') return false;
+  try {
+    const result = spawnSync('ps', ['aux'], {
+      encoding: 'utf8',
+      timeout: 5000,
+    });
+    if (result.status !== 0 || !result.stdout) return false;
+    return result.stdout.split('\n').some((line) => line.includes(`--user-data-dir=${profileDir}`));
+  } catch {
+    return false;
+  }
+}
+
+async function listProfileDirEntries(profileDir: string): Promise<string[]> {
+  try {
+    return await fs.promises.readdir(profileDir);
+  } catch {
+    return [];
+  }
+}
+
+function hasChromeLockArtifacts(entries: readonly string[]): boolean {
+  return CHROME_LOCK_FILES.some((name) => entries.includes(name));
+}
 
 let wslHome: string | null | undefined;
 function getWslWindowsHome(): string | null {
@@ -105,6 +141,30 @@ export async function findExistingChromeDebugPort(profileDir = getDefaultProfile
   return await findExistingChromeDebugPortBase({ profileDir });
 }
 
+async function launchChromeOnce(
+  url: string,
+  profileDir: string,
+  chromePath: string,
+): Promise<{ cdp: CdpConnection; chrome: ChildProcess }> {
+  const port = await getFreePort();
+  const chrome = await launchChromeBase({
+    chromePath,
+    profileDir,
+    port,
+    url,
+    extraArgs: ['--disable-blink-features=AutomationControlled', '--start-maximized'],
+  });
+
+  try {
+    const wsUrl = await waitForChromeDebugPort(port, 30_000, { includeLastError: true });
+    const cdp = await CdpConnection.connect(wsUrl, 30_000);
+    return { cdp, chrome };
+  } catch (error) {
+    killChrome(chrome);
+    throw error;
+  }
+}
+
 export async function launchChrome(
   url: string,
   profileDir?: string,
@@ -114,21 +174,23 @@ export async function launchChrome(
   if (!chromePath) throw new Error('Chrome not found. Set WECHAT_BROWSER_CHROME_PATH env var.');
 
   const profile = profileDir ?? getDefaultProfileDir();
-  const port = await getFreePort();
   console.log(`[cdp] Launching Chrome (profile: ${profile})`);
 
-  const chrome = await launchChromeBase({
-    chromePath,
-    profileDir: profile,
-    port,
-    url,
-    extraArgs: ['--disable-blink-features=AutomationControlled', '--start-maximized'],
-  });
+  try {
+    return await launchChromeOnce(url, profile, chromePath);
+  } catch (error) {
+    const entries = await listProfileDirEntries(profile);
+    const lockArtifactsPresent = hasChromeLockArtifacts(entries);
+    const hasLiveOwner = hasLiveChromeOwner(profile);
 
-  const wsUrl = await waitForChromeDebugPort(port, 30_000, { includeLastError: true });
-  const cdp = await CdpConnection.connect(wsUrl, 30_000);
+    if (lockArtifactsPresent && !hasLiveOwner) {
+      console.warn(`[cdp] Stale lock files detected in ${profile}. Cleaning up and retrying...`);
+      cleanStaleLockFiles(profile);
+      return await launchChromeOnce(url, profile, chromePath);
+    }
 
-  return { cdp, chrome };
+    throw error;
+  }
 }
 
 export async function getPageSession(cdp: CdpConnection, urlPattern: string): Promise<ChromeSession> {

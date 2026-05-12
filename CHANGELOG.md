@@ -2,21 +2,19 @@
 
 English | [中文](./CHANGELOG.zh.md)
 
-## [Unreleased]
+## 3.0.0 - 2026-05-12
 
-### Features
-- Added 6 new skills for content creators:
-  - `markdown-to-thread`: Convert markdown content into social media threads (e.g., X/Twitter)
-  - `content-review`: AI-powered compliance and fact-checking for WeChat and X
-  - `writeflow`: Streamlined writing workflow with outline and draft procedures
-  - `multi-publish`: Orchestrate publishing across multiple platforms
-  - `idea-radar`: Discover, score, and sweep content ideas from various sources
-  - `post-analytics`: Collect and analyze engagement metrics from Weibo, X, and WeChat
+### Major Architectural Refactoring
+- **Intent-based Router**: All 24 skills refactored to follow a high-level "intent-first" design.
+- **Semantic CLI (`sc-run`)**: Introduced a unified entry point in the project root. Agent calls `./sc-run <skill> <script>` instead of manually resolving paths.
+- **Progressive Disclosure**:
+  - Slimmed down all `SKILL.md` files to <30 lines (Intents + Core Usage).
+  - Moved over 10,000 lines of technical specs, parameters, and workflows into dedicated `references/` directories per skill.
+- **Self-Healing Environment**:
+  - Integrated automatic CDP port cleanup (auto-pkill stale Chrome) into automation scripts.
+  - Added standardized `--check` flag for one-click environment verification.
 
-### Changed
-- Final project rename from `supercreator` to `super-creator`
-
-## 2.0.0 - 2026-04-07
+## 2.1.0 - 2026-04-29
 
 ### Changed
 - Major Rebrand: Project renamed from `baoyu-skills` to `super-creator` (forked from [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills))

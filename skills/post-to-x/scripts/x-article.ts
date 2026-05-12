@@ -1,7 +1,9 @@
 import fs from 'node:fs';
 import { mkdir, writeFile } from 'node:fs/promises';
+import { spawnSync } from 'node:child_process';
 import os from 'node:os';
 import path from 'node:path';
+import process from 'node:process';
 
 import { parseMarkdown } from './md-to-html.js';
 import {
@@ -16,6 +18,7 @@ import {
   pasteFromClipboard,
   sleep,
   waitForChromeDebugPort,
+  getScriptDir,
 } from './x-utils.js';
 
 const X_ARTICLES_URL = 'https://x.com/compose/articles';
@@ -721,17 +724,35 @@ export async function publishArticle(options: ArticleOptions): Promise<void> {
   }
 }
 
+function runCheck(): void {
+  const checkScript = path.join(getScriptDir(), 'check-paste-permissions.ts');
+  console.log('[x-article] Running environment check...');
+  const result = spawnSync('npx', ['-y', 'bun', checkScript], { stdio: 'inherit' });
+  process.exit(result.status ?? 0);
+}
+
+function selfHeal(): void {
+  console.log('[x-article] Performing self-healing (killing conflicting Chrome instances)...');
+  if (process.platform === 'win32') {
+    spawnSync('taskkill', ['/F', '/IM', 'chrome.exe', '/FI', 'WINDOWTITLE eq *remote-debugging-port*'], { stdio: 'ignore' });
+  } else {
+    spawnSync('pkill', ['-f', 'Chrome.*remote-debugging-port'], { stdio: 'ignore' });
+    spawnSync('pkill', ['-f', 'Chromium.*remote-debugging-port'], { stdio: 'ignore' });
+  }
+}
+
 function printUsage(): never {
   console.log(`Publish Markdown article to X (Twitter) Articles
 
 Usage:
-  npx -y bun x-article.ts <markdown_file> [options]
+  ./sc-run post-to-x x-article <markdown_file> [options]
 
 Options:
   --title <title>     Override title
   --cover <image>     Override cover image
   --submit            Actually publish (default: draft only)
   --profile <dir>     Chrome profile directory
+  --check             Run environment verification
   --help              Show this help
 
 Markdown frontmatter:
@@ -741,18 +762,20 @@ Markdown frontmatter:
   ---
 
 Example:
-  npx -y bun x-article.ts article.md
-  npx -y bun x-article.ts article.md --cover ./hero.png
-  npx -y bun x-article.ts article.md --submit
+  ./sc-run post-to-x x-article article.md
+  ./sc-run post-to-x x-article article.md --cover ./hero.png
+  ./sc-run post-to-x x-article article.md --submit
 `);
   process.exit(0);
 }
 
 async function main(): Promise<void> {
   const args = process.argv.slice(2);
-  if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
-    printUsage();
-  }
+  if (args.includes('--help') || args.includes('-h')) printUsage();
+  if (args.includes('--check')) runCheck();
+
+  // Self-healing: try to kill conflicting Chrome instances
+  selfHeal();
 
   let markdownPath: string | undefined;
   let title: string | undefined;

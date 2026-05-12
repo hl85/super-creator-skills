@@ -1,4 +1,6 @@
 import { mkdir } from 'node:fs/promises';
+import { spawnSync } from 'node:child_process';
+import path from 'node:path';
 import process from 'node:process';
 import {
   CHROME_CANDIDATES_FULL,
@@ -11,6 +13,7 @@ import {
   sleep,
   waitForXSessionPersistence,
   waitForChromeDebugPort,
+  getScriptDir,
 } from './x-utils.js';
 
 function extractTweetUrl(urlOrId: string): string | null {
@@ -204,20 +207,38 @@ export async function quotePost(options: QuoteOptions): Promise<void> {
   }
 }
 
+function runCheck(): void {
+  const checkScript = path.join(getScriptDir(), 'check-paste-permissions.ts');
+  console.log('[x-quote] Running environment check...');
+  const result = spawnSync('npx', ['-y', 'bun', checkScript], { stdio: 'inherit' });
+  process.exit(result.status ?? 0);
+}
+
+function selfHeal(): void {
+  console.log('[x-quote] Performing self-healing (killing conflicting Chrome instances)...');
+  if (process.platform === 'win32') {
+    spawnSync('taskkill', ['/F', '/IM', 'chrome.exe', '/FI', 'WINDOWTITLE eq *remote-debugging-port*'], { stdio: 'ignore' });
+  } else {
+    spawnSync('pkill', ['-f', 'Chrome.*remote-debugging-port'], { stdio: 'ignore' });
+    spawnSync('pkill', ['-f', 'Chromium.*remote-debugging-port'], { stdio: 'ignore' });
+  }
+}
+
 function printUsage(): never {
   console.log(`Quote a tweet on X (Twitter) using real Chrome browser
 
 Usage:
-  npx -y bun x-quote.ts <tweet-url> [options] [comment]
+  ./sc-run post-to-x x-quote <tweet-url> [options] [comment]
 
 Options:
   --submit         Actually post (default: preview only)
   --profile <dir>  Chrome profile directory
+  --check          Run environment verification
   --help           Show this help
 
 Examples:
-  npx -y bun x-quote.ts https://x.com/user/status/123456789 "Great insight!"
-  npx -y bun x-quote.ts https://x.com/user/status/123456789 "I agree!" --submit
+  ./sc-run post-to-x x-quote https://x.com/user/status/123456789 "Great insight!"
+  ./sc-run post-to-x x-quote https://x.com/user/status/123456789 "I agree!" --submit
 `);
   process.exit(0);
 }
@@ -225,6 +246,10 @@ Examples:
 async function main(): Promise<void> {
   const args = process.argv.slice(2);
   if (args.includes('--help') || args.includes('-h')) printUsage();
+  if (args.includes('--check')) runCheck();
+
+  // Self-healing: try to kill conflicting Chrome instances
+  selfHeal();
 
   let tweetUrl: string | undefined;
   let submit = false;
@@ -249,7 +274,7 @@ async function main(): Promise<void> {
 
   if (!tweetUrl) {
     console.error('Error: Please provide a tweet URL.');
-    console.error('Example: npx -y bun x-quote.ts https://x.com/user/status/123456789 "Your comment"');
+    console.error('Example: ./sc-run post-to-x x-quote https://x.com/user/status/123456789 "Your comment"');
     process.exit(1);
   }
 

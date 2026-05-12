@@ -9,8 +9,19 @@
 | **Naming** | All skills MUST use descriptive names without a required prefix |
 | **name field** | Max 64 chars, lowercase letters/numbers/hyphens only, no "anthropic"/"claude" |
 | **description** | Max 1024 chars, third person, include what + when to use |
-| **SKILL.md body** | Keep under 500 lines; use `references/` for additional content |
-| **References** | One level deep from SKILL.md; avoid nested references |
+| **SKILL.md body** | **MUST be under 30 lines**; use `references/` for all technical details |
+| **References** | Use `references/` directory; document Intents in main SKILL.md |
+
+## Semantic CLI Usage
+
+All new skills MUST be compatible with the `./sc-run` runner. 
+
+**Format**: `./sc-run <skill-name> <script-name> [args...]`
+
+The runner automatically resolves:
+- `skills/<skill-name>/scripts/<script-name>.ts`
+- Runtime detection (`bun` preference)
+- Absolute path math
 
 ## SKILL.md Frontmatter Template
 

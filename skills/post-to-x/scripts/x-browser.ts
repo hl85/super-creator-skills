@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import { mkdir } from 'node:fs/promises';
+import { spawnSync } from 'node:child_process';
 import process from 'node:process';
+import path from 'node:path';
 import {
   CHROME_CANDIDATES_FULL,
   CdpConnection,
@@ -14,6 +16,7 @@ import {
   sleep,
   waitForXSessionPersistence,
   waitForChromeDebugPort,
+  getScriptDir,
 } from './x-utils.js';
 
 const X_COMPOSE_URL = 'https://x.com/compose/post';
@@ -214,22 +217,40 @@ export async function postToX(options: XBrowserOptions): Promise<void> {
   }
 }
 
+function runCheck(): void {
+  const checkScript = path.join(getScriptDir(), 'check-paste-permissions.ts');
+  console.log('[x-browser] Running environment check...');
+  const result = spawnSync('npx', ['-y', 'bun', checkScript], { stdio: 'inherit' });
+  process.exit(result.status ?? 0);
+}
+
+function selfHeal(): void {
+  console.log('[x-browser] Performing self-healing (killing conflicting Chrome instances)...');
+  if (process.platform === 'win32') {
+    spawnSync('taskkill', ['/F', '/IM', 'chrome.exe', '/FI', 'WINDOWTITLE eq *remote-debugging-port*'], { stdio: 'ignore' });
+  } else {
+    spawnSync('pkill', ['-f', 'Chrome.*remote-debugging-port'], { stdio: 'ignore' });
+    spawnSync('pkill', ['-f', 'Chromium.*remote-debugging-port'], { stdio: 'ignore' });
+  }
+}
+
 function printUsage(): never {
   console.log(`Post to X (Twitter) using real Chrome browser
 
 Usage:
-  npx -y bun x-browser.ts [options] [text]
+  ./sc-run post-to-x x-browser [options] [text]
 
 Options:
   --image <path>   Add image (can be repeated, max 4)
   --submit         Actually post (default: preview only)
   --profile <dir>  Chrome profile directory
+  --check          Run environment verification
   --help           Show this help
 
 Examples:
-  npx -y bun x-browser.ts "Hello from CLI!"
-  npx -y bun x-browser.ts "Check this out" --image ./screenshot.png
-  npx -y bun x-browser.ts "Post it!" --image a.png --image b.png --submit
+  ./sc-run post-to-x x-browser "Hello from CLI!"
+  ./sc-run post-to-x x-browser "Check this out" --image ./screenshot.png
+  ./sc-run post-to-x x-browser "Post it!" --image a.png --image b.png --submit
 `);
   process.exit(0);
 }
@@ -237,6 +258,10 @@ Examples:
 async function main(): Promise<void> {
   const args = process.argv.slice(2);
   if (args.includes('--help') || args.includes('-h')) printUsage();
+  if (args.includes('--check')) runCheck();
+
+  // Self-healing: try to kill conflicting Chrome instances
+  selfHeal();
 
   const images: string[] = [];
   let submit = false;
