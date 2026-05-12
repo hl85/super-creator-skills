@@ -35,7 +35,16 @@
       "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('.claude-plugin/marketplace.json','utf8'\\)\\)\")",
       "Bash(node -e ' *)",
       "WebSearch",
-      "WebFetch(domain:docs.anthropic.com)"
+      "WebFetch(domain:docs.anthropic.com)",
+      "Read(//Users/wanghui/.claude/**)",
+      "Bash(node *)",
+      "Bash(npm install *)",
+      "Bash(omc --version)",
+      "Bash(echo \"VERIFIED: $\\(omc --version)",
+      "Bash(claude mcp *)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d.get\\('mcpServers',{}\\), indent=2\\)\\)\")",
+      "Bash(gh auth *)",
+      "Bash(gh api *)"
     ]
   }
 }
