@@ -121,29 +121,29 @@ Skills are organized into three categories:
 
 Content generation and publishing skills.
 
-#### xhs-images
+#### xiaohongshu-images
 
 Xiaohongshu (RedNote) infographic series generator. Breaks down content into 1-10 cartoon-style infographics with **Style × Layout** two-dimensional system.
 
 ```bash
 # Auto-select style and layout
-/xhs-images posts/ai-future/article.md
+/xiaohongshu-images posts/ai-future/article.md
 
 # Specify style
-/xhs-images posts/ai-future/article.md --style notion
+/xiaohongshu-images posts/ai-future/article.md --style notion
 
 # Specify layout
-/xhs-images posts/ai-future/article.md --layout dense
+/xiaohongshu-images posts/ai-future/article.md --layout dense
 
 # Combine style and layout
-/xhs-images posts/ai-future/article.md --style tech --layout list
+/xiaohongshu-images posts/ai-future/article.md --style tech --layout list
 
 # Direct content input
-/xhs-images 今日星座运势
+/xiaohongshu-images 今日星座运势
 
 # Non-interactive (skip all confirmations, for scheduled tasks)
-/xhs-images posts/ai-future/article.md --yes
-/xhs-images posts/ai-future/article.md --yes --preset knowledge-card
+/xiaohongshu-images posts/ai-future/article.md --yes
+/xiaohongshu-images posts/ai-future/article.md --yes --preset knowledge-card
 ```
 
 **Styles** (visual aesthetics): `cute` (default), `fresh`, `warm`, `bold`, `minimal`, `retro`, `pop`, `notion`, `chalkboard`
@@ -152,11 +152,11 @@ Xiaohongshu (RedNote) infographic series generator. Breaks down content into 1-1
 
 | | | |
 |:---:|:---:|:---:|
-| ![cute](./screenshots/xhs-images-styles/cute.webp) | ![fresh](./screenshots/xhs-images-styles/fresh.webp) | ![warm](./screenshots/xhs-images-styles/warm.webp) |
+| ![cute](./screenshots/xiaohongshu-images-styles/cute.webp) | ![fresh](./screenshots/xiaohongshu-images-styles/fresh.webp) | ![warm](./screenshots/xiaohongshu-images-styles/warm.webp) |
 | cute | fresh | warm |
-| ![bold](./screenshots/xhs-images-styles/bold.webp) | ![minimal](./screenshots/xhs-images-styles/minimal.webp) | ![retro](./screenshots/xhs-images-styles/retro.webp) |
+| ![bold](./screenshots/xiaohongshu-images-styles/bold.webp) | ![minimal](./screenshots/xiaohongshu-images-styles/minimal.webp) | ![retro](./screenshots/xiaohongshu-images-styles/retro.webp) |
 | bold | minimal | retro |
-| ![pop](./screenshots/xhs-images-styles/pop.webp) | ![notion](./screenshots/xhs-images-styles/notion.webp) | ![chalkboard](./screenshots/xhs-images-styles/chalkboard.webp) |
+| ![pop](./screenshots/xiaohongshu-images-styles/pop.webp) | ![notion](./screenshots/xiaohongshu-images-styles/notion.webp) | ![chalkboard](./screenshots/xiaohongshu-images-styles/chalkboard.webp) |
 | pop | notion | chalkboard |
 
 **Layouts** (information density):
@@ -173,9 +173,9 @@ Xiaohongshu (RedNote) infographic series generator. Breaks down content into 1-1
 
 | | | |
 |:---:|:---:|:---:|
-| ![sparse](./screenshots/xhs-images-layouts/sparse.webp) | ![balanced](./screenshots/xhs-images-layouts/balanced.webp) | ![dense](./screenshots/xhs-images-layouts/dense.webp) |
+| ![sparse](./screenshots/xiaohongshu-images-layouts/sparse.webp) | ![balanced](./screenshots/xiaohongshu-images-layouts/balanced.webp) | ![dense](./screenshots/xiaohongshu-images-layouts/dense.webp) |
 | sparse | balanced | dense |
-| ![list](./screenshots/xhs-images-layouts/list.webp) | ![comparison](./screenshots/xhs-images-layouts/comparison.webp) | ![flow](./screenshots/xhs-images-layouts/flow.webp) |
+| ![list](./screenshots/xiaohongshu-images-layouts/list.webp) | ![comparison](./screenshots/xiaohongshu-images-layouts/comparison.webp) | ![flow](./screenshots/xiaohongshu-images-layouts/flow.webp) |
 | list | comparison | flow |
 
 #### infographic

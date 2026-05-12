@@ -121,29 +121,29 @@ clawhub install markdown-to-html
 
 内容生成和发布技能。
 
-#### xhs-images
+#### xiaohongshu-images
 
 小红书信息图系列生成器。将内容拆解为 1-10 张卡通风格信息图，支持 **风格 × 布局** 二维系统。
 
 ```bash
 # 自动选择风格和布局
-/xhs-images posts/ai-future/article.md
+/xiaohongshu-images posts/ai-future/article.md
 
 # 指定风格
-/xhs-images posts/ai-future/article.md --style notion
+/xiaohongshu-images posts/ai-future/article.md --style notion
 
 # 指定布局
-/xhs-images posts/ai-future/article.md --layout dense
+/xiaohongshu-images posts/ai-future/article.md --layout dense
 
 # 组合风格和布局
-/xhs-images posts/ai-future/article.md --style tech --layout list
+/xiaohongshu-images posts/ai-future/article.md --style tech --layout list
 
 # 直接输入内容
-/xhs-images 今日星座运势
+/xiaohongshu-images 今日星座运势
 
 # 非交互模式（跳过所有确认，适用于定时任务）
-/xhs-images posts/ai-future/article.md --yes
-/xhs-images posts/ai-future/article.md --yes --preset knowledge-card
+/xiaohongshu-images posts/ai-future/article.md --yes
+/xiaohongshu-images posts/ai-future/article.md --yes --preset knowledge-card
 ```
 
 **风格**（视觉美学）：`cute`（默认）、`fresh`、`warm`、`bold`、`minimal`、`retro`、`pop`、`notion`、`chalkboard`
@@ -152,11 +152,11 @@ clawhub install markdown-to-html
 
 | | | |
 |:---:|:---:|:---:|
-| ![cute](./screenshots/xhs-images-styles/cute.webp) | ![fresh](./screenshots/xhs-images-styles/fresh.webp) | ![warm](./screenshots/xhs-images-styles/warm.webp) |
+| ![cute](./screenshots/xiaohongshu-images-styles/cute.webp) | ![fresh](./screenshots/xiaohongshu-images-styles/fresh.webp) | ![warm](./screenshots/xiaohongshu-images-styles/warm.webp) |
 | cute | fresh | warm |
-| ![bold](./screenshots/xhs-images-styles/bold.webp) | ![minimal](./screenshots/xhs-images-styles/minimal.webp) | ![retro](./screenshots/xhs-images-styles/retro.webp) |
+| ![bold](./screenshots/xiaohongshu-images-styles/bold.webp) | ![minimal](./screenshots/xiaohongshu-images-styles/minimal.webp) | ![retro](./screenshots/xiaohongshu-images-styles/retro.webp) |
 | bold | minimal | retro |
-| ![pop](./screenshots/xhs-images-styles/pop.webp) | ![notion](./screenshots/xhs-images-styles/notion.webp) | ![chalkboard](./screenshots/xhs-images-styles/chalkboard.webp) |
+| ![pop](./screenshots/xiaohongshu-images-styles/pop.webp) | ![notion](./screenshots/xiaohongshu-images-styles/notion.webp) | ![chalkboard](./screenshots/xiaohongshu-images-styles/chalkboard.webp) |
 | pop | notion | chalkboard |
 
 **布局**（信息密度）：
@@ -173,9 +173,9 @@ clawhub install markdown-to-html
 
 | | | |
 |:---:|:---:|:---:|
-| ![sparse](./screenshots/xhs-images-layouts/sparse.webp) | ![balanced](./screenshots/xhs-images-layouts/balanced.webp) | ![dense](./screenshots/xhs-images-layouts/dense.webp) |
+| ![sparse](./screenshots/xiaohongshu-images-layouts/sparse.webp) | ![balanced](./screenshots/xiaohongshu-images-layouts/balanced.webp) | ![dense](./screenshots/xiaohongshu-images-layouts/dense.webp) |
 | sparse | balanced | dense |
-| ![list](./screenshots/xhs-images-layouts/list.webp) | ![comparison](./screenshots/xhs-images-layouts/comparison.webp) | ![flow](./screenshots/xhs-images-layouts/flow.webp) |
+| ![list](./screenshots/xiaohongshu-images-layouts/list.webp) | ![comparison](./screenshots/xiaohongshu-images-layouts/comparison.webp) | ![flow](./screenshots/xiaohongshu-images-layouts/flow.webp) |
 | list | comparison | flow |
 
 #### infographic
