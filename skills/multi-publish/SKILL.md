@@ -15,10 +15,9 @@ End-to-end publish-fan-out. Takes one source article, runs it through review and
 This skill is driven via prompt orchestration. Specify your article and target platforms in the conversation.
 
 ```bash
-# [示例，暂不可用]
-# ./sc-run multi-publish main article.md --to wechat,x,weibo
-# ./sc-run multi-publish main article.md --to wechat,x,weibo --publish
-# ./sc-run multi-publish main article.md --to x,weibo --skip-review
+# [示例，暂不可用] ./sc-run multi-publish main article.md --to wechat,x,weibo
+# [示例，暂不可用] ./sc-run multi-publish main article.md --to wechat,x,weibo --publish
+# [示例，暂不可用] ./sc-run multi-publish main article.md --to x,weibo --skip-review
 ```
 
 | Flag | Default | Meaning |
