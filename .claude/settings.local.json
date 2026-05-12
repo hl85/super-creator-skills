@@ -45,7 +45,13 @@
       "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d.get\\('mcpServers',{}\\), indent=2\\)\\)\")",
       "Bash(gh auth *)",
       "Bash(gh api *)",
-      "mcp__filesystem__list_directory"
+      "mcp__filesystem__list_directory",
+      "mcp__filesystem__write_file",
+      "mcp__filesystem__read_text_file",
+      "mcp__filesystem__read_multiple_files",
+      "Bash(python3 *)",
+      "Bash(git rm *)",
+      "Bash(git ls-tree *)"
     ]
   }
 }
