@@ -38,3 +38,7 @@ For detailed technical specifications, dimensions, and workflow rules, see:
 - [references/palettes/](references/palettes/) - **Color Palette Gallery**
 - [references/renderings/](references/renderings/) - **Rendering Styles Gallery**
 - [references/types.md](references/types.md) - **Image Type Definitions**
+
+## See Also
+
+需要对比所有视觉 skill 再做决定？→ [docs/visuals.md](../../docs/visuals.md)

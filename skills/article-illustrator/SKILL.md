@@ -31,3 +31,7 @@ Analyze articles, identify illustration positions, and generate images with Type
 - [Prompt Templates](references/prompt-construction.md)
 - [CLI Usage](references/usage.md)
 - [First-time Setup](references/config/first-time-setup.md)
+
+## See Also
+
+需要对比所有视觉 skill 再做决定？→ [docs/visuals.md](../../docs/visuals.md)

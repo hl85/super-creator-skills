@@ -37,3 +37,7 @@ For detailed layout definitions, style galleries, and structured content templat
 - [references/workflow.md](references/workflow.md) - **7-Step Workflow & Analysis**
 - [references/structured-content-template.md](references/structured-content-template.md) - **Intermediary Format**
 - [references/config/preferences-schema.md](references/config/preferences-schema.md) - **EXTEND.md Options**
+
+## See Also
+
+需要对比所有视觉 skill 再做决定？→ [docs/visuals.md](../../docs/visuals.md)

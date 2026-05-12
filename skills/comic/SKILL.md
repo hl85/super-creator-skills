@@ -36,3 +36,7 @@ Create original knowledge comics with flexible art style × tone combinations.
 - [Layout Options](references/layouts/)
 - [Partial Workflows](references/partial-workflows.md)
 - [First-time Setup](references/config/first-time-setup.md)
+
+## See Also
+
+需要对比所有视觉 skill 再做决定？→ [docs/visuals.md](../../docs/visuals.md)

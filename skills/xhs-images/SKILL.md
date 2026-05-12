@@ -40,3 +40,7 @@ For detailed style/layout galleries, presets, and strategy definitions, see:
 - [references/workflow.md](references/workflow.md) - **Smart Confirm & Multi-Outline Workflow**
 - [references/config/preferences-schema.md](references/config/preferences-schema.md) - **EXTEND.md Options**
 - [references/workflows/analysis-framework.md](references/workflows/analysis-framework.md) - **Analysis Logic**
+
+## See Also
+
+需要对比所有视觉 skill 再做决定？→ [docs/visuals.md](../../docs/visuals.md)

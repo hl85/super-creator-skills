@@ -41,3 +41,7 @@ For detailed style dimensions, design guidelines, and the full 9-step workflow, 
 - [references/style-and-design.md](references/style-and-design.md) - **Styles, Presets & Design Rules**
 - [references/modification-guide.md](references/modification-guide.md) - **Editing & Renumbering**
 - [references/config/preferences-schema.md](references/config/preferences-schema.md) - **EXTEND.md Options**
+
+## See Also
+
+需要对比所有视觉 skill 再做决定？→ [docs/visuals.md](../../docs/visuals.md)
