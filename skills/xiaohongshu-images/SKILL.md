@@ -1,6 +1,6 @@
 ---
-name: xhs-images
-description: Generates Xiaohongshu (Little Red Book) infographic series with 11 visual styles and 8 layouts. Breaks content into 1-10 cartoon-style images optimized for XHS engagement. Use when user mentions "小红书图片", "XHS images", "RedNote infographics", "小红书种草", or wants social media infographics for Chinese platforms.
+name: xiaohongshu-images
+description: Generates Xiaohongshu (小红书 / RedNote / XHS) infographic series with 11 visual styles and 8 layouts. Breaks content into 1-10 cartoon-style images optimized for XHS engagement. Use when user mentions "小红书图片", "XHS images", "RedNote infographics", "小红书种草", "xhs-images", or wants social media infographics for Chinese platforms.
 version: 1.56.1
 ---
 
@@ -10,20 +10,20 @@ Breaks down content into eye-catching infographic series (2-10 images) optimized
 
 ## Usage
 
-All commands use `./sc-run xhs-images <script>`. Note: Driven via prompt orchestration.
+All commands use `./sc-run xiaohongshu-images <script>`. Note: Driven via prompt orchestration.
 
 ```bash
 # Generate from article (auto-select)
-./sc-run xhs-images main article.md
+./sc-run xiaohongshu-images main article.md
 
 # Specify style and layout
-./sc-run xhs-images main article.md --style notion --layout dense
+./sc-run xiaohongshu-images main article.md --style notion --layout dense
 
 # Use a preset
-./sc-run xhs-images main article.md --preset knowledge-card
+./sc-run xiaohongshu-images main article.md --preset knowledge-card
 
 # Non-interactive mode
-./sc-run xhs-images main article.md --yes
+./sc-run xiaohongshu-images main article.md --yes
 ```
 
 ## Intents

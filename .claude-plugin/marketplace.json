@@ -38,7 +38,7 @@
         "./skills/translate",
         "./skills/url-to-markdown",
         "./skills/writeflow",
-        "./skills/xhs-images",
+        "./skills/xiaohongshu-images",
         "./skills/youtube-transcript"
       ]
     }
