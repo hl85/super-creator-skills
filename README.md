@@ -28,10 +28,21 @@ This project provides a centralized runner to abstract path logic and runtime ma
 ./sc-run imagine main --prompt "A futuristic lab"
 ```
 
+## Documentation
+
+| Doc | Description |
+|-----|-------------|
+| [docs/quickstart.md](docs/quickstart.md) | 10 分钟快速上手：安装、API Key、第一次运行 |
+| [docs/env-reference.md](docs/env-reference.md) | 所有环境变量与 `.env` 配置参考 |
+| [docs/pipeline.md](docs/pipeline.md) | 完整内容创作飞轮（8 个阶段）|
+| [docs/visuals.md](docs/visuals.md) | 视觉 skill 选择决策表 |
+| [docs/chrome-setup.md](docs/chrome-setup.md) | Chrome CDP 首次配置指南 |
+
 ## Prerequisites
 
-- Node.js environment installed
-- Ability to run `npx bun` commands
+- Bun runtime: `brew install oven-sh/bun/bun` or `npm install -g bun`
+- Google Chrome (full browser, not Chromium) — required for publishing and content fetching skills
+- API Key for at least one image generation provider — required for visual skills (see [env-reference.md](docs/env-reference.md))
 
 ## Installation
 

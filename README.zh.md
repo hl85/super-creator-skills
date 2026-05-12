@@ -28,10 +28,21 @@ AI 驱动的 Claude Code 内容生成技能集。
 ./sc-run imagine main --prompt "未来实验室"
 ```
 
+## 文档
+
+| 文档 | 说明 |
+|------|------|
+| [docs/quickstart.md](docs/quickstart.md) | 10 分钟快速上手：安装、API Key、第一次运行 |
+| [docs/env-reference.md](docs/env-reference.md) | 所有环境变量与 `.env` 配置参考 |
+| [docs/pipeline.md](docs/pipeline.md) | 完整内容创作飞轮（8 个阶段）|
+| [docs/visuals.md](docs/visuals.md) | 视觉 skill 选择决策表 |
+| [docs/chrome-setup.md](docs/chrome-setup.md) | Chrome CDP 首次配置指南 |
+
 ## 前置要求
 
-- 已安装 Node.js 环境
-- 能够运行 `npx bun` 命令
+- Bun 运行时：`brew install oven-sh/bun/bun` 或 `npm install -g bun`
+- Google Chrome（完整版，非 Chromium）— 发布类和内容抓取类 skill 必须
+- 至少一个图像生成 provider 的 API Key — 视觉 skill 必须（见 [env-reference.md](docs/env-reference.md)）
 
 ## 安装
 
