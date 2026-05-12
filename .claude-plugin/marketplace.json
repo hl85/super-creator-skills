@@ -20,7 +20,7 @@
         "./skills/compress-image",
         "./skills/content-review",
         "./skills/cover-image",
-        "./skills/danger-gemini-web",
+        "./skills/gemini-web",
         "./skills/danger-x-to-markdown",
         "./skills/format-markdown",
         "./skills/idea-radar",
