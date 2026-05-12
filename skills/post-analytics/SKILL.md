@@ -1,6 +1,6 @@
 ---
 name: post-analytics
-description: Reads engagement metrics for already-published posts (WeChat 公众号, X, Weibo) and writes them back into the ideas.jsonl ledger's outcome field. Re-uses the same Chrome profile as post-to-* skills (no new login required). Closes the idea-radar → writeflow → multi-publish → analytics flywheel. Use when user asks to "看数据", "分析阅读量", "post analytics", "engagement", "回看效果", "复盘", or wants to update the idea ledger with outcomes.
+description: Reads engagement metrics for already-published posts (WeChat 公众号, X, Weibo) and writes them back into the ideas.jsonl ledger's outcome field. Re-uses the same Chrome profile as post-to-* skills (no new login required). Closes the idea-radar → writeflow → multi-publish → analytics flywheel. Use when user asks to "看数据", "分析阅读量", "post analytics", "engagement", "回看效果", "复盘", or wants to update the idea ledger with outcomes. [Beta]
 version: 0.1.0
 ---
 
@@ -10,20 +10,22 @@ Updates the `ideas.jsonl` ledger with real-world engagement metrics (reads, shar
 
 ## Usage
 
-All commands use `./sc-run post-analytics main`.
+> ⚠️ **Beta** — 此 skill 通过 Claude 对话调用（prompt 驱动），以下 CLI 命令仅作参考，尚未实现。
+
+This skill is driven via prompt orchestration. Invoke it by describing what you need in the conversation.
 
 ```bash
-# Refresh metrics for the last 7 days
-./sc-run post-analytics main --since 7d
+# [示例，暂不可用] Refresh metrics for the last 7 days
+# [示例，暂不可用] ./sc-run post-analytics main --since 7d
 
-# Refresh specific platform
-./sc-run post-analytics main --platforms wechat
+# [示例，暂不可用] Refresh specific platform
+# [示例，暂不可用] ./sc-run post-analytics main --platforms wechat
 
-# Refresh specific row by ID
-./sc-run post-analytics main --row <sha1-id>
+# [示例，暂不可用] Refresh specific row by ID
+# [示例，暂不可用] ./sc-run post-analytics main --row <sha1-id>
 
-# Dry run (print only)
-./sc-run post-analytics main --no-write
+# [示例，暂不可用] Dry run (print only)
+# [示例，暂不可用] ./sc-run post-analytics main --no-write
 ```
 
 ## Intents

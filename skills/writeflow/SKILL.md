@@ -1,6 +1,6 @@
 ---
 name: writeflow
-description: Two-stage content authoring — turns raw source material (articles, transcripts, notes) into a platform-tuned outline, then into a publish-ready draft. Stage 1 (outline) distills the core claim, identifies the reader, and proposes structure. Stage 2 (draft) enforces platform constraints ( 公众号 long-form vs X thread). Does not collect sources (use url-to-markdown / youtube-transcript first) and does not publish (use post-to-wechat / post-to-x after). Use when user asks to "写大纲", "拟提纲", "写初稿", "写文章", "draft an article", "outline an article", "write a thread", or has source material and wants a draft.
+description: Two-stage content authoring — turns raw source material (articles, transcripts, notes) into a platform-tuned outline, then into a publish-ready draft. Stage 1 (outline) distills the core claim, identifies the reader, and proposes structure. Stage 2 (draft) enforces platform constraints ( 公众号 long-form vs X thread). Does not collect sources (use url-to-markdown / youtube-transcript first) and does not publish (use post-to-wechat / post-to-x after). Use when user asks to "写大纲", "拟提纲", "写初稿", "写文章", "draft an article", "outline an article", "write a thread", or has source material and wants a draft. [Beta]
 version: 0.1.0
 ---
 
@@ -10,14 +10,16 @@ A two-stage authoring workflow that turns raw sources into platform-ready conten
 
 ## Usage
 
-All commands use `./sc-run writeflow <script>`. Note: This skill is driven via prompt orchestration.
+> ⚠️ **Beta** — 此 skill 通过 Claude 对话调用（prompt 驱动），以下 CLI 命令仅作参考，尚未实现。
+
+This skill is driven via prompt orchestration. Invoke it by describing what you need in the conversation.
 
 ```bash
-# Stage 1: Generate an outline
-./sc-run writeflow outline source.md --platform wechat --angle "contrarian"
+# [示例，暂不可用] Stage 1: Generate an outline
+# [示例，暂不可用] ./sc-run writeflow outline source.md --platform wechat --angle "contrarian"
 
-# Stage 2: Generate a draft from outline
-./sc-run writeflow draft outline.md --platform wechat --length medium
+# [示例，暂不可用] Stage 2: Generate a draft from outline
+# [示例，暂不可用] ./sc-run writeflow draft outline.md --platform wechat --length medium
 ```
 
 ## Intents
