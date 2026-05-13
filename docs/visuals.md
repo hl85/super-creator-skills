@@ -11,7 +11,7 @@ super-creator 有 6 个视觉内容生成 skill。本文帮助你快速选择合
 | 文章头部封面图（1 张，用于公众号/博客）| `cover-image` |
 | 文章各章节的内联配图（多张，自动定位）| `article-illustrator` + `imagine` |
 | 把数据/流程/概念做成单张信息图 | `infographic` |
-| 小红书可滑动图文卡片系列（2–10 张）| `xiaohongshu-images` |
+| 小红书可滑动图文卡片系列（2–10 张）| `xhs-images` |
 | 教育/知识类漫画（分格叙事）| `comic` |
 | 演示文稿（可导出 PPTX / PDF）| `slide-deck` |
 
@@ -62,7 +62,7 @@ super-creator 有 6 个视觉内容生成 skill。本文帮助你快速选择合
 
 ---
 
-### `xiaohongshu-images` — 小红书图文卡片系列
+### `xhs-images` — 小红书图文卡片系列
 
 **适用场景：** 内容分发目标是小红书（或其他需要竖版卡片的平台），需要 2–10 张可滑动的图文卡片。
 
@@ -115,7 +115,7 @@ super-creator 有 6 个视觉内容生成 skill。本文帮助你快速选择合
 ### 小红书内容发布流
 
 ```
-1. xiaohongshu-images     → 生成图文卡片系列
+1. xhs-images     → 生成图文卡片系列
 2. post-to-xhs    → 发布到小红书（Beta）
 ```
 

@@ -6,9 +6,9 @@ AI 驱动的 Claude Code 内容生成技能集。
 
 > **Fork 声明**：本项目 fork 自 [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills)，原始工作由 [@JimLiu](https://github.com/JimLiu) 完成。
 
-## 架构标准：Agent-Reach 风格
+## 架构标准：
 
-`super-creator` 遵循受 `agent-reach` 启发的模块化、意图驱动设计：
+`super-creator` 遵循模块化、意图驱动设计：
 
 1.  **语义化抽象**：通过 `./sc-run` 工具向 Agent 隐藏脚本路径和 `bun`/`npx` 逻辑。
 2.  **渐进式披露**：`SKILL.md` 文件保持极简（<30 行）以节省 Token 上下文。技术细节存储在 `references/*.md` 中，仅在 Agent 需要时读取。

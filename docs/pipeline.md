@@ -38,7 +38,7 @@ idea-radar（下一轮）
 | 场景 | 命令 |
 |------|------|
 | 抓取文章/网页 | `./sc-run url-to-markdown main <url>` |
-| 下载 YouTube 字幕 | `./sc-run youtube-transcript main <youtube-url>` |
+| 下载 YouTube 字幕 | `./sc-run yt-transcript main <youtube-url>` |
 | 保存 X 推文/线程 | `./sc-run x-to-markdown main <x-url>` |
 
 ---
@@ -64,7 +64,7 @@ idea-radar（下一轮）
 | 生成封面图 | `cover-image` | 对话调用 |
 | 生成章节配图 | `article-illustrator` + `imagine` | 见下方注意事项 |
 | 生成信息图 | `infographic` | 对话调用 |
-| 生成小红书图文 | `xiaohongshu-images` | 对话调用 |
+| 生成小红书图文 | `xhs-images` | 对话调用 |
 | 生成推文 JSON | `markdown-to-thread` | 对话调用 |
 | 压缩图片 | `compress-image` | `./sc-run compress-image main image.png` |
 
@@ -119,7 +119,7 @@ idea-radar（下一轮）
 | 文章头部封面图（1 张）| `cover-image` |
 | 文章章节配图（多张，定位插入）| `article-illustrator` + `imagine` |
 | 复杂数据/流程可视化（1 张）| `infographic` |
-| 小红书可滑动图文系列（2–10 张）| `xiaohongshu-images` |
+| 小红书可滑动图文系列（2–10 张）| `xhs-images` |
 | 教育/趣味漫画 | `comic` |
 | 演示文稿（可导出 PPTX）| `slide-deck` |
 | 任意图像生成（直接 prompt）| `imagine` |

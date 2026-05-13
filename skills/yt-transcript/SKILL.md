@@ -1,5 +1,5 @@
 ---
-name: youtube-transcript
+name: yt-transcript
 description: Downloads YouTube video transcripts/subtitles and cover images by URL or video ID. Supports multiple languages, translation, chapters, and speaker identification. Caches raw data for fast re-formatting. Use when user asks to "get YouTube transcript", "download subtitles", "get captions", "YouTube字幕", "YouTube封面", "视频封面", "video thumbnail", "video cover image", or provides a YouTube URL and wants the transcript/subtitle text or cover image extracted.
 version: 1.1.0
 ---
@@ -10,20 +10,20 @@ Downloads transcripts, metadata, and cover images from YouTube videos.
 
 ## Usage
 
-All commands use `./sc-run youtube-transcript main`.
+All commands use `./sc-run yt-transcript main`.
 
 ```bash
 # Default: Markdown with timestamps
-./sc-run youtube-transcript main 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+./sc-run yt-transcript main 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
 
 # Chapters & Speaker Identification
-./sc-run youtube-transcript main <url> --chapters --speakers
+./sc-run yt-transcript main <url> --chapters --speakers
 
 # List available languages
-./sc-run youtube-transcript main <url> --list
+./sc-run yt-transcript main <url> --list
 
 # Force refresh (ignore cache)
-./sc-run youtube-transcript main <url> --refresh
+./sc-run yt-transcript main <url> --refresh
 ```
 
 ## Intents

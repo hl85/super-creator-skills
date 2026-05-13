@@ -90,7 +90,7 @@ CLI 参数
 
 | 变量名 | 用途 | 使用的 Skill |
 |--------|------|-------------|
-| `GOOGLE_API_KEY` | Google Gemini 图像生成 | `imagine`、`cover-image`、`article-illustrator`、`comic`、`xiaohongshu-images`、`infographic`、`slide-deck` |
+| `GOOGLE_API_KEY` | Google Gemini 图像生成 | `imagine`、`cover-image`、`article-illustrator`、`comic`、`xhs-images`、`infographic`、`slide-deck` |
 | `OPENAI_API_KEY` | OpenAI 图像生成 | 同上 |
 | `AZURE_OPENAI_API_KEY` | Azure OpenAI | 同上 |
 | `AZURE_OPENAI_BASE_URL` | Azure 端点 URL | 同上 |
@@ -146,7 +146,7 @@ CLI 参数
 | `cover-image` | 默认风格/调色板/渲染方式、水印、比例 |
 | `article-illustrator` | 水印、默认风格、输出目录 |
 | `comic` | 水印、艺术风格、基调 |
-| `xiaohongshu-images` | 水印、默认风格、布局 |
+| `xhs-images` | 水印、默认风格、布局 |
 | `translate` | 目标语言、翻译模式、受众、风格、术语表 |
 | `post-to-wechat` | 主题、颜色、发布方式、作者、评论设置 |
 | `post-to-weibo` | Chrome Profile 路径 |

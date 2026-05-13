@@ -38,8 +38,8 @@
         "./skills/translate",
         "./skills/url-to-markdown",
         "./skills/writeflow",
-        "./skills/xiaohongshu-images",
-        "./skills/youtube-transcript"
+        "./skills/xhs-images",
+        "./skills/yt-transcript"
       ]
     }
   ]

@@ -155,7 +155,7 @@ Options:
   --exclude-manually-created   Skip manually created transcripts
   --refresh                    Force re-fetch (ignore cache)
   -o, --output <path>          Save to specific file path
-  --output-dir <dir>           Base output directory (default: youtube-transcript)
+  --output-dir <dir>           Base output directory (default: yt-transcript)
   -h, --help                   Show help`);
 }
 

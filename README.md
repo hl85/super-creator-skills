@@ -6,9 +6,9 @@ AI-powered content generation skills for Claude Code.
 
 > **Fork Notice**: This project is forked from [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills). Original work by [@JimLiu](https://github.com/JimLiu).
 
-## Architecture: Agent-Reach Standard
+## Architecture
 
-`super-creator` follows a modular, intent-driven design inspired by the `agent-reach` skill:
+`super-creator` follows a modular, intent-driven design:
 
 1.  **Semantic Abstraction**: The `./sc-run` tool hides script paths and `bun`/`npx` logic from the Agent.
 2.  **Progressive Disclosure**: `SKILL.md` files are kept minimal (<30 lines) to save Token context. Detailed documentation is stored in `references/*.md` and read by the Agent only when needed.
@@ -32,11 +32,11 @@ This project provides a centralized runner to abstract path logic and runtime ma
 
 | Doc | Description |
 |-----|-------------|
-| [docs/quickstart.md](docs/quickstart.md) | 10 分钟快速上手：安装、API Key、第一次运行 |
-| [docs/env-reference.md](docs/env-reference.md) | 所有环境变量与 `.env` 配置参考 |
-| [docs/pipeline.md](docs/pipeline.md) | 完整内容创作飞轮（8 个阶段）|
-| [docs/visuals.md](docs/visuals.md) | 视觉 skill 选择决策表 |
-| [docs/chrome-setup.md](docs/chrome-setup.md) | Chrome CDP 首次配置指南 |
+| [docs/quickstart.md](docs/quickstart.md) | 10-minute quickstart: Installation, API Key, and your first run |
+| [docs/env-reference.md](docs/env-reference.md) | Reference for all environment variables and .env configuration |
+| [docs/pipeline.md](docs/pipeline.md) | Full content creation flywheel (8 stages) |
+| [docs/visuals.md](docs/visuals.md) | Decision table for visual skill selection |
+| [docs/chrome-setup.md](docs/chrome-setup.md) | First-time configuration guide for Chrome CDP |
 
 ## Prerequisites
 

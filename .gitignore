@@ -146,9 +146,9 @@ tests-data/
 .super-creator/
 x-to-markdown/
 !skills/x-to-markdown/
-xhs-images/
 url-to-markdown/
 !skills/url-to-markdown/
+!skills/xhs-images/
 cover-image/
 slide-deck/
 infographic/
@@ -169,5 +169,5 @@ posts/
 .release-artifacts/
 .worktrees/
 .sisyphus/
-youtube-transcript/
+!skills/yt-transcript/
 .omc/

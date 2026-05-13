@@ -33,7 +33,7 @@ bun --version
 
 ## 第三步：配置 API Key（图像生成类 skill 必须）
 
-如果你打算使用 `imagine`、`cover-image`、`article-illustrator`、`comic`、`xiaohongshu-images`、`infographic` 等视觉 skill，需要至少一个图像生成 provider 的 API Key。
+如果你打算使用 `imagine`、`cover-image`、`article-illustrator`、`comic`、`xhs-images`、`infographic` 等视觉 skill，需要至少一个图像生成 provider 的 API Key。
 
 **推荐：Google（免费额度最多）**
 
@@ -75,7 +75,7 @@ EOF
 ./sc-run translate main article.md --to zh-CN
 
 # 下载 YouTube 字幕
-./sc-run youtube-transcript main "https://youtube.com/watch?v=..."
+./sc-run yt-transcript main "https://youtube.com/watch?v=..."
 ```
 
 ### 选项 C：发布到平台（需要 Chrome 登录）

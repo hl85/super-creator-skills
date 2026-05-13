@@ -9,7 +9,7 @@ export function ensureDir(path: string) {
 }
 
 export function resolveBaseDir(outputDir: string): string {
-  return resolve(outputDir || "youtube-transcript");
+  return resolve(outputDir || "yt-transcript");
 }
 
 function loadIndex(baseDir: string): Record<string, string> {
