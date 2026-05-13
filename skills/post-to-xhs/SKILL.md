@@ -15,8 +15,9 @@ Publishes image-text notes to Xiaohongshu via Chrome CDP browser automation.
 This skill is driven via prompt orchestration. Provide your images and caption text in the conversation.
 
 ```bash
-# [示例，暂不可用] ./sc-run post-to-xhs note --images ./output/*.png --caption caption.md
-# [示例，暂不可用] ./sc-run post-to-xhs note --images img1.png,img2.png --caption "正文内容" --tags "AI,效率"
+# [示例，暂不可用]
+# ./sc-run post-to-xhs note --images ./output/*.png --caption caption.md
+# ./sc-run post-to-xhs note --images img1.png,img2.png --caption "正文内容" --tags "AI,效率"
 ```
 
 ## Intents
@@ -38,7 +39,3 @@ This skill is driven via prompt orchestration. Provide your images and caption t
 
 - [references/posting-guide.md](references/posting-guide.md) - **Step-by-step posting logic & Chrome CDP notes**
 - [references/preferences.md](references/preferences.md) - **EXTEND.md & first-time Chrome login**
-
-## Chrome Setup
-
-首次使用需要配置 Chrome CDP。完整步骤：[docs/chrome-setup.md](../../docs/chrome-setup.md)
