@@ -104,6 +104,43 @@ EOF
 
 ---
 
+## 本地开发：注册项目级插件
+
+如果你在本地克隆这个仓库进行开发，可以通过以下方式让 Claude Code 立即加载你的改动：
+
+### 推荐：项目级插件自动加载（无需额外配置）
+
+Claude Code 启动时会自动扫描项目根目录的 `.claude-plugin/marketplace.json`，加载所有 skill。**无需手动注册**——只要在项目目录打开 Claude Code，改动即时生效。
+
+### 备选 1：符号链接到共享 skills 目录（自动同步改动）
+
+```bash
+# 创建项目的符号链接
+ln -sf /path/to/super-creator ~/.agents/super-creator-dev
+
+# 更新共享 skills 目录的 symlink（以 imagine 为例）
+rm ~/.agents/skills/imagine
+ln -sf /path/to/super-creator/skills/imagine ~/.agents/skills/imagine
+
+# 对其他开发中的 skill 重复上述操作
+```
+
+优点：本地编辑后立即生效，无需手动复制。缺点：需要在每个 skill 目录单独建立 symlink。
+
+### 备选 2：复制到共享 skills 目录（一次性同步）
+
+```bash
+# 将开发中的 skill 复制到共享目录
+cp -r ./skills/imagine ~/.agents/skills/
+cp -r ./skills/article-illustrator ~/.agents/skills/
+cp -r ./skills/comic ~/.agents/skills/
+# ... 对其他 skill 重复
+
+# 编辑后需要手动重复此命令以更新
+```
+
+---
+
 ## 常见问题
 
 **Q：运行时报 `bun: command not found`**
