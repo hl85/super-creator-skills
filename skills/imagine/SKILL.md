@@ -40,3 +40,7 @@ For detailed provider models, environment variables, and advanced configuration,
 - [references/environment-variables.md](references/environment-variables.md) - **API Key & Config Variables**
 - [references/config/preferences-schema.md](references/config/preferences-schema.md) - **EXTEND.md Options**
 - [references/batch-format.md](references/batch-format.md) - **Batch JSON Schema**
+
+## Error Handling
+
+See [docs/error-handling.md](../../docs/error-handling.md) for API key recovery steps and SVG fallback strategy for logical diagrams.

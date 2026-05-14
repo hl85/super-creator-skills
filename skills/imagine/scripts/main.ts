@@ -694,8 +694,13 @@ export function detectProvider(args: CliArgs): Provider {
   if (available.length > 1) return available[0]!;
 
   throw new Error(
-    "No API key found. Set GOOGLE_API_KEY, GEMINI_API_KEY, OPENAI_API_KEY, AZURE_OPENAI_API_KEY+AZURE_OPENAI_BASE_URL, OPENROUTER_API_KEY, DASHSCOPE_API_KEY, MINIMAX_API_KEY, REPLICATE_API_TOKEN, JIMENG keys, or ARK_API_KEY.\n" +
-      "Create ~/.super-creator/.env or <cwd>/.super-creator/.env with your keys."
+    "[ACTION_REQUIRED: ask_user_for_api_key]\n" +
+      "No API key found. Do NOT abandon the task — ask the user which provider they have and request the key.\n" +
+      "Once obtained, save it with:\n" +
+      "  mkdir -p ~/.super-creator\n" +
+      "  echo 'PROVIDER_API_KEY=<value>' >> ~/.super-creator/.env\n" +
+      "Provider → variable: OpenAI=OPENAI_API_KEY, Google/Gemini=GOOGLE_API_KEY, DashScope=DASHSCOPE_API_KEY, MiniMax=MINIMAX_API_KEY, OpenRouter=OPENROUTER_API_KEY, Replicate=REPLICATE_API_TOKEN, Seedream/Ark=ARK_API_KEY, Azure=AZURE_OPENAI_API_KEY+AZURE_OPENAI_BASE_URL\n" +
+      "Then retry the original command."
   );
 }
 
