@@ -2,6 +2,18 @@
 
 [English](./CHANGELOG.md) | 中文
 
+## 3.0.1 - 2026-05-13
+
+### 变更
+- 重命名 skill 目录 `xiaohongshu-images` → `xhs-images`，与项目整体命名风格保持一致
+- 重命名 skill 目录 `youtube-transcript` → `yt-transcript`，统一使用缩写命名
+- 同步更新所有交叉引用（docs、scripts、marketplace.json，共 33 个文件）
+
+### 运维
+- 新增 `docs/release.md` — 标准化发布流程文档
+- 新增 `docs/operations/version-management.md` — 版本策略及一致性检查说明
+- 新增 `.githooks/pre-commit` — 每次 commit 前自动执行版本一致性检查
+
 ## 3.0.0 - 2026-05-12
 
 ### 重大架构重构

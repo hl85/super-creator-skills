@@ -13,4 +13,4 @@ if [ "$#" -eq 0 ]; then
   set -- --all
 fi
 
-exec node "${ROOT_DIR}/scripts/sync-clawhub.mjs" --root "${SKILLS_DIR}" "$@"
+exec node "${ROOT_DIR}/ops/scripts/sync-clawhub.mjs" --root "${SKILLS_DIR}" "$@"

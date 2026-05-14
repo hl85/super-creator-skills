@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+
+REPO_ROOT=$(git rev-parse --show-toplevel)
+cd "$REPO_ROOT"
+
+echo "Running version consistency check..."
+node ops/scripts/verify-version-sync.mjs
+
+echo "Version check passed."

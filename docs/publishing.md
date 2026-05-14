@@ -17,8 +17,8 @@ metadata:
 ## Publishing Commands
 
 ```bash
-bash scripts/sync-clawhub.sh           # sync all skills
-bash scripts/sync-clawhub.sh <skill>   # sync one skill
+bash ops/scripts/sync-clawhub.sh           # sync all skills
+bash ops/scripts/sync-clawhub.sh <skill>   # sync one skill
 ```
 
 Release hooks are configured via `.releaserc.yml`. This repo does not stage a separate release directory: release prep only syncs `packages/` into each skill's committed `scripts/vendor/`, and publish reads the skill directory directly.
@@ -35,7 +35,7 @@ Current packages:
 
 **Update workflow**:
 1. Edit package under `packages/`
-2. Run `node scripts/sync-shared-skill-packages.mjs`
+2. Run `node ops/scripts/sync-shared-skill-packages.mjs`
 3. Commit synced `vendor/`, `package.json`, and `bun.lock` together
 
-**Git hook**: Run `node scripts/install-git-hooks.mjs` once to enable the `pre-push` hook. It re-syncs and blocks push if vendor copies are stale (`--enforce-clean`).
+**Git hook**: Run `node ops/scripts/install-git-hooks.mjs` once to enable the `pre-push` hook. It re-syncs and blocks push if vendor copies are stale (`--enforce-clean`).

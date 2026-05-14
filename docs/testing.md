@@ -15,10 +15,10 @@ This avoids introducing Jest/Vitest across a repo that already mixes plain Node 
 
 ### Phase 1: Stable library coverage
 
-Focus on pure functions under `scripts/lib/` first.
+Focus on pure functions under `ops/scripts/lib/` first.
 
-- `scripts/lib/release-files.mjs`
-- `scripts/lib/shared-skill-packages.mjs`
+- `ops/scripts/lib/release-files.mjs`
+- `ops/scripts/lib/shared-skill-packages.mjs`
 
 Goals:
 
@@ -30,9 +30,9 @@ Goals:
 
 Add temp-directory integration tests for root CLIs that already support dry-run or local-only flows.
 
-- `scripts/sync-shared-skill-packages.mjs`
-- `scripts/publish-skill.mjs --dry-run`
-- `scripts/sync-clawhub.mjs` argument handling and local skill discovery
+- `ops/scripts/sync-shared-skill-packages.mjs`
+- `ops/scripts/publish-skill.mjs --dry-run`
+- `ops/scripts/sync-clawhub.mjs` argument handling and local skill discovery
 
 Goals:
 
@@ -62,7 +62,7 @@ After the stable Node path has enough breadth, add coverage thresholds in CI for
 Recommended order:
 
 1. Start with reporting only
-2. Add line/function thresholds for `scripts/lib/**`
+2. Add line/function thresholds for `ops/scripts/lib/**`
 3. Expand include patterns once skill-level smoke tests are reliable
 
 ## Conventions For New Tests

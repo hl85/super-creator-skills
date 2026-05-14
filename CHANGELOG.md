@@ -2,6 +2,18 @@
 
 English | [中文](./CHANGELOG.zh.md)
 
+## 3.0.1 - 2026-05-13
+
+### Changed
+- Renamed skill directory `xiaohongshu-images` → `xhs-images` for naming consistency with the rest of the skill library
+- Renamed skill directory `youtube-transcript` → `yt-transcript` for naming consistency
+- Updated all cross-references in docs, scripts, and marketplace.json (33 files)
+
+### Ops
+- Added `docs/release.md` — standardized release process documentation
+- Added `docs/operations/version-management.md` — version policy and consistency check guide
+- Added `.githooks/pre-commit` — version consistency check before every commit
+
 ## 3.0.0 - 2026-05-12
 
 ### Major Architectural Refactoring

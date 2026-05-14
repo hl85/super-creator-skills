@@ -52,7 +52,19 @@
       "Bash(python3 *)",
       "Bash(git rm *)",
       "Bash(git ls-tree *)",
-      "Bash(bash *)"
+      "Bash(bash *)",
+      "Bash(git check-ignore *)",
+      "Bash(git push *)",
+      "Bash(find ~/.claude* -name \"marketplace.json\" -o -name \"*super-creator*\")",
+      "mcp__filesystem__create_directory",
+      "Bash(chmod +x /Users/wanghui/Code/super-creator/.githooks/pre-commit)",
+      "Bash(git mv *)",
+      "Bash(sed -i '' 's|node scripts/sync-shared-skill-packages.mjs|node ops/scripts/sync-shared-skill-packages.mjs|g' .githooks/pre-push)",
+      "Bash(sed -i '' 's|node scripts/verify-version-sync.mjs|node ops/scripts/verify-version-sync.mjs|g' .githooks/pre-commit)",
+      "Bash(sed -i '' 's|scripts/verify-version-sync\\\\.mjs|ops/scripts/verify-version-sync.mjs|g; s|scripts/install-git-hooks\\\\.mjs|ops/scripts/install-git-hooks.mjs|g; s|scripts/sync-shared-skill-packages\\\\.mjs|ops/scripts/sync-shared-skill-packages.mjs|g; s|scripts/publish-skill\\\\.mjs|ops/scripts/publish-skill.mjs|g; s|`scripts/` - Release|`ops/scripts/` - Release|g; s|`scripts/` - Release implementation|`ops/scripts/` - Release implementation|g' ops/release/STRATEGY.md)",
+      "Bash(sed -i '' 's|node scripts/verify-version-sync\\\\.mjs|node ops/scripts/verify-version-sync.mjs|g; s|node scripts/install-git-hooks\\\\.mjs|node ops/scripts/install-git-hooks.mjs|g; s|`scripts/` - Release|`ops/scripts/` - Release|g' ops/git-workflow/STRATEGY.md)",
+      "Bash(sed -i '' 's|bash scripts/sync-clawhub\\\\.sh|bash ops/scripts/sync-clawhub.sh|g; \\\\ *)",
+      "Bash(sed -i '' 's|`scripts/lib/|`ops/scripts/lib/|g; \\\\ *)"
     ]
   }
 }

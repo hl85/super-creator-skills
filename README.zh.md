@@ -4,7 +4,6 @@
 
 AI 驱动的 Claude Code 内容生成技能集。
 
-> **Fork 声明**：本项目 fork 自 [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills)，原始工作由 [@JimLiu](https://github.com/JimLiu) 完成。
 
 ## 架构标准：
 
@@ -58,10 +57,9 @@ npx skills add hl85/super-creator
 
 ```bash
 # 预览将要发布的变更
-./scripts/sync-clawhub.sh --dry-run
-
+./ops/scripts/sync-clawhub.sh --dry-run
 # 发布 ./skills 下所有已变更的 skill
-./scripts/sync-clawhub.sh --all
+./ops/scripts/sync-clawhub.sh --all
 ```
 
 ClawHub 按“单个 skill”安装，不是把整个 marketplace 一次性装进去。发布后，用户可以按需安装：
@@ -1218,14 +1216,16 @@ HTTP_PROXY=http://127.0.0.1:7890 HTTPS_PROXY=http://127.0.0.1:7890 /danger-gemin
 - 首次使用需确认免责声明
 - 通过环境变量或 Chrome 登录进行身份验证
 
-## 致谢
+> **Fork 声明**：本项目 fork 自 [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills)，原始工作由 [@JimLiu](https://github.com/JimLiu) 完成。当前项目的代码结构，依赖架构已经做了非常大的改动，未来还会对项目进行持续优化，欢迎贡献者参与。
 
+## 致谢
 本项目受到以下开源项目的启发，感谢它们的作者：
 
 - [x-article-publisher-skill](https://github.com/wshuyi/x-article-publisher-skill) by [@wshuyi](https://github.com/wshuyi) — 发布 X 文章技能的灵感来源
 - [doocs/md](https://github.com/doocs/md) by [@doocs](https://github.com/doocs) — Markdown 转 HTML 的核心实现逻辑
 - [高密度信息图 Prompt](https://waytoagi.feishu.cn/wiki/YG0zwalijihRREkgmPzcWRInnUg) by AJ@WaytoAGI — 信息图技能的灵感来源
 - [qiaomu-mondo-poster-design](https://github.com/joeseesun/qiaomu-mondo-poster-design) by [@joeseesun](https://github.com/joeseesun)（乔木） — Mondo 风格的灵感来源
+- [agent-reach](https://github.com/Panniantong/Agent-Reach) by [@Panniantong](https://github.com/Panniantong) — 模块化、意图驱动设计的灵感来源
 
 ## 许可证
 

@@ -14,7 +14,7 @@ Skills are exposed through the single `super-creator` plugin in `.claude-plugin/
 
 Each skill contains `SKILL.md` (YAML front matter + docs), optional `scripts/`, `references/`, `prompts/`.
 
-Top-level `scripts/` contains repo maintenance utilities (sync, hooks, publish).
+Top-level `ops/scripts/` contains repo maintenance utilities (sync, hooks, publish).
 
 ## Running Skills
 

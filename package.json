@@ -6,8 +6,8 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "node ./scripts/run-node-tests.mjs",
-    "test:coverage": "node ./scripts/run-node-tests.mjs --experimental-test-coverage"
+    "test": "node ./ops/scripts/run-node-tests.mjs",
+    "test:coverage": "node ./ops/scripts/run-node-tests.mjs --experimental-test-coverage"
   },
   "devDependencies": {
     "@mozilla/readability": "^0.6.0",
