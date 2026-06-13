@@ -2,7 +2,7 @@
 
 [English](./README.md) | 中文
 
-AI 驱动的 Claude Code 内容生成技能集。
+AI 驱动的起号（内容）自动化工具。
 
 
 ## 架构标准：
@@ -18,7 +18,7 @@ AI 驱动的 Claude Code 内容生成技能集。
 本项目提供统一的运行器，抽象了路径逻辑和运行时管理。
 
 ```bash
-# 通用用法
+# 通用用法：
 ./sc-run <skill-name> <script-name> [args...]
 
 # 示例

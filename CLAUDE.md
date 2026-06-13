@@ -1,6 +1,8 @@
 # CLAUDE.md
 
-Claude Code marketplace plugin providing AI-powered content generation skills. Version: **1.90.0**.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+Claude Code marketplace plugin providing AI-powered content generation skills.
 
 ## Architecture
 
@@ -16,6 +18,31 @@ Each skill contains `SKILL.md` (YAML front matter + docs), optional `scripts/`, 
 
 Top-level `ops/scripts/` contains repo maintenance utilities (sync, hooks, publish).
 
+### Skill structure pattern
+
+```
+skills/<name>/
+  SKILL.md              # YAML frontmatter + docs (must be <30 lines body)
+  scripts/
+    main.ts             # Primary entry point
+    main.test.ts        # Tests (optional)
+    vendor/             # Synced shared packages (7 skills have this)
+  references/           # Detailed docs loaded on-demand
+  prompts/              # Prompt templates (some skills)
+```
+
+### Shared packages (workspace)
+
+Three packages under `packages/` are used across multiple skills:
+
+| Package | Purpose |
+|---------|---------|
+| `sc-fetch` | URL-to-Markdown/JSON via Chrome CDP with site-specific adapters |
+| `sc-chrome-cdp` | Chrome CDP utilities |
+| `sc-md` | Markdown-to-HTML rendering with themes/extensions (KaTeX, PlantUML, alerts, footnotes, etc.) |
+
+These are vendored into `skills/*/scripts/vendor/` by `ops/scripts/sync-shared-skill-packages.mjs` for self-containment. Vendor copies are committed to git.
+
 ## Running Skills
 
 TypeScript via Bun (no build step). Detect runtime once per session:
@@ -27,6 +54,27 @@ else echo "Error: install bun: brew install oven-sh/bun/bun or npm install -g bu
 
 Execute: `${BUN_X} skills/<skill>/scripts/main.ts [options]`
 
+Or use the CLI wrapper: `./sc-run <skill-name> <script-name> [args...]`
+
+## Testing
+
+Two test runtimes coexist:
+
+**Node.js tests** (covers most skills and packages):
+```bash
+npm test                              # Run all Node-compatible tests
+node --import tsx --test path/to/file.test.ts  # Run a single test file
+npm run test:coverage                 # With coverage
+```
+
+**Bun tests** (used by `packages/sc-fetch`):
+```bash
+cd packages/sc-fetch && bun test                    # All Bun tests
+cd packages/sc-fetch && bun test path/to/file.test.ts  # Single file
+```
+
+The root `npm test` runner (`ops/scripts/run-node-tests.mjs`) auto-discovers `*.test.ts` files and filters out those importing `bun:test`.
+
 ## Key Dependencies
 
 - **Bun**: TypeScript runtime (`bun` preferred, fallback `npx -y bun`)
@@ -34,6 +82,18 @@ Execute: `${BUN_X} skills/<skill>/scripts/main.ts [options]`
 - **Image generation APIs**: `imagine` requires API key (OpenAI, Azure OpenAI, Google, OpenRouter, DashScope, or Replicate) configured in EXTEND.md
 - **Config dirs**: `.super-creator/` (project-level) and `~/.super-creator/` (user-level) store `.env` files and `EXTEND.md` overrides. The `super-creator` plugin reads these on startup.
 - **Gemini Web auth**: Browser cookies (first run opens Chrome for login, `--login` to refresh)
+
+## Git Workflow
+
+Git Flow model (main/develop/feature/release/hotfix branches). Conventional commits:
+- `feat(skill): description` for new skill features
+- `fix(skill): description` for skill bug fixes
+- `docs(skill): description` for skill documentation
+- `refactor(project): description` for project-level changes
+
+**Git hooks** (managed via `.githooks/`):
+- `pre-commit`: runs `node ops/scripts/verify-version-sync.mjs` (ensures version consistency)
+- `pre-push`: runs `node ops/scripts/sync-shared-skill-packages.mjs --enforce-clean` (ensures vendor copies are fresh)
 
 ## Security
 
@@ -50,11 +110,6 @@ Execute: `${BUN_X} skills/<skill>/scripts/main.ts [options]`
 | **Default image generation** | Use `skills/imagine/SKILL.md` unless user specifies otherwise |
 
 Priority: project `skills/` → `$HOME/.super-creator/` → system-level.
-
-## Deprecated Skills
-
-| Skill | Note |
-|-------|------|
 
 ## Release Process
 
@@ -80,3 +135,5 @@ All skills use descriptive names without a required prefix. Register under the `
 | Chrome profile platform paths | [docs/chrome-profile.md](docs/chrome-profile.md) |
 | Comic style maintenance | [docs/comic-style-maintenance.md](docs/comic-style-maintenance.md) |
 | ClawHub/OpenClaw publishing | [docs/publishing.md](docs/publishing.md) |
+| Testing strategy | [docs/testing.md](docs/testing.md) |
+| Creating new skills | [docs/creating-skills.md](docs/creating-skills.md) |
