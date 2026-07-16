@@ -37,9 +37,12 @@ All commands use `./sc-run xhs-images <script>`. Note: Driven via prompt orchest
 For detailed style/layout galleries, presets, and strategy definitions, see:
 
 - [references/galleries.md](references/galleries.md) - **Style, Layout & Preset Galleries**
-- [references/workflow.md](references/workflow.md) - **Smart Confirm & Multi-Outline Workflow**
-- [references/config/preferences-schema.md](references/config/preferences-schema.md) - **EXTEND.md Options**
+- [references/workflows/overview.md](references/workflows/overview.md) - **Workflow Overview & Input Methods**
+- [references/workflows/writeflow-input.md](references/workflows/writeflow-input.md) - **Writeflow Skill Integration**
 - [references/workflows/analysis-framework.md](references/workflows/analysis-framework.md) - **Analysis Logic**
+- [references/workflows/outline-template.md](references/workflows/outline-template.md) - **Outline Template**
+- [references/workflows/prompt-assembly.md](references/workflows/prompt-assembly.md) - **Prompt Assembly Guide**
+- [references/config/preferences-schema.md](references/config/preferences-schema.md) - **EXTEND.md Options**
 
 ## See Also
 

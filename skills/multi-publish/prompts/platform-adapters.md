@@ -25,7 +25,13 @@ Notes:
 
 **Target:** `thread.json` array consumable by `post-to-x`.
 
+**发布方式**: 优先使用 X API v2（post-to-x x-api），API 不可用时降级到 CDP 浏览器模式。
+
 ```bash
+# 单条推文 + 图片（API 模式）
+./sc-run post-to-x x-api "Tweet text" --image ./photo.png
+
+# Thread 模式（目前用 CDP，未来迁移到 API）
 ./sc-run markdown-to-thread main \
   <article.md> \
   -o <out-dir>/x/thread.json \
@@ -38,6 +44,7 @@ Notes:
 Notes:
 - The CTA appended on the final tweet should include the WeChat permalink **only after** WeChat has been published in live mode; in draft mode use a placeholder `"Full post 👇 (link pending)"` and tell the user.
 - Images embedded in markdown are NOT lifted into the thread — X images need explicit handling. If the article has 1–4 images, list them in `<out-dir>/x/images.txt` and tell the user to attach them manually before publish (v0.1.0 limitation).
+- 单条推文发布优先使用 API 模式，更稳定。Thread 长文和 X Article 目前使用 CDP 模式。
 
 ## Weibo
 
