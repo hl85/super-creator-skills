@@ -2,7 +2,7 @@
 
 super-creator 的多个 skill 通过 Chrome DevTools Protocol (CDP) 控制真实 Chrome 浏览器，实现自动化发布和内容抓取。本文覆盖所有依赖 Chrome 的 skill 的共同配置步骤。
 
-**依赖 Chrome 的 skill：** `post-to-x`、`post-to-wechat`、`post-to-weibo`、`url-to-markdown`、`gemini-web`、`x-to-markdown`、`post-to-xhs`
+**依赖 Chrome 的 skill：** `sc-post-to-x`、`sc-post-to-wechat`、`sc-post-to-weibo`、`sc-gemini-web`、`sc-post-to-xhs`
 
 ---
 
@@ -28,7 +28,7 @@ super-creator 的多个 skill 通过 Chrome DevTools Protocol (CDP) 控制真实
 
 ```bash
 # 手动验证 Chrome 能正常启动（可选）
-./sc-run post-to-x x-browser --check
+./sc-run sc-post-to-x x-browser --check
 ```
 
 Chrome 会以 **远程调试端口 9222** 启动。如果遇到端口冲突：
@@ -73,7 +73,7 @@ pkill -f "Google Chrome"
 
 ## 第四步：macOS 权限（仅限 macOS）
 
-部分 skill（尤其是 `post-to-x`）需要粘贴图片，需要 Accessibility 权限：
+部分 skill（尤其是 `sc-post-to-x`）需要粘贴图片，需要 Accessibility 权限：
 
 1. **系统偏好设置** → **隐私与安全性** → **辅助功能**
 2. 将你的终端应用（Terminal / iTerm2 / Warp 等）加入允许列表
@@ -97,6 +97,6 @@ pkill -f "Google Chrome"
 如果需要为不同项目使用不同的登录状态（如多个 X 账号），可以通过环境变量切换：
 
 ```bash
-SC_CHROME_PROFILE_DIR=~/.config/super-creator/profile-work ./sc-run post-to-x x-browser "Hello"
-SC_CHROME_PROFILE_DIR=~/.config/super-creator/profile-personal ./sc-run post-to-x x-browser "Hello"
+SC_CHROME_PROFILE_DIR=~/.config/super-creator/profile-work ./sc-run sc-post-to-x x-browser "Hello"
+SC_CHROME_PROFILE_DIR=~/.config/super-creator/profile-personal ./sc-run sc-post-to-x x-browser "Hello"
 ```

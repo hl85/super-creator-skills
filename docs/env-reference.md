@@ -105,7 +105,7 @@ CLI 参数
 
 | 变量名 | 用途 | 使用的 Skill |
 |--------|------|-------------|
-| `GOOGLE_API_KEY` | Google Gemini 图像生成 | `imagine`、`cover-image`、`article-illustrator`、`comic`、`xhs-images`、`infographic`、`slide-deck` |
+| `GOOGLE_API_KEY` | Google Gemini 图像生成 | `sc-imagine`、`sc-cover-image`、`sc-article-illustrator`、`sc-comic`、`sc-xhs-images`、`sc-infographic`、`sc-slide-deck` |
 | `OPENAI_API_KEY` | OpenAI 图像生成 | 同上 |
 | `AZURE_OPENAI_API_KEY` | Azure OpenAI | 同上 |
 | `AZURE_OPENAI_BASE_URL` | Azure 端点 URL | 同上 |
@@ -115,7 +115,7 @@ CLI 参数
 | `MINIMAX_API_KEY` | MiniMax | 同上 |
 | `REPLICATE_API_TOKEN` | Replicate | 同上 |
 
-> 图像生成 skill 内部统一调用 `imagine`，只需配置你选定的 provider 的 key 即可。
+> 图像生成 skill 内部统一调用 `sc-imagine`，只需配置你选定的 provider 的 key 即可。
 
 ### 微信公众号
 
@@ -126,19 +126,19 @@ CLI 参数
 | `WECHAT_BROWSER_CHROME_PATH` | 自定义 Chrome 路径 | 通常不需要 |
 | `WECHAT_BROWSER_PROFILE_DIR` | 微信专用 Chrome Profile | 通常不需要 |
 
-> **多账号支持**：在 `.super-creator/post-to-wechat/EXTEND.md` 中配置 `accounts:` 数组，可管理多个公众号，无需多个环境变量。详见 `skills/post-to-wechat/references/multi-account.md`。
+> **多账号支持**：在 `.super-creator/post-to-wechat/EXTEND.md` 中配置 `accounts:` 数组，可管理多个公众号，无需多个环境变量。详见 `skills/sc-post-to-wechat/references/multi-account.md`。
 
 ### Chrome & CDP
 
 | 变量名 | 用途 | 适用 Skill |
 |--------|------|-----------|
-| `SC_CHROME_PROFILE_DIR` | 覆盖所有 CDP skill 的共享 Profile 路径 | `post-to-x`、`post-to-wechat`、`post-to-weibo`、`post-to-xhs`、`url-to-markdown`、`x-to-markdown`、`gemini-web` |
-| `X_BROWSER_CHROME_PATH` | X 专用 Chrome 路径 | `post-to-x` |
-| `X_CHROME_PROFILE_DIR` | X 专用 Profile 路径 | `post-to-x` |
-| `WEIBO_BROWSER_CHROME_PATH` | 微博专用 Chrome 路径 | `post-to-weibo` |
-| `WEIBO_BROWSER_PROFILE_DIR` | 微博专用 Profile 路径 | `post-to-weibo` |
-| `GEMINI_WEB_CHROME_PATH` | Gemini Web 专用 Chrome 路径 | `gemini-web` |
-| `GEMINI_WEB_CHROME_PROFILE_DIR` | Gemini Web 专用 Profile 路径 | `gemini-web` |
+| `SC_CHROME_PROFILE_DIR` | 覆盖所有 CDP skill 的共享 Profile 路径 | `sc-post-to-x`、`sc-post-to-wechat`、`sc-post-to-weibo`、`sc-post-to-xhs`、`sc-gemini-web` |
+| `X_BROWSER_CHROME_PATH` | X 专用 Chrome 路径 | `sc-post-to-x` |
+| `X_CHROME_PROFILE_DIR` | X 专用 Profile 路径 | `sc-post-to-x` |
+| `WEIBO_BROWSER_CHROME_PATH` | 微博专用 Chrome 路径 | `sc-post-to-weibo` |
+| `WEIBO_BROWSER_PROFILE_DIR` | 微博专用 Profile 路径 | `sc-post-to-weibo` |
+| `GEMINI_WEB_CHROME_PATH` | Gemini Web 专用 Chrome 路径 | `sc-gemini-web` |
+| `GEMINI_WEB_CHROME_PROFILE_DIR` | Gemini Web 专用 Profile 路径 | `sc-gemini-web` |
 
 > 通常只需设置 `SC_CHROME_PROFILE_DIR`（如果默认路径不合适），其余都不需要。默认路径见 [chrome-profile.md](chrome-profile.md)。
 
@@ -155,7 +155,7 @@ CLI 参数
 | `X_BEARER_TOKEN` | Bearer Token | 只读 API 使用 |
 | `X_PUBLISH_METHOD` | 发布方式 | `api` 或 `browser`，默认自动检测 |
 
-> **双模式架构**：配置了 API 凭证时优先使用 API v2，否则自动降级到 CDP 浏览器模式。详见 `skills/post-to-x/SKILL.md`。
+> **双模式架构**：配置了 API 凭证时优先使用 API v2，否则自动降级到 CDP 浏览器模式。详见 `skills/sc-post-to-x/SKILL.md`。
 
 ### 小红书 (Xiaohongshu)
 
@@ -163,7 +163,7 @@ CLI 参数
 |--------|------|------|
 | `XIAOHONGSHU_MCP_URL` | xiaohongshu-mcp 服务地址 | 默认 `http://localhost:18060/mcp` |
 
-> **三级降级策略**：优先使用 xiaohongshu-mcp → CDP 脚本 → 手动发布手册。详见 `skills/post-to-xhs/SKILL.md` 和 `skills/xhs-pipeline/SKILL.md`。
+> **三级降级策略**：优先使用 xiaohongshu-mcp → CDP 脚本 → 手动发布手册。详见 `skills/sc-post-to-xhs/SKILL.md` 和 `skills/sc-xhs-pipeline/SKILL.md`。
 
 ### 高级调优
 
@@ -180,20 +180,17 @@ CLI 参数
 
 | Skill | 主要偏好项 |
 |-------|-----------|
-| `imagine` | 默认 provider、模型、图像质量 |
-| `cover-image` | 默认风格/调色板/渲染方式、水印、比例 |
-| `article-illustrator` | 水印、默认风格、输出目录 |
-| `comic` | 水印、艺术风格、基调 |
-| `xhs-images` | 水印、默认风格、布局 |
-| `translate` | 目标语言、翻译模式、受众、风格、术语表 |
-| `post-to-wechat` | 主题、颜色、发布方式、作者、评论设置 |
-| `post-to-weibo` | Chrome Profile 路径 |
-| `post-to-xhs` | 默认话题标签、城市、草稿模式、MCP 服务地址 |
-| `post-to-x` | 默认发布方式（api/browser）、多账号配置 |
-| `xhs-pipeline` | 发布模式（手动/自动）、状态文件路径 |
-| `url-to-markdown` | 媒体下载策略、默认输出目录 |
-| `x-to-markdown` | 媒体下载策略、默认输出目录 |
-| `infographic`、`slide-deck` | 水印、默认风格（首次运行时询问）|
+| `sc-imagine` | 默认 provider、模型、图像质量 |
+| `sc-cover-image` | 默认风格/调色板/渲染方式、水印、比例 |
+| `sc-article-illustrator` | 水印、默认风格、输出目录 |
+| `sc-comic` | 水印、艺术风格、基调 |
+| `sc-xhs-images` | 水印、默认风格、布局 |
+| `sc-post-to-wechat` | 主题、颜色、发布方式、作者、评论设置 |
+| `sc-post-to-weibo` | Chrome Profile 路径 |
+| `sc-post-to-xhs` | 默认话题标签、城市、草稿模式、MCP 服务地址 |
+| `sc-post-to-x` | 默认发布方式（api/browser）、多账号配置 |
+| `sc-xhs-pipeline` | 发布模式（手动/自动）、状态文件路径 |
+| `sc-infographic`、`sc-slide-deck` | 水印、默认风格（首次运行时询问）|
 
 > 删除 `EXTEND.md` 可重置对应 skill 的所有偏好，下次运行会重新引导设置。
 

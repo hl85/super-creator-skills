@@ -1,8 +1,0 @@
-{
-  "name": "danger-x-to-markdown-scripts",
-  "private": true,
-  "type": "module",
-  "dependencies": {
-    "sc-chrome-cdp": "file:./vendor/sc-chrome-cdp"
-  }
-}

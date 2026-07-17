@@ -6,7 +6,7 @@
 
 | Requirement | Details |
 |-------------|---------|
-| **Naming** | All skills MUST use descriptive names without a required prefix |
+| **Naming** | All skills MUST use the `sc-` prefix with descriptive names |
 | **name field** | Max 64 chars, lowercase letters/numbers/hyphens only, no "anthropic"/"claude" |
 | **description** | Max 1024 chars, third person, include what + when to use |
 | **SKILL.md body** | **MUST be under 30 lines**; use `references/` for all technical details |
@@ -27,12 +27,12 @@ The runner automatically resolves:
 
 ```yaml
 ---
-name: <name>
+name: sc-<name>
 description: <Third-person description. What it does + when to use it.>
 version: <semver matching marketplace.json>
 metadata:
   openclaw:
-    homepage: https://github.com/hl85/super-creator#<name>
+    homepage: https://github.com/hl85/super-creator#sc-<name>
     requires:          # include only if skill has scripts
       anyBins:
         - bun
@@ -42,9 +42,9 @@ metadata:
 
 ## Steps
 
-1. Create `skills/<name>/SKILL.md` with YAML front matter
-2. Add TypeScript in `skills/<name>/scripts/` (if applicable)
-3. Add prompt templates in `skills/<name>/prompts/` if needed
+1. Create `skills/sc-<name>/SKILL.md` with YAML front matter
+2. Add TypeScript in `skills/sc-<name>/scripts/` (if applicable)
+3. Add prompt templates in `skills/sc-<name>/prompts/` if needed
 4. Register the skill in `.claude-plugin/marketplace.json` under the `super-creator` plugin entry
 5. Add Script Directory section to SKILL.md if skill has scripts
 6. Add openclaw metadata to frontmatter
@@ -100,7 +100,7 @@ Every SKILL.md with scripts MUST include:
 For skills with extensive content:
 
 ```
-skills/example/
+skills/sc-example/
 ├── SKILL.md              # Main instructions (<500 lines)
 ├── references/
 │   ├── styles.md         # Loaded as needed

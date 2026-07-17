@@ -2,6 +2,42 @@
 
 [English](./CHANGELOG.md) | 中文
 
+## 3.1.0 - 2026-07-17
+
+### 破坏性变更
+- **移除 6 个非核心 skill**：`idea-radar`、`post-analytics`、`translate`、`x-to-markdown`、`yt-transcript`、`url-to-markdown` — 与核心内容创作发布无直接关联
+- **全部 21 个剩余 skill 统一使用 `sc-` 前缀**，与 super-creator 品牌命名空间保持一致：
+  - `article-illustrator` → `sc-article-illustrator`
+  - `comic` → `sc-comic`
+  - `compress-image` → `sc-compress-image`
+  - `content-mining` → `sc-content-mining`
+  - `content-review` → `sc-content-review`
+  - `cover-image` → `sc-cover-image`
+  - `format-markdown` → `sc-format-markdown`
+  - `gemini-web` → `sc-gemini-web`
+  - `imagine` → `sc-imagine`
+  - `infographic` → `sc-infographic`
+  - `markdown-to-html` → `sc-markdown-to-html`
+  - `markdown-to-thread` → `sc-markdown-to-thread`
+  - `multi-publish` → `sc-multi-publish`
+  - `post-to-wechat` → `sc-post-to-wechat`
+  - `post-to-weibo` → `sc-post-to-weibo`
+  - `post-to-x` → `sc-post-to-x`
+  - `post-to-xhs` → `sc-post-to-xhs`
+  - `slide-deck` → `sc-slide-deck`
+  - `writeflow` → `sc-writeflow`
+  - `xhs-images` → `sc-xhs-images`
+  - `xhs-pipeline` → `sc-xhs-pipeline`
+
+### 流水线变更
+- 内容流水线从 8 阶段精简为 6 阶段（移除 idea-radar 发现和 post-analytics 数据回收）
+- 从 pipeline 文档中移除"X URL 转换 Skill 选择指南"章节
+
+### 说明
+- 用户配置目录 `.super-creator/<skill-name>/` 保持不变（使用短名称，用户更友好）
+- `screenshots/` 目录名保持不变（资源目录，非 skill 目录）
+- 所有文档和引用已同步更新
+
 ## 3.0.1 - 2026-05-13
 
 ### 变更

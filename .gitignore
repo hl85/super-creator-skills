@@ -144,17 +144,12 @@ tests-data/
 
 # Skill extensions (user customization)
 .super-creator/
-x-to-markdown/
-!skills/x-to-markdown/
-url-to-markdown/
-!skills/url-to-markdown/
-!skills/xhs-images/
-cover-image/
-slide-deck/
-infographic/
+!skills/sc-xhs-images/
+sc-cover-image/
+sc-slide-deck/
+sc-infographic/
 illustrations/
-comic/
-translate/
+sc-comic/
 posts/
 ### IntelliJ IDEA ###
 .idea
@@ -175,7 +170,6 @@ posts/
 .clawdhub/
 .release-artifacts/
 .worktrees/
-!skills/yt-transcript/
 .omc/
 .claude/
 .claude-plugin/

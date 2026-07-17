@@ -33,7 +33,7 @@ bun --version
 
 ## 第三步：配置 API Key（图像生成类 skill 必须）
 
-如果你打算使用 `imagine`、`cover-image`、`article-illustrator`、`comic`、`xhs-images`、`infographic` 等视觉 skill，需要至少一个图像生成 provider 的 API Key。
+如果你打算使用 `sc-imagine`、`sc-cover-image`、`sc-article-illustrator`、`sc-comic`、`sc-xhs-images`、`sc-infographic` 等视觉 skill，需要至少一个图像生成 provider 的 API Key。
 
 **推荐：Google（免费额度最多）**
 
@@ -60,29 +60,23 @@ EOF
 
 ```bash
 # 在任意目录下运行
-./sc-run imagine main "a serene mountain lake at sunset"
+./sc-run sc-imagine main "a serene mountain lake at sunset"
 ```
 
 首次运行会触发偏好设置对话（选择默认 provider、模型、质量），配置保存后下次直接执行。
 
-### 选项 B：内容转换（无需任何配置）
+### 选项 B：内容格式化（无需任何配置）
 
 ```bash
 # 格式化一篇 Markdown 文章
-./sc-run format-markdown main article.md
-
-# 翻译（首次运行会设置默认目标语言）
-./sc-run translate main article.md --to zh-CN
-
-# 下载 YouTube 字幕
-./sc-run yt-transcript main "https://youtube.com/watch?v=..."
+./sc-run sc-format-markdown main article.md
 ```
 
 ### 选项 C：发布到平台（需要 Chrome 登录）
 
 ```bash
 # 发布到 X（首次运行会打开 Chrome 等待你登录）
-./sc-run post-to-x x-browser "Hello from super-creator!"
+./sc-run sc-post-to-x x-browser "Hello from super-creator!"
 ```
 
 首次运行时 Chrome 会自动打开，在浏览器里完成平台登录，登录状态持久保存，后续运行无需重复登录。
@@ -119,8 +113,8 @@ Claude Code 启动时会自动扫描项目根目录的 `.claude-plugin/marketpla
 ln -sf /path/to/super-creator ~/.agents/super-creator-dev
 
 # 更新共享 skills 目录的 symlink（以 imagine 为例）
-rm ~/.agents/skills/imagine
-ln -sf /path/to/super-creator/skills/imagine ~/.agents/skills/imagine
+rm ~/.agents/skills/sc-imagine
+ln -sf /path/to/super-creator/skills/sc-imagine ~/.agents/skills/sc-imagine
 
 # 对其他开发中的 skill 重复上述操作
 ```
@@ -131,9 +125,9 @@ ln -sf /path/to/super-creator/skills/imagine ~/.agents/skills/imagine
 
 ```bash
 # 将开发中的 skill 复制到共享目录
-cp -r ./skills/imagine ~/.agents/skills/
-cp -r ./skills/article-illustrator ~/.agents/skills/
-cp -r ./skills/comic ~/.agents/skills/
+cp -r ./skills/sc-imagine ~/.agents/skills/
+cp -r ./skills/sc-article-illustrator ~/.agents/skills/
+cp -r ./skills/sc-comic ~/.agents/skills/
 # ... 对其他 skill 重复
 
 # 编辑后需要手动重复此命令以更新

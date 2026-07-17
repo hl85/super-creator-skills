@@ -2,6 +2,42 @@
 
 English | [中文](./CHANGELOG.zh.md)
 
+## 3.1.0 - 2026-07-17
+
+### BREAKING CHANGES
+- **Removed 6 non-core skills**: `idea-radar`, `post-analytics`, `translate`, `x-to-markdown`, `yt-transcript`, `url-to-markdown` — these are not directly related to core content creation and publishing
+- **All 21 remaining skills now use the `sc-` prefix** for namespace consistency with the super-creator brand:
+  - `article-illustrator` → `sc-article-illustrator`
+  - `comic` → `sc-comic`
+  - `compress-image` → `sc-compress-image`
+  - `content-mining` → `sc-content-mining`
+  - `content-review` → `sc-content-review`
+  - `cover-image` → `sc-cover-image`
+  - `format-markdown` → `sc-format-markdown`
+  - `gemini-web` → `sc-gemini-web`
+  - `imagine` → `sc-imagine`
+  - `infographic` → `sc-infographic`
+  - `markdown-to-html` → `sc-markdown-to-html`
+  - `markdown-to-thread` → `sc-markdown-to-thread`
+  - `multi-publish` → `sc-multi-publish`
+  - `post-to-wechat` → `sc-post-to-wechat`
+  - `post-to-weibo` → `sc-post-to-weibo`
+  - `post-to-x` → `sc-post-to-x`
+  - `post-to-xhs` → `sc-post-to-xhs`
+  - `slide-deck` → `sc-slide-deck`
+  - `writeflow` → `sc-writeflow`
+  - `xhs-images` → `sc-xhs-images`
+  - `xhs-pipeline` → `sc-xhs-pipeline`
+
+### Pipeline changes
+- Simplified content pipeline from 8 stages to 6 stages (removed idea-radar discovery and post-analytics data collection)
+- Removed "X URL Conversion Skill Selection Guide" chapter from pipeline docs
+
+### Notes
+- User config directory `.super-creator/<skill-name>/` remains unchanged (short names without `sc-` prefix for user-friendliness)
+- `screenshots/` directory names remain unchanged (resource directories, not skill directories)
+- All documentation and references have been updated accordingly
+
 ## 3.0.1 - 2026-05-13
 
 ### Changed

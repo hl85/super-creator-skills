@@ -23,9 +23,8 @@ This project provides a centralized runner to abstract path logic and runtime ma
 ./sc-run <skill-name> <script-name> [args...]
 
 # Examples
-./sc-run post-to-x x-browser "Hello!"
-./sc-run youtube-transcript main <url> --chapters
-./sc-run imagine main --prompt "A futuristic lab"
+./sc-run sc-post-to-x x-browser "Hello!"
+./sc-run sc-imagine main --prompt "A futuristic lab"
 ```
 
 ## Documentation
@@ -67,8 +66,8 @@ This repository now supports publishing each `skills/` directory as an individua
 ClawHub installs skills individually, not as one marketplace bundle. After publishing, users can install specific skills such as:
 
 ```bash
-clawhub install imagine
-clawhub install markdown-to-html
+clawhub install sc-imagine
+clawhub install sc-markdown-to-html
 ```
 
 Publishing to ClawHub releases the published skill under `MIT-0`, per ClawHub's registry rules.
@@ -132,29 +131,29 @@ Skills are organized into three categories:
 
 Content generation and publishing skills.
 
-#### xiaohongshu-images
+#### sc-xhs-images
 
 Xiaohongshu (RedNote) infographic series generator. Breaks down content into 1-10 cartoon-style infographics with **Style × Layout** two-dimensional system.
 
 ```bash
 # Auto-select style and layout
-/xiaohongshu-images posts/ai-future/article.md
+/sc-xhs-images posts/ai-future/article.md
 
 # Specify style
-/xiaohongshu-images posts/ai-future/article.md --style notion
+/sc-xhs-images posts/ai-future/article.md --style notion
 
 # Specify layout
-/xiaohongshu-images posts/ai-future/article.md --layout dense
+/sc-xhs-images posts/ai-future/article.md --layout dense
 
 # Combine style and layout
-/xiaohongshu-images posts/ai-future/article.md --style tech --layout list
+/sc-xhs-images posts/ai-future/article.md --style tech --layout list
 
 # Direct content input
-/xiaohongshu-images 今日星座运势
+/sc-xhs-images 今日星座运势
 
 # Non-interactive (skip all confirmations, for scheduled tasks)
-/xiaohongshu-images posts/ai-future/article.md --yes
-/xiaohongshu-images posts/ai-future/article.md --yes --preset knowledge-card
+/sc-xhs-images posts/ai-future/article.md --yes
+/sc-xhs-images posts/ai-future/article.md --yes --preset knowledge-card
 ```
 
 **Styles** (visual aesthetics): `cute` (default), `fresh`, `warm`, `bold`, `minimal`, `retro`, `pop`, `notion`, `chalkboard`
@@ -189,26 +188,26 @@ Xiaohongshu (RedNote) infographic series generator. Breaks down content into 1-1
 | ![list](./screenshots/xiaohongshu-images-layouts/list.webp) | ![comparison](./screenshots/xiaohongshu-images-layouts/comparison.webp) | ![flow](./screenshots/xiaohongshu-images-layouts/flow.webp) |
 | list | comparison | flow |
 
-#### infographic
+#### sc-infographic
 
 Generate professional infographics with 20 layout types and 17 visual styles. Analyzes content, recommends layout×style combinations, and generates publication-ready infographics.
 
 ```bash
 # Auto-recommend combinations based on content
-/infographic path/to/content.md
+/sc-infographic path/to/content.md
 
 # Specify layout
-/infographic path/to/content.md --layout pyramid
+/sc-infographic path/to/content.md --layout pyramid
 
 # Specify style (default: craft-handmade)
-/infographic path/to/content.md --style technical-schematic
+/sc-infographic path/to/content.md --style technical-schematic
 
 # Specify both
-/infographic path/to/content.md --layout funnel --style corporate-memphis
+/sc-infographic path/to/content.md --layout funnel --style corporate-memphis
 
 # With aspect ratio (named preset or custom W:H)
-/infographic path/to/content.md --aspect portrait
-/infographic path/to/content.md --aspect 3:4
+/sc-infographic path/to/content.md --aspect portrait
+/sc-infographic path/to/content.md --aspect 3:4
 ```
 
 **Options**:
@@ -302,29 +301,29 @@ Generate professional infographics with 20 layout types and 17 visual styles. An
 | ![knolling](./screenshots/infographic-styles/knolling.webp) | ![lego-brick](./screenshots/infographic-styles/lego-brick.webp) | |
 | knolling | lego-brick | |
 
-#### cover-image
+#### sc-cover-image
 
 Generate cover images for articles with 5 dimensions: Type × Palette × Rendering × Text × Mood. Combines 9 color palettes with 6 rendering styles for 54 unique combinations.
 
 ```bash
 # Auto-select all dimensions based on content
-/cover-image path/to/article.md
+/sc-cover-image path/to/article.md
 
 # Quick mode: skip confirmation, use auto-selection
-/cover-image path/to/article.md --quick
+/sc-cover-image path/to/article.md --quick
 
 # Specify dimensions (5D system)
-/cover-image path/to/article.md --type conceptual --palette cool --rendering digital
-/cover-image path/to/article.md --text title-subtitle --mood bold
+/sc-cover-image path/to/article.md --type conceptual --palette cool --rendering digital
+/sc-cover-image path/to/article.md --text title-subtitle --mood bold
 
 # Style presets (backward-compatible shorthand)
-/cover-image path/to/article.md --style blueprint
+/sc-cover-image path/to/article.md --style blueprint
 
 # Specify aspect ratio (default: 16:9)
-/cover-image path/to/article.md --aspect 2.35:1
+/sc-cover-image path/to/article.md --aspect 2.35:1
 
 # Visual only (no title text)
-/cover-image path/to/article.md --no-title
+/sc-cover-image path/to/article.md --no-title
 ```
 
 **Five Dimensions**:
@@ -334,26 +333,26 @@ Generate cover images for articles with 5 dimensions: Type × Palette × Renderi
 - **Text**: `none`, `title-only` (default), `title-subtitle`, `text-rich`
 - **Mood**: `subtle`, `balanced` (default), `bold`
 
-#### slide-deck
+#### sc-slide-deck
 
 Generate professional slide deck images from content. Creates comprehensive outlines with style instructions, then generates individual slide images.
 
 ```bash
 # From markdown file
-/slide-deck path/to/article.md
+/sc-slide-deck path/to/article.md
 
 # With style and audience
-/slide-deck path/to/article.md --style corporate
-/slide-deck path/to/article.md --audience executives
+/sc-slide-deck path/to/article.md --style corporate
+/sc-slide-deck path/to/article.md --audience executives
 
 # Target slide count
-/slide-deck path/to/article.md --slides 15
+/sc-slide-deck path/to/article.md --slides 15
 
 # Outline only (no image generation)
-/slide-deck path/to/article.md --outline-only
+/sc-slide-deck path/to/article.md --outline-only
 
 # With language
-/slide-deck path/to/article.md --lang zh
+/sc-slide-deck path/to/article.md --lang zh
 ```
 
 **Options**:
@@ -420,31 +419,31 @@ Styles are built from 4 dimensions: **Texture** × **Mood** × **Typography** ×
 
 After generation, slides are automatically merged into `.pptx` and `.pdf` files for easy sharing.
 
-#### comic
+#### sc-comic
 
 Knowledge comic creator with flexible art style × tone combinations. Creates original educational comics with detailed panel layouts and sequential image generation.
 
 ```bash
 # From source material (auto-selects art + tone)
-/comic posts/turing-story/source.md
+/sc-comic posts/turing-story/source.md
 
 # Specify art style and tone
-/comic posts/turing-story/source.md --art manga --tone warm
-/comic posts/turing-story/source.md --art ink-brush --tone dramatic
+/sc-comic posts/turing-story/source.md --art manga --tone warm
+/sc-comic posts/turing-story/source.md --art ink-brush --tone dramatic
 
 # Use preset (includes special rules)
-/comic posts/turing-story/source.md --style ohmsha
-/comic posts/turing-story/source.md --style wuxia
+/sc-comic posts/turing-story/source.md --style ohmsha
+/sc-comic posts/turing-story/source.md --style wuxia
 
 # Specify layout and aspect ratio
-/comic posts/turing-story/source.md --layout cinematic
-/comic posts/turing-story/source.md --aspect 16:9
+/sc-comic posts/turing-story/source.md --layout cinematic
+/sc-comic posts/turing-story/source.md --aspect 16:9
 
 # Specify language
-/comic posts/turing-story/source.md --lang zh
+/sc-comic posts/turing-story/source.md --lang zh
 
 # Direct content input
-/comic "The story of Alan Turing and the birth of computer science"
+/sc-comic "The story of Alan Turing and the birth of computer science"
 ```
 
 **Options**:
@@ -506,22 +505,22 @@ Knowledge comic creator with flexible art style × tone combinations. Creates or
 | ![splash](./screenshots/comic-layouts/splash.webp) | ![mixed](./screenshots/comic-layouts/mixed.webp) | ![webtoon](./screenshots/comic-layouts/webtoon.webp) |
 | splash | mixed | webtoon |
 
-#### article-illustrator
+#### sc-article-illustrator
 
 Smart article illustration skill with Type × Style two-dimension approach. Analyzes article structure, identifies positions requiring visual aids, and generates illustrations.
 
 ```bash
 # Auto-select type and style based on content
-/article-illustrator path/to/article.md
+/sc-article-illustrator path/to/article.md
 
 # Specify type
-/article-illustrator path/to/article.md --type infographic
+/sc-article-illustrator path/to/article.md --type infographic
 
 # Specify style
-/article-illustrator path/to/article.md --style blueprint
+/sc-article-illustrator path/to/article.md --style blueprint
 
 # Combine type and style
-/article-illustrator path/to/article.md --type flowchart --style notion
+/sc-article-illustrator path/to/article.md --type flowchart --style notion
 ```
 
 **Types** (information structure):
@@ -559,7 +558,7 @@ Smart article illustration skill with Type × Style two-dimension approach. Anal
 | ![editorial](./screenshots/article-illustrator-styles/editorial.webp) | ![scientific](./screenshots/article-illustrator-styles/scientific.webp) | |
 | editorial | scientific | |
 
-#### post-to-x
+#### sc-post-to-x
 
 Post content and articles to X (Twitter). Supports regular posts with images and X Articles (long-form Markdown). Uses real Chrome with CDP to bypass anti-automation.
 
@@ -567,33 +566,33 @@ Plain text input is treated as a regular post. Markdown files are treated as X A
 
 ```bash
 # Post with text
-/post-to-x "Hello from Claude Code!"
+/sc-post-to-x "Hello from Claude Code!"
 
 # Post with images
-/post-to-x "Check this out" --image photo.png
+/sc-post-to-x "Check this out" --image photo.png
 
 # Post X Article
-/post-to-x --article path/to/article.md
+/sc-post-to-x --article path/to/article.md
 ```
 
-#### post-to-wechat
+#### sc-post-to-wechat
 
 Post content to WeChat Official Account (微信公众号). Two modes available:
 
 **Image-Text (贴图)** - Multiple images with short title/content:
 
 ```bash
-/post-to-wechat 贴图 --markdown article.md --images ./photos/
-/post-to-wechat 贴图 --markdown article.md --image img1.png --image img2.png --image img3.png
-/post-to-wechat 贴图 --title "标题" --content "内容" --image img1.png --submit
+/sc-post-to-wechat 贴图 --markdown article.md --images ./photos/
+/sc-post-to-wechat 贴图 --markdown article.md --image img1.png --image img2.png --image img3.png
+/sc-post-to-wechat 贴图 --title "标题" --content "内容" --image img1.png --submit
 ```
 
 **Article (文章)** - Full markdown/HTML with rich formatting:
 
 ```bash
-/post-to-wechat 文章 --markdown article.md
-/post-to-wechat 文章 --markdown article.md --theme grace
-/post-to-wechat 文章 --html article.html
+/sc-post-to-wechat 文章 --markdown article.md
+/sc-post-to-wechat 文章 --markdown article.md --theme grace
+/sc-post-to-wechat 文章 --html article.html
 ```
 
 **Publishing Methods**:
@@ -660,7 +659,7 @@ accounts:
 
 Each account gets an isolated Chrome profile for independent login sessions (browser method). API credentials can be set inline in EXTEND.md or via `.env` with alias-prefixed keys (e.g., `WECHAT_TECH_BLOG_APP_ID`).
 
-#### post-to-weibo
+#### sc-post-to-weibo
 
 Post content to Weibo (微博). Supports regular posts with text, images, and videos, and headline articles (头条文章) with Markdown input. Uses real Chrome with CDP to bypass anti-automation.
 
@@ -668,23 +667,23 @@ Post content to Weibo (微博). Supports regular posts with text, images, and vi
 
 ```bash
 # Post with text
-/post-to-weibo "Hello Weibo!"
+/sc-post-to-weibo "Hello Weibo!"
 
 # Post with images
-/post-to-weibo "Check this out" --image photo.png
+/sc-post-to-weibo "Check this out" --image photo.png
 
 # Post with video
-/post-to-weibo "Watch this" --video clip.mp4
+/sc-post-to-weibo "Watch this" --video clip.mp4
 ```
 
 **Headline Articles (头条文章)** - Long-form Markdown:
 
 ```bash
 # Publish article
-/post-to-weibo --article article.md
+/sc-post-to-weibo --article article.md
 
 # With cover image
-/post-to-weibo --article article.md --cover cover.jpg
+/sc-post-to-weibo --article article.md --cover cover.jpg
 ```
 
 **Article Options**:
@@ -700,58 +699,58 @@ Post content to Weibo (微博). Supports regular posts with text, images, and vi
 
 AI-powered generation backends.
 
-#### imagine
+#### sc-imagine
 
 AI SDK-based image generation using OpenAI, Azure OpenAI, Google, OpenRouter, DashScope (Aliyun Tongyi Wanxiang), MiniMax, Jimeng (即梦), Seedream (豆包), and Replicate APIs. Supports text-to-image, reference images, aspect ratios, custom sizes, batch generation, and quality presets.
 
 ```bash
 # Basic generation (auto-detect provider)
-/imagine --prompt "A cute cat" --image cat.png
+/sc-imagine --prompt "A cute cat" --image cat.png
 
 # With aspect ratio
-/imagine --prompt "A landscape" --image landscape.png --ar 16:9
+/sc-imagine --prompt "A landscape" --image landscape.png --ar 16:9
 
 # High quality (2k)
-/imagine --prompt "A banner" --image banner.png --quality 2k
+/sc-imagine --prompt "A banner" --image banner.png --quality 2k
 
 # Specific provider
-/imagine --prompt "A cat" --image cat.png --provider openai
+/sc-imagine --prompt "A cat" --image cat.png --provider openai
 
 # Azure OpenAI (model = deployment name)
-/imagine --prompt "A cat" --image cat.png --provider azure --model gpt-image-1.5
+/sc-imagine --prompt "A cat" --image cat.png --provider azure --model gpt-image-1.5
 
 # OpenRouter
-/imagine --prompt "A cat" --image cat.png --provider openrouter
+/sc-imagine --prompt "A cat" --image cat.png --provider openrouter
 
 # OpenRouter with reference images
-/imagine --prompt "Make it blue" --image out.png --provider openrouter --model google/gemini-3.1-flash-image-preview --ref source.png
+/sc-imagine --prompt "Make it blue" --image out.png --provider openrouter --model google/gemini-3.1-flash-image-preview --ref source.png
 
 # DashScope (Aliyun Tongyi Wanxiang)
-/imagine --prompt "一只可爱的猫" --image cat.png --provider dashscope
+/sc-imagine --prompt "一只可爱的猫" --image cat.png --provider dashscope
 
 # DashScope with custom size
-/imagine --prompt "为咖啡品牌设计一张 21:9 横幅海报，包含清晰中文标题" --image banner.png --provider dashscope --model qwen-image-2.0-pro --size 2048x872
+/sc-imagine --prompt "为咖啡品牌设计一张 21:9 横幅海报，包含清晰中文标题" --image banner.png --provider dashscope --model qwen-image-2.0-pro --size 2048x872
 
 # MiniMax
-/imagine --prompt "A fashion editorial portrait by a bright studio window" --image out.jpg --provider minimax
+/sc-imagine --prompt "A fashion editorial portrait by a bright studio window" --image out.jpg --provider minimax
 
 # MiniMax with subject reference
-/imagine --prompt "A girl stands by the library window, cinematic lighting" --image out.jpg --provider minimax --model image-01 --ref portrait.png --ar 16:9
+/sc-imagine --prompt "A girl stands by the library window, cinematic lighting" --image out.jpg --provider minimax --model image-01 --ref portrait.png --ar 16:9
 
 # Replicate
-/imagine --prompt "A cat" --image cat.png --provider replicate
+/sc-imagine --prompt "A cat" --image cat.png --provider replicate
 
 # Jimeng (即梦)
-/imagine --prompt "一只可爱的猫" --image cat.png --provider jimeng
+/sc-imagine --prompt "一只可爱的猫" --image cat.png --provider jimeng
 
 # Seedream (豆包)
-/imagine --prompt "一只可爱的猫" --image cat.png --provider seedream
+/sc-imagine --prompt "一只可爱的猫" --image cat.png --provider seedream
 
 # With reference images (Google, OpenAI, Azure OpenAI, OpenRouter, Replicate, MiniMax, or Seedream 5.0/4.5/4.0)
-/imagine --prompt "Make it blue" --image out.png --ref source.png
+/sc-imagine --prompt "Make it blue" --image out.png --ref source.png
 
 # Batch mode
-/imagine --batchfile batch.json --jobs 4 --json
+/sc-imagine --batchfile batch.json --jobs 4 --json
 ```
 
 **Options**:
@@ -828,135 +827,47 @@ AI SDK-based image generation using OpenAI, Azure OpenAI, Google, OpenRouter, Da
 3. If only one API key is available → use that provider
 4. If multiple providers are available → default to Google
 
-#### danger-gemini-web
+#### sc-gemini-web
 
 Interacts with Gemini Web to generate text and images.
 
 **Text Generation:**
 
 ```bash
-/danger-gemini-web "Hello, Gemini"
-/danger-gemini-web --prompt "Explain quantum computing"
+/sc-gemini-web "Hello, Gemini"
+/sc-gemini-web --prompt "Explain quantum computing"
 ```
 
 **Image Generation:**
 
 ```bash
-/danger-gemini-web --prompt "A cute cat" --image cat.png
-/danger-gemini-web --promptfiles system.md content.md --image out.png
+/sc-gemini-web --prompt "A cute cat" --image cat.png
+/sc-gemini-web --promptfiles system.md content.md --image out.png
 ```
 
 ### Utility Skills
 
 Utility tools for content processing.
 
-#### youtube-transcript
-
-Download YouTube video transcripts/subtitles and cover images. Supports multiple languages, translation, chapters, and speaker identification. Caches raw data for fast re-formatting.
-
-```bash
-# Default: markdown with timestamps
-/youtube-transcript https://www.youtube.com/watch?v=VIDEO_ID
-
-# Specify languages (priority order)
-/youtube-transcript https://youtu.be/VIDEO_ID --languages zh,en,ja
-
-# With chapters and speaker identification
-/youtube-transcript https://youtu.be/VIDEO_ID --chapters --speakers
-
-# SRT subtitle format
-/youtube-transcript https://youtu.be/VIDEO_ID --format srt
-
-# List available transcripts
-/youtube-transcript https://youtu.be/VIDEO_ID --list
-```
-
-**Options**:
-| Option | Description | Default |
-|--------|-------------|---------|
-| `<url-or-id>` | YouTube URL or video ID | Required |
-| `--languages <codes>` | Language codes, comma-separated | `en` |
-| `--format <fmt>` | Output format: `text`, `srt` | `text` |
-| `--translate <code>` | Translate to specified language | |
-| `--chapters` | Chapter segmentation from video description | |
-| `--speakers` | Speaker identification (requires AI post-processing) | |
-| `--no-timestamps` | Disable timestamps | |
-| `--list` | List available transcripts | |
-| `--refresh` | Force re-fetch, ignore cache | |
-
-#### url-to-markdown
-
-Fetch any URL via Chrome CDP and convert to clean markdown. Saves rendered HTML snapshot alongside the markdown, and automatically falls back to a legacy extractor when Defuddle fails.
-
-```bash
-# Auto mode (default) - capture when page loads
-/url-to-markdown https://example.com/article
-
-# Wait mode - for login-required pages
-/url-to-markdown https://example.com/private --wait
-
-# Save to specific file
-/url-to-markdown https://example.com/article -o output.md
-```
-
-**Capture Modes**:
-| Mode | Description | Best For |
-|------|-------------|----------|
-| Auto (default) | Captures immediately after page load | Public pages, static content |
-| Wait (`--wait`) | Waits for user signal before capture | Login-required, dynamic content |
-
-**Options**:
-| Option | Description |
-|--------|-------------|
-| `<url>` | URL to fetch |
-| `-o <path>` | Output file path |
-| `--wait` | Wait for user signal before capturing |
-| `--timeout <ms>` | Page load timeout (default: 30000) |
-
-#### danger-x-to-markdown
-
-Converts X (Twitter) content to markdown format. Supports tweet threads and X Articles.
-
-```bash
-# Convert tweet to markdown
-/danger-x-to-markdown https://x.com/username/status/123456
-
-# Save to specific file
-/danger-x-to-markdown https://x.com/username/status/123456 -o output.md
-
-# JSON output
-/danger-x-to-markdown https://x.com/username/status/123456 --json
-
-# Download media (images/videos) to local files
-/danger-x-to-markdown https://x.com/username/status/123456 --download-media
-```
-
-**Supported URLs:**
-- `https://x.com/<user>/status/<id>`
-- `https://twitter.com/<user>/status/<id>`
-- `https://x.com/i/article/<id>`
-
-**Authentication:** Uses environment variables (`X_AUTH_TOKEN`, `X_CT0`) or Chrome login for cookie-based auth.
-
-#### compress-image
+#### sc-compress-image
 
 Compress images to reduce file size while maintaining quality.
 
 ```bash
-/compress-image path/to/image.png
-/compress-image path/to/images/ --quality 80
+/sc-compress-image path/to/image.png
+/sc-compress-image path/to/images/ --quality 80
 ```
 
-#### format-markdown
+#### sc-format-markdown
 
 Format plain text or markdown files with proper frontmatter, titles, summaries, headings, bold, lists, and code blocks.
 
 ```bash
 # Format a markdown file
-/format-markdown path/to/article.md
+/sc-format-markdown path/to/article.md
 
 # Format with specific output
-/format-markdown path/to/draft.md
+/sc-format-markdown path/to/draft.md
 ```
 
 **Workflow**:
@@ -984,107 +895,27 @@ Format plain text or markdown files with proper frontmatter, titles, summaries, 
 | Code/commands | `` `inline` `` or ` ```block``` ` |
 | Quotes | `>` blockquote |
 
-#### markdown-to-html
+#### sc-markdown-to-html
 
 Convert markdown files into styled HTML with WeChat-compatible themes, syntax highlighting, and optional bottom citations for external links.
 
 ```bash
 # Basic conversion
-/markdown-to-html article.md
+/sc-markdown-to-html article.md
 
 # Theme + color
-/markdown-to-html article.md --theme grace --color red
+/sc-markdown-to-html article.md --theme grace --color red
 
 # Convert ordinary external links to bottom citations
-/markdown-to-html article.md --cite
+/sc-markdown-to-html article.md --cite
 ```
-
-#### translate
-
-Translate articles and documents between languages with three modes: quick (direct), normal (analysis-informed), and refined (full publication-quality workflow with review and polish).
-
-```bash
-# Normal mode (default) - analyze then translate
-/translate article.md --to zh-CN
-
-# Quick mode - direct translation
-/translate article.md --mode quick --to ja
-
-# Refined mode - full workflow with review and polish
-/translate article.md --mode refined --to zh-CN
-
-# Translate a URL
-/translate https://example.com/article --to zh-CN
-
-# Specify audience
-/translate article.md --to zh-CN --audience technical
-
-# Specify style
-/translate article.md --to zh-CN --style humorous
-
-# With additional glossary
-/translate article.md --to zh-CN --glossary my-terms.md
-```
-
-**Options**:
-| Option | Description |
-|--------|-------------|
-| `<source>` | File path, URL, or inline text |
-| `--mode <mode>` | `quick`, `normal` (default), `refined` |
-| `--from <lang>` | Source language (auto-detect if omitted) |
-| `--to <lang>` | Target language (default: `zh-CN`) |
-| `--audience <type>` | Target reader profile (default: `general`) |
-| `--style <style>` | Translation style (default: `storytelling`) |
-| `--glossary <file>` | Additional glossary file |
-
-**Modes**:
-| Mode | Steps | Use Case |
-|------|-------|----------|
-| Quick | Translate | Short texts, informal content |
-| Normal | Analyze → Translate | Articles, blog posts |
-| Refined | Analyze → Translate → Review → Polish | Publication-quality documents |
-
-After normal mode completes, you can reply "继续润色" or "refine" to continue with review and polish steps.
-
-**Audience Presets**:
-| Value | Description |
-|-------|-------------|
-| `general` | General readers (default) — plain language, more translator's notes |
-| `technical` | Developers / engineers — less annotation on common tech terms |
-| `academic` | Researchers / scholars — formal register, precise terminology |
-| `business` | Business professionals — business-friendly tone |
-
-Custom audience descriptions are also accepted, e.g., `--audience "AI-interested general readers"`.
-
-**Style Presets**:
-| Value | Description |
-|-------|-------------|
-| `storytelling` | Engaging narrative flow (default) — smooth transitions, vivid phrasing |
-| `formal` | Professional, structured — neutral tone, no colloquialisms |
-| `technical` | Precise, documentation-style — concise, terminology-heavy |
-| `literal` | Close to original structure — minimal restructuring |
-| `academic` | Scholarly, rigorous — formal register, complex clauses OK |
-| `business` | Concise, results-focused — action-oriented, executive-friendly |
-| `humorous` | Preserves and adapts humor — witty, recreates comedic effect |
-| `conversational` | Casual, spoken-like — friendly, as if explaining to a friend |
-| `elegant` | Literary, polished prose — aesthetically refined, carefully crafted |
-
-Custom style descriptions are also accepted, e.g., `--style "poetic and lyrical"`.
-
-**Features**:
-- Custom glossaries via EXTEND.md with built-in EN→ZH glossary
-- Audience-aware translation with adjustable annotation depth
-- Automatic chunking for long documents (4000+ words) with parallel subagent translation
-- Figurative language interpreted by meaning, not word-for-word
-- Translator's notes for cultural/domain-specific references
-- Output directory with all intermediate files preserved
 
 ## Environment Configuration
 
 Some skills require API keys or custom configuration. Environment variables can be set in `.env` files:
 
 **Load Priority** (higher priority overrides lower):
-1. CLI environment variables (e.g., `OPENAI_API_KEY=xxx /imagine ...`)
+1. CLI environment variables (e.g., `OPENAI_API_KEY=xxx /sc-imagine ...`)
 2. `process.env` (system environment)
 3. `<cwd>/.super-creator/.env` (project-level)
 4. `~/.super-creator/.env` (user-level)
@@ -1166,7 +997,7 @@ All skills support customization via `EXTEND.md` files. Create an extension file
 1. `.super-creator/<skill-name>/EXTEND.md` - Project-level (for team/project-specific settings)
 2. `~/.super-creator/<skill-name>/EXTEND.md` - User-level (for personal preferences)
 
-**Example**: To customize `cover-image` with your brand colors:
+**Example**: To customize `sc-cover-image` with your brand colors:
 
 ```bash
 mkdir -p .super-creator/cover-image
@@ -1189,7 +1020,7 @@ The extension content will be loaded before skill execution and override default
 
 ## Disclaimer
 
-### danger-gemini-web
+### sc-gemini-web
 
 This skill uses the Gemini Web API (reverse-engineered).
 
@@ -1204,19 +1035,8 @@ This skill uses the Gemini Web API (reverse-engineered).
 **Proxy configuration**: If you need a proxy to access Google services (e.g., in China), set environment variables inline:
 
 ```bash
-HTTP_PROXY=http://127.0.0.1:7890 HTTPS_PROXY=http://127.0.0.1:7890 /danger-gemini-web "Hello"
+HTTP_PROXY=http://127.0.0.1:7890 HTTPS_PROXY=http://127.0.0.1:7890 /sc-gemini-web "Hello"
 ```
-
-### danger-x-to-markdown
-
-This skill uses a reverse-engineered X (Twitter) API.
-
-**Warning:** This is NOT an official API. Use at your own risk.
-
-- May break without notice if X changes their API
-- Account restrictions possible if API usage detected
-- First use requires consent acknowledgment
-- Authentication via environment variables or Chrome login
 
 ## Credits
 

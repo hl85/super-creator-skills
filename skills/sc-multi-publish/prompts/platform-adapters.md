@@ -1,0 +1,85 @@
+# Per-Platform Adapters
+
+How to turn a single source `article.md` into each platform's expected input.
+
+`{baseDir}` = the source-article directory. `${BUN_X}` = `bun` if installed, else `npx -y bun`. `<out-dir>` = the sc-multi-publish out-dir for the current run.
+
+## WeChat
+
+**Target:** styled HTML with bottom-citation external links and inline images.
+
+```bash
+./sc-run sc-markdown-to-html main \
+  <article.md> \
+  -o <out-dir>/wechat/article.html \
+  --theme default \
+  --convert-links bottom-citations
+```
+
+Notes:
+- `--convert-links bottom-citations` is the WeChat-friendly default; in-body links are unclickable on 公众号.
+- If the article has no front-matter `title`, derive it from the first H1 of the markdown.
+- Local image references (`![alt](./img.png)`) → copy to `<out-dir>/wechat/images/` and rewrite paths to relative `images/img.png`.
+
+## X
+
+**Target:** `thread.json` array consumable by `sc-post-to-x`.
+
+**发布方式**: 优先使用 X API v2（sc-post-to-x x-api），API 不可用时降级到 CDP 浏览器模式。
+
+```bash
+# 单条推文 + 图片（API 模式）
+./sc-run sc-post-to-x x-api "Tweet text" --image ./photo.png
+
+# Thread 模式（目前用 CDP，未来迁移到 API）
+./sc-run sc-markdown-to-thread main \
+  <article.md> \
+  -o <out-dir>/x/thread.json \
+  --hook auto \
+  --cta "Full post 👇" \
+  --number on \
+  --max-len 270
+```
+
+Notes:
+- The CTA appended on the final tweet should include the WeChat permalink **only after** WeChat has been published in live mode; in draft mode use a placeholder `"Full post 👇 (link pending)"` and tell the user.
+- Images embedded in markdown are NOT lifted into the thread — X images need explicit handling. If the article has 1–4 images, list them in `<out-dir>/x/images.txt` and tell the user to attach them manually before publish (v0.1.0 limitation).
+- 单条推文发布优先使用 API 模式，更稳定。Thread 长文和 X Article 目前使用 CDP 模式。
+
+## Weibo
+
+**Target:** ≤ 140 字 short post if the article ≤ 140 字, otherwise a "长微博" markdown that `sc-post-to-weibo` can render to image.
+
+```bash
+# short-post path (article body ≤ 140 chars):
+cp <article.md> <out-dir>/weibo/post.md
+
+# long-post path (> 140 chars):
+./sc-run sc-markdown-to-html main \
+  <article.md> \
+  -o <out-dir>/weibo/long-post.html \
+  --theme weibo
+```
+
+Notes:
+- Weibo's "长微博" feature renders long markdown into a single image. The publisher accepts either the markdown or the rendered HTML; prefer markdown.
+- For short posts, append the WeChat permalink (in live mode) at the end so 微博 readers can jump to the long version.
+
+## Image compression hook
+
+After every adapter, scan its output directory for `*.png|*.jpg|*.jpeg|*.webp`. For each, run:
+
+```bash
+./sc-run sc-compress-image main \
+  <image> \
+  --max-size <platform-limit>
+```
+
+Replace in-place. The adapter output already references these files by path, so no rewrite is needed.
+
+## Anti-patterns
+
+- ❌ Re-running an adapter without checking the previous output (idempotency: if `<out-dir>/<platform>/article.html` exists, ask before overwriting)
+- ❌ Embedding the article's WeChat backlink in the X thread before WeChat has published
+- ❌ Using `--theme default` for Weibo — Weibo doesn't render WeChat themes well; use `--theme weibo`
+- ❌ Forgetting to copy local images for WeChat (broken images on 公众号 草稿)

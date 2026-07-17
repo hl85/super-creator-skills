@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Skills for improving daily work efficiency",
-    "version": "3.0.1"
+    "version": "3.1.0"
   },
   "plugins": [
     {
@@ -15,31 +15,27 @@
       "source": "./",
       "strict": true,
       "skills": [
-        "./skills/article-illustrator",
-        "./skills/comic",
-        "./skills/compress-image",
-        "./skills/content-review",
-        "./skills/cover-image",
-        "./skills/gemini-web",
-        "./skills/x-to-markdown",
-        "./skills/format-markdown",
-        "./skills/idea-radar",
-        "./skills/infographic",
-        "./skills/imagine",
-        "./skills/markdown-to-html",
-        "./skills/markdown-to-thread",
-        "./skills/multi-publish",
-        "./skills/post-analytics",
-        "./skills/post-to-weibo",
-        "./skills/post-to-wechat",
-        "./skills/post-to-x",
-        "./skills/post-to-xhs",
-        "./skills/slide-deck",
-        "./skills/translate",
-        "./skills/url-to-markdown",
-        "./skills/writeflow",
-        "./skills/xhs-images",
-        "./skills/yt-transcript"
+        "./skills/sc-article-illustrator",
+        "./skills/sc-comic",
+        "./skills/sc-compress-image",
+        "./skills/sc-content-mining",
+        "./skills/sc-content-review",
+        "./skills/sc-cover-image",
+        "./skills/sc-format-markdown",
+        "./skills/sc-gemini-web",
+        "./skills/sc-imagine",
+        "./skills/sc-infographic",
+        "./skills/sc-markdown-to-html",
+        "./skills/sc-markdown-to-thread",
+        "./skills/sc-multi-publish",
+        "./skills/sc-post-to-weibo",
+        "./skills/sc-post-to-wechat",
+        "./skills/sc-post-to-x",
+        "./skills/sc-post-to-xhs",
+        "./skills/sc-slide-deck",
+        "./skills/sc-writeflow",
+        "./skills/sc-xhs-images",
+        "./skills/sc-xhs-pipeline"
       ]
     }
   ]
