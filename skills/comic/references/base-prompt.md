@@ -95,4 +95,4 @@ When depicting narrator characters addressing the reader:
 
 ---
 
-Please generate the comic page based on the content provided below:
+Use the available image generation skill (default: `imagine`) to generate the comic page based on the content provided below. If multiple image generation skills are available, ask the user to choose; if none are available, prompt the user to configure an API Key or install an image generation skill.

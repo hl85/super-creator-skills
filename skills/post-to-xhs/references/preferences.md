@@ -17,5 +17,5 @@ Check for preferences in order:
 
 ## Chrome Profile Path
 
-Uses the shared super-creator Chrome profile. See `docs/chrome-profile.md` for paths per OS.
+Uses the shared super-creator Chrome profile. See [chrome-profile.md](chrome-profile.md) for paths per OS.
 Override per-skill via `SC_CHROME_PROFILE_DIR` env var or `CHROME_PROFILE_DIR` in EXTEND.md.

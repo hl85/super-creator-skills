@@ -218,7 +218,7 @@ git checkout -b release/3.1.0 develop
 
 # 2. Verify everything is ready
 npm test
-node ops/scripts/verify-version-sync.mjs
+node scripts/verify-version-sync.mjs
 
 # 3. Preview release
 /release-skills --dry-run
@@ -396,8 +396,8 @@ One-time setup:
 git clone https://github.com/hl85/super-creator.git
 cd super-creator
 
-# Configure git hooks
-node ops/scripts/install-git-hooks.mjs
+# Install dependencies (auto-configures git hooks via `prepare` script)
+npm install
 
 # Pull all branches
 git fetch origin
@@ -422,7 +422,7 @@ git pull origin develop  # Ensure latest
 # ... make changes ...
 
 # Before pushing: verify
-node ops/scripts/verify-version-sync.mjs  # If changed versions
+node scripts/verify-version-sync.mjs  # If changed versions
 
 # Push
 git push origin feature/my-feature
@@ -478,7 +478,7 @@ git push -f origin main  # Use with caution!
 
 ## References
 
-- `ops/release/STRATEGY.md` - Release automation
+- `docs/release/release-strategy.md` - Release automation
 - `.releaserc.yml` - Release configuration
-- `.githooks/` - Git hooks
-- `ops/scripts/` - Release scripts
+- `.githooks/` - Git hooks (root directory, auto-installed)
+- `scripts/` - Release scripts

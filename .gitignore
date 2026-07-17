@@ -162,12 +162,22 @@ posts/
 *.iml
 *.ipr
 
-.claude/skills/skill-evolution
+# AI IDE temporary files
+.claude/
+.trae/
+.sisyphus/
+
+# Super-creator process artifacts (not deliverables)
+.super/
+
 # ClawHub local state (current and legacy directory names from the official CLI)
 .clawhub/
 .clawdhub/
 .release-artifacts/
 .worktrees/
-.sisyphus/
 !skills/yt-transcript/
 .omc/
+.claude/
+.claude-plugin/
+.trae/
+

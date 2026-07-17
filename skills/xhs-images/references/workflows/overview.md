@@ -134,4 +134,4 @@ NN-{type}-{slug}.png
 - [outline-template.md](outline-template.md) - 大纲模板
 - [prompt-assembly.md](prompt-assembly.md) - 提示词组装指南
 - [writeflow-input.md](writeflow-input.md) - 从 Writeflow 输入
-- ../../writeflow/references/xhs-to-images-handover.md - Writeflow 衔接手册
+- [writeflow-output-spec.md](writeflow-output-spec.md) - Writeflow 输出格式规范

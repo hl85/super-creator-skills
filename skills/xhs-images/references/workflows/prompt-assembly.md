@@ -55,7 +55,7 @@ Create a Xiaohongshu (Little Red Book) style infographic following these guideli
 
 ---
 
-Please generate the infographic using the available image generation tool (ImageGen / imagine skill). For text-heavy infographics with Chinese text, prefer Google gemini-3-pro-image-preview for best text rendering quality.
+Use the available image generation skill (default: `imagine`) to generate the infographic. If multiple image generation skills are available, ask the user to choose; if none are available, prompt the user to configure an API Key or install an image generation skill. For text-heavy infographics with Chinese text, prefer Google gemini-3-pro-image-preview for best text rendering quality.
 ```
 
 ## Style Section Assembly
@@ -319,7 +319,7 @@ be legible but not distracting from the main content.
 
 ---
 
-Please generate the infographic using the available image generation tool (ImageGen / imagine skill). For text-heavy infographics with Chinese text, prefer Google gemini-3-pro-image-preview for best text rendering quality.
+Use the available image generation skill (default: `imagine`) to generate the infographic. If multiple image generation skills are available, ask the user to choose; if none are available, prompt the user to configure an API Key or install an image generation skill. For text-heavy infographics with Chinese text, prefer Google gemini-3-pro-image-preview for best text rendering quality.
 ```
 
 ## Prompt Checklist

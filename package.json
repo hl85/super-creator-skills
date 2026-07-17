@@ -6,8 +6,9 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "node ./ops/scripts/run-node-tests.mjs",
-    "test:coverage": "node ./ops/scripts/run-node-tests.mjs --experimental-test-coverage"
+    "prepare": "node ./scripts/install-git-hooks.mjs",
+    "test": "node --import tsx --test '**/*.test.ts'",
+    "test:coverage": "node --import tsx --experimental-test-coverage --test '**/*.test.ts'"
   },
   "devDependencies": {
     "@mozilla/readability": "^0.6.0",

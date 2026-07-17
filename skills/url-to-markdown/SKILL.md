@@ -47,4 +47,4 @@ For detailed capture modes, quality assessment rules, and site-specific adapters
 
 ## Chrome Setup
 
-首次使用需要配置 Chrome CDP。完整步骤：[docs/chrome-setup.md](../../docs/chrome-setup.md)
+首次使用需要配置 Chrome CDP。完整步骤：[references/chrome-setup.md](references/chrome-setup.md)

@@ -114,7 +114,7 @@ idea-radar（下一轮）
 - 🛡️ **手动发布（推荐）**：生图完成后生成发布手册，人工手动发布，最安全
 - ⚡ **自动发布**：用 MCP / CDP 自动化发布，有风控风险
 
-**状态文件机制**：`pipeline-state.json` 记录每步状态，支持断点续跑。详见 `skills/xhs-pipeline/SKILL.md`。
+**状态文件机制**：`state.json` 记录每步状态，支持断点续跑。详见 `skills/xhs-pipeline/SKILL.md`。
 
 ### 多平台一键分发
 

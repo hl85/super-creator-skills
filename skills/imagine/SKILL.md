@@ -43,4 +43,4 @@ For detailed provider models, environment variables, and advanced configuration,
 
 ## Error Handling
 
-See [docs/error-handling.md](../../docs/error-handling.md) for API key recovery steps and SVG fallback strategy for logical diagrams.
+See [references/error-handling.md](references/error-handling.md) for API key recovery steps and SVG fallback strategy for logical diagrams.

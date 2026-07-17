@@ -10,7 +10,7 @@ Breaks down content into eye-catching infographic series (2-10 images) optimized
 
 ## Usage
 
-All commands use `./sc-run xhs-images <script>`. Note: Driven via prompt orchestration.
+All commands use `./sc-run xhs-images <script>`. Image generation is delegated to the available image generation skill (default: `imagine`). If multiple image generation skills are available, ask the user to choose; if none are available, prompt the user to configure an API Key or install an image generation skill.
 
 ```bash
 # Generate from article (auto-select)
@@ -44,6 +44,15 @@ For detailed style/layout galleries, presets, and strategy definitions, see:
 - [references/workflows/prompt-assembly.md](references/workflows/prompt-assembly.md) - **Prompt Assembly Guide**
 - [references/config/preferences-schema.md](references/config/preferences-schema.md) - **EXTEND.md Options**
 
+## Documentation
+
+- [Full Workflow](references/workflows/overview.md)
+- [Image Generation Convention](references/image-generation-convention.md) - **Image Generation Backend Convention**
+
 ## See Also
 
-需要对比所有视觉 skill 再做决定？→ [docs/visuals.md](../../docs/visuals.md)
+需要对比所有视觉 skill 再做决定？→ [视觉 Skill 选择指南](references/visual-skills-guide.md)
+
+## Error Handling
+
+See [references/error-handling.md](references/error-handling.md) for API key recovery steps and SVG fallback strategy.

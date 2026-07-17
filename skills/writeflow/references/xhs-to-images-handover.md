@@ -334,4 +334,4 @@ xhs-images 生成的图片默认输出到当前目录的 `outputs/` 或工作目
 
 ## 6. 端到端示例
 
-详见 [xhs-images/references/workflows/writeflow-input.md](../xhs-images/references/workflows/writeflow-input.md) 中的完整示例。
+详见 [xhs-images-input-spec.md](xhs-images-input-spec.md) 中的输入格式规范，完整示例请参考 xhs-images skill 的官方文档。

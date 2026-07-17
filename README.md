@@ -58,10 +58,10 @@ This repository now supports publishing each `skills/` directory as an individua
 
 ```bash
 # Preview what would be published
-./ops/scripts/sync-clawhub.sh --dry-run
+./scripts/sync-clawhub.sh --dry-run
 
 # Publish all changed skills from ./skills
-./ops/scripts/sync-clawhub.sh --all
+./scripts/sync-clawhub.sh --all
 ```
 
 ClawHub installs skills individually, not as one marketplace bundle. After publishing, users can install specific skills such as:

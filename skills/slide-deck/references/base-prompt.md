@@ -81,4 +81,4 @@ Include:
 
 ---
 
-Please use nano banana pro to generate the slide image based on the content provided above.
+Use the available image generation skill (default: `imagine`) to generate the slide image based on the content provided above. If multiple image generation skills are available, ask the user to choose; if none are available, prompt the user to configure an API Key or install an image generation skill.

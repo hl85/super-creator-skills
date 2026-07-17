@@ -10,7 +10,7 @@ Transforms content into professional slide deck images (PPTX/PDF).
 
 ## Usage
 
-All commands use `./sc-run slide-deck <script>`.
+All commands use `./sc-run slide-deck <script>`. Image generation is delegated to the available image generation skill (default: `imagine`). If multiple image generation skills are available, ask the user to choose; if none are available, prompt the user to configure an API Key or install an image generation skill.
 
 ```bash
 # Generate full deck from article
@@ -39,25 +39,14 @@ For detailed style dimensions, design guidelines, and the full 9-step workflow, 
 
 - [references/workflow.md](references/workflow.md) - **Full 9-Step Process**
 - [references/style-and-design.md](references/style-and-design.md) - **Styles, Presets & Design Rules**
+- [references/image-generation-convention.md](references/image-generation-convention.md) - **Image Generation Backend Convention**
 - [references/modification-guide.md](references/modification-guide.md) - **Editing & Renumbering**
 - [references/config/preferences-schema.md](references/config/preferences-schema.md) - **EXTEND.md Options**
 
 ## See Also
 
-需要对比所有视觉 skill 再做决定？→ [docs/visuals.md](../../docs/visuals.md)
+需要对比所有视觉 skill 再做决定？→ [视觉 Skill 选择指南](references/visual-skills-guide.md)
 
 ## Error Handling
 
-See [docs/error-handling.md](../../docs/error-handling.md) for full details.
-
-**If image generation fails with `No API key found` / `[ACTION_REQUIRED: ask_user_for_api_key]`:**
-
-1. **Do not abandon the task.** Use `AskUserQuestion` to ask the user which provider they have and request the key.
-2. Save the key — use this exact sequence (replace variable name per provider):
-   ```bash
-   mkdir -p ~/.super-creator
-   grep -v "^OPENAI_API_KEY=" ~/.super-creator/.env 2>/dev/null > /tmp/sc-env-tmp && mv /tmp/sc-env-tmp ~/.super-creator/.env || true
-   echo "OPENAI_API_KEY=<value-from-user>" >> ~/.super-creator/.env
-   ```
-   Provider → variable: `OpenAI=OPENAI_API_KEY`, `Google/Gemini=GOOGLE_API_KEY`, `DashScope=DASHSCOPE_API_KEY`, `MiniMax=MINIMAX_API_KEY`, `OpenRouter=OPENROUTER_API_KEY`, `Replicate=REPLICATE_API_TOKEN`, `Seedream/Ark=ARK_API_KEY`
-3. Retry the original command.
+See [references/error-handling.md](references/error-handling.md) for API key recovery steps and SVG fallback strategy.

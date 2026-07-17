@@ -38,7 +38,7 @@ Posts text, images, videos, and long-form articles to X via **official API v2** 
 - [Video Posts](./references/video.md)
 - [X Articles](./references/articles.md)
 - [API Setup Guide](./references/api-setup.md)
-- [Input: thread.json from markdown-to-thread](../markdown-to-thread/SKILL.md)
+- Input: thread.json 格式参考 markdown-to-thread skill 的输出
 
 ## Self-Healing
 
@@ -51,4 +51,4 @@ If a script fails with `Chrome debug port not ready`, it will automatically atte
 - **Permissions**: macOS requires Accessibility permission for terminal to paste images.
 - **Chrome**: Close other Chrome instances if they use the same debug port (9222).
 
-> 完整 Chrome 首次配置流程：[docs/chrome-setup.md](../../docs/chrome-setup.md)
+> 完整 Chrome 首次配置流程：[references/chrome-setup.md](references/chrome-setup.md)

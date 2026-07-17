@@ -326,7 +326,7 @@ Prompt Files:
 
 ### 5.2 Select Generation Skill
 
-Check available skills. If multiple, ask user.
+Use the available image generation skill (default: `imagine`). If multiple image generation skills are available, ask the user to choose; if none are available, prompt the user to configure an API Key or install an image generation skill.
 
 ### 5.3 Process References ⚠️ REQUIRED if references saved in Step 1.0
 

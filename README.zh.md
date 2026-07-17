@@ -57,9 +57,9 @@ npx skills add hl85/super-creator
 
 ```bash
 # 预览将要发布的变更
-./ops/scripts/sync-clawhub.sh --dry-run
+./scripts/sync-clawhub.sh --dry-run
 # 发布 ./skills 下所有已变更的 skill
-./ops/scripts/sync-clawhub.sh --all
+./scripts/sync-clawhub.sh --all
 ```
 
 ClawHub 按“单个 skill”安装，不是把整个 marketplace 一次性装进去。发布后，用户可以按需安装：
@@ -566,7 +566,7 @@ clawhub install markdown-to-html
 **核心特性**：
 - 🎯 任意内容源：课程纪要、博客、播客字幕、读书笔记等
 - 🛡️ **发布模式选择**：手动发布（推荐，最安全）/ 自动发布（MCP → CDP → 手动三级降级）
-- 🔄 **状态文件机制**：`pipeline-state.json` 记录进度，支持断点续跑和阶段回退
+- 🔄 **状态文件机制**：`state.json` 记录进度，支持断点续跑和阶段回退
 - ✅ **每步确认**：每个阶段结束后与用户确认，确保质量
 
 ```bash

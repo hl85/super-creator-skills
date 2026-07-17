@@ -34,7 +34,7 @@ All other version files are **automatically synchronized** to match this version
 1. **Never manually edit version files** during release
 2. Always use `/release-skills` skill for version bumping
 3. Version changes are automatic based on commit analysis
-4. All version files must stay synchronized (enforced by `ops/scripts/verify-version-sync.mjs`)
+4. All version files must stay synchronized (enforced by `scripts/verify-version-sync.mjs`)
 
 ## Versioning Scheme
 
@@ -73,7 +73,7 @@ git checkout -b release/x.y.z develop
 npm test
 
 # Check version consistency
-node ops/scripts/verify-version-sync.mjs
+node scripts/verify-version-sync.mjs
 
 # Verify no uncommitted changes
 git status
@@ -218,7 +218,7 @@ Defined in `.releaserc.yml`:
 
 **Command**:
 ```bash
-node ops/scripts/sync-shared-skill-packages.mjs \
+node scripts/sync-shared-skill-packages.mjs \
   --repo-root "{project_root}" \
   --target "{target}"
 ```
@@ -234,7 +234,7 @@ node ops/scripts/sync-shared-skill-packages.mjs \
 
 **Command**:
 ```bash
-node ops/scripts/publish-skill.mjs \
+node scripts/publish-skill.mjs \
   --skill-dir "{target}" \
   --version "{version}" \
   --changelog-file "{release_notes_file}" \
@@ -281,11 +281,11 @@ Before executing `/release-skills`, ensure:
 - [ ] All tests passing (`npm test`)
 - [ ] No uncommitted changes (`git status`)
 - [ ] Working on release branch (`git branch | grep release/`)
-- [ ] Version consistency verified (`node ops/scripts/verify-version-sync.mjs`)
+- [ ] Version consistency verified (`node scripts/verify-version-sync.mjs`)
 - [ ] CHANGELOG preview reviewed (`/release-skills --dry-run`)
 - [ ] All affected skills documented in commits
 - [ ] README.md updated if needed
-- [ ] All shared packages synced (`node ops/scripts/sync-shared-skill-packages.mjs`)
+- [ ] All shared packages synced (`node scripts/sync-shared-skill-packages.mjs`)
 
 ## Troubleshooting
 
@@ -308,7 +308,7 @@ grep "^## " CHANGELOG.md | head -1
 If `publish_artifact` hook fails:
 
 1. Check ClawHub authentication: `clawhub login`
-2. Verify skill is self-contained: `node ops/scripts/sync-shared-skill-packages.mjs`
+2. Verify skill is self-contained: `node scripts/sync-shared-skill-packages.mjs`
 3. Run in dry-run mode: `npm run release -- --dry-run`
 
 ### Git Conflicts During Merge
@@ -325,6 +325,6 @@ git push
 ## References
 
 - `.releaserc.yml` - Release configuration (hooks, targets)
-- `ops/scripts/` - Release implementation scripts
-- `.githooks/` - Git hooks (pre-push validation)
+- `scripts/` - Release implementation scripts
+- `.githooks/` - Git hooks (pre-commit, pre-push validation, auto-installed)
 - `/release-skills` - Claude skill (workflow driver)

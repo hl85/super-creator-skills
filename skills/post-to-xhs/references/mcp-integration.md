@@ -147,8 +147,8 @@ publish_content(
   title: "面试不是考技术，是赌潜力",
   content: "很多人以为面试是在考技术能力，但实际上面试官更看重的是你的潜力和成长空间。\n\n#面试 #求职 #职场",
   images: [
-    "/Users/xxx/.course/xhs-interview/images/01-cover.png",
-    "/Users/xxx/.course/xhs-interview/images/02-content.png"
+    "/Users/xxx/.super/xhs-interview/images/01-cover.png",
+    "/Users/xxx/.super/xhs-interview/images/02-content.png"
   ],
   tags: ["面试", "求职", "职场"],
   location: "北京",

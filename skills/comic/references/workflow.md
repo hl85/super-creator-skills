@@ -410,6 +410,8 @@ options:
 
 With confirmed prompts from Step 5/6:
 
+**Image Generation Backend**: Use the available image generation skill (default: `imagine`). If multiple image generation skills are available, ask the user to choose; if none are available, prompt the user to configure an API Key or install an image generation skill.
+
 ### 7.1 Generate Character Reference Sheet (first)
 
 1. Use Reference Sheet Prompt from `characters/characters.md`
@@ -433,7 +435,7 @@ With confirmed prompts from Step 5/6:
 | Supports `--ref` | **Strategy A** | Pass `characters/characters.png` with EVERY page |
 | Does NOT support `--ref` | **Strategy B** | Prepend character descriptions to EVERY prompt |
 
-**Strategy A: Using `--ref` parameter** (e.g., imagine)
+**Strategy A: Using `--ref` parameter** (available image generation skill, e.g., imagine)
 
 - Read the chosen image generation skill's `SKILL.md`
 - Invoke that installed skill via its documented interface, not by calling its scripts directly

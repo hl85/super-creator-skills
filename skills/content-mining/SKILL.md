@@ -8,66 +8,35 @@ version: 1.1.0
 
 从任意内容源中挖掘适合社交媒体传播的选题。
 
+## Usage
+
+All commands use `./sc-run content-mining <script>`.
+
+```bash
+# 从内容源挖掘选题
+./sc-run content-mining mine --source article.md
+
+# 指定目标平台
+./sc-run content-mining mine --source article.md --platform xhs
+```
+
+## Intents
+
+- **选题挖掘**：从内容源提取认知错位模式，生成传播力选题
+- **方向对齐**：脑暴确认目标平台、受众、调性、范围
+- **形式推荐**：为每个选题推荐最佳呈现形式
+
 ## 三阶段流程
 
-### Phase 1: Brainstorm（脑暴确认方向）
+1. **Brainstorm（脑暴确认方向）**：对齐目标平台、受众、调性、范围
+2. **Mine（扫描挖掘）**：扫描内容源，提取"认知错位"模式
+3. **Recommend（呈现形式建议）**：为每个选题推荐呈现形式
 
-**不要跳过这一步直接开始挖掘。** 先与用户对齐：
+支持的内容源：课程纪要、博客文章、播客字幕、读书笔记、会议记录、客户访谈
 
-1. **目标平台**：小红书？公众号？X？还是多平台？
-2. **目标受众**：面向的受众群体（如：求职中的大学生、职场新人、创业者、宝妈、技术从业者...）
-3. **内容调性**：认知颠覆？避坑指南？实战干货？故事共鸣？
-4. **挖掘范围**：全部内容？最近几篇？特定主题？
-5. **核心逻辑**：这次挖掘想传递的核心理念是什么？支持多种模式：
-   - 认知错位："你以为 X → 其实 Y"
-   - 痛点共鸣："你是不是也在经历..."
-   - 干货清单："5 个必知的..."
-   - 故事案例："我有一个朋友..."
-   - 数据颠覆："90% 的人都错了..."
+## Progressive Disclosure
 
-用 AskUserQuestion 与用户确认后，再进入 Phase 2。
+For detailed mining frameworks and format recommendations, see:
 
-### Phase 2: Mine（扫描挖掘）
-
-扫描内容源，提取"认知错位"模式：
-
-```
-读者以为 X → 真相是 Y → 传播力评分 → 金句
-```
-
-详见 [references/mining-framework.md](references/mining-framework.md)
-
-### Phase 3: Recommend（呈现形式建议）
-
-挖掘完成后，为每个选题推荐呈现形式，**含简洁效果描述**：
-
-详见 [references/format-recommendations.md](references/format-recommendations.md)
-
-## 内容源扫描与盘点
-
-支持的内容源类型：
-
-| 内容源类型 | 说明 | 典型格式 |
-|-----------|------|---------|
-| 课程纪要 | 1v1 辅导、训练营、直播课的文字记录 | markdown / docx / 转录文本 |
-| 博客文章 | 公众号、知乎、个人博客等长文 | markdown / html |
-| 播客字幕 | 播客、视频节目的字幕/逐字稿 | srt / txt / 转录文本 |
-| 读书笔记 | 书籍、文章的阅读笔记 | markdown / 手写扫描 |
-| 会议记录 | 内部会议、客户访谈的纪要 | markdown / 录音转写 |
-| 客户访谈 | 用户调研、深度访谈的记录 | markdown / 录音转写 |
-
-📌 **示例：面试辅导场景**
-
-| 类型 | 数量 | 说明 |
-|------|------|------|
-| 1v1 纪要 | 13 篇 | `courses/面试辅导/*纪要*`，每篇 150-225 行 |
-| 格式化纪要 | 1 篇 | `面试辅导纪要_H同学*.md` |
-| 技术题库 | 1 份 | 参考材料，**不是选题来源** |
-| 预估选题 | ~42-68 个 | 每篇纪要约 3-5 个认知错位 |
-
-## Key Rules
-
-1. **先读内容源，不先读参考材料** — 参考材料是辅助，不是选题来源
-2. **脑暴先行** — Phase 1 未确认方向前不进入 Phase 2
-3. **金句来自原话** — 内容源中原作者/受访者的原话是最好的封面素材
-4. **呈现形式带效果描述** — 不只说"用 bold 风格"，要说"bold 风格：红黑高对比，大字冲击，适合反认知标题"
+- [references/mining-framework.md](references/mining-framework.md) - **挖掘框架、认知错位模式、传播力评分方法**
+- [references/format-recommendations.md](references/format-recommendations.md) - **呈现形式推荐、效果描述、适用场景**

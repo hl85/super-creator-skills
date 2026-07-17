@@ -284,7 +284,7 @@ Stage 3 完成 → 进入 Stage 4
 
 ### 状态文件中的记录
 
-发布完成后，`pipeline-state.json` 中会记录使用的发布方式：
+发布完成后，`state.json` 中会记录使用的发布方式：
 
 ```json
 {
@@ -408,5 +408,5 @@ xiaohongshu-mcp server --port 18061
 
 ## 8. 相关资源
 
-- post-to-xhs MCP 集成详情：[`../post-to-xhs/references/mcp-integration.md`](../post-to-xhs/references/mcp-integration.md)
+- 小红书 MCP 发布指南：[`xhs-mcp-guide.md`](xhs-mcp-guide.md)
 - 状态管理文档：[`./state-management.md`](./state-management.md)

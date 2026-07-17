@@ -16,7 +16,7 @@ Skills are exposed through the single `super-creator` plugin in `.claude-plugin/
 
 Each skill contains `SKILL.md` (YAML front matter + docs), optional `scripts/`, `references/`, `prompts/`.
 
-Top-level `ops/scripts/` contains repo maintenance utilities (sync, hooks, publish).
+Top-level `scripts/` contains repo maintenance utilities (sync, hooks, publish).
 
 ### Skill structure pattern
 
@@ -41,7 +41,7 @@ Three packages under `packages/` are used across multiple skills:
 | `sc-chrome-cdp` | Chrome CDP utilities |
 | `sc-md` | Markdown-to-HTML rendering with themes/extensions (KaTeX, PlantUML, alerts, footnotes, etc.) |
 
-These are vendored into `skills/*/scripts/vendor/` by `ops/scripts/sync-shared-skill-packages.mjs` for self-containment. Vendor copies are committed to git.
+These are vendored into `skills/*/scripts/vendor/` by `scripts/sync-shared-skill-packages.mjs` for self-containment. Vendor copies are committed to git.
 
 ## Running Skills
 
@@ -73,7 +73,7 @@ cd packages/sc-fetch && bun test                    # All Bun tests
 cd packages/sc-fetch && bun test path/to/file.test.ts  # Single file
 ```
 
-The root `npm test` runner (`ops/scripts/run-node-tests.mjs`) auto-discovers `*.test.ts` files and filters out those importing `bun:test`.
+The root `npm test` runs all Node-compatible `*.test.ts` files via `node --test`.
 
 ## Key Dependencies
 
@@ -91,9 +91,9 @@ Git Flow model (main/develop/feature/release/hotfix branches). Conventional comm
 - `docs(skill): description` for skill documentation
 - `refactor(project): description` for project-level changes
 
-**Git hooks** (managed via `.githooks/`):
-- `pre-commit`: runs `node ops/scripts/verify-version-sync.mjs` (ensures version consistency)
-- `pre-push`: runs `node ops/scripts/sync-shared-skill-packages.mjs --enforce-clean` (ensures vendor copies are fresh)
+**Git hooks** (managed via `.githooks/`, auto-installed on `npm install`):
+- `pre-commit`: runs `node scripts/verify-version-sync.mjs` (ensures version consistency)
+- `pre-push`: runs `node scripts/sync-shared-skill-packages.mjs --enforce-clean` (ensures vendor copies are fresh)
 
 ## Security
 

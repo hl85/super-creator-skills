@@ -482,4 +482,4 @@ generated: 2026-07-16 10:30
 - [outline-template.md](outline-template.md) - Outline 模板格式
 - [prompt-assembly.md](prompt-assembly.md) - Prompt 组装指南
 - [analysis-framework.md](analysis-framework.md) - 内容分析框架
-- ../../writeflow/references/xhs-to-images-handover.md - Writeflow 衔接手册
+- [writeflow-output-spec.md](writeflow-output-spec.md) - Writeflow 输出格式规范

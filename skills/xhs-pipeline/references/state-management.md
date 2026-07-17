@@ -9,24 +9,54 @@
 ### 文件位置
 
 ```
-.course/xhs-{topic-slug}/pipeline-state.json
+.super/{project-title}/state.json
 ```
 
 所有路径均为**相对于项目根目录**的相对路径，保证可移植。
+
+### 目录结构总览
+
+```
+.super/{project-title}/
+├── state.json               # 状态文件（核心）
+├── input/                   # 原始输入素材
+├── mining/                  # 挖掘阶段输出
+│   └── topics.md
+├── draft/                   # 写作阶段输出
+│   ├── outline.md
+│   ├── content.md
+│   └── caption.txt
+├── images/                  # 视觉生成阶段
+│   ├── prompts/
+│   ├── 01-cover.png
+│   └── ...
+└── publish/                 # 发布阶段
+    └── PUBLISH-MANUAL.md
+
+posts/{project-title}/       # 最终交付物（pipeline 完成后迁移）
+├── content.md
+├── caption.txt
+└── images/
+    ├── 01-cover.png
+    └── ...
+```
+
+---
 
 ### 通用简化示例（知识付费场景）
 
 ```json
 {
   "pipeline_id": "xhs-20240101-ai-efficiency-tips-abc123",
+  "project_title": "AI 效率工具入门",
   "topic_slug": "ai-efficiency-tips",
   "current_stage": "mining",
   "publish_mode": "manual",
-  "version": "1.1.0",
+  "version": "3.0.0",
   "metadata": {
     "created_at": "2024-01-01T10:00:00Z",
     "updated_at": "2024-01-01T11:30:00Z",
-    "schema_version": "1.1.0",
+    "schema_version": "3.0.0",
     "created_by": "xhs-pipeline"
   },
   "stages": [
@@ -43,7 +73,7 @@
         }
       },
       "outputs": {
-        "mining_output": ".course/xhs-ai-efficiency-tips/mining-output.md",
+        "mining_output": ".super/AI 效率工具入门/mining/topics.md",
         "selected_topic_index": 1
       },
       "errors": []
@@ -59,7 +89,7 @@
     }
   ],
   "artifacts": {
-    "mining_output": ".course/xhs-ai-efficiency-tips/mining-output.md"
+    "mining_output": ".super/AI 效率工具入门/mining/topics.md"
   }
 }
 ```
@@ -73,13 +103,15 @@
 ```json
 {
   "pipeline_id": "xhs-20240101-interview-potential-abc123",
+  "project_title": "面试其实不是考技术",
   "topic_slug": "interview-potential-over-tech",
   "current_stage": "mining",
-  "version": "1.0.0",
+  "publish_mode": "manual",
+  "version": "3.0.0",
   "metadata": {
     "created_at": "2024-01-01T10:00:00Z",
     "updated_at": "2024-01-01T11:30:00Z",
-    "schema_version": "1.0.0",
+    "schema_version": "3.0.0",
     "created_by": "xhs-pipeline"
   },
   "stages": [
@@ -98,7 +130,7 @@
         }
       },
       "outputs": {
-        "mining_output": ".course/xhs-interview-potential-over-tech/mining-output.md",
+        "mining_output": ".super/面试其实不是考技术/mining/topics.md",
         "selected_topic_index": 2
       },
       "errors": []
@@ -109,8 +141,9 @@
       "started_at": "2024-01-01T11:00:00Z",
       "completed_at": null,
       "inputs": {
-        "source": ".course/xhs-interview-potential-over-tech/mining-output.md",
-        "topic_index": 2
+        "source": ".super/面试其实不是考技术/mining/topics.md",
+        "topic_index": 2,
+        "platform": "xhs"
       },
       "outputs": {
         "outline": null,
@@ -148,13 +181,14 @@
     }
   ],
   "artifacts": {
-    "mining_output": ".course/xhs-interview-potential-over-tech/mining-output.md",
+    "mining_output": ".super/面试其实不是考技术/mining/topics.md",
     "outline": null,
     "content": null,
     "caption": null,
     "images": [],
     "publish_manual": null
-  }
+  },
+  "output_dir": "posts/面试其实不是考技术/"
 }
 ```
 
@@ -165,10 +199,12 @@
 | 字段 | 类型 | 必需 | 说明 |
 |------|------|------|------|
 | `pipeline_id` | string | ✅ | 唯一标识，格式 `xhs-{日期}-{topic-slug}-{短随机串}` |
-| `topic_slug` | string | ✅ | 主题 slug，用于目录命名 |
+| `project_title` | string | ✅ | 项目名（中文），用于目录命名和展示 |
+| `topic_slug` | string | ✅ | 主题 slug（英文 kebab-case），用于 ID 生成 |
 | `current_stage` | string | ✅ | 当前阶段，见「阶段定义」 |
 | `publish_mode` | string | ✅ | 发布模式：`manual`（手动发布，推荐）/ `auto`（自动发布，有风控风险） |
 | `version` | string | ✅ | 状态文件语义版本 |
+| `output_dir` | string | ✅ | 最终产物输出目录，默认 `posts/{project-title}/` |
 | `metadata` | object | ✅ | 元数据 |
 | `stages` | array | ✅ | 各阶段状态数组 |
 | `checkpoints` | array | ✅ | 用户确认记录 |
@@ -186,14 +222,14 @@
 
 #### 阶段定义 (name)
 
-| 阶段名 | 说明 | 对应 Skill |
-|--------|------|-----------|
-| `mining` | 内容挖掘 | content-mining |
-| `writing` | 文案撰写 | writeflow |
-| `imaging` | 信息图生成 | xhs-images |
-| `publishing` | 发布 | post-to-xhs / xiaohongshu-mcp |
+| 阶段名 | 说明 | 对应目录 | 对应 Skill |
+|--------|------|---------|-----------|
+| `mining` | 内容挖掘 | `mining/` | content-mining |
+| `writing` | 文案撰写 | `draft/` | writeflow |
+| `imaging` | 信息图生成 | `images/` | xhs-images |
+| `publishing` | 发布 | `publish/` | post-to-xhs / xiaohongshu-mcp |
 
-> 注：没有 `done` 阶段。当 `publishing` 阶段状态为 `completed` 且有对应 checkpoint 时，表示全流程完成。
+> 注：没有 `done` 阶段。当 `publishing` 阶段状态为 `completed` 且有对应 checkpoint 时，表示全流程完成。最终产物会复制到 `posts/{project-title}/`。
 
 ---
 
@@ -222,13 +258,13 @@
 **Outputs:**
 ```json
 {
-  "mining_output": ".course/xhs-{slug}/mining-output.md",
+  "mining_output": ".super/{project-title}/mining/topics.md",
   "selected_topic_index": 2
 }
 ```
 
 **Artifacts:**
-- `mining_output`: 挖掘结果 Markdown 文件
+- `mining_output`: 挖掘结果 Markdown 文件（选题清单）
 
 ---
 
@@ -237,7 +273,7 @@
 **Inputs:**
 ```json
 {
-  "source": ".course/xhs-{slug}/mining-output.md",
+  "source": ".super/{project-title}/mining/topics.md",
   "topic_index": 2,
   "platform": "xhs"
 }
@@ -246,9 +282,9 @@
 **Outputs:**
 ```json
 {
-  "outline": ".course/xhs-{slug}/outline.md",
-  "content": ".course/xhs-{slug}/content.md",
-  "caption": ".course/xhs-{slug}/caption.txt"
+  "outline": ".super/{project-title}/draft/outline.md",
+  "content": ".super/{project-title}/draft/content.md",
+  "caption": ".super/{project-title}/draft/caption.txt"
 }
 ```
 
@@ -264,7 +300,7 @@
 **Inputs:**
 ```json
 {
-  "content_file": ".course/xhs-{slug}/content.md",
+  "content_file": ".super/{project-title}/draft/content.md",
   "style": "notion | bold | cute | fresh | ...",
   "layout": "dense | flow | list | balanced | ...",
   "preset": "knowledge-card | ..."
@@ -275,8 +311,8 @@
 ```json
 {
   "images": [
-    ".course/xhs-{slug}/images/01-cover.png",
-    ".course/xhs-{slug}/images/02-xxx.png"
+    ".super/{project-title}/images/01-cover.png",
+    ".super/{project-title}/images/02-xxx.png"
   ],
   "style_used": "notion",
   "layout_used": "dense"
@@ -294,8 +330,8 @@
 ```json
 {
   "title": "笔记标题",
-  "caption_file": ".course/xhs-{slug}/caption.txt",
-  "images": [".course/xhs-{slug}/images/01-cover.png", "..."],
+  "caption_file": ".super/{project-title}/draft/caption.txt",
+  "images": [".super/{project-title}/images/01-cover.png", "..."],
   "tags": ["标签1", "标签2", "标签3"],
   "method": "mcp | cdp | manual",
   "publish_mode": "preview | publish"
@@ -311,12 +347,27 @@
   "published": true,
   "post_url": "https://www.xiaohongshu.com/discovery/item/...",
   "method_used": "cdp",
-  "publish_manual": ".course/xhs-{slug}/PUBLISH-MANUAL.md"
+  "publish_manual": ".super/{project-title}/publish/PUBLISH-MANUAL.md"
 }
 ```
 
 **Artifacts:**
 - `publish_manual`: 手动发布手册（fallback 时生成）
+
+---
+
+### 最终产物迁移
+
+Pipeline 全流程完成（publishing 阶段 confirmed）后，将最终产物从 `.super/` 复制到 `posts/`：
+
+```
+.super/{project-title}/draft/content.md    → posts/{project-title}/content.md
+.super/{project-title}/draft/caption.txt   → posts/{project-title}/caption.txt
+.super/{project-title}/images/*.png        → posts/{project-title}/images/
+```
+
+- 是**复制**不是移动——过程产物保留在 `.super/` 中供回溯
+- 只复制最终版文件，过程文件（prompts、state.json 等）不复制
 
 ---
 
@@ -393,6 +444,7 @@
                    ▼
             ✅ 全流程完成
       (publishing completed + checkpoint)
+      → 产物复制到 posts/{project-title}/
 ```
 
 ### 状态转移规则表
@@ -423,7 +475,7 @@
 | publishing | pending | 开始发布 | publishing | in_progress |
 | publishing | in_progress | 发布完成 | publishing | completed |
 | publishing | in_progress | 发布失败 | publishing | failed |
-| publishing | completed | 用户确认发布成功 | — | — (done) |
+| publishing | completed | 用户确认发布成功 → 迁移产物到 posts/ | — | — (done) |
 | publishing | failed | 重试 | publishing | in_progress |
 
 ### 回退规则
@@ -494,7 +546,7 @@ checkpoint  status = in_progress
 
 当用户说「从状态文件继续」或「继续上次的 pipeline」时：
 
-1. 查找 `.course/xhs-*/pipeline-state.json`
+1. 查找 `.super/*/state.json`（glob 匹配所有项目）
 2. 读取 `current_stage` 和各阶段状态
 3. 定位到**最近一个没有 checkpoint 的 completed 阶段**，或当前 in_progress 的阶段
 4. 从该位置继续执行
@@ -507,7 +559,7 @@ checkpoint  status = in_progress
 | 写文进行中，中断了 | writing=in_progress | 重新开始 writing 阶段 |
 | 写文完成，等确认 | writing=completed，无 writing checkpoint | 展示文案，请求确认 |
 | 生图失败了 | imaging=failed，有错误记录 | 询问是否重试 |
-| 发布完成 | publishing=completed，有 checkpoint | 告知已完成，展示结果 |
+| 发布完成 | publishing=completed，有 checkpoint | 告知已完成，展示结果和 posts/ 路径 |
 
 ### 续跑命令示例
 
@@ -515,8 +567,8 @@ checkpoint  status = in_progress
 # 自动找到最近的 pipeline 并继续
 "继续上次的小红书 pipeline"
 
-# 指定 topic slug 继续
-"从 xhs-interview-potential 的状态继续"
+# 指定项目名继续
+"从「面试其实不是考技术」的状态继续"
 
 # 查看当前状态
 "看看 xhs pipeline 现在到哪一步了"
@@ -569,7 +621,7 @@ checkpoint  status = in_progress
 
 ### 修改原则
 
-1. **备份先行**：修改前先复制一份 `pipeline-state.json.bak`
+1. **备份先行**：修改前先复制一份 `state.json.bak`
 2. **时间戳同步**：修改状态后更新 `metadata.updated_at`
 3. **版本号递增**：重大结构变化时递增 `version`
 4. **保持一致性**：
@@ -634,4 +686,5 @@ checkpoint  status = in_progress
 
 | Schema 版本 | 日期 | 说明 |
 |------------|------|------|
+| 3.0.0 | 2026-07-17 | 目录架构升级：`.super/xhs-{slug}/` → `.super/{project-title}/`，按阶段分子目录（mining/draft/images/publish），新增 `project_title` 和 `output_dir` 字段，最终产物迁移到 `posts/{project-title}/`，状态文件重命名为 `state.json` |
 | 1.0.0 | 2024-01-01 | 初始版本，支持四阶段流水线 |

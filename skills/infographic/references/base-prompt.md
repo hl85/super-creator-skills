@@ -35,7 +35,7 @@ Create a professional infographic following these specifications:
 
 ---
 
-Generate the infographic based on the content below:
+Use the available image generation skill (default: `imagine`) to generate the infographic based on the content provided below. If multiple image generation skills are available, ask the user to choose; if none are available, prompt the user to configure an API Key or install an image generation skill.
 
 {{CONTENT}}
 
