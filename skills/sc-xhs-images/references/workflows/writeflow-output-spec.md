@@ -1,18 +1,18 @@
-# Writeflow 输出格式规范
+# Writer 输出格式规范
 
-> 本文档基于 sc-writeflow skill 的 `references/xhs-to-images-handover.md` 精简，只保留 sc-xhs-images 需要了解的输出格式约定。完整信息请参考 sc-writeflow skill 的官方文档。
+> 本文档基于 sc-writer skill 的 `references/xhs-to-images-handover.md` 精简，只保留 sc-xhs-images 需要了解的输出格式约定。完整信息请参考 sc-writer skill 的官方文档。
 
 ---
 
 ## 1. 概述
 
-sc-writeflow 是上游 skill，负责将原始素材转化为平台化的大纲和草稿。当用户使用 sc-writeflow 完成小红书草稿后，会输出结构化的 image content spec，sc-xhs-images 负责将其转化为实际的图片生成。
+sc-writer 是上游 skill，负责将原始素材转化为平台化的大纲和草稿。当用户使用 sc-writer 完成小红书草稿后，会输出结构化的 image content spec，sc-xhs-images 负责将其转化为实际的图片生成。
 
 ---
 
-## 2. Writeflow 输出格式（Image Content Spec）
+## 2. Writer 输出格式（Image Content Spec）
 
-sc-writeflow 在 `draft-xhs` 阶段输出的图片内容规范，采用 YAML 格式，每张图一个独立条目。
+sc-writer 在 `draft-xhs` 阶段输出的图片内容规范，采用 YAML 格式，每张图一个独立条目。
 
 ### 2.1 完整 Schema
 
@@ -77,9 +77,9 @@ images:
 
 ### 3.1 Position 映射
 
-sc-writeflow 使用 5 种位置，sc-xhs-images 内部使用 3 种分类：
+sc-writer 使用 5 种位置，sc-xhs-images 内部使用 3 种分类：
 
-| sc-writeflow `position` | sc-xhs-images `Position` | 说明 |
+| sc-writer `position` | sc-xhs-images `Position` | 说明 |
 |----------------------|-----------------------|------|
 | `cover` | `Cover` | 封面图，停止滑动 |
 | `setup` | `Content` | 铺垫/建立共鸣 |
@@ -89,7 +89,7 @@ sc-writeflow 使用 5 种位置，sc-xhs-images 内部使用 3 种分类：
 
 ### 3.2 字段名映射
 
-| sc-writeflow 字段 | sc-xhs-images 字段 | 说明 |
+| sc-writer 字段 | sc-xhs-images 字段 | 说明 |
 |-----------------|-----------------|------|
 | `position` | `Position` | 首字母大写，5→3 分类映射 |
 | `title` | `Title` | 主标题，加「」引号 |
@@ -106,7 +106,7 @@ sc-writeflow 使用 5 种位置，sc-xhs-images 内部使用 3 种分类：
 
 ## 4. 自动选择策略
 
-如果 sc-writeflow 输出中未指定 `style` 或 `layout`（不推荐，但可能发生），sc-xhs-images 按以下策略自动选择：
+如果 sc-writer 输出中未指定 `style` 或 `layout`（不推荐，但可能发生），sc-xhs-images 按以下策略自动选择：
 
 ### 4.1 Style 自动选择
 
@@ -151,7 +151,7 @@ NN-{type}-{slug}.png
 
 ## 6. 约束校验
 
-sc-xhs-images 接入 sc-writeflow 输出时应校验：
+sc-xhs-images 接入 sc-writer 输出时应校验：
 
 | 约束项 | 要求 |
 |--------|------|

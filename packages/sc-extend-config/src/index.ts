@@ -2,7 +2,7 @@
  * sc-extend-config
  *
  * 通用 EXTEND.md 多账号配置包。
- * 为 post-to-x / post-to-wechat / post-to-weibo / post-to-xhs 等发布技能
+ * 为 publish-wechat / publish-xhs 等发布技能
  * 提供统一的多账号配置加载、账号选择、凭据解析能力。
  *
  * 核心 API:

@@ -1,12 +1,16 @@
 ---
 name: sc-content-review
-description: Audits an article before publishing. Runs three passes — compliance (platform red lines), factcheck (numbers/quotes/links via agent-reach), and link-health — then emits a Markdown report with severity-tagged issues. Tuned per platform (wechat | x). Does not rewrite the article. Use when user asks to "审一下这篇", "review this article", "检查合规", "fact check", "敏感词检查", or before any /sc-post-to-wechat invocation. [Beta]
-version: 0.1.0
+description: Audits an article before publishing. Runs three passes — compliance (platform red lines), factcheck (numbers/quotes/links via agent-reach), and link-health — then emits a Markdown report with severity-tagged issues. Tuned per platform (wechat | xhs). Does not rewrite the article. Use when user asks to "审一下这篇", "review this article", "检查合规", "fact check", "敏感词检查", or before any sc-publish-wechat / sc-publish-xhs invocation. Note: XHS platform red-line rules are TODO — currently performs generic compliance checks for XHS. [Beta]
+version: 0.2.0
 ---
 
 # Content Review
 
 Pre-publish audit for articles across three dimensions: Compliance, Fact-check, and Link Health.
+
+Currently supports two platforms: **wechat** and **xhs**.
+
+> **XHS 红线规则待补充（TODO）**：当前对 XHS 平台执行通用合规检查，待补充小红书专属红线规则。
 
 ## Usage
 
@@ -20,6 +24,9 @@ This skill is driven via prompt orchestration. Invoke it by describing what you 
 
 # [示例，暂不可用] Audit specifically for WeChat
 # [示例，暂不可用] ./sc-run sc-content-review audit article.md --platform wechat
+
+# [示例，暂不可用] Audit specifically for XHS
+# [示例，暂不可用] ./sc-run sc-content-review audit article.md --platform xhs
 
 # [示例，暂不可用] Audit a URL
 # [示例，暂不可用] ./sc-run sc-content-review audit https://example.com/post
@@ -37,6 +44,5 @@ For detailed audit schemas, severity definitions, and platform red lines, see:
 
 - [references/report-format.md](references/report-format.md) - **Report Schema & Severity Levels**
 - [references/wechat-redlines.md](references/wechat-redlines.md) - **WeChat Compliance Rules**
-- [references/x-redlines.md](references/x-redlines.md) - **X (Twitter) Compliance Rules**
 - [prompts/compliance.md](prompts/compliance.md) - **Compliance Prompt Logic**
 - [prompts/factcheck.md](prompts/factcheck.md) - **Fact-check Prompt Logic**

@@ -24,7 +24,8 @@ This project provides a centralized runner to abstract path logic and runtime ma
 
 # Examples
 ./sc-run sc-imagine main --prompt "A futuristic lab"
-./sc-run sc-xhs-images path/to/article.md
+./sc-run sc-publish-wechat wechat-article article.md
+./sc-run sc-convert-markdown-to-html main article.md
 ```
 
 ## Documentation
@@ -33,7 +34,7 @@ This project provides a centralized runner to abstract path logic and runtime ma
 |-----|-------------|
 | [docs/quickstart.md](docs/quickstart.md) | 10-minute quickstart: Installation, API Key, and your first run |
 | [docs/env-reference.md](docs/env-reference.md) | Reference for all environment variables and .env configuration |
-| [docs/pipeline.md](docs/pipeline.md) | Full content creation flywheel (8 stages) |
+| [docs/pipeline.md](docs/pipeline.md) | Full content creation flywheel (6 stages with review hard gate) |
 | [docs/visuals.md](docs/visuals.md) | Decision table for visual skill selection |
 | [docs/chrome-setup.md](docs/chrome-setup.md) | First-time configuration guide for Chrome CDP |
 
@@ -67,7 +68,8 @@ ClawHub installs skills individually, not as one marketplace bundle. After publi
 
 ```bash
 clawhub install sc-imagine
-clawhub install sc-markdown-to-html
+clawhub install sc-convert-markdown-to-html
+clawhub install sc-pipeline
 ```
 
 Publishing to ClawHub releases the published skill under `MIT-0`, per ClawHub's registry rules.
@@ -273,24 +275,24 @@ Smart article illustration skill with Type × Style two-dimension approach. Anal
 | ![editorial](./screenshots/article-illustrator-styles/editorial.webp) | ![scientific](./screenshots/article-illustrator-styles/scientific.webp) | |
 | editorial | scientific | |
 
-#### sc-post-to-wechat
+#### sc-publish-wechat
 
 Post content to WeChat Official Account (微信公众号). Two modes available:
 
 **Image-Text (贴图)** - Multiple images with short title/content:
 
 ```bash
-/sc-post-to-wechat 贴图 --markdown article.md --images ./photos/
-/sc-post-to-wechat 贴图 --markdown article.md --image img1.png --image img2.png --image img3.png
-/sc-post-to-wechat 贴图 --title "标题" --content "内容" --image img1.png --submit
+/sc-publish-wechat 贴图 --markdown article.md --images ./photos/
+/sc-publish-wechat 贴图 --markdown article.md --image img1.png --image img2.png --image img3.png
+/sc-publish-wechat 贴图 --title "标题" --content "内容" --image img1.png --submit
 ```
 
 **Article (文章)** - Full markdown/HTML with rich formatting:
 
 ```bash
-/sc-post-to-wechat 文章 --markdown article.md
-/sc-post-to-wechat 文章 --markdown article.md --theme grace
-/sc-post-to-wechat 文章 --html article.html
+/sc-publish-wechat 文章 --markdown article.md
+/sc-publish-wechat 文章 --markdown article.md --theme grace
+/sc-publish-wechat 文章 --html article.html
 ```
 
 **Publishing Methods**:
@@ -319,10 +321,10 @@ To obtain credentials:
 **Multi-Account Support**: Manage multiple WeChat Official Accounts via `EXTEND.md`:
 
 ```bash
-mkdir -p .super-creator/post-to-wechat
+mkdir -p .super-creator/publish-wechat
 ```
 
-Create `.super-creator/post-to-wechat/EXTEND.md`:
+Create `.super-creator/publish-wechat/EXTEND.md`:
 
 ```yaml
 # Global settings (shared across all accounts)
@@ -356,6 +358,108 @@ accounts:
 | 1 account has `default: true` | Pre-selected as default |
 
 Each account gets an isolated Chrome profile for independent login sessions (browser method). API credentials can be set inline in EXTEND.md or via `.env` with alias-prefixed keys (e.g., `WECHAT_TECH_BLOG_APP_ID`).
+
+#### sc-publish-xhs
+
+Publish image-text notes to Xiaohongshu (小红书). **Three-tier fallback strategy**: xiaohongshu-mcp (preferred) → CDP script → manual publishing guide.
+
+Supports image-text note publishing, cover selection, hashtags, location tags, and draft preview.
+
+```bash
+# MCP method (preferred)
+"Use sc-publish-xhs to publish this set of images"
+
+# CDP preview mode
+./sc-run sc-publish-xhs xhs-post --title "Title" --caption "Content" --image ./img1.png
+
+# CDP direct publish
+./sc-run sc-publish-xhs xhs-post --title "Title" --caption "Content" --image ./img1.png --publish
+```
+
+**Publishing Methods Comparison**:
+
+| Method | Priority | Stability |
+|--------|----------|-----------|
+| xiaohongshu-mcp | Preferred | High |
+| Chrome CDP | Fallback | Medium |
+| Manual publishing guide | Last resort | Highest (manual) |
+
+#### sc-pipeline
+
+Dual-platform content production pipeline supporting WeChat Official Account and Xiaohongshu. Chains **sc-content-mining → sc-writer → visual skills → sc-content-review (hard gate) → sc-publish-wechat/sc-publish-xhs**, with user confirmation at each step and checkpoint resume.
+
+**Core Features**:
+- Any content source: course notes, blogs, podcast transcripts, reading notes, etc.
+- **Dual-platform support**: `--platform wechat`, `--platform xhs`, `--platform both`
+- **Hard gate (review)**: `sc-content-review` must pass before publishing (blocks critical/high severity issues)
+- **Publish mode selection**: Manual (recommended, safest) / Auto (MCP → CDP → manual three-tier fallback)
+- **State file mechanism**: `state.json` tracks progress, supports resume and stage rollback
+- **Step-by-step confirmation**: User confirms after each stage for quality control
+
+```bash
+# Start pipeline for WeChat
+"Run a WeChat article from my blog post using sc-pipeline"
+
+# Start pipeline for Xiaohongshu
+"Start sc-pipeline, target platform xhs, manual publish mode"
+
+# Dual platform
+"Dual platform publish: WeChat first, then adapt for XHS"
+
+# Resume from state file
+"Continue my last pipeline"
+"Resume pipeline from state file"
+```
+
+**Pipeline Stages**:
+
+| Stage | Description | Skill |
+|-------|-------------|-------|
+| Mining | Extract topics from content source, confirm direction | sc-content-mining |
+| Writing | Generate article draft (outline → final) | sc-writer |
+| Visuals | Generate cover/images based on platform | sc-cover-image / sc-xhs-images / sc-article-illustrator |
+| Review (Hard Gate) | Compliance/fact/link review, blocks on critical issues | sc-content-review |
+| Publishing | Manual (recommended) / Auto publish | sc-publish-wechat / sc-publish-xhs |
+
+#### sc-writer
+
+Content writing skill that transforms selected topics and reference materials into platform-specific Markdown drafts.
+
+**Two-stage flow**:
+1. Stage 1 (Outline): Extract core arguments, reader persona, article structure
+2. Stage 2 (Draft): Expand into full Markdown draft per platform conventions
+
+```bash
+"Use sc-writer to generate a WeChat Official Account draft from topic #3"
+"Write a Xiaohongshu post from this outline using sc-writer"
+```
+
+#### sc-content-review
+
+Pre-publish content review skill that checks compliance, factual accuracy, and links. Acts as a **hard gate** in the pipeline: critical/high severity issues block publishing until fixed.
+
+```bash
+"Use sc-content-review to audit article.md for WeChat platform"
+"Review this XHS post draft with sc-content-review"
+```
+
+Outputs `review-report.md` with severity-tagged issues across three dimensions: compliance, facts, and links.
+
+#### sc-content-mining
+
+Mines viral content topics from any content source. Brainstorms direction, scans content for "cognitive dissonance" patterns, and outputs topic lists with presentation format recommendations.
+
+**Supported sources**: course notes, blog posts, podcast transcripts, reading notes, meeting minutes, customer interviews, etc.
+
+**Three-stage flow**:
+1. **Brainstorm**: Confirm target platform, audience, content tone, core logic
+2. **Mine**: Scan content for "readers expect X → truth is Y" cognitive gaps
+3. **Recommend**: Suggest presentation format (image-text, article, etc.) for each topic
+
+```bash
+"Mine 5 Xiaohongshu topics from my course notes using sc-content-mining"
+"Use sc-content-mining to scan this podcast transcript for early-career professionals"
+```
 
 ### AI Generation Skills
 
@@ -557,19 +661,19 @@ Format plain text or markdown files with proper frontmatter, titles, summaries, 
 | Code/commands | `` `inline` `` or ` ```block``` ` |
 | Quotes | `>` blockquote |
 
-#### sc-markdown-to-html
+#### sc-convert-markdown-to-html
 
 Convert markdown files into styled HTML with WeChat-compatible themes, syntax highlighting, and optional bottom citations for external links.
 
 ```bash
 # Basic conversion
-/sc-markdown-to-html article.md
+/sc-convert-markdown-to-html article.md
 
 # Theme + color
-/sc-markdown-to-html article.md --theme grace --color red
+/sc-convert-markdown-to-html article.md --theme grace --color red
 
 # Convert ordinary external links to bottom citations
-/sc-markdown-to-html article.md --cite
+/sc-convert-markdown-to-html article.md --cite
 ```
 
 ## Environment Configuration

@@ -2,6 +2,26 @@
 
 [English](./CHANGELOG.md) | 中文
 
+## 3.3.0 - 2026-07-17
+
+### 破坏性变更
+- **sc-writeflow → sc-writer**：重命名以更简洁。移除 X/Twitter 平台支持，仅保留 xhs 和 wechat。
+- **sc-xhs-pipeline → sc-pipeline**：从小红书专属升级为双平台通用编排器，同时支持小红书和微信公众号。
+- **统一命名规范**：
+  - `sc-post-to-wechat` → `sc-publish-wechat`（publish-{平台} 模式）
+  - `sc-post-to-xhs` → `sc-publish-xhs`（publish-{平台} 模式）
+  - `sc-markdown-to-html` → `sc-convert-markdown-to-html`（convert-{from}-to-{to} 模式）
+- **发布前硬闸门**：两个平台的流水线在发布前都强制执行 review 阶段：
+  - `sc-content-review`（合规+事实核查+链接健康）— critical 级别问题阻塞发布
+  - `sc-compress-image`（WebP 压缩）— 图片必须压缩后才能发布
+  - `sc-format-markdown`（仅公众号）— 发布前必须排版格式化
+- **公众号流水线**（5 阶段）：mining → writing → visuals（封面+配图）→ review（排版+审核+压缩）→ publishing
+- **小红书流水线**（5 阶段）：mining → writing → imaging → review（审核+压缩）→ publishing
+- 状态文件 schema 升级至 v4.0.0：新增 platform 字段、平台差异化阶段数组、review 阶段产物
+- 新增文件：`references/hard-gates.md`、`references/platforms/xhs.md`、`references/platforms/wechat.md`
+- 移除 sc-content-review 中的 X/Twitter 红线规则文件（x-redlines.md）
+- CLI 参数：`--platform` / `-p` 接受 `xhs`（默认）或 `wechat`
+
 ## 3.2.0 - 2026-07-17
 
 ### 破坏性变更

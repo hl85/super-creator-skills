@@ -2,7 +2,7 @@
 
 super-creator 的多个 skill 通过 Chrome DevTools Protocol (CDP) 控制真实 Chrome 浏览器，实现自动化发布和内容抓取。本文覆盖所有依赖 Chrome 的 skill 的共同配置步骤。
 
-**依赖 Chrome 的 skill：** `sc-post-to-wechat`、`sc-gemini-web`、`sc-post-to-xhs`
+**依赖 Chrome 的 skill：** `sc-publish-wechat`、`sc-gemini-web`、`sc-publish-xhs`
 
 ---
 
@@ -28,7 +28,7 @@ super-creator 的多个 skill 通过 Chrome DevTools Protocol (CDP) 控制真实
 
 ```bash
 # 手动验证 Chrome 能正常启动（可选）
-./sc-run sc-post-to-wechat wechat-article --check
+./sc-run sc-publish-wechat wechat-article --check
 ```
 
 Chrome 会以 **远程调试端口 9222** 启动。如果遇到端口冲突：
@@ -85,9 +85,9 @@ pkill -f "Google Chrome"
 
 ## 多 Profile 配置
 
-如果需要为不同项目使用不同的登录状态（如多个 X 账号），可以通过环境变量切换：
+如果需要为不同项目使用不同的登录状态（如多个公众号或小红书账号），可以通过环境变量切换：
 
 ```bash
-SC_CHROME_PROFILE_DIR=~/.config/super-creator/profile-work ./sc-run sc-post-to-wechat wechat-article article.md
-SC_CHROME_PROFILE_DIR=~/.config/super-creator/profile-personal ./sc-run sc-post-to-xhs
+SC_CHROME_PROFILE_DIR=~/.config/super-creator/profile-work ./sc-run sc-publish-wechat wechat-article article.md
+SC_CHROME_PROFILE_DIR=~/.config/super-creator/profile-personal ./sc-run sc-publish-xhs
 ```

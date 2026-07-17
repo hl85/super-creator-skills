@@ -31,12 +31,12 @@ super-creator 有 3 个视觉内容生成 skill。本页帮助你快速选择合
 2. sc-article-illustrator → 分析章节
 3. sc-imagine           → 批量生成章节配图
 4. sc-format-markdown   → 整理排版
-5. sc-post-to-wechat    → 发布
+5. sc-publish-wechat    → 发布
 ```
 
 ### 小红书内容发布流
 
 ```
 1. sc-xhs-images  → 生成图文卡片系列
-2. sc-post-to-xhs → 发布到小红书（Beta）
+2. sc-publish-xhs → 发布到小红书（Beta）
 ```

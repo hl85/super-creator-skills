@@ -7,13 +7,16 @@ Run **before** factcheck. Compliance issues block publishing regardless of fact 
 ```
 if platform == "wechat":
     load references/wechat-redlines.md
-else:  # x
-    load references/x-redlines.md
+elif platform == "xhs":
+    # XHS 红线规则待补充（TODO），当前执行通用合规检查
+    # 使用与微信相同的通用政治/医疗/金融敏感词基线
+    load references/wechat-redlines.md
+    # 注意：小红书有其专属红线（如导流、医疗美容、违禁品等），待补充 xhs-redlines.md
 ```
 
 ## Step 2 — Segment the article
 
-Split the article into numbered sentences (or tweet-sized chunks for X). Keep line numbers from the source if possible — the report needs them.
+Split the article into numbered sentences (or paragraph-sized chunks). Keep line numbers from the source if possible — the report needs them.
 
 ## Step 3 — Per-segment scan
 

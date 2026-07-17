@@ -4,7 +4,7 @@ Skills that require image generation MUST delegate to available image generation
 
 ## Skill Selection
 
-**Default**: `skills/imagine/SKILL.md` (unless user specifies otherwise).
+**Default**: `skills/sc-imagine/SKILL.md` (unless user specifies otherwise).
 
 1. Read skill's SKILL.md for parameters and capabilities
 2. If user requests different skill, check `skills/` for alternatives
@@ -16,7 +16,7 @@ Skills that require image generation MUST delegate to available image generation
 ### Step N: Generate Images
 
 **Skill Selection**:
-1. Check available skills (`imagine` default, or `danger-gemini-web`)
+1. Check available skills (`sc-imagine` default)
 2. Read selected skill's SKILL.md for parameters
 3. If multiple skills available, ask user to choose
 
@@ -27,12 +27,12 @@ Skills that require image generation MUST delegate to available image generation
 4. On failure, auto-retry once before reporting error
 ```
 
-**Batch Parallel** (`imagine` only): concurrent workers with per-provider throttling via `batch.max_workers` in EXTEND.md. Override worker cap with `SC_IMAGE_GEN_MAX_WORKERS` env var.
+**Batch Parallel** (`sc-imagine` only): concurrent workers with per-provider throttling via `batch.max_workers` in EXTEND.md. Override worker cap with `SC_IMAGE_GEN_MAX_WORKERS` env var.
 
 ## Output Path Convention
 
 **Output Directory**: `<skill-suffix>/<topic-slug>/`
-- `<skill-suffix>`: e.g., `xhs-images`, `cover-image`, `slide-deck`, `comic`
+- `<skill-suffix>`: e.g., `xhs-images`, `cover-image`, `article-illustrator`
 - `<topic-slug>`: 2-4 words, kebab-case from content topic
 - Conflict: append timestamp `<topic-slug>-YYYYMMDD-HHMMSS`
 
@@ -42,12 +42,12 @@ Skills that require image generation MUST delegate to available image generation
 
 **Format**: `NN-{type}-[slug].png`
 - `NN`: Two-digit sequence (01, 02, ...)
-- `{type}`: cover, content, page, slide, illustration, etc.
+- `{type}`: cover, content, illustration, card, etc.
 - `[slug]`: 2-5 word kebab-case descriptor, unique within directory
 
 Examples:
 ```
 01-cover-ai-future.png
 02-content-key-benefits.png
-03-slide-architecture-overview.png
+03-illustration-architecture-overview.png
 ```

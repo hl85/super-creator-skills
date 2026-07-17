@@ -116,13 +116,13 @@ CLI 参数
 | `WECHAT_BROWSER_CHROME_PATH` | 自定义 Chrome 路径 | 通常不需要 |
 | `WECHAT_BROWSER_PROFILE_DIR` | 微信专用 Chrome Profile | 通常不需要 |
 
-> **多账号支持**：在 `.super-creator/post-to-wechat/EXTEND.md` 中配置 `accounts:` 数组，可管理多个公众号，无需多个环境变量。详见 `skills/sc-post-to-wechat/references/multi-account.md`。
+> **多账号支持**：在 `.super-creator/publish-wechat/EXTEND.md` 中配置 `accounts:` 数组，可管理多个公众号，无需多个环境变量。详见 `skills/sc-publish-wechat/references/multi-account.md`。
 
 ### Chrome & CDP
 
 | 变量名 | 用途 | 适用 Skill |
 |--------|------|-----------|
-| `SC_CHROME_PROFILE_DIR` | 覆盖所有 CDP skill 的共享 Profile 路径 | `sc-post-to-wechat`、`sc-post-to-xhs`、`sc-gemini-web` |
+| `SC_CHROME_PROFILE_DIR` | 覆盖所有 CDP skill 的共享 Profile 路径 | `sc-publish-wechat`、`sc-publish-xhs`、`sc-gemini-web` |
 | `GEMINI_WEB_CHROME_PATH` | Gemini Web 专用 Chrome 路径 | `sc-gemini-web` |
 | `GEMINI_WEB_CHROME_PROFILE_DIR` | Gemini Web 专用 Profile 路径 | `sc-gemini-web` |
 
@@ -136,7 +136,7 @@ CLI 参数
 |--------|------|------|
 | `XIAOHONGSHU_MCP_URL` | xiaohongshu-mcp 服务地址 | 默认 `http://localhost:18060/mcp` |
 
-> **三级降级策略**：优先使用 xiaohongshu-mcp → CDP 脚本 → 手动发布手册。详见 `skills/sc-post-to-xhs/SKILL.md` 和 `skills/sc-xhs-pipeline/SKILL.md`。
+> **三级降级策略**：优先使用 xiaohongshu-mcp → CDP 脚本 → 手动发布手册。详见 `skills/sc-publish-xhs/SKILL.md` 和 `skills/sc-pipeline/SKILL.md`。
 
 ### 高级调优
 
@@ -157,9 +157,9 @@ CLI 参数
 | `sc-cover-image` | 默认风格/调色板/渲染方式、水印、比例 |
 | `sc-article-illustrator` | 水印、默认风格、输出目录 |
 | `sc-xhs-images` | 水印、默认风格、布局 |
-| `sc-post-to-wechat` | 主题、颜色、发布方式、作者、评论设置 |
-| `sc-post-to-xhs` | 默认话题标签、城市、草稿模式、MCP 服务地址 |
-| `sc-xhs-pipeline` | 发布模式（手动/自动）、状态文件路径 |
+| `sc-publish-wechat` | 主题、颜色、发布方式、作者、评论设置 |
+| `sc-publish-xhs` | 默认话题标签、城市、草稿模式、MCP 服务地址 |
+| `sc-pipeline` | 发布模式（手动/自动）、目标平台、状态文件路径 |
 
 > 删除 `EXTEND.md` 可重置对应 skill 的所有偏好，下次运行会重新引导设置。
 

@@ -2,6 +2,26 @@
 
 English | [中文](./CHANGELOG.zh.md)
 
+## 3.3.0 - 2026-07-17
+
+### BREAKING CHANGES
+- **sc-writeflow → sc-writer**: Renamed for clarity. Removed X/Twitter platform support (only xhs + wechat remain).
+- **sc-xhs-pipeline → sc-pipeline**: Evolved from XHS-only to dual-platform orchestrator supporting both Xiaohongshu and WeChat Official Account.
+- **Naming convention unified**:
+  - `sc-post-to-wechat` → `sc-publish-wechat` (publish-{platform} pattern)
+  - `sc-post-to-xhs` → `sc-publish-xhs` (publish-{platform} pattern)
+  - `sc-markdown-to-html` → `sc-convert-markdown-to-html` (convert-{from}-to-{to} pattern)
+- **Hard gates before publishing**: Both pipelines now enforce a mandatory `review` stage before publishing:
+  - `sc-content-review` (compliance + fact-check + link health) — critical issues block publishing
+  - `sc-compress-image` (WebP compression) — images must be compressed before publishing
+  - `sc-format-markdown` (only for WeChat) — formatting is mandatory before publishing
+- **WeChat pipeline** (5 stages): mining → writing → visuals (cover + illustrations) → review (format + review + compress) → publishing
+- **XHS pipeline** (5 stages): mining → writing → imaging → review (review + compress) → publishing
+- State file schema upgraded to v4.0.0: added `platform` field, platform-specific stage arrays, review stage artifacts
+- New files: `references/hard-gates.md`, `references/platforms/xhs.md`, `references/platforms/wechat.md`
+- X/Twitter redlines file removed from sc-content-review (x-redlines.md)
+- CLI flag: `--platform` / `-p` accepts `xhs` (default) or `wechat`
+
 ## 3.2.0 - 2026-07-17
 
 ### BREAKING CHANGES

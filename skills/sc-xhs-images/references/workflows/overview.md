@@ -35,16 +35,16 @@ sc-xhs-images 支持多种输入方式：
 |----------|------|----------|----------|
 | Markdown 文章 | 自动分析并生成 | 长文转图 | analysis-framework.md |
 | Outline 文件 | 预定义大纲 | 批量生成 / 程序化调用 | outline-template.md |
-| Writeflow 输出 | 从 sc-writeflow skill 衔接 | 内容创作流水线 | writeflow-input.md |
+| Writer 输出 | 从 sc-writer skill 衔接 | 内容创作流水线 | writeflow-input.md |
 
-### 2.1 从 Writeflow 输入
+### 2.1 从 Writer 输入
 
-sc-writeflow 是内容创作的上游 skill，负责将原始素材转化为平台化的内容方案。
+sc-writer 是内容创作的上游 skill，负责将原始素材转化为平台化的内容方案。
 
-**输入格式**：sc-writeflow 的 `draft-xhs` 阶段输出的 image content spec（YAML 格式）
+**输入格式**：sc-writer 的 `draft-xhs` 阶段输出的 image content spec（YAML 格式）
 
 **处理步骤**：
-1. 解析 sc-writeflow 输出的 images 数组
+1. 解析 sc-writer 输出的 images 数组
 2. 字段映射与转换（position 5→3 分类等）
 3. 生成 sc-xhs-images 标准 outline
 4. 执行图片生成
@@ -133,5 +133,5 @@ NN-{type}-{slug}.png
 - [analysis-framework.md](analysis-framework.md) - 内容分析框架
 - [outline-template.md](outline-template.md) - 大纲模板
 - [prompt-assembly.md](prompt-assembly.md) - 提示词组装指南
-- [writeflow-input.md](writeflow-input.md) - 从 Writeflow 输入
-- [writeflow-output-spec.md](writeflow-output-spec.md) - Writeflow 输出格式规范
+- [writeflow-input.md](writeflow-input.md) - 从 Writer 输入
+- [writeflow-output-spec.md](writeflow-output-spec.md) - Writer 输出格式规范

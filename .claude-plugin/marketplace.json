@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Skills for improving daily work efficiency",
-    "version": "3.2.0"
+    "version": "3.3.0"
   },
   "plugins": [
     {
@@ -19,16 +19,16 @@
         "./skills/sc-compress-image",
         "./skills/sc-content-mining",
         "./skills/sc-content-review",
+        "./skills/sc-convert-markdown-to-html",
         "./skills/sc-cover-image",
         "./skills/sc-format-markdown",
         "./skills/sc-gemini-web",
         "./skills/sc-imagine",
-        "./skills/sc-markdown-to-html",
-        "./skills/sc-post-to-wechat",
-        "./skills/sc-post-to-xhs",
-        "./skills/sc-writeflow",
-        "./skills/sc-xhs-images",
-        "./skills/sc-xhs-pipeline"
+        "./skills/sc-pipeline",
+        "./skills/sc-publish-wechat",
+        "./skills/sc-publish-xhs",
+        "./skills/sc-writer",
+        "./skills/sc-xhs-images"
       ]
     }
   ]

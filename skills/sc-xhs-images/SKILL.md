@@ -38,7 +38,7 @@ For detailed style/layout galleries, presets, and strategy definitions, see:
 
 - [references/galleries.md](references/galleries.md) - **Style, Layout & Preset Galleries**
 - [references/workflows/overview.md](references/workflows/overview.md) - **Workflow Overview & Input Methods**
-- [references/workflows/writeflow-input.md](references/workflows/writeflow-input.md) - **sc-writeflow Skill Integration**
+- [references/workflows/writeflow-input.md](references/workflows/writeflow-input.md) - **sc-writer Skill Integration**
 - [references/workflows/analysis-framework.md](references/workflows/analysis-framework.md) - **Analysis Logic**
 - [references/workflows/outline-template.md](references/workflows/outline-template.md) - **Outline Template**
 - [references/workflows/prompt-assembly.md](references/workflows/prompt-assembly.md) - **Prompt Assembly Guide**

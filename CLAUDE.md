@@ -10,9 +10,9 @@ Skills are exposed through the single `super-creator` plugin in `.claude-plugin/
 
 | Group | Description |
 |-------|-------------|
-| Content Skills | Generate or publish content (images, slides, comics, posts) |
+| Content Skills | Generate or publish content (articles, images, posts) |
 | AI Generation Skills | AI generation backends |
-| Utility Skills | Content processing (conversion, compression, translation) |
+| Utility Skills | Content processing (conversion, compression, formatting, review) |
 
 Each skill contains `SKILL.md` (YAML front matter + docs), optional `scripts/`, `references/`, `prompts/`.
 
@@ -78,7 +78,7 @@ The root `npm test` runs all Node-compatible `*.test.ts` files via `node --test`
 ## Key Dependencies
 
 - **Bun**: TypeScript runtime (`bun` preferred, fallback `npx -y bun`)
-- **Chrome**: Required for CDP-based skills (gemini-web, post-to-x/wechat/weibo, url-to-markdown). All CDP skills share a single profile, override via `SC_CHROME_PROFILE_DIR` env var. Platform paths: [docs/chrome-profile.md](docs/chrome-profile.md)
+- **Chrome**: Required for CDP-based skills (gemini-web, publish-wechat, publish-xhs). All CDP skills share a single profile, override via `SC_CHROME_PROFILE_DIR` env var. Platform paths: [docs/chrome-profile.md](docs/chrome-profile.md)
 - **Image generation APIs**: `imagine` requires API key (OpenAI, Azure OpenAI, Google, OpenRouter, DashScope, or Replicate) configured in EXTEND.md
 - **Config dirs**: `.super-creator/` (project-level) and `~/.super-creator/` (user-level) store `.env` files and `EXTEND.md` overrides. The `super-creator` plugin reads these on startup.
 - **Gemini Web auth**: Browser cookies (first run opens Chrome for login, `--login` to refresh)
@@ -107,7 +107,7 @@ Git Flow model (main/develop/feature/release/hotfix branches). Conventional comm
 | Rule | Description |
 |------|-------------|
 | **Load project skills first** | Project skills override system/user-level skills with same name |
-| **Default image generation** | Use `skills/imagine/SKILL.md` unless user specifies otherwise |
+| **Default image generation** | Use `skills/sc-imagine/SKILL.md` unless user specifies otherwise |
 
 Priority: project `skills/` → `$HOME/.super-creator/` → system-level.
 

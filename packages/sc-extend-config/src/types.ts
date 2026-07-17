@@ -7,8 +7,8 @@
  * - 凭据源用对象数组描述，便于报告与排错
  */
 
-/** 平台字符串 */
-export type Platform = "x" | "wechat" | "weibo" | "xhs";
+/** 平台字符串（x/weibo 已下线，仅保留以兼容历史适配器） */
+export type Platform = "wechat" | "xhs" | "x" | "weibo";
 
 /** 账号基础结构（所有平台的最小公约数） */
 export interface BaseAccount {
@@ -57,18 +57,18 @@ export interface LoadedCredentials {
  */
 export interface PlatformAdapter<TConfig = unknown, TAccount extends BaseAccount = BaseAccount> {
   platform: Platform;
-  /** 平台支持的 section 名称（如 ['x', 'post-to-x'] 兼容两种写法） */
+  /** 平台支持的 section 名称（如 ['wechat', 'publish-wechat'] 兼容两种写法） */
   sectionNames?: string[];
   /** 是否使用父目录递归查找 EXTEND.md */
   useParentRecursion: boolean;
   /**
    * 凭据字段集合
-   * 平台可有多套凭据方案（如 X 同时支持 OAuth 1.0a 四键 和 Bearer Token）
+   * 平台可有多套凭据方案
    */
   credentialFieldSets: Array<{ name: string; required: string[] }>;
   /** 是否按 alias 拼接 env 名称 */
   perAliasEnv: boolean;
-  /** env 名称兼容映射（兼容历史名称，如 X→TWITTER_*） */
+  /** env 名称兼容映射（兼容历史名称） */
   envKeyMap?: Record<string, string>;
   /** .env 文件子目录名 */
   envSubdir?: string;

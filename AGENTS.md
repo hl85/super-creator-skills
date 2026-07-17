@@ -3,7 +3,7 @@
 ## Project Structure
 
 ```
-skills/          # 25+ Claude Code skills (each with SKILL.md, scripts/, references/)
+skills/          # 14 Claude Code skills (each with SKILL.md, scripts/, references/)
 packages/        # Shared TypeScript libraries (sc-fetch, sc-chrome-cdp, sc-md)
 scripts/     # Repo maintenance: release, sync, hooks, tests
 docs/            # Guides: testing, chrome-setup, publishing, image-generation
@@ -96,7 +96,7 @@ When a pipeline stage is confirmed complete, final outputs are copied from `.sup
 | Mode | When to use | Directory convention | State file |
 |------|------------|---------------------|-----------|
 | Single-skill | Direct call to one skill | Output to user-specified or skill-default location | None |
-| Pipeline | Multi-stage workflow (e.g. xhs-pipeline) | Strict `.super/` stage directories + `posts/` output | `state.json` |
+| Pipeline | Multi-stage workflow (e.g. sc-pipeline for WeChat/XHS) | Strict `.super/` stage directories + `posts/` output | `state.json` |
 
 ### First-Time Confirmation
 
@@ -114,7 +114,7 @@ Types: `feat`, `fix`, `refactor`, `perf`, `docs`, `test`, `chore`. Scope is the 
 
 ```
 feat(cover-image): add watercolor style
-fix(post-to-x): handle special characters in hashtags
+fix(publish-xhs): handle special characters in hashtags
 docs(project): update architecture documentation
 ```
 

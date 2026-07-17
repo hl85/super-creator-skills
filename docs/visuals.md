@@ -53,7 +53,7 @@ super-creator 有 3 个视觉内容生成 skill。本文帮助你快速选择合
 **特点：**
 - 11 种视觉风格 × 8 种布局（notion、cute、fresh 等 XHS 原生风格）
 - 支持 Story-driven、Info-dense、Visual-first 三种内容策略
-- 输出竖版图片，与 `sc-post-to-xhs` 配合使用完成发布
+- 输出竖版图片，与 `sc-publish-xhs` 配合使用完成发布
 
 **不适合：** 横版封面、横版演示文稿、单图场景。
 
@@ -68,12 +68,12 @@ super-creator 有 3 个视觉内容生成 skill。本文帮助你快速选择合
 2. sc-article-illustrator  → 分析章节
 3. sc-imagine              → 批量生成章节配图
 4. sc-format-markdown      → 整理排版
-5. sc-post-to-wechat       → 发布
+5. sc-publish-wechat       → 发布
 ```
 
 ### 小红书内容发布流
 
 ```
 1. sc-xhs-images     → 生成图文卡片系列
-2. sc-post-to-xhs    → 发布到小红书（Beta）
+2. sc-publish-xhs    → 发布到小红书（Beta）
 ```

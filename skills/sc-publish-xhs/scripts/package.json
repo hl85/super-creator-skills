@@ -1,0 +1,8 @@
+{
+  "name": "publish-xhs-scripts",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "sc-chrome-cdp": "file:./vendor/sc-chrome-cdp"
+  }
+}

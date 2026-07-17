@@ -6,7 +6,7 @@
 
 | Requirement | Details |
 |-------------|---------|
-| **Naming** | All skills MUST use the `sc-` prefix with descriptive names |
+| **Naming** | All skills MUST use the `sc-` prefix with descriptive, verb-first names (e.g. `sc-publish-wechat`, `sc-publish-xhs`, `sc-convert-markdown-to-html`, `sc-pipeline`, `sc-writer`) |
 | **name field** | Max 64 chars, lowercase letters/numbers/hyphens only, no "anthropic"/"claude" |
 | **description** | Max 1024 chars, third person, include what + when to use |
 | **SKILL.md body** | **MUST be under 30 lines**; use `references/` for all technical details |

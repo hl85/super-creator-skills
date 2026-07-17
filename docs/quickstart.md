@@ -72,6 +72,19 @@ EOF
 ./sc-run sc-format-markdown main article.md
 ```
 
+### 选项 C：一键双平台流水线（推荐完整流程）
+
+```bash
+# 从内容源一键生成并发布到微信公众号
+# 对话中告诉 Claude："用 sc-pipeline 跑一篇微信文章，从这篇博客挖选题"
+
+# 或指定平台
+# 对话中告诉 Claude："启动 sc-pipeline，目标平台 xhs（小红书）"
+# 对话中告诉 Claude："双平台发布，先公众号再小红书"
+```
+
+流水线会自动串联：选题挖掘 → 写作 → 配图 → 审查（硬闸门）→ 发布全流程。详见 [pipeline.md](pipeline.md)。
+
 ---
 
 ## 偏好配置：每个 skill 首次运行自动引导
