@@ -60,12 +60,33 @@ bun skills/<skill>/scripts/main.ts [args]
 - 所有结构化数据使用类型安全接口
 - 2 空格缩进，遵循现有文件约定
 
-## 测试
+## 测试要求
 
+### 测试框架
 - 框架：`node:test`（Node.js 内置），不使用 Jest 或 Vitest
 - 测试文件：与源码同目录的 `*.test.ts` 或 `__tests__/` 目录
 - 运行：`npm test`
 - 优先使用临时目录而不是提交 fixture。测试不应依赖网络、浏览器和凭证
+
+### 分层测试要求
+
+| 层级 | 要求 | 说明 |
+|------|------|------|
+| **共享库（packages/）** | **必须有测试** | sc-fetch、sc-md、sc-chrome-cdp 是所有 Skill 的基础，核心逻辑覆盖率不低于 80% |
+| **有独立逻辑的 Skill** | **建议有测试** | 如 sc-imagine 的 provider 适配层、sc-pipeline 的状态机、sc-publish-* 的核心逻辑 |
+| **纯文档/胶水层 Skill** | **不强制** | sc-web-ai、sc-cover-image、sc-article-illustrator、sc-xhs-images 等主要是调用约定和 prompt 工程，测试价值低 |
+
+### 测试驱动原则（非严格 TDD）
+
+- 修改核心共享库时，**先确保现有测试通过**，再补新功能的测试
+- 修复 bug 时，**先写一个能复现 bug 的测试**，再修复代码
+- 新增共享库功能时，建议**先写测试用例明确预期**，再写实现
+- 文档型和胶水型 Skill 不强求，把精力放在用户体验和文档质量上
+
+### CI 要求
+- 每次 push 和 PR 都会自动跑测试
+- 测试不通过的 PR 不能合并
+- 详见 `.github/workflows/test.yml`
 
 ## 临时目录约定
 
