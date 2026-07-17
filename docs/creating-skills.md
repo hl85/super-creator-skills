@@ -1,127 +1,128 @@
-# Creating New Skills
+# 创建新 Skills
 
-**REQUIRED READING**: [Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)
+**必读**：[Skill 编写最佳实践](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)
 
-## Key Requirements
+## 核心要求
 
-| Requirement | Details |
-|-------------|---------|
-| **Naming** | All skills MUST use the `sc-` prefix with descriptive, verb-first names (e.g. `sc-publish-wechat`, `sc-publish-xhs`, `sc-convert-markdown-to-html`, `sc-pipeline`, `sc-writer`) |
-| **name field** | Max 64 chars, lowercase letters/numbers/hyphens only, no "anthropic"/"claude" |
-| **description** | Max 1024 chars, third person, include what + when to use |
-| **SKILL.md body** | **MUST be under 30 lines**; use `references/` for all technical details |
-| **References** | Use `references/` directory; document Intents in main SKILL.md |
+| 要求 | 详情 |
+|------|------|
+| **命名** | 所有 skills **必须**使用 `sc-` 前缀，采用描述性的、动词优先的命名（例如 `sc-publish-wechat`、`sc-publish-xhs`、`sc-convert-markdown-to-html`、`sc-pipeline`、`sc-writer`） |
+| **name 字段** | 最多 64 字符，仅允许小写字母/数字/连字符，不得包含 "anthropic"/"claude" |
+| **description** | 最多 1024 字符，第三人称，包含功能 + 使用场景 |
+| **SKILL.md 正文** | **必须少于 30 行**；所有技术细节使用 `references/` |
+| **References** | 使用 `references/` 目录；在主 SKILL.md 中记录 Intents |
 
-## Semantic CLI Usage
+## 语义化 CLI 使用
 
-All new skills MUST be compatible with the `./sc-run` runner. 
+所有新 skills **必须**兼容 `./sc-run` 运行器。
 
-**Format**: `./sc-run <skill-name> <script-name> [args...]`
+**格式**：`./sc-run <skill-name> <script-name> [args...]`
 
-The runner automatically resolves:
+运行器自动解析：
 - `skills/<skill-name>/scripts/<script-name>.ts`
-- Runtime detection (`bun` preference)
-- Absolute path math
+- 运行时检测（优先使用 `bun`）
+- 绝对路径计算
 
-## SKILL.md Frontmatter Template
+## SKILL.md Frontmatter 模板
 
 ```yaml
 ---
 name: sc-<name>
-description: <Third-person description. What it does + when to use it.>
-version: <semver matching marketplace.json>
+description: <第三人称描述。功能 + 使用场景。>
+version: <与 marketplace.json 匹配的语义化版本>
 metadata:
   openclaw:
     homepage: https://github.com/hl85/super-creator#sc-<name>
-    requires:          # include only if skill has scripts
+    requires:          # 仅当 skill 有脚本时包含
       anyBins:
         - bun
         - npx
 ---
 ```
 
-## Steps
+## 创建步骤
 
-1. Create `skills/sc-<name>/SKILL.md` with YAML front matter
-2. Add TypeScript in `skills/sc-<name>/scripts/` (if applicable)
-3. Add prompt templates in `skills/sc-<name>/prompts/` if needed
-4. Register the skill in `.claude-plugin/marketplace.json` under the `super-creator` plugin entry
-5. Add Script Directory section to SKILL.md if skill has scripts
-6. Add openclaw metadata to frontmatter
+1. 创建 `skills/sc-<name>/SKILL.md` 并包含 YAML front matter
+2. 在 `skills/sc-<name>/scripts/` 中添加 TypeScript 代码（如适用）
+3. 如有需要，在 `skills/sc-<name>/prompts/` 中添加提示词模板
+4. 在插件注册文件中注册该 skill（TRAE 环境下自动加载，无需手动配置 marketplace.json）
+5. 如果 skill 有脚本，在 SKILL.md 中添加 Script Directory 部分
+6. 在 frontmatter 中添加 openclaw 元数据
 
-## Skill Grouping
+## Skill 分组
 
-All skills are registered under the single `super-creator` plugin. Use these logical groups when deciding where the skill should appear in the docs:
+所有 skills 注册在单一的 `super-creator` 插件下。在文档中决定 skill 应该出现在哪个分组时，使用以下逻辑分组：
 
-| If your skill... | Use group |
-|------------------|-----------|
-| Generates visual content (images, illustrations) | Content Skills |
-| Publishes to platforms (WeChat, Xiaohongshu) | Content Skills |
-| Provides AI generation backend | AI Generation Skills |
-| Converts or processes content | Utility Skills |
+| 如果你的 skill... | 使用分组 |
+|-------------------|---------|
+| 生成视觉内容（图片、插画） | 视觉创作 |
+| 发布到平台（微信公众号、小红书） | 发布 |
+| 提供 AI 生成后端 | AI 生成 |
+| 转换或处理内容 | 审核与优化 |
+| 选题、写作、挖掘内容 | 创作流水线 |
 
-If you add a new logical group, update the docs that present grouped skills, but keep the skill registered under the single `super-creator` plugin entry.
+如果添加新的逻辑分组，更新展示分组 skills 的文档，但保持 skill 注册在单一的 `super-creator` 插件条目下。
 
-## Writing Descriptions
+## 编写描述
 
-**MUST write in third person**:
+**必须使用第三人称编写**：
 
 ```yaml
-# Good
-description: Generates Xiaohongshu infographic series from content. Use when user asks for "小红书图片", "XHS images".
+# 好的示例
+description: 从内容生成小红书信息图系列。当用户要求"小红书图片"、"XHS images"时使用。
 
-# Bad
-description: I can help you create Xiaohongshu images
+# 不好的示例
+description: 我可以帮你创建小红书图片
 ```
 
-## Script Directory Template
+## Script Directory 模板
 
-Every SKILL.md with scripts MUST include:
+每个带脚本的 SKILL.md **必须**包含：
 
 ```markdown
 ## Script Directory
 
-**Important**: All scripts are located in the `scripts/` subdirectory of this skill.
+**重要**：所有脚本位于本 skill 的 `scripts/` 子目录中。
 
-**Agent Execution Instructions**:
-1. Determine this SKILL.md file's directory path as `{baseDir}`
-2. Script path = `{baseDir}/scripts/<script-name>.ts`
-3. Resolve `${BUN_X}` runtime: if `bun` installed → `bun`; if `npx` available → `npx -y bun`; else suggest installing bun
-4. Replace all `{baseDir}` and `${BUN_X}` in this document with actual values
+**Agent 执行说明**：
+1. 确定此 SKILL.md 文件的目录路径为 `{baseDir}`
+2. 脚本路径 = `{baseDir}/scripts/<script-name>.ts`
+3. 解析 `${BUN_X}` 运行时：如果安装了 `bun` → `bun`；如果有 `npx` → `npx -y bun`；否则建议安装 bun
+4. 将本文档中所有 `{baseDir}` 和 `${BUN_X}` 替换为实际值
 
-**Script Reference**:
-| Script | Purpose |
-|--------|---------|
-| `scripts/main.ts` | Main entry point |
+**脚本参考**：
+| 脚本 | 用途 |
+|------|------|
+| `scripts/main.ts` | 主入口 |
 ```
 
-## Progressive Disclosure
+## 渐进式披露
 
-For skills with extensive content:
+对于内容丰富的 skills：
 
 ```
 skills/sc-example/
-├── SKILL.md              # Main instructions (<500 lines)
+├── SKILL.md              # 主指令（<500 行）
 ├── references/
-│   ├── styles.md         # Loaded as needed
-│   └── examples.md       # Loaded as needed
+│   ├── styles.md         # 按需加载
+│   └── examples.md       # 按需加载
 └── scripts/
     └── main.ts
 ```
 
-Link from SKILL.md (one level deep only):
+从 SKILL.md 链接（仅一层深度）：
 ```markdown
-**Available styles**: See [references/styles.md](references/styles.md)
+**可用风格**：参见 [references/styles.md](references/styles.md)
 ```
 
-## Extension Support (EXTEND.md)
+## 扩展支持（EXTEND.md）
 
-Every SKILL.md MUST include EXTEND.md loading. Add as Step 1.1 (workflow skills) or "Preferences" section (utility skills):
+每个 SKILL.md **必须**包含 EXTEND.md 加载。作为步骤 1.1（工作流 skills）或"偏好设置"部分（工具类 skills）添加：
 
 ```markdown
-**1.1 Load Preferences (EXTEND.md)**
+**1.1 加载偏好设置（EXTEND.md）**
 
-Check EXTEND.md existence (priority order):
+检查 EXTEND.md 是否存在（优先级顺序）：
 
 \`\`\`bash
 test -f .super-creator/<skill-name>/EXTEND.md && echo "project"
@@ -129,20 +130,20 @@ test -f "${XDG_CONFIG_HOME:-$HOME/.config}/super-creator/<skill-name>/EXTEND.md"
 test -f "$HOME/.super-creator/<skill-name>/EXTEND.md" && echo "user"
 \`\`\`
 
-| Path | Location |
-|------|----------|
-| `.super-creator/<skill-name>/EXTEND.md` | Project directory |
-| `$XDG_CONFIG_HOME/super-creator/<skill-name>/EXTEND.md` | XDG config (~/.config) |
-| `$HOME/.super-creator/<skill-name>/EXTEND.md` | User home (legacy) |
+| 路径 | 位置 |
+|------|------|
+| `.super-creator/<skill-name>/EXTEND.md` | 项目目录 |
+| `$XDG_CONFIG_HOME/super-creator/<skill-name>/EXTEND.md` | XDG 配置（~/.config） |
+| `$HOME/.super-creator/<skill-name>/EXTEND.md` | 用户主目录（旧版） |
 
-| Result | Action |
-|--------|--------|
-| Found | Read, parse, display summary |
-| Not found | Ask user with AskUserQuestion |
+| 结果 | 操作 |
+|------|------|
+| 找到 | 读取、解析、显示摘要 |
+| 未找到 | 使用 AskUserQuestion 询问用户 |
 ```
 
-End of SKILL.md should include:
+SKILL.md 末尾应包含：
 ```markdown
-## Extension Support
-Custom configurations via EXTEND.md. See **Step 1.1** for paths and supported options.
+## 扩展支持
+通过 EXTEND.md 进行自定义配置。路径和支持的选项参见**步骤 1.1**。
 ```

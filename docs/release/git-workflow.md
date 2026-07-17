@@ -1,229 +1,229 @@
-# Git Workflow Strategy
+# Git 工作流策略
 
-## Overview
+## 概述
 
-Super-creator uses **Git Flow** branching model with automated release process.
+Super-creator 使用 **Git Flow** 分支模型配合自动化发布流程。
 
 ```
-main (production)
- ├── v3.0.0 (tag)
- ├── v3.0.1 (tag)
- └── v3.1.0 (tag)
+main (生产环境)
+ ├── v3.0.0 (标签)
+ ├── v3.0.1 (标签)
+ └── v3.1.0 (标签)
 
-develop (integration)
+develop (集成分支)
  ├── feature/user-auth
  ├── feature/performance
- ├── release/3.1.0 (temporary)
- └── (merges from main)
+ ├── release/3.1.0 (临时分支)
+ └── (从 main 合并)
 
-hotfix (emergency fixes)
- └── hotfix/security-patch (created from main)
+hotfix (紧急修复)
+ └── hotfix/security-patch (从 main 创建)
 ```
 
-## Branch Types
+## 分支类型
 
-### main (Production)
+### main (生产环境)
 
-**Purpose**: Stable, released code
+**用途**：稳定、已发布的代码
 
-**Rules**:
-- Protected branch (require PR review)
-- Only merge from `release/` or `hotfix/` branches
-- Every commit is tagged with version (v3.0.0, v3.0.1, etc.)
-- Must always be in releasable state
+**规则**：
+- 受保护分支（需要 PR 审核）
+- 只能从 `release/` 或 `hotfix/` 分支合并
+- 每个提交都标记版本号（v3.0.0、v3.0.1 等）
+- 必须始终处于可发布状态
 
-**Workflow**:
+**工作流**：
 ```bash
-# DO NOT commit directly to main
-# Always use release or hotfix branches
+# 不要直接提交到 main
+# 始终使用 release 或 hotfix 分支
 
 git checkout main
-git merge --no-ff release/x.y.z    # After release testing
+git merge --no-ff release/x.y.z    # 发布测试完成后
 git tag vx.y.z
 git push origin main --follow-tags
 ```
 
-### develop (Integration)
+### develop (集成)
 
-**Purpose**: Integration branch for feature development
+**用途**：功能开发的集成分支
 
-**Rules**:
-- Protected branch (require status checks)
-- Always keep synchronized with main (after releases)
-- Base branch for all feature branches
+**规则**：
+- 受保护分支（需要状态检查通过）
+- 始终与 main 保持同步（发布后）
+- 所有功能分支的基础分支
 
-**Workflow**:
+**工作流**：
 ```bash
 git checkout develop
 git pull origin develop
 
-# Create feature branches from here
+# 从这里创建功能分支
 git checkout -b feature/my-feature
 ```
 
-### feature/* (Feature Development)
+### feature/* (功能开发)
 
-**Purpose**: Develop individual features or fixes
+**用途**：开发单个功能或修复
 
-**Naming convention**: `feature/<feature-name>`
+**命名约定**：`feature/<feature-name>`
 
-**Rules**:
-- Create from: `develop`
-- Merge back to: `develop` (via PR)
-- Commit message: Conventional commits
-- Short-lived (delete after merge)
+**规则**：
+- 从：`develop` 创建
+- 合并回：`develop`（通过 PR）
+- 提交信息：遵循 Conventional Commits 规范
+- 短期分支（合并后删除）
 
-**Workflow**:
+**工作流**：
 ```bash
 git checkout develop
 git pull origin develop
 git checkout -b feature/add-new-skill
 
-# ... make commits ...
-git commit -m "feat(new-skill): initial implementation"
-git commit -m "feat(new-skill): add tests"
+# ... 进行提交 ...
+git commit -m "feat(sc-new-skill): initial implementation"
+git commit -m "feat(sc-new-skill): add tests"
 git push origin feature/add-new-skill
 
-# Create PR on GitHub
-# After approval and CI passes → merge to develop
+# 在 GitHub 上创建 PR
+# 审核通过且 CI 通过后 → 合并到 develop
 ```
 
-### release/* (Release Preparation)
+### release/* (发布准备)
 
-**Purpose**: Prepare release (version bump, changelog, testing)
+**用途**：准备发布（版本号更新、更新日志、测试）
 
-**Naming convention**: `release/x.y.z` (matching version)
+**命名约定**：`release/x.y.z`（匹配版本号）
 
-**Rules**:
-- Create from: `develop`
-- Merge to: `main` and back to `develop`
-- Only version/changelog commits allowed
-- Must be tested before merge to main
-- Delete after merging
+**规则**：
+- 从：`develop` 创建
+- 合并到：`main` 并回合并到 `develop`
+- 只允许版本/更新日志相关的提交
+- 合并到 main 前必须完成测试
+- 合并后删除
 
-**Workflow**:
+**工作流**：
 ```bash
 git checkout -b release/3.1.0 develop
 
-# Verify tests pass
+# 验证测试通过
 npm test
 
-# Run release automation
+# 运行发布自动化
 /release-skills --dry-run
 /release-skills
 
-# This creates:
-# - Updated marketplace.json
-# - Updated CHANGELOG.md, CHANGELOG.zh.md
-# - Commit: "chore: release v3.1.0"
-# - Tag: v3.1.0
+# 这会创建：
+# - 更新后的 marketplace.json
+# - 更新后的 CHANGELOG.md、CHANGELOG.zh.md
+# - 提交："chore: release v3.1.0"
+# - 标签：v3.1.0
 
-# Merge to main
+# 合并到 main
 git checkout main
 git merge --no-ff release/3.1.0
 git push origin main --follow-tags
 
-# Merge back to develop
+# 合并回 develop
 git checkout develop
 git merge --no-ff main
 git push origin develop
 
-# Delete release branch
+# 删除 release 分支
 git branch -d release/3.1.0
 git push origin --delete release/3.1.0
 ```
 
-### hotfix/* (Emergency Fixes)
+### hotfix/* (紧急修复)
 
-**Purpose**: Fix critical bugs in production
+**用途**：修复生产环境的关键 bug
 
-**Naming convention**: `hotfix/<fix-name>`
+**命名约定**：`hotfix/<fix-name>`
 
-**Rules**:
-- Create from: `main` (production branch)
-- Merge to: `main` AND `develop`
-- Bump patch version only (`--patch` flag)
-- Must be tested before merge to main
-- Delete after merging
+**规则**：
+- 从：`main`（生产分支）创建
+- 合并到：`main` 和 `develop`
+- 只升级补丁版本号（`--patch` 标志）
+- 合并到 main 前必须完成测试
+- 合并后删除
 
-**Workflow**:
+**工作流**：
 ```bash
-# When critical bug found in production
+# 当生产环境发现关键 bug 时
 git checkout -b hotfix/security-vulnerability main
 
-# Fix the bug
+# 修复 bug
 git add .
-git commit -m "fix(skill-name): critical security fix"
+git commit -m "fix(sc-skill-name): critical security fix"
 
-# Test thoroughly
+# 充分测试
 npm test
 
-# Release with patch bump
+# 发布补丁版本
 /release-skills --patch
 
-# Merge to main
+# 合并到 main
 git checkout main
 git merge --no-ff hotfix/security-vulnerability
 git push origin main --follow-tags
 
-# Merge back to develop
+# 合并回 develop
 git checkout develop
 git merge --no-ff main
 git push origin develop
 
-# Delete hotfix branch
+# 删除 hotfix 分支
 git branch -d hotfix/security-vulnerability
 git push origin --delete hotfix/security-vulnerability
 ```
 
-## Workflow Examples
+## 工作流示例
 
-### Example 1: Add New Feature
+### 示例 1：添加新功能
 
 ```bash
-# 1. Start from develop
+# 1. 从 develop 开始
 git checkout develop
 git pull origin develop
 
-# 2. Create feature branch
+# 2. 创建功能分支
 git checkout -b feature/add-cover-style
 
-# 3. Implement feature
-# ... edit cover-image skill ...
-git add skills/cover-image/
-git commit -m "feat(cover-image): add watercolor style"
-git commit -m "test(cover-image): add watercolor style tests"
+# 3. 实现功能
+# ... 编辑 sc-cover-image skill ...
+git add skills/sc-cover-image/
+git commit -m "feat(sc-cover-image): add watercolor style"
+git commit -m "test(sc-cover-image): add watercolor style tests"
 
-# 4. Push to GitHub
+# 4. 推送到 GitHub
 git push origin feature/add-cover-style
 
-# 5. Create PR on GitHub
-# → GitHub shows: Ready to merge into develop from feature/add-cover-style
-# → CI checks run automatically
-# → Code review happens
+# 5. 在 GitHub 上创建 PR
+# → GitHub 显示：Ready to merge into develop from feature/add-cover-style
+# → CI 检查自动运行
+# → 进行代码审核
 
-# 6. After approval, merge via GitHub (creates merge commit)
-# → Feature branch automatically deleted (if configured)
+# 6. 审核通过后，通过 GitHub 合并（创建合并提交）
+# → 功能分支自动删除（如果配置了）
 
-# 7. Local sync
+# 7. 本地同步
 git checkout develop
 git pull origin develop
 ```
 
-### Example 2: Release to Production
+### 示例 2：发布到生产环境
 
 ```bash
-# 1. Create release branch
+# 1. 创建 release 分支
 git checkout -b release/3.1.0 develop
 
-# 2. Verify everything is ready
+# 2. 验证一切就绪
 npm test
 node scripts/verify-version-sync.mjs
 
-# 3. Preview release
+# 3. 预览发布
 /release-skills --dry-run
 
-# Expected output:
+# 预期输出：
 # Project detected:
 #   Version file: marketplace.json (3.0.0)
 #   Changelogs: CHANGELOG.md (en), CHANGELOG.zh.md (zh)
@@ -232,253 +232,253 @@ node scripts/verify-version-sync.mjs
 # Proposed version: v3.1.0
 # 
 # Changes grouped:
-#   cover-image:
+#   sc-cover-image:
 #     - feat: add watercolor style
-#   post-to-x:
+#   sc-publish-xhs:
 #     - fix: handle special characters
 #   project:
-#     - docs: update CLAUDE.md
+#     - docs: update README.md
 # 
-# Changelog preview (en):
+# Changelog preview (zh):
 #   ## 3.1.0 - 2026-05-13
-#   ### Features
-#   - Add watercolor style to cover-image
-#   ### Fixes
-#   - Fix special character handling in post-to-x
+#   ### 新功能
+#   - 为 sc-cover-image 添加水彩风格
+#   ### 修复
+#   - 修复 sc-publish-xhs 中特殊字符处理
 
-# 4. Execute release
+# 4. 执行发布
 /release-skills
 
-# This automatically:
-# - Updates marketplace.json to 3.1.0
-# - Generates CHANGELOG.md 3.1.0 section
-# - Generates CHANGELOG.zh.md 3.1.0 section
-# - Creates commit: "chore: release v3.1.0"
-# - Creates tag: v3.1.0
-# - Calls hooks (prepare_artifact, publish_artifact)
+# 这会自动：
+# - 将 marketplace.json 更新到 3.1.0
+# - 生成 CHANGELOG.md 3.1.0 部分
+# - 生成 CHANGELOG.zh.md 3.1.0 部分
+# - 创建提交："chore: release v3.1.0"
+# - 创建标签：v3.1.0
+# - 调用钩子（prepare_artifact、publish_artifact）
 
-# 5. Merge to main
+# 5. 合并到 main
 git checkout main
 git pull origin main
 git merge --no-ff release/3.1.0
 
-# Expected:
+# 预期：
 # Merge made by the 'recursive' strategy.
 
-# 6. Push main with tags
+# 6. 推送 main 和标签
 git push origin main --follow-tags
 
-# 7. Merge back to develop
+# 7. 合并回 develop
 git checkout develop
 git pull origin develop
 git merge --no-ff main
 
-# If there are conflicts (changelog), resolve manually:
-# - Keep the latest version section from main
-# - Commit: "chore: sync develop with main after release"
+# 如果有冲突（changelog），手动解决：
+# - 保留 main 中的最新版本部分
+# - 提交："chore: sync develop with main after release"
 git push origin develop
 
-# 8. Cleanup
+# 8. 清理
 git branch -d release/3.1.0
 git push origin --delete release/3.1.0
 ```
 
-### Example 3: Emergency Hotfix
+### 示例 3：紧急热修复
 
 ```bash
-# 1. Create hotfix from main
+# 1. 从 main 创建 hotfix
 git checkout -b hotfix/fix-wechat-auth main
 
-# 2. Make critical fix
-# ... edit post-to-wechat skill ...
-git commit -m "fix(post-to-wechat): fix authentication token expiry"
+# 2. 进行关键修复
+# ... 编辑 sc-publish-wechat skill ...
+git commit -m "fix(sc-publish-wechat): fix authentication token expiry"
 
-# 3. Test thoroughly
+# 3. 充分测试
 npm test
 
-# 4. Release with patch bump only
+# 4. 只发布补丁版本
 /release-skills --patch
 
-# Proposed: 3.0.0 → 3.0.1
+# 提议：3.0.0 → 3.0.1
 
-# 5. Merge to main
+# 5. 合并到 main
 git checkout main
 git pull origin main
 git merge --no-ff hotfix/fix-wechat-auth
 git push origin main --follow-tags
 
-# 6. Merge to develop
+# 6. 合并到 develop
 git checkout develop
 git pull origin develop
 git merge --no-ff main
 git push origin develop
 
-# 7. Cleanup
+# 7. 清理
 git branch -d hotfix/fix-wechat-auth
 git push origin --delete hotfix/fix-wechat-auth
 ```
 
-## GitHub Configuration
+## GitHub 配置
 
-### Branch Protection Rules
+### 分支保护规则
 
-**For `main` branch**:
-- ✅ Require pull request reviews before merging (1 reviewer)
-- ✅ Dismiss stale pull request approvals when new commits are pushed
-- ✅ Require status checks to pass before merging (CI/CD)
-- ✅ Require branches to be up to date before merging
-- ✅ Require code reviews to be resolved before merge
-- ❌ Do NOT allow direct pushes (use PR workflow)
+**对于 `main` 分支**：
+- ✅ 合并前需要 PR 审核（1 个审核者）
+- ✅ 新提交推送时驳回过时的 PR 批准
+- ✅ 合并前需要状态检查通过（CI/CD）
+- ✅ 合并前分支必须是最新的
+- ✅ 合并前必须解决所有代码审核意见
+- ❌ 不允许直接推送（使用 PR 工作流）
 
-**For `develop` branch**:
-- ✅ Require status checks to pass before merging (CI/CD)
-- ✅ Require branches to be up to date before merging
-- ⚠️ Allow direct pushes from release and hotfix branches
-- ❌ Require PR reviews (optional, for extra safety)
+**对于 `develop` 分支**：
+- ✅ 合并前需要状态检查通过（CI/CD）
+- ✅ 合并前分支必须是最新的
+- ⚠️ 允许从 release 和 hotfix 分支直接推送
+- ❌ 需要 PR 审核（可选，为了更安全建议开启）
 
-### Required Status Checks
+### 必需的状态检查
 
-- ✅ CI/CD pipeline (GitHub Actions or similar)
-- ✅ All tests passing
-- ✅ No merge conflicts
+- ✅ CI/CD 流水线（GitHub Actions 或类似）
+- ✅ 所有测试通过
+- ✅ 无合并冲突
 
-## Conventions
+## 约定
 
-### Commit Messages
+### 提交信息
 
-Follow [Conventional Commits](https://www.conventionalcommits.org/):
+遵循 [Conventional Commits](https://www.conventionalcommits.org/) 规范：
 
 ```
 <type>(<scope>): <description>
 
-<optional body>
+<可选正文>
 ```
 
-**Types**: feat, fix, refactor, perf, docs, test, chore, style
+**类型**：feat, fix, refactor, perf, docs, test, chore, style
 
-**Scope**: skill name or `project`
+**范围**：skill 名称或 `project`
 
-**Examples**:
+**示例**：
 ```bash
-git commit -m "feat(cover-image): add watercolor and minimalist styles"
-git commit -m "fix(post-to-x): handle special characters in hashtags"
+git commit -m "feat(sc-cover-image): add watercolor and minimalist styles"
+git commit -m "fix(sc-publish-xhs): handle special characters in hashtags"
 git commit -m "docs(project): update architecture documentation"
-git commit -m "refactor(imagine): improve prompt generation logic"
+git commit -m "refactor(sc-imagine): improve prompt generation logic"
 ```
 
-### Merge Commits
+### 合并提交
 
-Always use `--no-ff` (no fast-forward) to preserve branch history:
+始终使用 `--no-ff`（不快进）来保留分支历史：
 
 ```bash
 git merge --no-ff feature/my-feature
-# Creates: Merge branch 'feature/my-feature' into develop
+# 创建：Merge branch 'feature/my-feature' into develop
 ```
 
-### Tag Format
+### 标签格式
 
-Version tags follow Semantic Versioning:
+版本标签遵循语义化版本控制：
 
 ```bash
-v3.0.0    # Major release
-v3.0.1    # Patch release
-v3.1.0    # Minor release
+v3.0.0    # 主版本发布
+v3.0.1    # 补丁版本发布
+v3.1.0    # 次版本发布
 ```
 
-Tags are **created automatically** by `/release-skills`.
+标签由 `/release-skills` **自动创建**。
 
-## Local Setup
+## 本地设置
 
-One-time setup:
+一次性设置：
 
 ```bash
-# Clone repository
+# 克隆仓库
 git clone https://github.com/hl85/super-creator.git
 cd super-creator
 
-# Install dependencies (auto-configures git hooks via `prepare` script)
+# 安装依赖（通过 `prepare` 脚本自动配置 git hooks）
 npm install
 
-# Pull all branches
+# 拉取所有分支
 git fetch origin
 git checkout develop
 
-# Verify setup
+# 验证设置
 git branch -a
-git hooks show    # Should show pre-push hook installed
+git hooks show    # 应该显示 pre-push hook 已安装
 ```
 
-## Daily Operations
+## 日常操作
 
 ```bash
-# Start day: sync with remote
+# 开始一天：与远程同步
 git fetch origin
 git status
 
-# Create feature branch
+# 创建功能分支
 git checkout -b feature/my-feature develop
-git pull origin develop  # Ensure latest
+git pull origin develop  # 确保是最新的
 
-# ... make changes ...
+# ... 进行修改 ...
 
-# Before pushing: verify
-node scripts/verify-version-sync.mjs  # If changed versions
+# 推送前：验证
+node scripts/verify-version-sync.mjs  # 如果修改了版本
 
-# Push
+# 推送
 git push origin feature/my-feature
 
-# Create PR on GitHub
+# 在 GitHub 上创建 PR
 ```
 
-## Troubleshooting
+## 故障排除
 
 ### "main is not up to date with develop"
 
 ```bash
-# This can happen after hotfix
-# Solution: merge main into develop
+# 这可能在 hotfix 后发生
+# 解决方案：将 main 合并到 develop
 git checkout develop
 git pull origin develop
 git merge origin/main
-# Resolve conflicts if any
+# 如果有冲突则解决
 git push origin develop
 ```
 
-### Merge Conflict on CHANGELOG
+### CHANGELOG 合并冲突
 
-During release merge, CHANGELOG conflicts are expected:
+在发布合并期间，CHANGELOG 冲突是预期的：
 
 ```bash
-# When merging release to develop:
-# Both branches modified CHANGELOG.md
-# Solution:
-git status  # Shows CHANGELOG.md as conflicted
+# 当将 release 合并到 develop 时：
+# 两个分支都修改了 CHANGELOG.md
+# 解决方案：
+git status  # 显示 CHANGELOG.md 有冲突
 
-# Keep develop's current state (latest additions):
+# 保留 develop 的当前状态（最新添加的内容）：
 git checkout --theirs CHANGELOG.md
 git add CHANGELOG.md
 git commit -m "chore: resolve changelog conflicts"
 git push
 ```
 
-### Accidental Commit to main
+### 意外提交到 main
 
 ```bash
-# If you committed directly to main (don't do this):
-git log --oneline -5  # Identify commit
+# 如果你直接提交到了 main（不要这样做）：
+git log --oneline -5  # 识别提交
 
-# Option 1: Revert commit (preferred)
+# 选项 1：还原提交（推荐）
 git revert <commit-hash>
 git push origin main
 
-# Option 2: Reset and redo (only if not pushed)
+# 选项 2：重置并重做（仅在未推送时）
 git reset --soft HEAD~1
-git push -f origin main  # Use with caution!
+git push -f origin main  # 谨慎使用！
 ```
 
-## References
+## 参考资料
 
-- `docs/release/release-strategy.md` - Release automation
-- `.releaserc.yml` - Release configuration
-- `.githooks/` - Git hooks (root directory, auto-installed)
-- `scripts/` - Release scripts
+- `docs/release/release-strategy.md` - 发布自动化
+- `.releaserc.yml` - 发布配置
+- `.githooks/` - Git hooks（根目录，自动安装）
+- `scripts/` - 发布脚本

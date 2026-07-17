@@ -83,7 +83,9 @@ CLI 参数
 # XIAOHONGSHU_MCP_URL=
 
 # ── Chrome 路径覆盖（通常不需要设置）─────────────────────────────────────────
-# 默认路径见：docs/chrome-profile.md
+# 默认路径：~/Library/Application Support/super-creator/chrome-profile (macOS)
+#            ~/.config/super-creator/chrome-profile (Linux)
+#            %APPDATA%\super-creator\chrome-profile (Windows)
 # SC_CHROME_PROFILE_DIR=
 ```
 
@@ -122,11 +124,11 @@ CLI 参数
 
 | 变量名 | 用途 | 适用 Skill |
 |--------|------|-----------|
-| `SC_CHROME_PROFILE_DIR` | 覆盖所有 CDP skill 的共享 Profile 路径 | `sc-publish-wechat`、`sc-publish-xhs`、`sc-gemini-web` |
-| `GEMINI_WEB_CHROME_PATH` | Gemini Web 专用 Chrome 路径 | `sc-gemini-web` |
-| `GEMINI_WEB_CHROME_PROFILE_DIR` | Gemini Web 专用 Profile 路径 | `sc-gemini-web` |
+| `SC_CHROME_PROFILE_DIR` | 覆盖所有 CDP skill 的共享 Profile 路径 | `sc-publish-wechat`、`sc-publish-xhs` |
 
-> 通常只需设置 `SC_CHROME_PROFILE_DIR`（如果默认路径不合适），其余都不需要。默认路径见 [chrome-profile.md](chrome-profile.md)。
+> 通常只需设置 `SC_CHROME_PROFILE_DIR`（如果默认路径不合适），其余都不需要。默认路径见 [chrome-setup.md](chrome-setup.md)。
+
+> **注意**：`sc-web-ai` 免费生图使用 IDE 内置浏览器，不需要配置 Chrome 环境变量，只需在 IDE 浏览器中登录 Gemini/ChatGPT 即可。
 
 
 
@@ -183,6 +185,5 @@ CLI 参数
 ## 相关文档
 
 - [quickstart.md](quickstart.md) — 10 分钟快速上手
-- [chrome-setup.md](chrome-setup.md) — Chrome 首次配置详细步骤
-- [chrome-profile.md](chrome-profile.md) — 各平台 Chrome Profile 默认路径
+- [chrome-setup.md](chrome-setup.md) — Chrome 首次配置详细步骤（含各平台默认路径）
 - [pipeline.md](pipeline.md) — 完整内容创作飞轮

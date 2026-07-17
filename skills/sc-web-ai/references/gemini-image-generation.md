@@ -107,3 +107,34 @@ professional look, white background.
 | 图片加载失败 | 右键点击图片选择"重新加载图片" |
 | 下载按钮没反应 | 右键图片选择"图片另存为" |
 | 需要多张图片 | 在提示词中明确要求"generate 4 images"等 |
+| ref 失效（stale element） | 重新 snapshot 获取最新 ref，或用 browser_evaluate 直接操作 |
+
+## 快速参考：生图操作 JS 片段
+
+如果 `browser_type` 和 ref 不稳定，可以用 `browser_evaluate` 直接操作：
+
+```javascript
+// 输入+发送
+const textarea = document.querySelector('textarea[aria-label*="Gemini 输入提示"]') 
+  || document.querySelector('textarea[aria-label*="为 Gemini"]');
+textarea.value = 'Generate an image in Nano Banana style: a cute cat. Cute hand-drawn 2D illustration, soft colors, white background.';
+textarea.dispatchEvent(new Event('input', { bubbles: true }));
+const sendBtn = document.querySelector('button[aria-label="发送"]');
+sendBtn.click();
+return 'sent';
+```
+
+检查是否生成完成：
+```javascript
+const downloadBtn = document.querySelector('button[aria-label*="下载完整尺寸"]');
+const stopBtn = document.querySelector('button[aria-label*="停止回答"]');
+const imgs = document.querySelectorAll('img[alt*="AI 生成"]');
+return JSON.stringify({ done: !!downloadBtn && !stopBtn, imgCount: imgs.length, generating: !!stopBtn });
+```
+
+下载图片：
+```javascript
+const downloadBtn = document.querySelector('button[aria-label*="下载完整尺寸"]');
+downloadBtn.click();
+return 'downloading';
+```

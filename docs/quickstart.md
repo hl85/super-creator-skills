@@ -31,9 +31,25 @@ bun --version
 
 ---
 
-## 第三步：配置 API Key（图像生成类 skill 必须）
+## 第三步：配置免费生图（强烈推荐，零成本！）
 
-如果你打算使用 `sc-imagine`、`sc-cover-image`、`sc-article-illustrator`、`sc-xhs-images` 等视觉 skill，需要至少一个图像生成 provider 的 API Key。
+v3.4.0 之后最推荐的方式，不需要任何 API Key：
+
+1. 在 IDE 内置浏览器中打开 https://gemini.google.com/
+2. 使用你的 Google 账号登录
+3. 保持标签页打开即可
+
+（备选）也可以登录 https://chatgpt.com/ 使用 DALL-E 生图。
+
+完成后，`sc-web-ai`、`sc-cover-image`、`sc-article-illustrator`、`sc-xhs-images`、`sc-pipeline` 等视觉 skill 会优先使用网页版免费生图，效果绝佳且完全免费。
+
+> 详细策略：[image-generation-priority.md](image-generation-priority.md)
+
+---
+
+## 第四步：配置 API Key（可选，用于批量生成）
+
+如果你需要批量生成或更稳定的服务，可以配置 `sc-imagine` 的 API Key。
 
 **推荐：Google（免费额度最多）**
 
@@ -54,9 +70,17 @@ EOF
 
 ---
 
-## 第四步：运行第一个 skill
+## 第五步：运行第一个 skill
 
-### 选项 A：图像生成（需要 API Key）
+### 选项 A：免费生图（零配置，推荐！）
+
+在对话中直接说：
+```
+帮我生成一张可爱的小猫咪图片，水彩风格
+```
+AI 会自动使用 `sc-web-ai` 通过 IDE 浏览器操作 Gemini 免费生图。
+
+### 选项 B：API 图像生成（需要 API Key）
 
 ```bash
 # 在任意目录下运行
@@ -65,25 +89,25 @@ EOF
 
 首次运行会触发偏好设置对话（选择默认 provider、模型、质量），配置保存后下次直接执行。
 
-### 选项 B：内容格式化（无需任何配置）
+### 选项 C：内容格式化（无需任何配置）
 
 ```bash
 # 格式化一篇 Markdown 文章
 ./sc-run sc-format-markdown main article.md
 ```
 
-### 选项 C：一键双平台流水线（推荐完整流程）
+### 选项 D：一键双平台流水线（推荐完整流程）
 
 ```bash
 # 从内容源一键生成并发布到微信公众号
-# 对话中告诉 Claude："用 sc-pipeline 跑一篇微信文章，从这篇博客挖选题"
+# 对话中告诉 AI："用 sc-pipeline 跑一篇微信文章，从这篇博客挖选题"
 
 # 或指定平台
-# 对话中告诉 Claude："启动 sc-pipeline，目标平台 xhs（小红书）"
-# 对话中告诉 Claude："双平台发布，先公众号再小红书"
+# 对话中告诉 AI："启动 sc-pipeline，目标平台 xhs（小红书）"
+# 对话中告诉 AI："双平台发布，先公众号再小红书"
 ```
 
-流水线会自动串联：选题挖掘 → 写作 → 配图 → 审查（硬闸门）→ 发布全流程。详见 [pipeline.md](pipeline.md)。
+流水线会自动串联：选题挖掘 → 写作 → 配图（优先免费生图）→ 审查（硬闸门）→ 发布全流程。详见 [pipeline.md](pipeline.md)。
 
 ---
 
@@ -100,39 +124,27 @@ EOF
 
 ---
 
-## 本地开发：注册项目级插件
+## 本地开发
 
-如果你在本地克隆这个仓库进行开发，可以通过以下方式让 Claude Code 立即加载你的改动：
+如果你在本地克隆这个仓库进行开发，可以通过以下方式让 TRAE IDE 立即加载你的改动：
 
-### 推荐：项目级插件自动加载（无需额外配置）
+### 推荐：项目级 skills 自动加载（无需额外配置）
 
-Claude Code 启动时会自动扫描项目根目录的 `.claude-plugin/marketplace.json`，加载所有 skill。**无需手动注册**——只要在项目目录打开 Claude Code，改动即时生效。
+TRAE IDE 启动时会自动扫描项目 `.agents/skills/` 目录下的所有 skill。**无需手动注册**——只要在项目目录打开 TRAE，改动即时生效。
 
-### 备选 1：符号链接到共享 skills 目录（自动同步改动）
+### 符号链接到全局 skills 目录（跨项目使用）
 
 ```bash
-# 创建项目的符号链接
-ln -sf /path/to/super-creator ~/.agents/super-creator-dev
+# 创建项目的符号链接到全局 skills 目录
+ln -sf /path/to/super-creator/skills/sc-<skill-name> ~/.trae/skills/sc-<skill-name>
 
-# 更新共享 skills 目录的 symlink（以 imagine 为例）
-rm ~/.agents/skills/sc-imagine
-ln -sf /path/to/super-creator/skills/sc-imagine ~/.agents/skills/sc-imagine
+# 示例：以 sc-imagine 为例
+ln -sf /path/to/super-creator/skills/sc-imagine ~/.trae/skills/sc-imagine
 
 # 对其他开发中的 skill 重复上述操作
 ```
 
 优点：本地编辑后立即生效，无需手动复制。缺点：需要在每个 skill 目录单独建立 symlink。
-
-### 备选 2：复制到共享 skills 目录（一次性同步）
-
-```bash
-# 将开发中的 skill 复制到共享目录
-cp -r ./skills/sc-imagine ~/.agents/skills/
-cp -r ./skills/sc-article-illustrator ~/.agents/skills/
-# ... 对其他 skill 重复
-
-# 编辑后需要手动重复此命令以更新
-```
 
 ---
 

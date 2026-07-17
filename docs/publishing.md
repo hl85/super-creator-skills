@@ -1,42 +1,43 @@
-# ClawHub / OpenClaw Publishing
+# 发布与共享包管理
 
-## OpenClaw Metadata
+## OpenClaw 元数据
 
-Skills include `metadata.openclaw` in YAML front matter:
+Skills 在 YAML front matter 中包含 `metadata.openclaw` 字段：
 
 ```yaml
 metadata:
   openclaw:
     homepage: https://github.com/hl85/super-creator#sc-<skill-name>
-    requires:          # only for skills with scripts
+    requires:          # 仅适用于带脚本的 skill
       anyBins:
         - bun
         - npx
 ```
 
-## Publishing Commands
+## 发布命令
 
 ```bash
-bash scripts/sync-clawhub.sh           # sync all skills
-bash scripts/sync-clawhub.sh <skill>   # sync one skill
+bash scripts/sync-clawhub.sh           # 同步所有 skills
+bash scripts/sync-clawhub.sh <skill>   # 同步单个 skill
 ```
 
-Release hooks are configured via `.releaserc.yml`. This repo does not stage a separate release directory: release prep only syncs `packages/` into each skill's committed `scripts/vendor/`, and publish reads the skill directory directly.
+发布钩子通过 `.releaserc.yml` 配置。本仓库不单独设置发布目录：发布准备只负责将 `packages/` 同步到每个 skill 的 `scripts/vendor/` 目录中，发布时直接读取 skill 目录。
 
-## Shared Workspace Packages
+## 共享工作区包
 
-`packages/` is the **only** source of truth. Never edit `skills/*/scripts/vendor/` directly.
+`packages/` 是**唯一**的真相来源。永远不要直接编辑 `skills/*/scripts/vendor/`。
 
-Current packages:
-- `sc-chrome-cdp` (Chrome CDP utilities), consumed by 3 skills (`sc-gemini-web`, `sc-publish-wechat`, `sc-publish-xhs`)
-- `sc-md` (shared Markdown rendering and placeholder pipeline), consumed by 2 skills (`sc-convert-markdown-to-html`, `sc-publish-wechat`)
-- `sc-fetch` (HTTP fetch utilities)
+当前共享包：
+- `sc-chrome-cdp`（Chrome CDP 工具），被 2 个 skill 使用（`sc-publish-wechat`、`sc-publish-xhs`）
+- `sc-md`（共享 Markdown 渲染和占位符处理），被 2 个 skill 使用（`sc-convert-markdown-to-html`、`sc-publish-wechat`）
+- `sc-fetch`（HTTP 获取工具）
+- `sc-extend-config`（EXTEND.md 配置解析）
 
-**How it works**: Sync script copies packages into each consuming skill's `vendor/` directory and rewrites dependency specs to `file:./vendor/<name>`. Vendor copies are committed to git, making skills self-contained.
+**工作原理**：同步脚本将包复制到每个使用它的 skill 的 `vendor/` 目录，并将依赖规范重写为 `file:./vendor/<name>`。Vendor 副本会提交到 git，使 skills 是自包含的。
 
-**Update workflow**:
-1. Edit package under `packages/`
-2. Run `node scripts/sync-shared-skill-packages.mjs`
-3. Commit synced `vendor/`, `package.json`, and `bun.lock` together
+**更新流程**：
+1. 在 `packages/` 下编辑包代码
+2. 运行 `node scripts/sync-shared-skill-packages.mjs`
+3. 将同步后的 `vendor/`、`package.json` 和 `bun.lock` 一起提交
 
-**Git hook**: `pre-push` is auto-installed on `npm install` (via the `prepare` script). It re-syncs and blocks push if vendor copies are stale (`--enforce-clean`).
+**Git 钩子**：`npm install` 时会自动安装 `pre-push` 钩子（通过 `prepare` 脚本）。它会重新同步，如果 vendor 副本过期（`--enforce-clean`）会阻止推送。

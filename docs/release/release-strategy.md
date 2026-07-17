@@ -1,14 +1,14 @@
-# Release Strategy
+# 发布策略
 
-## Overview
+## 概述
 
-Release process for super-creator is **automated** via the `/release-skills` Claude skill, with support for monorepo-style multi-skill releases and automatic version synchronization across all version files.
+super-creator 的发布流程通过 `/release-skills` Claude skill 实现**自动化**，支持 monorepo 风格的多 skill 发布，并能自动同步所有版本文件的版本号。
 
-## Version Management
+## 版本管理
 
-### Single Source of Truth
+### 单一真相来源
 
-**Primary version file**: `marketplace.json`
+**主版本文件**：`marketplace.json`
 
 ```json
 {
@@ -18,221 +18,221 @@ Release process for super-creator is **automated** via the `/release-skills` Cla
 }
 ```
 
-All other version files are **automatically synchronized** to match this version during release.
+所有其他版本文件在发布期间会**自动同步**以匹配此版本。
 
-### Version Files (Auto-Synced)
+### 版本文件（自动同步）
 
-| File | Path | Purpose | Manual Edit? |
-|------|------|---------|--------------|
-| **marketplace.json** | `$.metadata.version` | Plugin registry (PRIMARY) | ❌ No |
-| **CHANGELOG.md** | Section header | English changelog (auto-generated) | ❌ No |
-| **CHANGELOG.zh.md** | Section header | Chinese changelog (auto-generated) | ❌ No |
-| **package.json** | `$.version` | Node.js metadata | ❌ No |
+| 文件 | 路径 | 用途 | 手动编辑？ |
+|------|------|------|-----------|
+| **marketplace.json** | `$.metadata.version` | 插件注册表（主要） | ❌ 否 |
+| **CHANGELOG.md** | 章节标题 | 英文更新日志（自动生成） | ❌ 否 |
+| **CHANGELOG.zh.md** | 章节标题 | 中文更新日志（自动生成） | ❌ 否 |
+| **package.json** | `$.version` | Node.js 元数据 | ❌ 否 |
 
-### Policy
+### 策略
 
-1. **Never manually edit version files** during release
-2. Always use `/release-skills` skill for version bumping
-3. Version changes are automatic based on commit analysis
-4. All version files must stay synchronized (enforced by `scripts/verify-version-sync.mjs`)
+1. 发布期间**永远不要手动编辑版本文件**
+2. 始终使用 `/release-skills` skill 进行版本升级
+3. 版本变更基于提交分析自动进行
+4. 所有版本文件必须保持同步（由 `scripts/verify-version-sync.mjs` 强制执行）
 
-## Versioning Scheme
+## 版本控制方案
 
-**Semantic Versioning**: MAJOR.MINOR.PATCH (e.g., 3.0.0)
+**语义化版本控制**：MAJOR.MINOR.PATCH（例如 3.0.0）
 
-### Version Bump Rules
+### 版本升级规则
 
-Analyzed from git log since last tag:
+基于上一个标签以来的 git log 分析：
 
-1. **BREAKING CHANGE detected** → Major bump (e.g., 2.0.0 → 3.0.0)
-   - Commit body contains `BREAKING CHANGE:`
-   - Public APIs removed or renamed
-   - Interfaces changed
+1. **检测到 BREAKING CHANGE** → 主版本升级（例如 2.0.0 → 3.0.0）
+   - 提交正文包含 `BREAKING CHANGE:`
+   - 公共 API 被移除或重命名
+   - 接口发生变更
 
-2. **`feat:` commits present** → Minor bump (e.g., 3.0.0 → 3.1.0)
-   - New features added
+2. **存在 `feat:` 提交** → 次版本升级（例如 3.0.0 → 3.1.0）
+   - 添加了新功能
 
-3. **Only `fix:` and other commits** → Patch bump (e.g., 3.0.1 → 3.0.2)
-   - Bug fixes, refactoring, docs, tests
+3. **只有 `fix:` 和其他提交** → 补丁版本升级（例如 3.0.1 → 3.0.2）
+   - Bug 修复、重构、文档、测试
 
-4. **User override** → Use specified version
-   - `--major`, `--minor`, `--patch` flags
+4. **用户覆盖** → 使用指定版本
+   - `--major`、`--minor`、`--patch` 标志
 
-## Release Workflow
+## 发布工作流
 
-### Step 1: Prepare Release Branch
+### 步骤 1：准备发布分支
 
 ```bash
 git checkout -b release/x.y.z develop
 ```
 
-### Step 2: Verify Pre-Release Checks
+### 步骤 2：验证发布前检查
 
 ```bash
-# Run all tests
+# 运行所有测试
 npm test
 
-# Check version consistency
+# 检查版本一致性
 node scripts/verify-version-sync.mjs
 
-# Verify no uncommitted changes
+# 验证没有未提交的更改
 git status
 ```
 
-### Step 3: Preview Release
+### 步骤 3：预览发布
 
 ```bash
 /release-skills --dry-run
 ```
 
-Output includes:
-- Detected changes (grouped by skill/module)
-- Proposed version number
-- Multi-language changelog preview
+输出包括：
+- 检测到的更改（按 skill/模块分组）
+- 提议的版本号
+- 多语言更新日志预览
 
-**Review carefully**:
-- Does changelog accurately describe changes?
-- Is version bump correct?
-- Are all affected skills listed?
+**仔细审核**：
+- 更新日志是否准确描述了更改？
+- 版本升级是否正确？
+- 是否列出了所有受影响的 skills？
 
-### Step 4: Execute Release
+### 步骤 4：执行发布
 
 ```bash
 /release-skills
 ```
 
-Automatic steps:
-1. Analyze commits since last tag
-2. Generate/update CHANGELOG.md and CHANGELOG.zh.md
-3. Update marketplace.json version
-4. Create release commit: `chore: release vX.Y.Z`
-5. Create git tag: `vX.Y.Z`
-6. Call hooks:
-   - `prepare_artifact`: Sync shared packages
-   - `publish_artifact`: Publish to ClawHub
+自动化步骤：
+1. 分析上一个标签以来的提交
+2. 生成/更新 CHANGELOG.md 和 CHANGELOG.zh.md
+3. 更新 marketplace.json 版本
+4. 创建发布提交：`chore: release vX.Y.Z`
+5. 创建 git 标签：`vX.Y.Z`
+6. 调用钩子：
+   - `prepare_artifact`：同步共享包
+   - `publish_artifact`：发布到 ClawHub
 
-### Step 5: Integrate Release
+### 步骤 5：集成发布
 
 ```bash
-# Merge release branch to main
+# 将 release 分支合并到 main
 git checkout main
 git merge release/x.y.z
 git push origin main --follow-tags
 
-# Merge main back to develop
+# 将 main 合并回 develop
 git checkout develop
 git merge main
 git push origin develop
 
-# Delete release branch
+# 删除 release 分支
 git branch -d release/x.y.z
 ```
 
-## Changelog Guidelines
+## 更新日志指南
 
 ### Conventional Commits
 
-Commits must follow [Conventional Commits](https://www.conventionalcommits.org/):
+提交必须遵循 [Conventional Commits](https://www.conventionalcommits.org/) 规范：
 
 ```
 <type>(<scope>): <description>
 
-<optional body>
+<可选正文>
 ```
 
-**Types**:
-- `feat`: New feature
-- `fix`: Bug fix
-- `refactor`: Code refactoring (no behavior change)
-- `perf`: Performance improvement
-- `docs`: Documentation change
-- `test`: Test change
-- `chore`: Maintenance (excluded from changelog)
-- `style`: Formatting (excluded from changelog)
+**类型**：
+- `feat`：新功能
+- `fix`：Bug 修复
+- `refactor`：代码重构（无行为变更）
+- `perf`：性能改进
+- `docs`：文档变更
+- `test`：测试变更
+- `chore`：维护（从更新日志中排除）
+- `style`：格式（从更新日志中排除）
 
-**Scope** (optional but recommended):
-- Skill name (e.g., `cover-image`, `post-to-x`)
-- `project` for root-level changes
+**范围**（可选但推荐）：
+- Skill 名称（例如 `sc-cover-image`、`sc-publish-xhs`）
+- `project` 用于根级别的更改
 
-**Example commits**:
+**提交示例**：
 ```bash
-git commit -m "feat(cover-image): add watercolor style"
-git commit -m "fix(post-to-x): handle special characters in hashtags"
+git commit -m "feat(sc-cover-image): add watercolor style"
+git commit -m "fix(sc-publish-xhs): handle special characters in hashtags"
 git commit -m "refactor(project): move release scripts to ops/"
 ```
 
-### Changelog Format
+### 更新日志格式
 
-Auto-generated by `/release-skills` in both English and Chinese.
+由 `/release-skills` 自动生成英文和中文版本。
 
-**English (CHANGELOG.md)**:
+**英文（CHANGELOG.md）**：
 ```markdown
 ## 3.1.0 - 2026-05-13
 
 ### Features
-- Add watercolor style to cover-image
+- Add watercolor style to sc-cover-image
 - Support OAuth2 authentication in api-gateway
 
 ### Fixes
-- Fix special character handling in post-to-x
-- Improve error messages in imagine skill
+- Fix special character handling in sc-publish-xhs
+- Improve error messages in sc-imagine skill
 
 ### Documentation
-- Update architecture guide in CLAUDE.md
+- Update architecture guide in README.md
 ```
 
-**Chinese (CHANGELOG.zh.md)**:
+**中文（CHANGELOG.zh.md）**：
 ```markdown
 ## 3.1.0 - 2026-05-13
 
 ### 新功能
-- 为 cover-image 添加水彩风格
+- 为 sc-cover-image 添加水彩风格
 - 在 api-gateway 中支持 OAuth2 认证
 
 ### 修复
-- 修复 post-to-x 中特殊字符的处理
-- 改进 imagine skill 中的错误消息
+- 修复 sc-publish-xhs 中特殊字符的处理
+- 改进 sc-imagine skill 中的错误消息
 
 ### 文档
-- 更新 CLAUDE.md 中的架构指南
+- 更新 README.md 中的架构指南
 ```
 
-### Third-Party Contributions
+### 第三方贡献
 
-When contributions are from non-owner developers, attribution is added:
+当贡献来自非所有者开发者时，会添加归属：
 
 ```markdown
 ## 3.1.0 - 2026-05-13
 
 ### Features
-- Add watercolor style to cover-image (by @contributor1)
+- Add watercolor style to sc-cover-image (by @contributor1)
 ```
 
-## Release Hooks
+## 发布钩子
 
-Defined in `.releaserc.yml`:
+在 `.releaserc.yml` 中定义：
 
-### prepare_artifact Hook
+### prepare_artifact 钩子
 
-**Purpose**: Make each skill self-contained before release
+**用途**：在发布前使每个 skill 自包含
 
-**Command**:
+**命令**：
 ```bash
 node scripts/sync-shared-skill-packages.mjs \
   --repo-root "{project_root}" \
   --target "{target}"
 ```
 
-**Responsibility**:
-- Sync shared packages from `packages/` to skill `vendor/`
-- Rewrite dependency specs to file-based paths
-- Ensure skill is self-contained
+**职责**：
+- 将共享包从 `packages/` 同步到 skill 的 `vendor/`
+- 将依赖规范重写为基于文件的路径
+- 确保 skill 是自包含的
 
-### publish_artifact Hook
+### publish_artifact 钩子
 
-**Purpose**: Publish prepared skill to ClawHub registry
+**用途**：将准备好的 skill 发布到 ClawHub 注册表
 
-**Command**:
+**命令**：
 ```bash
 node scripts/publish-skill.mjs \
   --skill-dir "{target}" \
@@ -241,28 +241,28 @@ node scripts/publish-skill.mjs \
   --dry-run "{dry_run}"
 ```
 
-**Responsibility**:
-- Upload skill to ClawHub
-- Attach version and changelog
-- Handle authentication
+**职责**：
+- 将 skill 上传到 ClawHub
+- 附加版本和更新日志
+- 处理身份验证
 
-## Hotfix Process
+## 热修复流程
 
-For urgent fixes to production version:
+对于生产版本的紧急修复：
 
 ```bash
-# Create hotfix branch from main
+# 从 main 创建 hotfix 分支
 git checkout -b hotfix/critical-bug main
 
-# Fix and test
-# ... make changes ...
+# 修复并测试
+# ... 进行更改 ...
 git add .
-git commit -m "fix(skill-name): critical security patch"
+git commit -m "fix(sc-skill-name): critical security patch"
 
-# Release with patch bump
+# 发布补丁版本
 /release-skills --patch
 
-# Merge back to main and develop
+# 合并回 main 和 develop
 git checkout main
 git merge hotfix/critical-bug
 git push origin main --follow-tags
@@ -274,57 +274,57 @@ git push origin develop
 git branch -d hotfix/critical-bug
 ```
 
-## Pre-Release Checklist
+## 发布前检查清单
 
-Before executing `/release-skills`, ensure:
+在执行 `/release-skills` 之前，确保：
 
-- [ ] All tests passing (`npm test`)
-- [ ] No uncommitted changes (`git status`)
-- [ ] Working on release branch (`git branch | grep release/`)
-- [ ] Version consistency verified (`node scripts/verify-version-sync.mjs`)
-- [ ] CHANGELOG preview reviewed (`/release-skills --dry-run`)
-- [ ] All affected skills documented in commits
-- [ ] README.md updated if needed
-- [ ] All shared packages synced (`node scripts/sync-shared-skill-packages.mjs`)
+- [ ] 所有测试通过（`npm test`）
+- [ ] 没有未提交的更改（`git status`）
+- [ ] 在 release 分支上工作（`git branch | grep release/`）
+- [ ] 版本一致性已验证（`node scripts/verify-version-sync.mjs`）
+- [ ] CHANGELOG 预览已审核（`/release-skills --dry-run`）
+- [ ] 所有受影响的 skills 都在提交中记录
+- [ ] README.md 已更新（如需要）
+- [ ] 所有共享包已同步（`node scripts/sync-shared-skill-packages.mjs`）
 
-## Troubleshooting
+## 故障排除
 
-### Version Mismatch Error
+### 版本不匹配错误
 
-If `verify-version-sync.mjs` fails:
+如果 `verify-version-sync.mjs` 失败：
 
 ```bash
-# Check current versions
+# 检查当前版本
 cat marketplace.json | jq '.metadata.version'
 grep "^## " CHANGELOG.md | head -1
 
-# If marketplace.json is primary, update others:
+# 如果 marketplace.json 是主要的，更新其他文件：
 /release-skills --dry-run
-# Review and execute
+# 审核并执行
 ```
 
-### Publish Fails
+### 发布失败
 
-If `publish_artifact` hook fails:
+如果 `publish_artifact` 钩子失败：
 
-1. Check ClawHub authentication: `clawhub login`
-2. Verify skill is self-contained: `node scripts/sync-shared-skill-packages.mjs`
-3. Run in dry-run mode: `npm run release -- --dry-run`
+1. 检查 ClawHub 身份验证：`clawhub login`
+2. 验证 skill 是自包含的：`node scripts/sync-shared-skill-packages.mjs`
+3. 以 dry-run 模式运行：`npm run release -- --dry-run`
 
-### Git Conflicts During Merge
+### 合并期间的 Git 冲突
 
 ```bash
-# Resolve conflicts manually
+# 手动解决冲突
 git status
-# Fix conflicts in files
+# 修复文件中的冲突
 git add .
 git commit -m "chore: resolve merge conflicts during release"
 git push
 ```
 
-## References
+## 参考资料
 
-- `.releaserc.yml` - Release configuration (hooks, targets)
-- `scripts/` - Release implementation scripts
-- `.githooks/` - Git hooks (pre-commit, pre-push validation, auto-installed)
-- `/release-skills` - Claude skill (workflow driver)
+- `.releaserc.yml` - 发布配置（钩子、目标）
+- `scripts/` - 发布实现脚本
+- `.githooks/` - Git hooks（pre-commit、pre-push 验证，自动安装）
+- `/release-skills` - Claude skill（工作流驱动）

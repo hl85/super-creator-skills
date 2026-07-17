@@ -2,7 +2,7 @@
 
 super-creator 的多个 skill 通过 Chrome DevTools Protocol (CDP) 控制真实 Chrome 浏览器，实现自动化发布和内容抓取。本文覆盖所有依赖 Chrome 的 skill 的共同配置步骤。
 
-**依赖 Chrome 的 skill：** `sc-publish-wechat`、`sc-gemini-web`、`sc-publish-xhs`
+**依赖 Chrome 的 skill：** `sc-publish-wechat`、`sc-publish-xhs`、`sc-web-ai`
 
 ---
 
@@ -17,8 +17,6 @@ super-creator 的多个 skill 通过 Chrome DevTools Protocol (CDP) 控制真实
 | Windows | `%APPDATA%\super-creator\chrome-profile` |
 
 可通过 `SC_CHROME_PROFILE_DIR` 环境变量覆盖，或在各 skill 的 EXTEND.md 中设置 `CHROME_PROFILE_DIR`。
-
-> 详细路径说明：[chrome-profile.md](chrome-profile.md)
 
 ---
 
@@ -56,9 +54,10 @@ pkill -f "Google Chrome"
 1. 导航到 `https://www.xiaohongshu.com`
 2. 使用小红书 App 扫码登录
 
-### Gemini Web
-1. 导航到 `https://gemini.google.com`
-2. 使用 Google 账号完成登录
+### Gemini / ChatGPT（用于免费生图）
+1. 在 IDE 内置浏览器中导航到 `https://gemini.google.com` 或 `https://chatgpt.com`
+2. 使用对应账号完成登录
+3. 保持标签页打开即可（无需通过 CDP 控制）
 
 ---
 
