@@ -2,6 +2,23 @@
 
 [English](./CHANGELOG.md) | 中文
 
+## 3.2.0 - 2026-07-17
+
+### 破坏性变更
+- **聚焦两大核心平台：小红书 + 微信公众号**。移除 7 个平台专属和低使用频率的 skill：
+  - `sc-post-to-x` — X/Twitter 发布（非目标平台）
+  - `sc-post-to-weibo` — 微博发布（非目标平台）
+  - `sc-markdown-to-thread` — X 推文串转换（仅服务于 sc-post-to-x）
+  - `sc-multi-publish` — 多平台一键分发（仅 2 个平台，各有独立流水线）
+  - `sc-slide-deck` — 幻灯片/PPT 生成（与小红书+公众号内容形态不匹配）
+  - `sc-comic` — 知识漫画生成（非核心内容形式）
+  - `sc-infographic` — 单张信息图生成（已由 sc-xhs-images 和 sc-article-illustrator 覆盖）
+
+### 精简后
+- **剩余 14 个 skill**，全部直接服务于小红书 + 公众号内容生产链路
+- 小红书链路：sc-content-mining → sc-writeflow → sc-xhs-images → sc-post-to-xhs（或 sc-xhs-pipeline 一键走完）
+- 公众号链路：sc-content-mining → sc-writeflow → sc-markdown-to-html → sc-post-to-wechat（配 sc-cover-image + sc-article-illustrator 做视觉）
+
 ## 3.1.0 - 2026-07-17
 
 ### 破坏性变更

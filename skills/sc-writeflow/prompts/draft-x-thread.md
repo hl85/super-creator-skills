@@ -8,7 +8,7 @@ Verify outline has Reader, Core claim, Counter-view, and a hook tweet ≤ 270 ch
 
 ## Step 1 — Hook tweet (paragraph 1)
 
-Copy the outline's hook. Re-tighten to ≤ 270 chars (1/N suffix is added later by `sc-markdown-to-thread`, so leave 6–8 chars headroom).
+Copy the outline's hook. Re-tighten to ≤ 270 chars (leave 6–8 chars headroom for manual 1/N numbering if needed).
 
 The hook must be standalone-readable. Test: if a stranger sees only this on their timeline, would they tap?
 
@@ -59,7 +59,7 @@ Run a mental tally. The thread should match the outline's planned tweet count ±
 
 ## Step 7 — Emit draft.md
 
-Save with paragraphs separated by **double newlines** so `sc-markdown-to-thread` packs them correctly:
+Save with paragraphs separated by **double newlines** — each paragraph is one tweet:
 
 ```
 Hook tweet here.
@@ -75,8 +75,7 @@ CTA tweet here.
 https://link.com
 ```
 
-Tell the user the next step:
-> Pipe through `sc-markdown-to-thread` to get the JSON, then `sc-post-to-x` to publish.
+Tell the user the draft is ready. Each paragraph (separated by double newlines) corresponds to one tweet in the thread. Numbering (1/N) can be added manually before posting.
 
 ## Anti-patterns
 

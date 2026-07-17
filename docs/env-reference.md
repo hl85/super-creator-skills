@@ -78,16 +78,6 @@ CLI 参数
 # WECHAT_APP_SECRET=
 
 
-# ── X (Twitter) API v2 ──────────────────────────────────────────────────────
-# 获取：https://developer.x.com/
-# 需申请 Elevated/Academic 访问级别
-# X_API_KEY=
-# X_API_SECRET=
-# X_ACCESS_TOKEN=
-# X_ACCESS_TOKEN_SECRET=
-# X_BEARER_TOKEN=
-# X_PUBLISH_METHOD=api          # api | browser，默认自动检测
-
 # ── 小红书 MCP（优先）/ CDP（备用）───────────────────────────────────────────
 # xiaohongshu-mcp 服务地址（默认：http://localhost:18060/mcp）
 # XIAOHONGSHU_MCP_URL=
@@ -105,7 +95,7 @@ CLI 参数
 
 | 变量名 | 用途 | 使用的 Skill |
 |--------|------|-------------|
-| `GOOGLE_API_KEY` | Google Gemini 图像生成 | `sc-imagine`、`sc-cover-image`、`sc-article-illustrator`、`sc-comic`、`sc-xhs-images`、`sc-infographic`、`sc-slide-deck` |
+| `GOOGLE_API_KEY` | Google Gemini 图像生成 | `sc-imagine`、`sc-cover-image`、`sc-article-illustrator`、`sc-xhs-images` |
 | `OPENAI_API_KEY` | OpenAI 图像生成 | 同上 |
 | `AZURE_OPENAI_API_KEY` | Azure OpenAI | 同上 |
 | `AZURE_OPENAI_BASE_URL` | Azure 端点 URL | 同上 |
@@ -132,30 +122,13 @@ CLI 参数
 
 | 变量名 | 用途 | 适用 Skill |
 |--------|------|-----------|
-| `SC_CHROME_PROFILE_DIR` | 覆盖所有 CDP skill 的共享 Profile 路径 | `sc-post-to-x`、`sc-post-to-wechat`、`sc-post-to-weibo`、`sc-post-to-xhs`、`sc-gemini-web` |
-| `X_BROWSER_CHROME_PATH` | X 专用 Chrome 路径 | `sc-post-to-x` |
-| `X_CHROME_PROFILE_DIR` | X 专用 Profile 路径 | `sc-post-to-x` |
-| `WEIBO_BROWSER_CHROME_PATH` | 微博专用 Chrome 路径 | `sc-post-to-weibo` |
-| `WEIBO_BROWSER_PROFILE_DIR` | 微博专用 Profile 路径 | `sc-post-to-weibo` |
+| `SC_CHROME_PROFILE_DIR` | 覆盖所有 CDP skill 的共享 Profile 路径 | `sc-post-to-wechat`、`sc-post-to-xhs`、`sc-gemini-web` |
 | `GEMINI_WEB_CHROME_PATH` | Gemini Web 专用 Chrome 路径 | `sc-gemini-web` |
 | `GEMINI_WEB_CHROME_PROFILE_DIR` | Gemini Web 专用 Profile 路径 | `sc-gemini-web` |
 
 > 通常只需设置 `SC_CHROME_PROFILE_DIR`（如果默认路径不合适），其余都不需要。默认路径见 [chrome-profile.md](chrome-profile.md)。
 
 
-
-### X (Twitter) API v2
-
-| 变量名 | 用途 | 备注 |
-|--------|------|------|
-| `X_API_KEY` | API Key / Consumer Key | API v2 必填 |
-| `X_API_SECRET` | API Secret / Consumer Secret | API v2 必填 |
-| `X_ACCESS_TOKEN` | Access Token | API v2 必填 |
-| `X_ACCESS_TOKEN_SECRET` | Access Token Secret | API v2 必填 |
-| `X_BEARER_TOKEN` | Bearer Token | 只读 API 使用 |
-| `X_PUBLISH_METHOD` | 发布方式 | `api` 或 `browser`，默认自动检测 |
-
-> **双模式架构**：配置了 API 凭证时优先使用 API v2，否则自动降级到 CDP 浏览器模式。详见 `skills/sc-post-to-x/SKILL.md`。
 
 ### 小红书 (Xiaohongshu)
 
@@ -183,14 +156,10 @@ CLI 参数
 | `sc-imagine` | 默认 provider、模型、图像质量 |
 | `sc-cover-image` | 默认风格/调色板/渲染方式、水印、比例 |
 | `sc-article-illustrator` | 水印、默认风格、输出目录 |
-| `sc-comic` | 水印、艺术风格、基调 |
 | `sc-xhs-images` | 水印、默认风格、布局 |
 | `sc-post-to-wechat` | 主题、颜色、发布方式、作者、评论设置 |
-| `sc-post-to-weibo` | Chrome Profile 路径 |
 | `sc-post-to-xhs` | 默认话题标签、城市、草稿模式、MCP 服务地址 |
-| `sc-post-to-x` | 默认发布方式（api/browser）、多账号配置 |
 | `sc-xhs-pipeline` | 发布模式（手动/自动）、状态文件路径 |
-| `sc-infographic`、`sc-slide-deck` | 水印、默认风格（首次运行时询问）|
 
 > 删除 `EXTEND.md` 可重置对应 skill 的所有偏好，下次运行会重新引导设置。
 

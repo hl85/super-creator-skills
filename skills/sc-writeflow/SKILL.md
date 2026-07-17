@@ -1,6 +1,6 @@
 ---
 name: sc-writeflow
-description: Two-stage content authoring — turns raw source material (articles, transcripts, notes) into a platform-tuned outline, then into a publish-ready draft. Stage 1 (outline) distills the core claim, identifies the reader, and proposes structure. Stage 2 (draft) enforces platform constraints ( 公众号 long-form vs X thread). Works seamlessly with sc-content-mining output. Does not collect sources (use content-mining first) and does not publish (use sc-post-to-wechat / sc-post-to-x after). Use when user asks to "写大纲", "拟提纲", "写初稿", "写文章", "draft an article", "outline an article", "write a thread", or has source material and wants a draft. [Beta]
+description: Two-stage content authoring — turns raw source material (articles, transcripts, notes) into a platform-tuned outline, then into a publish-ready draft. Stage 1 (outline) distills the core claim, identifies the reader, and proposes structure. Stage 2 (draft) enforces platform constraints ( 公众号 long-form vs X thread vs Xiaohongshu note). Works seamlessly with sc-content-mining output. Does not collect sources (use content-mining first) and does not publish (use sc-post-to-wechat after for 公众号). Use when user asks to "写大纲", "拟提纲", "写初稿", "写文章", "draft an article", "outline an article", "write a thread", or has source material and wants a draft. [Beta]
 version: 0.2.0
 ---
 

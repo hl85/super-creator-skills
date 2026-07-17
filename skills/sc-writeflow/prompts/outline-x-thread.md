@@ -52,7 +52,7 @@ Use the same schema as wechat (SKILL.md). The "Structure" section is the numbere
 
 ## Anti-patterns
 
-- ❌ "🧵 1/12" as part of structure (numbering is added by `sc-markdown-to-thread`)
+- ❌ "🧵 1/12" as part of structure (add numbering manually when posting)
 - ❌ Hook that requires reading tweet 2 to understand
 - ❌ Two arguments per tweet
 - ❌ Filler tweets ("More on this below 👇")

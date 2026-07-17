@@ -55,8 +55,8 @@ All skills are registered under the single `super-creator` plugin. Use these log
 
 | If your skill... | Use group |
 |------------------|-----------|
-| Generates visual content (images, slides, comics) | Content Skills |
-| Publishes to platforms (X, WeChat, Weibo) | Content Skills |
+| Generates visual content (images, illustrations) | Content Skills |
+| Publishes to platforms (WeChat, Xiaohongshu) | Content Skills |
 | Provides AI generation backend | AI Generation Skills |
 | Converts or processes content | Utility Skills |
 

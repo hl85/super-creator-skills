@@ -6,7 +6,7 @@ Post-to-XHS uses Chrome CDP to automate the full publishing workflow: image uplo
 
 ## Chrome CDP Prerequisites
 
-Post-to-XHS uses the same shared Chrome profile as sc-post-to-wechat, sc-post-to-x, sc-post-to-weibo.
+Post-to-XHS uses the same shared Chrome profile as sc-post-to-wechat.
 
 Profile path (macOS): `~/Library/Application Support/super-creator/chrome-profile`
 

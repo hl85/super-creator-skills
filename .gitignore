@@ -146,10 +146,7 @@ tests-data/
 .super-creator/
 !skills/sc-xhs-images/
 sc-cover-image/
-sc-slide-deck/
-sc-infographic/
 illustrations/
-sc-comic/
 posts/
 ### IntelliJ IDEA ###
 .idea

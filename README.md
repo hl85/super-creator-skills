@@ -23,8 +23,8 @@ This project provides a centralized runner to abstract path logic and runtime ma
 ./sc-run <skill-name> <script-name> [args...]
 
 # Examples
-./sc-run sc-post-to-x x-browser "Hello!"
 ./sc-run sc-imagine main --prompt "A futuristic lab"
+./sc-run sc-xhs-images path/to/article.md
 ```
 
 ## Documentation
@@ -188,119 +188,6 @@ Xiaohongshu (RedNote) infographic series generator. Breaks down content into 1-1
 | ![list](./screenshots/xiaohongshu-images-layouts/list.webp) | ![comparison](./screenshots/xiaohongshu-images-layouts/comparison.webp) | ![flow](./screenshots/xiaohongshu-images-layouts/flow.webp) |
 | list | comparison | flow |
 
-#### sc-infographic
-
-Generate professional infographics with 20 layout types and 17 visual styles. Analyzes content, recommends layout×style combinations, and generates publication-ready infographics.
-
-```bash
-# Auto-recommend combinations based on content
-/sc-infographic path/to/content.md
-
-# Specify layout
-/sc-infographic path/to/content.md --layout pyramid
-
-# Specify style (default: craft-handmade)
-/sc-infographic path/to/content.md --style technical-schematic
-
-# Specify both
-/sc-infographic path/to/content.md --layout funnel --style corporate-memphis
-
-# With aspect ratio (named preset or custom W:H)
-/sc-infographic path/to/content.md --aspect portrait
-/sc-infographic path/to/content.md --aspect 3:4
-```
-
-**Options**:
-| Option | Description |
-|--------|-------------|
-| `--layout <name>` | Information layout (20 options) |
-| `--style <name>` | Visual style (17 options, default: craft-handmade) |
-| `--aspect <ratio>` | Named: landscape (16:9), portrait (9:16), square (1:1). Custom: any W:H ratio (e.g., 3:4, 4:3, 2.35:1) |
-| `--lang <code>` | Output language (en, zh, ja, etc.) |
-
-**Layouts** (information structure):
-
-| Layout | Best For |
-|--------|----------|
-| `bridge` | Problem-solution, gap-crossing |
-| `circular-flow` | Cycles, recurring processes |
-| `comparison-table` | Multi-factor comparisons |
-| `do-dont` | Correct vs incorrect practices |
-| `equation` | Formula breakdown, input-output |
-| `feature-list` | Product features, bullet points |
-| `fishbone` | Root cause analysis |
-| `funnel` | Conversion processes, filtering |
-| `grid-cards` | Multiple topics, overview |
-| `iceberg` | Surface vs hidden aspects |
-| `journey-path` | Customer journey, milestones |
-| `layers-stack` | Technology stack, layers |
-| `mind-map` | Brainstorming, idea mapping |
-| `nested-circles` | Levels of influence, scope |
-| `priority-quadrants` | Eisenhower matrix, 2x2 |
-| `pyramid` | Hierarchy, Maslow's needs |
-| `scale-balance` | Pros vs cons, weighing |
-| `timeline-horizontal` | History, chronological events |
-| `tree-hierarchy` | Org charts, taxonomy |
-| `venn` | Overlapping concepts |
-
-**Layout Previews**:
-
-| | | |
-|:---:|:---:|:---:|
-| ![bridge](./screenshots/infographic-layouts/bridge.webp) | ![circular-flow](./screenshots/infographic-layouts/circular-flow.webp) | ![comparison-table](./screenshots/infographic-layouts/comparison-table.webp) |
-| bridge | circular-flow | comparison-table |
-| ![do-dont](./screenshots/infographic-layouts/do-dont.webp) | ![equation](./screenshots/infographic-layouts/equation.webp) | ![feature-list](./screenshots/infographic-layouts/feature-list.webp) |
-| do-dont | equation | feature-list |
-| ![fishbone](./screenshots/infographic-layouts/fishbone.webp) | ![funnel](./screenshots/infographic-layouts/funnel.webp) | ![grid-cards](./screenshots/infographic-layouts/grid-cards.webp) |
-| fishbone | funnel | grid-cards |
-| ![iceberg](./screenshots/infographic-layouts/iceberg.webp) | ![journey-path](./screenshots/infographic-layouts/journey-path.webp) | ![layers-stack](./screenshots/infographic-layouts/layers-stack.webp) |
-| iceberg | journey-path | layers-stack |
-| ![mind-map](./screenshots/infographic-layouts/mind-map.webp) | ![nested-circles](./screenshots/infographic-layouts/nested-circles.webp) | ![priority-quadrants](./screenshots/infographic-layouts/priority-quadrants.webp) |
-| mind-map | nested-circles | priority-quadrants |
-| ![pyramid](./screenshots/infographic-layouts/pyramid.webp) | ![scale-balance](./screenshots/infographic-layouts/scale-balance.webp) | ![timeline-horizontal](./screenshots/infographic-layouts/timeline-horizontal.webp) |
-| pyramid | scale-balance | timeline-horizontal |
-| ![tree-hierarchy](./screenshots/infographic-layouts/tree-hierarchy.webp) | ![venn](./screenshots/infographic-layouts/venn.webp) | |
-| tree-hierarchy | venn | |
-
-**Styles** (visual aesthetics):
-
-| Style | Description |
-|-------|-------------|
-| `craft-handmade` (Default) | Hand-drawn illustration, paper craft aesthetic |
-| `claymation` | 3D clay figures, playful stop-motion |
-| `kawaii` | Japanese cute, big eyes, pastel colors |
-| `storybook-watercolor` | Soft painted illustrations, whimsical |
-| `chalkboard` | Colorful chalk on black board |
-| `cyberpunk-neon` | Neon glow on dark, futuristic |
-| `bold-graphic` | Comic style, halftone dots, high contrast |
-| `aged-academia` | Vintage science, sepia sketches |
-| `corporate-memphis` | Flat vector people, vibrant fills |
-| `technical-schematic` | Blueprint, isometric 3D, engineering |
-| `origami` | Folded paper forms, geometric |
-| `pixel-art` | Retro 8-bit, nostalgic gaming |
-| `ui-wireframe` | Grayscale boxes, interface mockup |
-| `subway-map` | Transit diagram, colored lines |
-| `ikea-manual` | Minimal line art, assembly style |
-| `knolling` | Organized flat-lay, top-down |
-| `lego-brick` | Toy brick construction, playful |
-
-**Style Previews**:
-
-| | | |
-|:---:|:---:|:---:|
-| ![craft-handmade](./screenshots/infographic-styles/craft-handmade.webp) | ![claymation](./screenshots/infographic-styles/claymation.webp) | ![kawaii](./screenshots/infographic-styles/kawaii.webp) |
-| craft-handmade | claymation | kawaii |
-| ![storybook-watercolor](./screenshots/infographic-styles/storybook-watercolor.webp) | ![chalkboard](./screenshots/infographic-styles/chalkboard.webp) | ![cyberpunk-neon](./screenshots/infographic-styles/cyberpunk-neon.webp) |
-| storybook-watercolor | chalkboard | cyberpunk-neon |
-| ![bold-graphic](./screenshots/infographic-styles/bold-graphic.webp) | ![aged-academia](./screenshots/infographic-styles/aged-academia.webp) | ![corporate-memphis](./screenshots/infographic-styles/corporate-memphis.webp) |
-| bold-graphic | aged-academia | corporate-memphis |
-| ![technical-schematic](./screenshots/infographic-styles/technical-schematic.webp) | ![origami](./screenshots/infographic-styles/origami.webp) | ![pixel-art](./screenshots/infographic-styles/pixel-art.webp) |
-| technical-schematic | origami | pixel-art |
-| ![ui-wireframe](./screenshots/infographic-styles/ui-wireframe.webp) | ![subway-map](./screenshots/infographic-styles/subway-map.webp) | ![ikea-manual](./screenshots/infographic-styles/ikea-manual.webp) |
-| ui-wireframe | subway-map | ikea-manual |
-| ![knolling](./screenshots/infographic-styles/knolling.webp) | ![lego-brick](./screenshots/infographic-styles/lego-brick.webp) | |
-| knolling | lego-brick | |
-
 #### sc-cover-image
 
 Generate cover images for articles with 5 dimensions: Type × Palette × Rendering × Text × Mood. Combines 9 color palettes with 6 rendering styles for 54 unique combinations.
@@ -332,178 +219,6 @@ Generate cover images for articles with 5 dimensions: Type × Palette × Renderi
 - **Rendering**: `flat-vector`, `hand-drawn`, `painterly`, `digital`, `pixel`, `chalk`
 - **Text**: `none`, `title-only` (default), `title-subtitle`, `text-rich`
 - **Mood**: `subtle`, `balanced` (default), `bold`
-
-#### sc-slide-deck
-
-Generate professional slide deck images from content. Creates comprehensive outlines with style instructions, then generates individual slide images.
-
-```bash
-# From markdown file
-/sc-slide-deck path/to/article.md
-
-# With style and audience
-/sc-slide-deck path/to/article.md --style corporate
-/sc-slide-deck path/to/article.md --audience executives
-
-# Target slide count
-/sc-slide-deck path/to/article.md --slides 15
-
-# Outline only (no image generation)
-/sc-slide-deck path/to/article.md --outline-only
-
-# With language
-/sc-slide-deck path/to/article.md --lang zh
-```
-
-**Options**:
-
-| Option | Description |
-|--------|-------------|
-| `--style <name>` | Visual style: preset name or `custom` |
-| `--audience <type>` | Target: beginners, intermediate, experts, executives, general |
-| `--lang <code>` | Output language (en, zh, ja, etc.) |
-| `--slides <number>` | Target slide count (8-25 recommended, max 30) |
-| `--outline-only` | Generate outline only, skip images |
-| `--prompts-only` | Generate outline + prompts, skip images |
-| `--images-only` | Generate images from existing prompts |
-| `--regenerate <N>` | Regenerate specific slide(s): `3` or `2,5,8` |
-
-**Style System**:
-
-Styles are built from 4 dimensions: **Texture** × **Mood** × **Typography** × **Density**
-
-| Dimension | Options |
-|-----------|---------|
-| Texture | clean, grid, organic, pixel, paper |
-| Mood | professional, warm, cool, vibrant, dark, neutral |
-| Typography | geometric, humanist, handwritten, editorial, technical |
-| Density | minimal, balanced, dense |
-
-**Presets** (pre-configured dimension combinations):
-
-| Preset | Dimensions | Best For |
-|--------|------------|----------|
-| `blueprint` (default) | grid + cool + technical + balanced | Architecture, system design |
-| `chalkboard` | organic + warm + handwritten + balanced | Education, tutorials |
-| `corporate` | clean + professional + geometric + balanced | Investor decks, proposals |
-| `minimal` | clean + neutral + geometric + minimal | Executive briefings |
-| `sketch-notes` | organic + warm + handwritten + balanced | Educational, tutorials |
-| `watercolor` | organic + warm + humanist + minimal | Lifestyle, wellness |
-| `dark-atmospheric` | clean + dark + editorial + balanced | Entertainment, gaming |
-| `notion` | clean + neutral + geometric + dense | Product demos, SaaS |
-| `bold-editorial` | clean + vibrant + editorial + balanced | Product launches, keynotes |
-| `editorial-infographic` | clean + cool + editorial + dense | Tech explainers, research |
-| `fantasy-animation` | organic + vibrant + handwritten + minimal | Educational storytelling |
-| `intuition-machine` | clean + cool + technical + dense | Technical docs, academic |
-| `pixel-art` | pixel + vibrant + technical + balanced | Gaming, developer talks |
-| `scientific` | clean + cool + technical + dense | Biology, chemistry, medical |
-| `vector-illustration` | clean + vibrant + humanist + balanced | Creative, children's content |
-| `vintage` | paper + warm + editorial + balanced | Historical, heritage |
-
-**Style Previews**:
-
-| | | |
-|:---:|:---:|:---:|
-| ![blueprint](./screenshots/slide-deck-styles/blueprint.webp) | ![chalkboard](./screenshots/slide-deck-styles/chalkboard.webp) | ![bold-editorial](./screenshots/slide-deck-styles/bold-editorial.webp) |
-| blueprint | chalkboard | bold-editorial |
-| ![corporate](./screenshots/slide-deck-styles/corporate.webp) | ![dark-atmospheric](./screenshots/slide-deck-styles/dark-atmospheric.webp) | ![editorial-infographic](./screenshots/slide-deck-styles/editorial-infographic.webp) |
-| corporate | dark-atmospheric | editorial-infographic |
-| ![fantasy-animation](./screenshots/slide-deck-styles/fantasy-animation.webp) | ![intuition-machine](./screenshots/slide-deck-styles/intuition-machine.webp) | ![minimal](./screenshots/slide-deck-styles/minimal.webp) |
-| fantasy-animation | intuition-machine | minimal |
-| ![notion](./screenshots/slide-deck-styles/notion.webp) | ![pixel-art](./screenshots/slide-deck-styles/pixel-art.webp) | ![scientific](./screenshots/slide-deck-styles/scientific.webp) |
-| notion | pixel-art | scientific |
-| ![sketch-notes](./screenshots/slide-deck-styles/sketch-notes.webp) | ![vector-illustration](./screenshots/slide-deck-styles/vector-illustration.webp) | ![vintage](./screenshots/slide-deck-styles/vintage.webp) |
-| sketch-notes | vector-illustration | vintage |
-| ![watercolor](./screenshots/slide-deck-styles/watercolor.webp) | | |
-| watercolor | | |
-
-After generation, slides are automatically merged into `.pptx` and `.pdf` files for easy sharing.
-
-#### sc-comic
-
-Knowledge comic creator with flexible art style × tone combinations. Creates original educational comics with detailed panel layouts and sequential image generation.
-
-```bash
-# From source material (auto-selects art + tone)
-/sc-comic posts/turing-story/source.md
-
-# Specify art style and tone
-/sc-comic posts/turing-story/source.md --art manga --tone warm
-/sc-comic posts/turing-story/source.md --art ink-brush --tone dramatic
-
-# Use preset (includes special rules)
-/sc-comic posts/turing-story/source.md --style ohmsha
-/sc-comic posts/turing-story/source.md --style wuxia
-
-# Specify layout and aspect ratio
-/sc-comic posts/turing-story/source.md --layout cinematic
-/sc-comic posts/turing-story/source.md --aspect 16:9
-
-# Specify language
-/sc-comic posts/turing-story/source.md --lang zh
-
-# Direct content input
-/sc-comic "The story of Alan Turing and the birth of computer science"
-```
-
-**Options**:
-| Option | Values |
-|--------|--------|
-| `--art` | `ligne-claire` (default), `manga`, `realistic`, `ink-brush`, `chalk` |
-| `--tone` | `neutral` (default), `warm`, `dramatic`, `romantic`, `energetic`, `vintage`, `action` |
-| `--style` | `ohmsha`, `wuxia`, `shoujo` (presets with special rules) |
-| `--layout` | `standard` (default), `cinematic`, `dense`, `splash`, `mixed`, `webtoon` |
-| `--aspect` | `3:4` (default, portrait), `4:3` (landscape), `16:9` (widescreen) |
-| `--lang` | `auto` (default), `zh`, `en`, `ja`, etc. |
-
-**Art Styles** (rendering technique):
-
-| Art Style | Description |
-|-----------|-------------|
-| `ligne-claire` | Uniform lines, flat colors, European comic tradition (Tintin, Logicomix) |
-| `manga` | Large eyes, manga conventions, expressive emotions |
-| `realistic` | Digital painting, realistic proportions, sophisticated |
-| `ink-brush` | Chinese brush strokes, ink wash effects |
-| `chalk` | Chalkboard aesthetic, hand-drawn warmth |
-
-**Tones** (mood/atmosphere):
-
-| Tone | Description |
-|------|-------------|
-| `neutral` | Balanced, rational, educational |
-| `warm` | Nostalgic, personal, comforting |
-| `dramatic` | High contrast, intense, powerful |
-| `romantic` | Soft, beautiful, decorative elements |
-| `energetic` | Bright, dynamic, exciting |
-| `vintage` | Historical, aged, period authenticity |
-| `action` | Speed lines, impact effects, combat |
-
-**Presets** (art + tone + special rules):
-
-| Preset | Equivalent | Special Rules |
-|--------|-----------|---------------|
-| `ohmsha` | manga + neutral | Visual metaphors, NO talking heads, gadget reveals |
-| `wuxia` | ink-brush + action | Qi effects, combat visuals, atmospheric elements |
-| `shoujo` | manga + romantic | Decorative elements, eye details, romantic beats |
-
-**Layouts** (panel arrangement):
-| Layout | Panels/Page | Best for |
-|--------|-------------|----------|
-| `standard` | 4-6 | Dialogue, narrative flow |
-| `cinematic` | 2-4 | Dramatic moments, establishing shots |
-| `dense` | 6-9 | Technical explanations, timelines |
-| `splash` | 1-2 large | Key moments, revelations |
-| `mixed` | 3-7 varies | Complex narratives, emotional arcs |
-| `webtoon` | 3-5 vertical | Ohmsha tutorials, mobile reading |
-
-**Layout Previews**:
-
-| | | |
-|:---:|:---:|:---:|
-| ![standard](./screenshots/comic-layouts/standard.webp) | ![cinematic](./screenshots/comic-layouts/cinematic.webp) | ![dense](./screenshots/comic-layouts/dense.webp) |
-| standard | cinematic | dense |
-| ![splash](./screenshots/comic-layouts/splash.webp) | ![mixed](./screenshots/comic-layouts/mixed.webp) | ![webtoon](./screenshots/comic-layouts/webtoon.webp) |
-| splash | mixed | webtoon |
 
 #### sc-article-illustrator
 
@@ -557,23 +272,6 @@ Smart article illustration skill with Type × Style two-dimension approach. Anal
 | minimal | blueprint | watercolor |
 | ![editorial](./screenshots/article-illustrator-styles/editorial.webp) | ![scientific](./screenshots/article-illustrator-styles/scientific.webp) | |
 | editorial | scientific | |
-
-#### sc-post-to-x
-
-Post content and articles to X (Twitter). Supports regular posts with images and X Articles (long-form Markdown). Uses real Chrome with CDP to bypass anti-automation.
-
-Plain text input is treated as a regular post. Markdown files are treated as X Articles. Scripts fill content into the browser, and the user reviews and publishes manually.
-
-```bash
-# Post with text
-/sc-post-to-x "Hello from Claude Code!"
-
-# Post with images
-/sc-post-to-x "Check this out" --image photo.png
-
-# Post X Article
-/sc-post-to-x --article path/to/article.md
-```
 
 #### sc-post-to-wechat
 
@@ -658,42 +356,6 @@ accounts:
 | 1 account has `default: true` | Pre-selected as default |
 
 Each account gets an isolated Chrome profile for independent login sessions (browser method). API credentials can be set inline in EXTEND.md or via `.env` with alias-prefixed keys (e.g., `WECHAT_TECH_BLOG_APP_ID`).
-
-#### sc-post-to-weibo
-
-Post content to Weibo (微博). Supports regular posts with text, images, and videos, and headline articles (头条文章) with Markdown input. Uses real Chrome with CDP to bypass anti-automation.
-
-**Regular Posts** - Text + images/videos (max 18 files):
-
-```bash
-# Post with text
-/sc-post-to-weibo "Hello Weibo!"
-
-# Post with images
-/sc-post-to-weibo "Check this out" --image photo.png
-
-# Post with video
-/sc-post-to-weibo "Watch this" --video clip.mp4
-```
-
-**Headline Articles (头条文章)** - Long-form Markdown:
-
-```bash
-# Publish article
-/sc-post-to-weibo --article article.md
-
-# With cover image
-/sc-post-to-weibo --article article.md --cover cover.jpg
-```
-
-**Article Options**:
-| Option | Description |
-|--------|-------------|
-| `--cover <path>` | Cover image |
-| `--title <text>` | Override title (max 32 chars) |
-| `--summary <text>` | Override summary (max 44 chars) |
-
-**Note**: Scripts fill content into the browser. User reviews and publishes manually. First run requires manual Weibo login (session persists).
 
 ### AI Generation Skills
 
@@ -1042,9 +704,7 @@ HTTP_PROXY=http://127.0.0.1:7890 HTTPS_PROXY=http://127.0.0.1:7890 /sc-gemini-we
 
 This project was inspired by and builds upon the following open source projects:
 
-- [x-article-publisher-skill](https://github.com/wshuyi/x-article-publisher-skill) by [@wshuyi](https://github.com/wshuyi) — Inspiration for the X article publishing skill
 - [doocs/md](https://github.com/doocs/md) by [@doocs](https://github.com/doocs) — Core implementation logic for Markdown to HTML conversion
-- [High-density Infographic Prompt](https://waytoagi.feishu.cn/wiki/YG0zwalijihRREkgmPzcWRInnUg) by AJ@WaytoAGI — Inspiration for the infographic skill
 - [qiaomu-mondo-poster-design](https://github.com/joeseesun/qiaomu-mondo-poster-design) by [@joeseesun](https://github.com/joeseesun)（乔木） — Inspiration for the Mondo style
 
 ## License

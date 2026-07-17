@@ -11,7 +11,7 @@ sc-format-markdown / [visual skills]
     ↓ formatted.md + images
 sc-content-review
     ↓ review-report.md
-sc-multi-publish / sc-post-to-*
+sc-post-to-* / sc-xhs-pipeline
     ↓ 已发布内容
 sc-content-mining（下一轮，基于发布效果迭代选题）
 ```
@@ -50,9 +50,7 @@ sc-content-mining（下一轮，基于发布效果迭代选题）
 | 清理排版 / 加 frontmatter | `sc-format-markdown` | `./sc-run sc-format-markdown main article.md` |
 | 生成封面图 | `sc-cover-image` | 对话调用 |
 | 生成章节配图 | `sc-article-illustrator` + `sc-imagine` | 见下方注意事项 |
-| 生成信息图 | `sc-infographic` | 对话调用 |
 | 生成小红书图文 | `sc-xhs-images` | 对话调用 |
-| 生成推文 JSON | `sc-markdown-to-thread` | 对话调用 |
 | 压缩图片 | `sc-compress-image` | `./sc-run sc-compress-image main image.png` |
 
 > **注意：`sc-article-illustrator` 与 `sc-imagine` 的两步流程**
@@ -76,8 +74,6 @@ sc-content-mining（下一轮，基于发布效果迭代选题）
 | 平台 | 命令 | 发布方式 |
 |------|------|---------|
 | 微信公众号 | `./sc-run sc-post-to-wechat wechat-article article.md` | API / CDP |
-| X（推文/线程）| `./sc-run sc-post-to-x x-api --thread thread.json` | API v2（推荐）/ CDP |
-| 微博 | `./sc-run sc-post-to-weibo weibo-article article.md` | CDP |
 | 小红书 | 对话调用 `sc-post-to-xhs` | MCP（优先）/ CDP / 手动 |
 
 ### 小红书完整流水线：`sc-xhs-pipeline`
@@ -101,15 +97,6 @@ sc-content-mining（下一轮，基于发布效果迭代选题）
 
 **状态文件机制**：`state.json` 记录每步状态，支持断点续跑。详见 `skills/sc-xhs-pipeline/SKILL.md`。
 
-### 多平台一键分发
-
-> "用 sc-multi-publish 把 article.md 发到微信和 X，先草稿不要直接发"（Beta，对话调用）
-
-### `sc-markdown-to-thread` → `sc-post-to-x` 交接
-
-1. 对话调用 `sc-markdown-to-thread`，输出 `thread.json`
-2. `./sc-run sc-post-to-x x-api --thread thread.json`
-
 ---
 
 ## 视觉 Skill 选择指南
@@ -118,8 +105,5 @@ sc-content-mining（下一轮，基于发布效果迭代选题）
 |---------|-----------|
 | 文章头部封面图（1 张）| `sc-cover-image` |
 | 文章章节配图（多张，定位插入）| `sc-article-illustrator` + `sc-imagine` |
-| 复杂数据/流程可视化（1 张）| `sc-infographic` |
 | 小红书可滑动图文系列（2–10 张）| `sc-xhs-images` |
-| 教育/趣味漫画 | `sc-comic` |
-| 演示文稿（可导出 PPTX）| `sc-slide-deck` |
 | 任意图像生成（直接 prompt）| `sc-imagine` |

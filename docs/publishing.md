@@ -28,9 +28,9 @@ Release hooks are configured via `.releaserc.yml`. This repo does not stage a se
 `packages/` is the **only** source of truth. Never edit `skills/*/scripts/vendor/` directly.
 
 Current packages:
-- `sc-chrome-cdp` (Chrome CDP utilities), consumed by 5 skills (`sc-gemini-web`, `sc-post-to-wechat`, `sc-post-to-weibo`, `sc-post-to-x`, `sc-post-to-xhs`)
-- `sc-md` (shared Markdown rendering and placeholder pipeline), consumed by 3 skills (`sc-markdown-to-html`, `sc-post-to-wechat`, `sc-post-to-weibo`)
-- `sc-fetch` (HTTP fetch utilities with X API adapters)
+- `sc-chrome-cdp` (Chrome CDP utilities), consumed by 3 skills (`sc-gemini-web`, `sc-post-to-wechat`, `sc-post-to-xhs`)
+- `sc-md` (shared Markdown rendering and placeholder pipeline), consumed by 2 skills (`sc-markdown-to-html`, `sc-post-to-wechat`)
+- `sc-fetch` (HTTP fetch utilities)
 
 **How it works**: Sync script copies packages into each consuming skill's `vendor/` directory and rewrites dependency specs to `file:./vendor/<name>`. Vendor copies are committed to git, making skills self-contained.
 

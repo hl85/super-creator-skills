@@ -2,6 +2,23 @@
 
 English | [中文](./CHANGELOG.zh.md)
 
+## 3.2.0 - 2026-07-17
+
+### BREAKING CHANGES
+- **Focused on two core platforms: Xiaohongshu + WeChat Official Account**. Removed 7 platform-specific and low-usage skills:
+  - `sc-post-to-x` — X/Twitter publishing (no longer a target platform)
+  - `sc-post-to-weibo` — Weibo publishing (no longer a target platform)
+  - `sc-markdown-to-thread` — X thread conversion (only served sc-post-to-x)
+  - `sc-multi-publish` — Multi-platform distribution (only 2 platforms remain, each has dedicated pipeline)
+  - `sc-slide-deck` — Slide/Presentation generation (not aligned with Xiaohongshu + WeChat content formats)
+  - `sc-comic` — Educational comic generation (not a core content format)
+  - `sc-infographic` — Single infographic generation (covered by sc-xhs-images and sc-article-illustrator)
+
+### After pruning
+- **14 skills remain**, all directly serving the Xiaohongshu + WeChat content production pipeline
+- Xiaohongshu pipeline: sc-content-mining → sc-writeflow → sc-xhs-images → sc-post-to-xhs (or sc-xhs-pipeline all-in-one)
+- WeChat pipeline: sc-content-mining → sc-writeflow → sc-markdown-to-html → sc-post-to-wechat (with sc-cover-image + sc-article-illustrator for visuals)
+
 ## 3.1.0 - 2026-07-17
 
 ### BREAKING CHANGES
