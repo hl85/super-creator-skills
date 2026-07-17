@@ -8,7 +8,7 @@
 |--------|------|-------|------|
 | 1（首选） | 网页 AI | `sc-web-ai` | 免费，效果好，优先使用 |
 | 2（次选） | 官方 API | `sc-imagine` | 需要特定尺寸/Key 时使用 |
-| ~~3（已移除）~~ | ~~混元 DashScope~~ | ~~sc-imagine~~ | ~~效果不佳，不再作为 fallback~~ |
+
 
 完整策略文档：[../../../../docs/image-generation-priority.md](../../../../../docs/image-generation-priority.md)
 
@@ -27,7 +27,6 @@ browser_tabs 检查是否有已登录的 Gemini/ChatGPT 标签页？
 
 ## Important Notes
 
-- **禁止默认使用混元 DashScope**：效果不佳，已从自动 fallback 中移除
 - **优先推荐网页方式**：免费、无需配置
 - **封面图尺寸**：sc-imagine 支持 `--ar 2.35:1` 精确控制公众号封面尺寸
 - **风格参考**：需要参考图时，sc-imagine 支持 `--ref` 参数

@@ -8,7 +8,6 @@
 |--------|------|-------|------|
 | 1（首选） | 网页 AI | `sc-web-ai` | 免费，效果好，优先使用 |
 | 2（次选） | 官方 API | `sc-imagine` | 批量/需要 Key 时使用 |
-| ~~3（已移除）~~ | ~~混元 DashScope~~ | ~~sc-imagine~~ | ~~效果不佳，不再作为 fallback~~ |
 
 完整策略文档：[../../../docs/image-generation-priority.md](../../../../docs/image-generation-priority.md)
 

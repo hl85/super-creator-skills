@@ -6,7 +6,6 @@
 |--------|------|-------|---------|------|------|
 | **1（首选）** | 网页 AI | `sc-web-ai` | 大多数场景，无 API Key 时 | 免费、无需 Key、效果好（Nano Banana/DALL-E） | 需要浏览器已登录 |
 | **2（次选）** | 官方 API | `sc-imagine` | 批量生成、需要稳定输出、有 API Key 时 | 速度快、可批量、稳定 | 需要 API Key、有成本 |
-| ~~3（已移除）~~ | ~~混元 DashScope~~ | ~~sc-imagine/dashscope~~ | ~~fallback~~ | ~~国内访问快~~ | ~~效果不佳，已从自动 fallback 中移除~~ |
 
 ---
 
@@ -24,7 +23,6 @@
     └─ 否 → 检查是否有可用的 API Key？
             ├─ 有 → 使用 sc-imagine（API 生图）
             │       ↳ 自动选择优先级：Google → OpenAI → Azure → OpenRouter → Replicate → Seedream → MiniMax → Jimeng
-            │       ↳ 注意：DashScope（混元）已从自动 fallback 中移除，效果不佳
             │       ↳ 用户可通过 --provider dashscope 主动指定使用
             │
             └─ 无 → 提示用户二选一：

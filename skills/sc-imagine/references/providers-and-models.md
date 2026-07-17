@@ -14,8 +14,6 @@ Detailed list of supported providers and their specific model configurations.
 7. **MiniMax**: image-01 (海螺)
 8. **Jimeng**: jimeng_t2i_v40 (即梦)
 
-**Explicit selection only (not auto-selected):**
-- **DashScope (混元)**: qwen-image-2.0-pro — removed from auto-fallback due to poor quality. Use `--provider dashscope` to explicitly select.
 
 ## Model Resolution
 Load Priority: CLI args > EXTEND.md > env vars > project .env > user .env
