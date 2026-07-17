@@ -31,15 +31,18 @@ idea-radar（下一轮）
 
 ---
 
-## Stage 2 — 素材采集（可选）
+## Stage 2 — 素材采集与选题挖掘（可选）
 
-在写作前，可用以下 skill 采集原始素材：
+在写作前，可用以下 skill 采集原始素材或挖掘选题：
 
 | 场景 | 命令 |
 |------|------|
 | 抓取文章/网页 | `./sc-run url-to-markdown main <url>` |
 | 下载 YouTube 字幕 | `./sc-run yt-transcript main <youtube-url>` |
 | 保存 X 推文/线程 | `./sc-run x-to-markdown main <x-url>` |
+| 从内容源挖掘选题 | 对话调用 `content-mining`（支持课程纪要、博客、播客字幕等） |
+
+> **content-mining**：从任意内容源提取"认知错位"模式，生成选题清单和呈现形式建议。详见 `skills/content-mining/SKILL.md`。
 
 ---
 
@@ -86,12 +89,32 @@ idea-radar（下一轮）
 
 ### 单平台发布
 
-| 平台 | 命令 |
-|------|------|
-| 微信公众号 | `./sc-run post-to-wechat wechat-article article.md` |
-| X（推文/线程）| `./sc-run post-to-x main --thread thread.json` |
-| 微博 | `./sc-run post-to-weibo weibo-article article.md` |
-| 小红书 | 对话调用 `post-to-xhs`（Beta）|
+| 平台 | 命令 | 发布方式 |
+|------|------|---------|
+| 微信公众号 | `./sc-run post-to-wechat wechat-article article.md` | API / CDP |
+| X（推文/线程）| `./sc-run post-to-x x-api --thread thread.json` | API v2（推荐）/ CDP |
+| 微博 | `./sc-run post-to-weibo weibo-article article.md` | CDP |
+| 小红书 | 对话调用 `post-to-xhs` | MCP（优先）/ CDP / 手动 |
+
+### 小红书完整流水线：`xhs-pipeline`
+
+串联内容挖掘 → 写文 → 生图 → 发布的全链路流水线：
+
+```
+内容源 → [挖掘] → [写文] → [生图] → [发布] → 小红书
+         content-  writeflow xhs-    post-to-
+         mining               images  xhs
+```
+
+**调用方式**：
+> "跑一篇小红书，从我的博客文章里挖选题"
+> "启动 xhs pipeline，选择手动发布模式"
+
+**发布模式选择**：
+- 🛡️ **手动发布（推荐）**：生图完成后生成发布手册，人工手动发布，最安全
+- ⚡ **自动发布**：用 MCP / CDP 自动化发布，有风控风险
+
+**状态文件机制**：`pipeline-state.json` 记录每步状态，支持断点续跑。详见 `skills/xhs-pipeline/SKILL.md`。
 
 ### 多平台一键分发
 
@@ -100,7 +123,7 @@ idea-radar（下一轮）
 ### `markdown-to-thread` → `post-to-x` 交接
 
 1. 对话调用 `markdown-to-thread`，输出 `thread.json`
-2. `./sc-run post-to-x main --thread thread.json`
+2. `./sc-run post-to-x x-api --thread thread.json`
 
 ---
 

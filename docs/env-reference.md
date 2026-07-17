@@ -77,6 +77,21 @@ CLI 参数
 # WECHAT_APP_ID=
 # WECHAT_APP_SECRET=
 
+
+# ── X (Twitter) API v2 ──────────────────────────────────────────────────────
+# 获取：https://developer.x.com/
+# 需申请 Elevated/Academic 访问级别
+# X_API_KEY=
+# X_API_SECRET=
+# X_ACCESS_TOKEN=
+# X_ACCESS_TOKEN_SECRET=
+# X_BEARER_TOKEN=
+# X_PUBLISH_METHOD=api          # api | browser，默认自动检测
+
+# ── 小红书 MCP（优先）/ CDP（备用）───────────────────────────────────────────
+# xiaohongshu-mcp 服务地址（默认：http://localhost:18060/mcp）
+# XIAOHONGSHU_MCP_URL=
+
 # ── Chrome 路径覆盖（通常不需要设置）─────────────────────────────────────────
 # 默认路径见：docs/chrome-profile.md
 # SC_CHROME_PROFILE_DIR=
@@ -127,6 +142,29 @@ CLI 参数
 
 > 通常只需设置 `SC_CHROME_PROFILE_DIR`（如果默认路径不合适），其余都不需要。默认路径见 [chrome-profile.md](chrome-profile.md)。
 
+
+
+### X (Twitter) API v2
+
+| 变量名 | 用途 | 备注 |
+|--------|------|------|
+| `X_API_KEY` | API Key / Consumer Key | API v2 必填 |
+| `X_API_SECRET` | API Secret / Consumer Secret | API v2 必填 |
+| `X_ACCESS_TOKEN` | Access Token | API v2 必填 |
+| `X_ACCESS_TOKEN_SECRET` | Access Token Secret | API v2 必填 |
+| `X_BEARER_TOKEN` | Bearer Token | 只读 API 使用 |
+| `X_PUBLISH_METHOD` | 发布方式 | `api` 或 `browser`，默认自动检测 |
+
+> **双模式架构**：配置了 API 凭证时优先使用 API v2，否则自动降级到 CDP 浏览器模式。详见 `skills/post-to-x/SKILL.md`。
+
+### 小红书 (Xiaohongshu)
+
+| 变量名 | 用途 | 备注 |
+|--------|------|------|
+| `XIAOHONGSHU_MCP_URL` | xiaohongshu-mcp 服务地址 | 默认 `http://localhost:18060/mcp` |
+
+> **三级降级策略**：优先使用 xiaohongshu-mcp → CDP 脚本 → 手动发布手册。详见 `skills/post-to-xhs/SKILL.md` 和 `skills/xhs-pipeline/SKILL.md`。
+
 ### 高级调优
 
 | 变量名 | 默认值 | 用途 |
@@ -150,7 +188,9 @@ CLI 参数
 | `translate` | 目标语言、翻译模式、受众、风格、术语表 |
 | `post-to-wechat` | 主题、颜色、发布方式、作者、评论设置 |
 | `post-to-weibo` | Chrome Profile 路径 |
-| `post-to-xhs` | 默认话题标签、城市、草稿模式 |
+| `post-to-xhs` | 默认话题标签、城市、草稿模式、MCP 服务地址 |
+| `post-to-x` | 默认发布方式（api/browser）、多账号配置 |
+| `xhs-pipeline` | 发布模式（手动/自动）、状态文件路径 |
 | `url-to-markdown` | 媒体下载策略、默认输出目录 |
 | `x-to-markdown` | 媒体下载策略、默认输出目录 |
 | `infographic`、`slide-deck` | 水印、默认风格（首次运行时询问）|

@@ -557,24 +557,109 @@ clawhub install markdown-to-html
 | ![editorial](./screenshots/article-illustrator-styles/editorial.webp) | ![scientific](./screenshots/article-illustrator-styles/scientific.webp) | |
 | editorial | scientific | |
 
-#### post-to-x
 
-发布内容和文章到 X (Twitter)。支持带图片的普通帖子和 X 文章（长篇 Markdown）。使用真实 Chrome + CDP 绕过反自动化检测。
 
-纯文本输入默认按普通帖子处理，Markdown 文件默认按 X 文章处理。脚本会将内容填入浏览器，用户需手动检查并发布。
+#### xhs-pipeline
+
+小红书内容生产全链路流水线。串联 **content-mining → writeflow → xhs-images → post-to-xhs** 四个 skill，每步与用户确认，支持断点续跑。
+
+**核心特性**：
+- 🎯 任意内容源：课程纪要、博客、播客字幕、读书笔记等
+- 🛡️ **发布模式选择**：手动发布（推荐，最安全）/ 自动发布（MCP → CDP → 手动三级降级）
+- 🔄 **状态文件机制**：`pipeline-state.json` 记录进度，支持断点续跑和阶段回退
+- ✅ **每步确认**：每个阶段结束后与用户确认，确保质量
 
 ```bash
-# 发布文字
-/post-to-x "Hello from Claude Code!"
+# 启动流水线
+"跑一篇小红书，从我的博客文章里挖选题"
+"启动 xhs pipeline，选择手动发布模式"
 
-# 发布带图片
-/post-to-x "看看这个" --image photo.png
-
-# 发布 X 文章
-/post-to-x --article path/to/article.md
+# 从状态文件继续
+"继续上次的小红书"
+"从状态文件恢复 xhs pipeline"
 ```
 
-#### post-to-wechat
+**四阶段流程**：
+
+| 阶段 | 说明 | 对应 Skill |
+|------|------|-----------|
+| 挖掘 | 从内容源提取选题，确认方向 | content-mining |
+| 写文 | 生成小红书文案（大纲→终稿） | writeflow |
+| 生图 | 生成 2-9 张信息图 | xhs-images |
+| 发布 | 手动发布（推荐）/ 自动发布 | post-to-xhs |
+
+
+
+#### content-mining
+
+从任意内容源挖掘有传播力的内容选题。先脑暴确认方向，再扫描内容提取"认知错位"模式，最后给出选题清单+呈现形式建议。
+
+**支持内容源**：课程纪要、博客文章、播客字幕、读书笔记、会议记录、客户访谈等。
+
+**三阶段流程**：
+1. **Brainstorm**：确认目标平台、受众、内容调性、核心逻辑
+2. **Mine**：扫描内容，提取"读者以为 X → 真相是 Y"的认知错位
+3. **Recommend**：为每个选题推荐呈现形式（图文、漫画、视频等）
+
+```bash
+"从我的课程纪要里挖 5 个小红书选题"
+"用 content-mining 扫描这份播客字幕，面向职场新人"
+```#### post-to-x
+
+发布内容和文章到 X (Twitter)。**双模式架构**：优先使用官方 API v2（OAuth 1.0a），不可用时自动降级到 Chrome CDP 浏览器模式。
+
+支持普通帖子、带图片/视频帖子、X 文章、引用推文。配置 API 凭证后自动选择 API 方式，更稳定、低风险。
+
+```bash
+# API 方式发布文字（推荐）
+./sc-run post-to-x x-api "Hello from super-creator!"
+
+# API 方式发布带图片
+./sc-run post-to-x x-api "看看这个" --image photo.png
+
+# 浏览器方式发布
+./sc-run post-to-x x-browser "Hello!"
+
+# 发布 X 文章
+./sc-run post-to-x x-article path/to/article.md
+
+# 检查环境配置
+./sc-run post-to-x x-api --check
+```
+
+**发布方式对比**：
+
+| 方式 | 稳定性 | 风险 | 配置要求 |
+|------|--------|------|----------|
+| API v2（推荐）| ⭐⭐⭐⭐⭐ | 🟢 低 | API Key + Access Token |
+| Browser CDP | ⭐⭐⭐ | 🟡 中 | Chrome + 手动登录 |
+
+
+
+#### post-to-xhs
+
+发布图文笔记到小红书。**三级降级策略**：优先使用 xiaohongshu-mcp → CDP 脚本 → 手动发布手册。
+
+支持图文笔记发布、封面选择、话题标签、位置标签、草稿预览。
+
+```bash
+# MCP 方式发布（优先）
+"用 post-to-xhs 发布这组图片"
+
+# CDP 预览模式
+./sc-run post-to-xhs xhs-post --title "标题" --caption "正文" --image ./img1.png
+
+# CDP 直接发布
+./sc-run post-to-xhs xhs-post --title "标题" --caption "正文" --image ./img1.png --publish
+```
+
+**发布方式对比**：
+
+| 方式 | 优先级 | 稳定性 |
+|------|--------|--------|
+| xiaohongshu-mcp | ⭐ 优先 | 高 |
+| Chrome CDP | Fallback | 中 |
+| 手动发布 | 最后 | 最高（人工） |#### post-to-wechat
 
 发布内容到微信公众号，支持两种模式：
 
