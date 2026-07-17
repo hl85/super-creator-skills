@@ -1,12 +1,32 @@
 ---
 name: sc-imagine
-description: AI image generation with OpenAI, Azure OpenAI, Google, OpenRouter, DashScope, MiniMax, Jimeng, Seedream and Replicate APIs. Supports text-to-image, reference images, aspect ratios, and batch generation from saved prompt files. Sequential by default; use batch parallel generation when the user already has multiple prompts or wants stable multi-image throughput. Use when user asks to generate, create, or draw images.
-version: 1.56.4
+description: AI image generation with OpenAI, Azure OpenAI, Google, OpenRouter, MiniMax, Jimeng, Seedream and Replicate APIs. Supports text-to-image, reference images, aspect ratios, and batch generation from saved prompt files. Sequential by default; use batch parallel generation when the user already has multiple prompts or wants stable multi-image throughput. **NOTE: This is the SECONDARY image generation method. For most cases, prefer sc-web-ai (free web-based Gemini/ChatGPT) first. Use sc-imagine when you need batch generation, API stability, or have API keys configured.** Use when user asks to generate, create, or draw images AND explicitly requests API-based generation, needs batch mode, or web AI is unavailable.
+version: 1.57.0
 ---
 
 # Image Generation (AI SDK)
 
-Official API-based image generation across multiple providers.
+Official API-based image generation across multiple providers. **This is the secondary option — prefer `sc-web-ai` first for free web-based generation.**
+
+## Priority (v3.4.0+)
+
+| Priority | Method | Skill | Use when |
+|----------|--------|-------|----------|
+| 1 (首选) | Web AI | `sc-web-ai` | Default for most cases. Free, no API key needed |
+| 2 (次选) | Official APIs | `sc-imagine` | Batch generation, reference images, user has API keys |
+
+**DashScope (混元) note**: Removed from auto-fallback due to poor quality. Users can still explicitly select via `--provider dashscope`.
+
+## Provider Auto-Selection Priority (when no --provider specified)
+
+1. Google (Imagen 3)
+2. OpenAI (GPT Image 1.5)
+3. Azure OpenAI
+4. OpenRouter
+5. Replicate (Nano Banana API)
+6. Seedream (豆包)
+7. MiniMax (海螺)
+8. Jimeng (即梦)
 
 ## Usage
 

@@ -683,11 +683,12 @@ export function detectProvider(args: CliArgs): Provider {
     hasOpenai && "openai",
     hasAzure && "azure",
     hasOpenrouter && "openrouter",
-    hasDashscope && "dashscope",
-    hasMinimax && "minimax",
     hasReplicate && "replicate",
-    hasJimeng && "jimeng",
     hasSeedream && "seedream",
+    hasMinimax && "minimax",
+    hasJimeng && "jimeng",
+    // NOTE: dashscope (混元) intentionally removed from auto-fallback due to poor quality.
+    // Users can still explicitly select it via --provider dashscope.
   ].filter(Boolean) as Provider[];
 
   if (available.length === 1) return available[0]!;

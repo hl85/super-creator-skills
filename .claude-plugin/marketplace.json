@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Skills for improving daily work efficiency",
-    "version": "3.3.0"
+    "version": "3.4.0"
   },
   "plugins": [
     {
@@ -22,11 +22,11 @@
         "./skills/sc-convert-markdown-to-html",
         "./skills/sc-cover-image",
         "./skills/sc-format-markdown",
-        "./skills/sc-gemini-web",
         "./skills/sc-imagine",
         "./skills/sc-pipeline",
         "./skills/sc-publish-wechat",
         "./skills/sc-publish-xhs",
+        "./skills/sc-web-ai",
         "./skills/sc-writer",
         "./skills/sc-xhs-images"
       ]

@@ -1,11 +1,36 @@
 # Image Generation Convention
 
-## Backend
+## Backend Priority (v3.4.0+)
 
-Image generation is delegated to the **available image generation skill (default: `sc-imagine`)**.
+**严格遵循以下优先级选择图片生成引擎：**
 
-- If multiple image generation skills are available, ask the user to choose.
-- If no image generation skill is available, prompt the user to configure an API Key or install an image generation skill.
+| 优先级 | 引擎 | Skill | 说明 |
+|--------|------|-------|------|
+| 1（首选） | 网页 AI | `sc-web-ai` | 免费，效果好，优先使用 |
+| 2（次选） | 官方 API | `sc-imagine` | 批量/需要 Key 时使用 |
+| ~~3（已移除）~~ | ~~混元 DashScope~~ | ~~sc-imagine~~ | ~~效果不佳，不再作为 fallback~~ |
+
+完整策略文档：[../../../docs/image-generation-priority.md](../../../../docs/image-generation-priority.md)
+
+## Decision Flow
+
+```
+需要生成图片
+    ↓
+browser_tabs 检查是否有已登录的 Gemini/ChatGPT 标签页？
+    ├─ 是 → 使用 sc-web-ai（网页生图）
+    │
+    └─ 否 → 检查是否有 API Key？
+            ├─ 有 → 使用 sc-imagine
+            └─ 无 → 提示用户："请在 IDE 浏览器中打开 gemini.google.com 并登录（免费生图），或配置 API Key"
+```
+
+## Important Notes
+
+- **禁止默认使用混元 DashScope**：效果不佳，已从自动 fallback 中移除
+- **优先推荐网页方式**：免费、无需配置、Nano Banana 风格适合小红书
+- **批量生成**：如果一次需要生成 3 张以上图片，建议切换到 sc-imagine API 方式（更快）
+- **参考图/风格一致性**：需要参考图时，sc-imagine API 方式更稳定
 
 ## Prompt Files
 
@@ -15,18 +40,24 @@ Image generation is delegated to the **available image generation skill (default
 - The generation command should use the prompt file rather than passing inline prompt text.
 - Do NOT pass ad-hoc inline text to `--prompt` without first saving the prompt file.
 
-## Generation Command
+## Generation Commands
 
-Recommended invocation (via `sc-imagine` skill):
+### 使用 sc-web-ai（首选，网页方式）
 
+不需要命令行，自然语言描述即可。AI 会自动：
+1. 操作浏览器打开 Gemini
+2. 输入提示词
+3. 等待生图
+4. 下载图片到本地
+
+### 使用 sc-imagine（次选，API 方式）
+
+单张生成：
 ```bash
-./sc-run sc-imagine main --promptfile prompts/01-cover-ai-tools.md
+./sc-run sc-imagine main --promptfile prompts/01-cover-ai-tools.md --image 01-cover-ai-tools.png
 ```
 
-For image series (第 2+ 张), pass the first image as style reference:
-
+带风格参考图（系列图片第 2+ 张）：
 ```bash
-./sc-run sc-imagine main --promptfile prompts/02-content-why-ai.md --ref 01-cover-ai-tools.png
+./sc-run sc-imagine main --promptfile prompts/02-content-why-ai.md --ref 01-cover-ai-tools.png --image 02-content-why-ai.png
 ```
-
-Adjust parameters based on the chosen image generation skill's interface.
