@@ -76,9 +76,11 @@ description: Use Gemini/ChatGPT web version for image generation and other tasks
 - **ChatGPT 生图**：参考 `references/chatgpt-image-generation.md`
 - **浏览器自动化技巧**：参考 `references/browser-tips.md`
 - **常见问题排查**：参考 `references/troubleshooting.md`
+- **视觉风格库**：参考 [sc-styles](../sc-styles/references/catalog.md) 获取 49+ 种预设风格提示词
 
 ## 提示词建议
 
+- 从 [sc-styles 风格库](../sc-styles/references/catalog.md) 选择风格，使用风格文件中的 Example Prompt
 - Gemini Nano Banana 风格建议使用英文提示词，效果更好
 - ChatGPT DALL-E 中英文都可以
 - 明确说明图片风格、尺寸、背景等要求

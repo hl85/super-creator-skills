@@ -7,8 +7,9 @@
 | 要求 | 详情 |
 |------|------|
 | **命名** | 所有 skills **必须**使用 `sc-` 前缀，采用描述性的、动词优先的命名（例如 `sc-publish-wechat`、`sc-publish-xhs`、`sc-convert-markdown-to-html`、`sc-pipeline`、`sc-writer`） |
-| **name 字段** | 最多 64 字符，仅允许小写字母/数字/连字符，不得包含 "anthropic"/"claude" |
+| **name 字段** | 最多 64 字符，仅允许小写字母/数字/连字符，不得包含 "anthropic"/"claude"/"cursor"/"trae" 等 IDE 或厂商名 |
 | **description** | 最多 1024 字符，第三人称，包含功能 + 使用场景 |
+| **IDE 中立** | SKILL.md 和 references/ 中的文档不得绑定特定 IDE，AI 助手统一称为"AI 助手"而非具体品牌名；具体 IDE 的配置说明统一放在 `docs/ide-compatibility.md` 或 skill 的 references/ 下单独的 mcp-setup.md |
 | **SKILL.md 正文** | **必须少于 30 行**；所有技术细节使用 `references/` |
 | **References** | 使用 `references/` 目录；在主 SKILL.md 中记录 Intents |
 

@@ -60,6 +60,12 @@ For detailed provider models, environment variables, and advanced configuration,
 - [references/environment-variables.md](references/environment-variables.md) - **API Key & Config Variables**
 - [references/config/preferences-schema.md](references/config/preferences-schema.md) - **EXTEND.md Options**
 - [references/batch-format.md](references/batch-format.md) - **Batch JSON Schema**
+- [sc-styles 统一风格库](../sc-styles/references/catalog.md) - **49+ 种预设视觉风格，可直接用于 --prompt**
+
+## See Also
+
+- 视觉风格库 → [sc-styles](../sc-styles/SKILL.md)
+- 免费网页生图（首选）→ [sc-web-ai](../sc-web-ai/SKILL.md)
 
 ## Error Handling
 

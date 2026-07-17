@@ -25,11 +25,20 @@ AI 驱动的内容创作工具箱，专为小红书和微信公众号打造。
 
 ### 1. 安装
 
-在 TRAE / Cursor / Claude Code 等 AI IDE 中安装插件：
+super-creator-skills 的核心是 Markdown 文件 + TypeScript 脚本，**不绑定任何特定 IDE**。任何支持读取文件和 MCP 的 AI IDE 都能使用。
 
+**TRAE（推荐，已验证）**：
+将仓库 clone 到工作目录，TRAE 启动时会自动扫描 `.agents/skills/` 目录加载所有 skill。
+
+**Claude Code**：
 ```bash
 /plugin marketplace add hl85/super-creator
 ```
+
+**Cursor / 其他 AI IDE**：
+将仓库 clone 到项目目录，在 IDE 中打开该目录，AI 助手会自动识别 `skills/` 目录下的 SKILL.md 文件。
+
+> `.claude-plugin/` 目录是 Claude Code 的插件注册兼容层，不影响其他 IDE 使用。详见 [IDE 兼容性说明](docs/ide-compatibility.md)。
 
 ### 2. 配置免费生图（重要！不需要 API Key）
 
@@ -87,9 +96,10 @@ AI 驱动的内容创作工具箱，专为小红书和微信公众号打造。
 
 | Skill | 用途 |
 |-------|------|
+| `sc-styles` | **统一风格库**：49 种视觉风格定义，所有配图 skill 共享 |
 | `sc-web-ai` | **免费生图**：通过浏览器操作 Gemini/ChatGPT 生图，零成本 |
 | `sc-cover-image` | 公众号封面图：2.35:1 比例，多种风格模板 |
-| `sc-article-illustrator` | 文章插画：20+ 种风格，支持批量生成 |
+| `sc-article-illustrator` | 文章插画：22 种内置风格，支持批量生成 |
 | `sc-xhs-images` | 小红书信息图：11 种风格，8 种布局，爆款模板 |
 | `sc-imagine` | API 生图：支持多服务商批量生图（备选） |
 
@@ -119,14 +129,19 @@ AI 驱动的内容创作工具箱，专为小红书和微信公众号打造。
 - 非常适合公众号/小红书配图
 - 免费无限量（有合理的速率限制）
 
-### 支持的其他风格
-- 写实摄影
-- 扁平设计
-- 水彩手绘
-- 像素风格
-- 复古怀旧
-- Notion 风格
-- ... 共 20+ 种风格预设
+### 49 种视觉风格（统一风格库）
+
+所有配图 skill 共享一套统一的视觉风格库，包含 5 大分类：
+
+| 分类 | 数量 | 代表风格 |
+|------|------|---------|
+| 技法/媒介 | 12 | 水彩、像素、粉笔、丝网印刷、素描、黏土、折纸 |
+| 情绪/氛围 | 13 | 温暖、优雅、极简、活泼、复古、可爱、暗黑 |
+| 设计范式 | 11 | Notion、蓝图、编辑出版、科学、自然、吉卜力、企业孟菲斯 |
+| 特殊/创意 | 10 | 赛博朋克、乐高、宜家说明书、平铺陈列、地铁图、线框图 |
+| 漫画专用 | 5 | 日漫、清线、水墨、写实、粉笔 |
+
+浏览完整风格目录和示例提示词：[sc-styles/references/catalog.md](skills/sc-styles/references/catalog.md)
 
 ---
 
@@ -187,12 +202,48 @@ A: 目前专注于 **小红书** 和 **微信公众号** 两个平台。
 
 | 文档 | 说明 |
 |------|------|
+| [架构设计](#架构设计) | 三层 Skill 架构和核心设计原则 |
+| [统一风格库](skills/sc-styles/references/catalog.md) | 49 种视觉风格总目录和提示词 |
+| [IDE 兼容性说明](docs/ide-compatibility.md) | 各 AI IDE 支持情况和配置方法 |
 | [图片生成优先级](docs/image-generation-priority.md) | 免费网页生图 / API 生图的选择策略 |
 | [快速上手](docs/quickstart.md) | 更详细的安装和配置教程 |
 | [流水线说明](docs/pipeline.md) | 全流程 6 个阶段的工作原理 |
 | [环境变量参考](docs/env-reference.md) | 所有 API Key 和配置项说明 |
 | [视觉 Skill 选择指南](docs/visuals.md) | 不同场景用什么配图 Skill |
+| [创建新 Skill](docs/creating-skills.md) | 如何为 super-creator 贡献新 Skill |
 | [更新日志](CHANGELOG.md) | 每个版本的变更记录 |
+
+---
+
+## 架构设计
+
+本项目遵循 AI Skill 设计最佳实践，采用分层架构，每个 Skill 有明确的职责边界。
+
+### 三层 Skill 架构
+
+| 层级 | 模式 | 职责 | 代表 Skill |
+|------|------|------|-----------|
+| **共享资产层** | Tool Wrapper | 提供知识规范和共享资源，不直接生成内容 | `sc-styles` |
+| **能力引擎层** | Generator | 封装具体能力（生图、转码、压缩），输出稳定结果 | `sc-web-ai`、`sc-imagine`、`sc-compress-image`、`sc-convert-markdown-to-html` |
+| **工作流层** | Pipeline | 编排多步骤流程，带硬门槛防止跳步 | `sc-pipeline`、`sc-cover-image`、`sc-article-illustrator`、`sc-xhs-images`、`sc-publish-*` |
+
+### 核心设计原则
+
+1. **单一数据源**：风格定义集中在 `sc-styles`，所有上层 Skill 引用同一套定义，避免重复维护导致不一致
+2. **渐进式加载**：每个 SKILL.md 只做"索引 + 执行协议"，具体规范和模板放在 `references/` 按需加载，不浪费上下文
+3. **零破坏性扩展**：新增风格只需在 `sc-styles/references/styles/` 加一个 .md 文件，所有生图 Skill 自动可用
+4. **硬门槛机制**：Pipeline 类型 Skill 在关键节点设置检查点（如内容审核、图片压缩），不通过不进入下一步
+
+### 文件组织约定
+
+```
+skills/sc-{name}/
+├── SKILL.md              # 入口：索引 + 执行协议（必需，保持精简）
+├── references/           # 参考资料：规范、检查清单、风格指南（按需加载）
+│   └── styles/           # 风格定义（仅 sc-styles 有）
+├── assets/               # 静态资源：模板、示例
+└── scripts/              # 可执行脚本（确定性操作）
+```
 
 ---
 
@@ -203,6 +254,8 @@ A: 目前专注于 **小红书** 和 **微信公众号** 两个平台。
 3. **不重复造轮子**：浏览器自动化交给 IDE 内置的 MCP，我们只写使用指南
 4. **维护成本最小化**：去掉所有需要高频维护的反向工程代码
 5. **中文用户优先**：所有文档都是中文，不考虑英文用户
+6. **共享资产优先**：能复用的定义（如风格、模板）集中管理，不分散到各个 Skill
+7. **渐进式披露**：SKILL.md 保持精简，细节放在 references/ 按需加载，不浪费 AI 上下文
 
 ---
 

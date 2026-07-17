@@ -30,8 +30,6 @@ bash scripts/sync-clawhub.sh <skill>   # 同步单个 skill
 当前共享包：
 - `sc-chrome-cdp`（Chrome CDP 工具），被 2 个 skill 使用（`sc-publish-wechat`、`sc-publish-xhs`）
 - `sc-md`（共享 Markdown 渲染和占位符处理），被 2 个 skill 使用（`sc-convert-markdown-to-html`、`sc-publish-wechat`）
-- `sc-fetch`（HTTP 获取工具）
-- `sc-extend-config`（EXTEND.md 配置解析）
 
 **工作原理**：同步脚本将包复制到每个使用它的 skill 的 `vendor/` 目录，并将依赖规范重写为 `file:./vendor/<name>`。Vendor 副本会提交到 git，使 skills 是自包含的。
 

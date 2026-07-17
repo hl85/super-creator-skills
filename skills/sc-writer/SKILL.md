@@ -10,7 +10,7 @@ version: 0.3.0
 
 ## Usage
 
-> ⚠️ **Beta** — 此 skill 通过 Claude 对话调用（prompt 驱动），以下 CLI 命令仅作参考，尚未实现。
+> ⚠️ **Beta** — 此 skill 通过 AI 对话调用（prompt 驱动），以下 CLI 命令仅作参考，尚未实现。
 
 This skill is driven via prompt orchestration. Invoke it by describing what you need in the conversation.
 

@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Skills for improving daily work efficiency",
-    "version": "3.4.0"
+    "version": "3.5.0"
   },
   "plugins": [
     {
@@ -26,6 +26,7 @@
         "./skills/sc-pipeline",
         "./skills/sc-publish-wechat",
         "./skills/sc-publish-xhs",
+        "./skills/sc-styles",
         "./skills/sc-web-ai",
         "./skills/sc-writer",
         "./skills/sc-xhs-images"

@@ -1,6 +1,6 @@
-# CLAUDE.md / TRAE 开发指南
+# AI 开发指南（CLAUDE.md / AGENTS.md 兼容）
 
-本文件为在本仓库中工作的 AI 编码助手（Claude Code / TRAE）提供指导。
+本文件为在本仓库中工作的 AI 编码助手提供指导。文件名 `CLAUDE.md` 遵循 Claude Code 约定，TRAE、Cursor、Codex 等 AI IDE 也会自动读取此文件（或通过 `AGENTS.md` 别名）。
 
 AI 驱动的内容创作 skills 插件，专为小红书和微信公众号打造。
 
@@ -34,14 +34,12 @@ skills/<name>/
 
 ### 共享包（workspace）
 
-`packages/` 下的四个包被多个 skill 使用：
+`packages/` 下的两个包被多个 skill 使用：
 
 | 包 | 用途 |
 |----|------|
-| `sc-fetch` | 通过 Chrome CDP 获取 URL 内容转 Markdown/JSON，支持站点特定适配器 |
 | `sc-chrome-cdp` | Chrome CDP 工具 |
 | `sc-md` | Markdown 转 HTML 渲染，支持主题/扩展（KaTeX、PlantUML、提示框、脚注等） |
-| `sc-extend-config` | EXTEND.md 配置解析 |
 
 这些包由 `scripts/sync-shared-skill-packages.mjs` 同步到 `skills/*/scripts/vendor/` 以实现自包含。Vendor 副本提交到 git。
 
@@ -67,12 +65,6 @@ else echo "Error: install bun: brew install oven-sh/bun/bun or npm install -g bu
 npm test                              # 运行所有 Node 兼容的测试
 node --import tsx --test path/to/file.test.ts  # 运行单个测试文件
 npm run test:coverage                 # 带覆盖率
-```
-
-**Bun 测试**（用于 `packages/sc-fetch`）：
-```bash
-cd packages/sc-fetch && bun test                    # 所有 Bun 测试
-cd packages/sc-fetch && bun test path/to/file.test.ts  # 单个文件
 ```
 
 根目录 `npm test` 通过 `node --test` 运行所有 Node 兼容的 `*.test.ts` 文件。

@@ -144,8 +144,6 @@ tests-data/
 
 # Skill extensions (user customization)
 .super-creator/
-!skills/sc-xhs-images/
-sc-cover-image/
 illustrations/
 posts/
 ### IntelliJ IDEA ###

@@ -1,5 +1,33 @@
 # 更新日志
 
+## 3.5.0 - 2026-07-18
+
+### 新增
+- **新 skill `sc-styles`**（Tool Wrapper 模式）：统一图像风格库，为所有生图/配图 skill 提供标准化的视觉风格定义
+  - 收录 **49 种视觉风格**，覆盖技法/媒介、情绪/氛围、设计范式、特殊/创意、漫画专用五大分类
+  - 从 git 历史恢复了 v3.2.0 重构中删除的 infographic（20种）、comic（5种艺术风格）、slide-deck（4种独有风格）的风格定义
+  - 统一了所有风格文件格式：Atmosphere → Color Palette → Visual Elements → Style Rules → Example Prompt → Best For
+  - 提供 `references/catalog.md` 风格总目录，含分类索引和场景推荐表
+  - 遵循 Skill 设计最佳实践：SKILL.md 作为"索引+执行协议"，具体风格定义按需从 references/styles/ 加载
+
+### 变更
+- **所有视觉类 skill 添加 sc-styles 引用**：sc-article-illustrator、sc-cover-image、sc-xhs-images、sc-imagine、sc-web-ai 均在文档中指向统一风格库
+- **marketplace.json 注册 sc-styles**，总 skill 数从 14 增至 15
+- **sc-web-ai 生图指南更新**：补充 ChatGPT contenteditable 输入框的正确操作方式（execCommand）、分享浮层下载路径、快速参考 JS 片段，大幅降低浏览器自动化摩擦
+
+### 架构改进
+- 采用 Tool Wrapper 设计模式：风格定义作为共享资产集中管理，上层 skill（Generator/Pipeline）按需引用
+- 消除风格定义的重复维护：未来新增/修改风格只需更新 sc-styles 一处
+- 渐进式加载：Agent 先看到 SKILL.md 索引，需要时再加载具体风格文件，不浪费上下文
+
+### IDE 兼容性改进
+- **文档去品牌化**：将文档中 AI 助手代称从"Claude"统一改为"AI 助手"，消除对特定 IDE 的品牌依赖
+- **多 IDE 安装说明**：README 提供 TRAE / Claude Code / Cursor 三种安装方式
+- **`.claude-plugin/` 明确定位为兼容层**：不再作为唯一安装方式，TRAE 通过 `.agents/skills/` 自动扫描加载
+- **新增 `docs/ide-compatibility.md`**：详细说明各 IDE 的支持情况、Skill 加载方式、MCP 配置方法
+- **SKILL.md 命名规范扩展**：skill name 字段禁止包含 "trae"/"cursor" 等 IDE 名，文档要求 IDE 中立
+- **`CLAUDE.md` 更新**：标题改为"AI 开发指南"，明确说明文件名遵循 Claude Code 约定但内容面向所有 AI IDE
+
 ## 3.4.0 - 2026-07-18
 
 ### 破坏性变更

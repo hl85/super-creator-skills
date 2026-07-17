@@ -113,7 +113,7 @@ AI 会自动使用 `sc-web-ai` 通过 IDE 浏览器操作 Gemini 免费生图。
 
 ## 偏好配置：每个 skill 首次运行自动引导
 
-大多数 skill 首次调用时会通过 Claude 对话引导你完成偏好设置（主题、水印、输出目录等），设置结果保存为 `EXTEND.md`：
+大多数 skill 首次调用时会通过对话引导你完成偏好设置（主题、水印、输出目录等），设置结果保存为 `EXTEND.md`：
 
 ```
 ~/.super-creator/<skill-name>/EXTEND.md   ← 用户级（所有项目共享）

@@ -43,6 +43,7 @@ For detailed style/layout galleries, presets, and strategy definitions, see:
 - [references/workflows/outline-template.md](references/workflows/outline-template.md) - **Outline Template**
 - [references/workflows/prompt-assembly.md](references/workflows/prompt-assembly.md) - **Prompt Assembly Guide**
 - [references/config/preferences-schema.md](references/config/preferences-schema.md) - **EXTEND.md Options**
+- [sc-styles 统一风格库](../sc-styles/references/catalog.md) - **完整风格目录（49+ 种）**
 
 ## Documentation
 
@@ -51,7 +52,8 @@ For detailed style/layout galleries, presets, and strategy definitions, see:
 
 ## See Also
 
-需要对比所有视觉 skill 再做决定？→ [视觉 Skill 选择指南](references/visual-skills-guide.md)
+- 完整视觉风格库 → [sc-styles](../sc-styles/SKILL.md)
+- 需要对比所有视觉 skill 再做决定？→ [视觉 Skill 选择指南](references/visual-skills-guide.md)
 
 ## Error Handling
 

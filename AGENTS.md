@@ -21,23 +21,33 @@
 
 ```
 skills/          # 14 个 Skill（每个包含 SKILL.md、scripts/、references/）
-packages/        # 共享 TypeScript 库（sc-fetch、sc-chrome-cdp、sc-md）
-docs/            # 指南：测试、Chrome 配置、发布、图片生成策略等
+packages/        # 共享 TypeScript 库（sc-chrome-cdp、sc-md）
+docs/            # 指南：Chrome 配置、发布、图片生成策略、IDE 兼容性等
 .githooks/       # Git hooks（npm install 时自动安装）
-.claude-plugin/  # 插件注册表（marketplace.json）
+.claude-plugin/  # Claude Code 插件注册表兼容层（marketplace.json）
 .super/          # 过程产物（gitignored，项目临时目录）
 posts/           # 最终交付物（用户可见）
 ```
 
 每个 Skill 遵循标准布局：`SKILL.md`（YAML frontmatter + 30 行以内说明），可选 `scripts/`、`references/`、`prompts/`。共享代码在 `packages/`，发布时同步到各个 Skill。
 
-## 当前版本：v3.4.0
+### IDE 无关性
+
+super-creator-skills 的核心资产（SKILL.md Markdown 文档 + TypeScript scripts/）是**完全 IDE 中立**的，不依赖任何特定 AI IDE。
+
+- `.claude-plugin/` 目录仅为 Claude Code 的插件注册兼容层，不影响其他 IDE 使用
+- Skills 通过 `.agents/skills/` 目录自动扫描（TRAE）或 `skills/` 目录手动引用（Cursor/Codex 等）
+- MCP 工具（如 `integrated_browser`）使用标准 MCP 协议，主流 AI IDE 均支持
+- 详见 `docs/ide-compatibility.md`
+
+## 当前版本：v3.5.0
 
 核心变更：
-- 移除 `sc-gemini-web`（反向工程维护成本高）
-- 新增 `sc-web-ai`：通过 IDE 内置浏览器 MCP 免费使用 Gemini/ChatGPT 网页生图（零代码、零配置）
-- 生图引擎优先级：网页 AI（首选）→ API（次选）
-- 混元 DashScope 从自动 fallback 中移除（效果不佳）
+- 新增 `sc-styles`（Tool Wrapper 模式）：统一图像风格库，收录 49 种视觉风格
+- 从 git 历史恢复 infographic/comic/slide-deck 的风格定义
+- 所有视觉类 skill 统一引用 sc-styles，消除风格定义的重复维护
+- 文档中 AI 助手代称去品牌化（"Claude" → "AI 助手"）
+- IDE 兼容性改进：.claude-plugin 明确为兼容层，README 提供多 IDE 安装说明
 
 ## 构建、测试和开发
 
@@ -72,7 +82,7 @@ bun skills/<skill>/scripts/main.ts [args]
 
 | 层级 | 要求 | 说明 |
 |------|------|------|
-| **共享库（packages/）** | **必须有测试** | sc-fetch、sc-md、sc-chrome-cdp 是所有 Skill 的基础，核心逻辑覆盖率不低于 80% |
+| **共享库（packages/）** | **必须有测试** | sc-md、sc-chrome-cdp 是所有 Skill 的基础，核心逻辑覆盖率不低于 80% |
 | **有独立逻辑的 Skill** | **建议有测试** | 如 sc-imagine 的 provider 适配层、sc-pipeline 的状态机、sc-publish-* 的核心逻辑 |
 | **纯文档/胶水层 Skill** | **不强制** | sc-web-ai、sc-cover-image、sc-article-illustrator、sc-xhs-images 等主要是调用约定和 prompt 工程，测试价值低 |
 

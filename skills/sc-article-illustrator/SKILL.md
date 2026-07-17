@@ -23,7 +23,7 @@ All commands use `./sc-run sc-article-illustrator <script>`. Image generation is
 ## Quick Reference
 
 - **Type**: infographic, scene, flowchart, comparison, framework, timeline
-- **Style**: notion, warm, minimal, blueprint, watercolor, elegant
+- **Style**: 本 skill 内置 22 种常用风格，完整 49+ 种风格见 [sc-styles 统一风格库](../sc-styles/SKILL.md)
 - **Presets**: `--preset tech-explainer` (See [Style Presets](references/style-presets.md))
 
 ## Documentation
@@ -33,11 +33,13 @@ All commands use `./sc-run sc-article-illustrator <script>`. Image generation is
 - [Prompt Templates](references/prompt-construction.md)
 - [CLI Usage](references/usage.md)
 - [Image Generation Convention](references/image-generation-convention.md) - **Image Generation Backend Convention**
+- [sc-styles 统一风格库](../sc-styles/references/catalog.md) - **完整风格目录（49+ 种）**
 - [First-time Setup](references/config/first-time-setup.md)
 
 ## See Also
 
-需要对比所有视觉 skill 再做决定？→ [视觉 Skill 选择指南](references/visual-skills-guide.md)
+- 完整视觉风格库 → [sc-styles](../sc-styles/SKILL.md)
+- 需要对比所有视觉 skill 再做决定？→ [视觉 Skill 选择指南](references/visual-skills-guide.md)
 
 ## Error Handling
 
