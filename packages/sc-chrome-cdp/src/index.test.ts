@@ -167,19 +167,19 @@ test("findChromeExecutable prefers env overrides and falls back to candidate pat
   await fs.writeFile(envChrome, "");
   await fs.writeFile(fallbackChrome, "");
 
-  useEnv(t, { BAOYU_CHROME_PATH: envChrome });
+  useEnv(t, { SC_CHROME_PATH: envChrome });
   assert.equal(
     findChromeExecutable({
-      envNames: ["BAOYU_CHROME_PATH"],
+      envNames: ["SC_CHROME_PATH"],
       candidates: { default: [fallbackChrome] },
     }),
     envChrome,
   );
 
-  useEnv(t, { BAOYU_CHROME_PATH: null });
+  useEnv(t, { SC_CHROME_PATH: null });
   assert.equal(
     findChromeExecutable({
-      envNames: ["BAOYU_CHROME_PATH"],
+      envNames: ["SC_CHROME_PATH"],
       candidates: { default: [fallbackChrome] },
     }),
     fallbackChrome,
@@ -187,17 +187,17 @@ test("findChromeExecutable prefers env overrides and falls back to candidate pat
 });
 
 test("resolveSharedChromeProfileDir supports env overrides, WSL paths, and default suffixes", (t) => {
-  useEnv(t, { BAOYU_SHARED_PROFILE: "/tmp/custom-profile" });
+  useEnv(t, { SC_SHARED_PROFILE: "/tmp/custom-profile" });
   assert.equal(
     resolveSharedChromeProfileDir({
-      envNames: ["BAOYU_SHARED_PROFILE"],
+      envNames: ["SC_SHARED_PROFILE"],
       appDataDirName: "demo-app",
       profileDirName: "demo-profile",
     }),
     path.resolve("/tmp/custom-profile"),
   );
 
-  useEnv(t, { BAOYU_SHARED_PROFILE: null });
+  useEnv(t, { SC_SHARED_PROFILE: null });
   assert.equal(
     resolveSharedChromeProfileDir({
       wslWindowsHome: "/mnt/c/Users/demo",

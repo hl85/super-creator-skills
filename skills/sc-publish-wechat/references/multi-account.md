@@ -18,11 +18,11 @@ default_theme: default
 default_color: blue
 
 accounts:
-  - name: 宝玉的技术分享
-    alias: baoyu
+  - name: 技术分享
+    alias: tech-share
     default: true
     default_publish_method: api
-    default_author: 宝玉
+    default_author: 技术团队
     need_open_comment: 1
     only_fans_can_comment: 0
     app_id: your_wechat_app_id
@@ -77,9 +77,9 @@ For a selected account with alias `{alias}`:
 **.env multi-account example**:
 
 ```bash
-# Account: baoyu
-WECHAT_BAOYU_APP_ID=your_wechat_app_id
-WECHAT_BAOYU_APP_SECRET=your_wechat_app_secret
+# Account: tech-share
+WECHAT_TECH_SHARE_APP_ID=your_wechat_app_id
+WECHAT_TECH_SHARE_APP_SECRET=your_wechat_app_secret
 
 # Account: ai-tools
 WECHAT_AI_TOOLS_APP_ID=your_ai_tools_wechat_app_id
@@ -102,6 +102,6 @@ All publishing scripts accept `--account <alias>`:
 
 ```bash
 ./sc-run sc-publish-wechat wechat-api <file> --theme default --account ai-tools
-./sc-run sc-publish-wechat wechat-article --markdown <file> --theme default --account baoyu
-./sc-run sc-publish-wechat wechat-browser --markdown <file> --images ./photos/ --account baoyu
+./sc-run sc-publish-wechat wechat-article --markdown <file> --theme default --account tech-share
+./sc-run sc-publish-wechat wechat-browser --markdown <file> --images ./photos/ --account tech-share
 ```
