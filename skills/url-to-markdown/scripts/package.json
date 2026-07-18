@@ -1,0 +1,8 @@
+{
+  "name": "url-to-markdown-scripts",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "sc-fetch": "file:./vendor/sc-fetch"
+  }
+}

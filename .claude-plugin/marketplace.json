@@ -1,0 +1,39 @@
+{
+  "name": "supercreator",
+  "owner": {
+    "name": "Jim Liu (宝玉)",
+    "email": "junminliu@gmail.com"
+  },
+  "metadata": {
+    "description": "Skills for improving daily work efficiency",
+    "version": "1.90.0"
+  },
+  "plugins": [
+    {
+      "name": "supercreator",
+      "description": "Content generation, AI backends, and utility tools for daily work efficiency",
+      "source": "./",
+      "strict": true,
+      "skills": [
+        "./skills/article-illustrator",
+        "./skills/comic",
+        "./skills/compress-image",
+        "./skills/cover-image",
+        "./skills/danger-gemini-web",
+        "./skills/danger-x-to-markdown",
+        "./skills/format-markdown",
+        "./skills/infographic",
+        "./skills/imagine",
+        "./skills/markdown-to-html",
+        "./skills/post-to-weibo",
+        "./skills/post-to-wechat",
+        "./skills/post-to-x",
+        "./skills/slide-deck",
+        "./skills/translate",
+        "./skills/url-to-markdown",
+        "./skills/xhs-images",
+        "./skills/youtube-transcript"
+      ]
+    }
+  ]
+}

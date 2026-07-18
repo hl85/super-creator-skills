@@ -1,0 +1,9 @@
+{
+  "name": "post-to-weibo-scripts",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "sc-chrome-cdp": "file:./vendor/sc-chrome-cdp",
+    "sc-md": "file:./vendor/sc-md"
+  }
+}

@@ -1,0 +1,3 @@
+task-3 done
+/Users/wanghui/Code/creator-cn/packages/sc-fetch/package.json
+  "name": "sc-fetch",

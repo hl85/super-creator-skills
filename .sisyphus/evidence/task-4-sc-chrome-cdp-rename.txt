@@ -1,0 +1,3 @@
+task-4 done
+packages/sc-chrome-cdp/package.json
+  "name": "sc-chrome-cdp",

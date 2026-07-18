@@ -1,0 +1,23 @@
+Task 6 - Wave 3 Batch A: Rename skill directories and update marketplace.json
+Completed: 2026-04-06
+
+## Dirs renamed (7):
+- skills/baoyu-imagine → skills/imagine
+- skills/baoyu-comic → skills/comic
+- skills/baoyu-article-illustrator → skills/article-illustrator
+- skills/baoyu-cover-image → skills/cover-image
+- skills/baoyu-compress-image → skills/compress-image
+- skills/baoyu-infographic → skills/infographic
+- skills/baoyu-slide-deck → skills/slide-deck
+
+## marketplace.json updates:
+- Top-level "name": "baoyu-skills" → "supercreator"
+- plugins[0].name: "baoyu-skills" → "supercreator"
+- All 18 skill paths: ./skills/baoyu-* → ./skills/* (dropped baoyu- prefix)
+  (18 entries, baoyu-image-gen was deleted in Task 1)
+
+## Verification:
+- ls skills/imagine skills/comic skills/article-illustrator skills/cover-image skills/compress-image skills/infographic skills/slide-deck → all exist
+- ls skills/baoyu-imagine → No such file or directory
+- grep '"baoyu-' .claude-plugin/marketplace.json → no output
+- node: m.name = supercreator, m.plugins[0].name = supercreator

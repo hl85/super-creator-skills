@@ -1,0 +1,4 @@
+ls skills/baoyu-image-gen 2>&1 -> ls: skills/baoyu-image-gen: No such file or directory
+grep -c baoyu-image-gen .claude-plugin/marketplace.json -> 0
+grep -c migrateLegacyExtendConfig skills/baoyu-imagine/scripts/main.ts -> 0
+npm test -> PASS (119 passed, 0 failed)

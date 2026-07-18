@@ -1,0 +1,57 @@
+Task 5: Sync vendors and update skill imports to sc-* packages
+Completed: 2026-04-06
+Commit: 7a00bbe025da71a7910b8618493646d9300283c4 refactor: sync vendors and update skill imports to sc-* packages
+
+=== OUTCOME VERIFICATION ===
+
+1. grep -rn '"baoyu-' skills/*/scripts/package.json (dependency refs only, not name fields)
+   → 0 dependency references to baoyu-* packages remain
+   (8 matches are "name" fields of skill packages themselves, which are out of scope for Task 5)
+
+2. grep -rn 'from "baoyu-' skills/ --include='*.ts'
+   → 0 results ✅
+
+3. find skills -path '*/vendor/baoyu-*' -type d
+   → 0 results ✅
+
+4. node scripts/sync-shared-skill-packages.mjs --repo-root . --enforce-clean
+   → exit code 0 ✅ (synced 7 skill script packages)
+
+5. npm test → 119 pass, 0 failures ✅
+
+=== FILES MODIFIED ===
+
+Dependency refs updated in 7 package.json files:
+- skills/baoyu-danger-gemini-web/scripts/package.json: baoyu-chrome-cdp → sc-chrome-cdp
+- skills/baoyu-danger-x-to-markdown/scripts/package.json: baoyu-chrome-cdp → sc-chrome-cdp
+- skills/baoyu-markdown-to-html/scripts/package.json: baoyu-md → sc-md
+- skills/baoyu-post-to-wechat/scripts/package.json: baoyu-chrome-cdp + baoyu-md → sc-chrome-cdp + sc-md
+- skills/baoyu-post-to-weibo/scripts/package.json: baoyu-chrome-cdp + baoyu-md → sc-chrome-cdp + sc-md
+- skills/baoyu-post-to-x/scripts/package.json: baoyu-chrome-cdp → sc-chrome-cdp
+- skills/baoyu-url-to-markdown/scripts/package.json: baoyu-fetch → sc-fetch
+
+TS imports updated in 8 source files:
+- skills/baoyu-post-to-weibo/scripts/weibo-utils.ts
+- skills/baoyu-post-to-weibo/scripts/md-to-html.ts
+- skills/baoyu-post-to-wechat/scripts/md-to-wechat.ts
+- skills/baoyu-post-to-wechat/scripts/cdp.ts
+- skills/baoyu-danger-gemini-web/scripts/gemini-webapi/utils/load-browser-cookies.ts
+- skills/baoyu-danger-x-to-markdown/scripts/cookies.ts
+- skills/baoyu-post-to-x/scripts/x-utils.ts (2 import lines)
+- skills/baoyu-markdown-to-html/scripts/main.ts (direct path imports: ./vendor/baoyu-md/ → ./vendor/sc-md/)
+
+New vendor directories created by sync script:
+- skills/baoyu-danger-gemini-web/scripts/vendor/sc-chrome-cdp/
+- skills/baoyu-danger-x-to-markdown/scripts/vendor/sc-chrome-cdp/
+- skills/baoyu-markdown-to-html/scripts/vendor/sc-md/
+- skills/baoyu-post-to-wechat/scripts/vendor/sc-chrome-cdp/
+- skills/baoyu-post-to-wechat/scripts/vendor/sc-md/
+- skills/baoyu-post-to-weibo/scripts/vendor/sc-chrome-cdp/
+- skills/baoyu-post-to-weibo/scripts/vendor/sc-md/
+- skills/baoyu-post-to-x/scripts/vendor/sc-chrome-cdp/
+- skills/baoyu-url-to-markdown/scripts/vendor/sc-fetch/
+
+=== KEY DISCOVERY ===
+Sync script matches workspace package names in skills/*/scripts/package.json against packages/* names.
+Order matters: update package.json dep names FIRST, then run sync script.
+baoyu-markdown-to-html used direct path imports (./vendor/baoyu-md/src/index.ts) — needed separate sed handling.

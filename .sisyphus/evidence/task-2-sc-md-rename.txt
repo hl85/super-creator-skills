@@ -1,0 +1,3 @@
+task-2 done
+packages/sc-md/package.json
+  "name": "sc-md",
