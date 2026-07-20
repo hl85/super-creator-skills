@@ -389,6 +389,48 @@ sc-publish-wechat 支持两种发布方式：
 
 > **推荐草稿箱模式**：公众号群发不可逆，先推送到草稿箱预览确认再群发更安全。
 
+### 三级降级策略
+
+当 `publish_mode: "auto"` 时，采用**三级降级策略**，优先使用最稳定的方式：
+
+```
+┌─────────────────┐
+│  Level 1: API   │  ← 优先（最稳定）
+│  wechat-api.ts  │
+└────────┬────────┘
+         │ 不可用/失败
+         ▼
+┌─────────────────┐
+│  Level 2: Browser│  ← Fallback
+│  wechat-browser │
+└────────┬────────┘
+         │ 不可用/失败
+         ▼
+┌─────────────────┐
+│ Level 3: Manual │  ← 最终兜底
+│  手动发布手册    │
+└─────────────────┘
+```
+
+#### 方法选择逻辑
+
+| 优先级 | 方式 | 触发条件 | 说明 |
+|--------|------|----------|------|
+| 1️⃣ 最高 | **wechat-api** | API 凭据可用（app_id/app_secret） | API 草稿箱模式，最稳定 |
+| 2️⃣ 次之 | **wechat-browser** | Chrome 可用且已登录 | Chrome 浏览器自动化脚本 |
+| 3️⃣ 兜底 | **手动发布** | 前两种都失败 | 生成 PUBLISH-MANUAL.md，用户手动发 |
+
+**手动兜底（Level 3）**：
+
+当 API 和 Browser 都失败时，自动生成 **发布手册** `publish/PUBLISH-MANUAL.md`（在项目目录下），包含：
+- 文章标题
+- 排版好的正文内容（HTML 或 Markdown）
+- 封面图和配图列表
+- 文章摘要
+- 发布步骤指引（登录公众号后台 → 新建图文 → 粘贴内容 → 上传图片 → 发布）
+
+> **注意**：PUBLISH-MANUAL.md 由 AI 助手按此约定在 pipeline 执行时生成，不需要单独脚本。发布脚本失败时会在错误输出中提示"请参考 PUBLISH-MANUAL.md 手动发布"。
+
 ### 详细操作步骤
 
 1. **准备发布素材**：
@@ -425,7 +467,7 @@ sc-publish-wechat 支持两种发布方式：
   "cover_image": ".super/{project-title}/review/images/cover.webp",
   "summary": ".super/{project-title}/draft/summary.txt",
   "images_dir": ".super/{project-title}/review/images/",
-  "publish_mode": "draft | publish",
+  "publish_action": "draft | live",
   "original": true,
   "author": "作者名"
 }
@@ -440,6 +482,7 @@ sc-publish-wechat 支持两种发布方式：
   "draft_id": "草稿ID",
   "media_id": "素材ID",
   "preview_url": "预览链接（如有）",
+  "method_used": "api",
   "status": "draft_created"
 }
 ```
@@ -450,9 +493,20 @@ sc-publish-wechat 支持两种发布方式：
   "published": true,
   "post_url": "https://mp.weixin.qq.com/s/...",
   "msg_id": "群发消息ID",
+  "method_used": "api",
   "status": "published"
 }
 ```
+
+**method_used 取值说明**：
+
+| 值 | 说明 | 对应脚本 |
+|----|------|----------|
+| `api` | 使用 wechat-api.ts（API 草稿箱/群发） | wechat-api.ts |
+| `browser` | 使用浏览器自动化（wechat-browser.ts 或 wechat-article.ts） | wechat-browser.ts / wechat-article.ts |
+| `manual` | 手动发布兜底（PUBLISH-MANUAL.md） | 由 AI 助手生成手册 |
+
+> **注意**：`method_used` 字段由 sc-pipeline 在编排时写入 state.json，发布脚本本身不维护此字段。
 
 ### 常见问题与注意事项
 

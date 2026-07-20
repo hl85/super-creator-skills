@@ -93,7 +93,8 @@ posts/{project-title}/       # 最终交付物（pipeline 完成后迁移）
 | `project_title` | string | ✅ | 项目名（中文），用于目录命名和展示 |
 | `topic_slug` | string | ✅ | 主题 slug（英文 kebab-case），用于 ID 生成 |
 | `current_stage` | string | ✅ | 当前阶段，见「阶段定义」 |
-| `publish_mode` | string | ✅ | 发布模式：`manual`（手动发布，推荐）/ `auto`（自动发布，有风控风险）；wechat 为 `draft`/`publish` |
+| `publish_mode` | string | ✅ | 发布模式：`manual`（手动发布，推荐）/ `auto`（自动发布，有风控风险）。双平台统一，决定是否启用自动化发布链路 |
+| `publish_action` | string | ✅ | 发布动作：`draft`（推送到草稿箱/预览，推荐）/ `live`（直接发布/群发）。Stage 5 输入字段，决定具体发布动作 |
 | `version` | string | ✅ | 状态文件语义版本，当前为 `"4.0.0"` |
 | `output_dir` | string | ✅ | 最终产物输出目录，默认 `posts/{project-title}/` |
 | `metadata` | object | ✅ | 元数据 |
@@ -161,6 +162,7 @@ posts/{project-title}/       # 最终交付物（pipeline 完成后迁移）
   "topic_slug": "ai-efficiency-tips",
   "current_stage": "review",
   "publish_mode": "manual",
+  "publish_action": "draft",
   "version": "4.0.0",
   "metadata": {
     "created_at": "2024-01-01T10:00:00Z",
@@ -304,7 +306,8 @@ posts/{project-title}/       # 最终交付物（pipeline 完成后迁移）
   "project_title": "AI Agent 架构深度解析",
   "topic_slug": "ai-agent-architecture",
   "current_stage": "writing",
-  "publish_mode": "draft",
+  "publish_mode": "manual",
+  "publish_action": "draft",
   "version": "4.0.0",
   "metadata": {
     "created_at": "2024-01-01T14:00:00Z",
@@ -639,7 +642,7 @@ posts/{project-title}/       # 最终交付物（pipeline 完成后迁移）
   "images": [".super/{project-title}/review/images/01-cover.webp", "..."],
   "tags": ["标签1", "标签2", "标签3"],
   "method": "mcp | cdp | manual",
-  "publish_mode": "preview | publish"
+  "publish_action": "draft | live"
 }
 ```
 
@@ -662,7 +665,7 @@ posts/{project-title}/       # 最终交付物（pipeline 完成后迁移）
   "cover_image": ".super/{project-title}/review/images/cover.webp",
   "summary": ".super/{project-title}/draft/summary.txt",
   "images_dir": ".super/{project-title}/review/images/",
-  "publish_mode": "draft | publish",
+  "publish_action": "draft | live",
   "original": true,
   "author": "作者名"
 }
@@ -675,6 +678,7 @@ posts/{project-title}/       # 最终交付物（pipeline 完成后迁移）
   "draft_id": "草稿ID",
   "media_id": "素材ID",
   "preview_url": "预览链接（如有）",
+  "method_used": "api",
   "status": "draft_created"
 }
 ```
@@ -685,13 +689,19 @@ posts/{project-title}/       # 最终交付物（pipeline 完成后迁移）
   "published": true,
   "post_url": "https://mp.weixin.qq.com/s/...",
   "msg_id": "群发消息ID",
+  "method_used": "api",
   "status": "published"
 }
 ```
 
+> **method_used 字段**：双平台统一字段，记录实际采用的发布方式。
+> - xhs: `mcp` / `cdp` / `manual`
+> - wechat: `api` / `browser` / `manual`
+
 **Artifacts:**
 - xhs: `publish_manual` — 手动发布手册（fallback 时生成）
 - wechat: `publish_result` — 发布结果（草稿ID或文章链接）
+- wechat: `publish_manual` — 手动发布手册（fallback 时生成，与 xhs 一致）
 
 ---
 

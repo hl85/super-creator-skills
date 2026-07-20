@@ -771,5 +771,7 @@ async function main(): Promise<void> {
 
 await main().catch((err) => {
   console.error(`Error: ${err instanceof Error ? err.message : String(err)}`);
+  console.error('');
+  console.error('[wechat-api] 发布失败。如需手动兜底，请参考 PUBLISH-MANUAL.md 手动发布（由 sc-pipeline 在 publish/PUBLISH-MANUAL.md 生成）。');
   process.exit(1);
 });

@@ -783,5 +783,7 @@ await main().then(() => {
   process.exit(0);
 }).catch((err) => {
   console.error(`Error: ${err instanceof Error ? err.message : String(err)}`);
+  console.error('');
+  console.error('[wechat-article] 发布失败。如需手动兜底，请参考 PUBLISH-MANUAL.md 手动发布（由 sc-pipeline 在 publish/PUBLISH-MANUAL.md 生成）。');
   process.exit(1);
 });

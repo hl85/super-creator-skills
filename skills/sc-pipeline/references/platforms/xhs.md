@@ -461,7 +461,7 @@ cd /path/to/sc-publish-xhs/scripts && npx -y bun xhs-post.ts note \
   "images": [".super/{project-title}/review/images/01-cover.webp", "..."],
   "tags": ["标签1", "标签2", "标签3"],
   "method": "mcp | cdp | manual",
-  "publish_mode": "preview | publish"
+  "publish_action": "draft | live"
 }
 ```
 

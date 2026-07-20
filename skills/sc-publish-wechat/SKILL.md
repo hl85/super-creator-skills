@@ -11,6 +11,7 @@ version: 1.56.1
 - **Article Posting**: Publish Markdown or plain text as an article (文章). HTML input also supported for advanced use.
 - **Image-Text Posting**: Publish short posts with up to 9 images (贴图/图文).
 - **Multi-Account**: Manage and switch between multiple WeChat accounts.
+- **手动兜底**: API 和 Browser 方式都失败时，生成 PUBLISH-MANUAL.md 供用户手动发布
 
 ## Usage
 
